@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fast.B | AI Hardware Prototyping & Acceleration Platform</title>
+    <meta name="description" content="Fast.B는 AI 하드웨어 스타트업과 중국 선전의 제조·디자인 생태계를 연결하는 AI Hardware Prototyping & Acceleration 플랫폼입니다.">
+    <meta name="keywords" content="AI hardware, prototyping, Shenzhen, 선전, 하드웨어 스타트업, Fast.B, acceleration platform">
+    <meta name="author" content="Fast.B / LIFESQUARE">
+    <!-- Open Graph -->
+    <meta property="og:type"        content="website">
+    <meta property="og:url"         content="https://fastb-uild.com/">
+    <meta property="og:title"       content="Fast.B | AI Hardware Prototyping & Acceleration Platform">
+    <meta property="og:description" content="AI 하드웨어 아이디어를 선전 생태계와 함께 빠르게 실현합니다. Track V(8주) · Track C(12–36주)">
+    <meta property="og:image"       content="fastblogo_W.png">
+    <!-- Twitter Card -->
+    <meta name="twitter:card"        content="summary">
+    <meta name="twitter:title"       content="Fast.B | AI Hardware Prototyping & Acceleration Platform">
+    <meta name="twitter:description" content="AI 하드웨어 아이디어를 선전 생태계와 함께 빠르게 실현합니다.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="fastblogo_W.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        :root {
+            --bg: #1D1818; --clay: #FAD9D3; --acid: #FFFFFF;
+            --text-main: #E8E4E3; --text-muted: #959190;
+            --grid-line: rgba(255,255,255,0.05); --grid-line-strong: rgba(255,255,255,0.15);
+            --surface: #332E2D;
+            --font-display: 'DotGothic16', monospace;
+            --font-body: 'Pretendard', 'Montserrat', sans-serif;
+            --font-title: 'Montserrat', 'Pretendard', sans-serif;
+            --font-subtitle: 'Montserrat', 'Pretendard', sans-serif;
+            --container-padding: 4vw;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg); color: var(--text-main); font-family: var(--font-body); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+        /* Loader */
+        #loader { position: fixed; top:0; left:0; width:100%; height:100vh; background:var(--bg); z-index:9999; display:flex; justify-content:flex-end; align-items:flex-end; padding:var(--container-padding); }
+        .counter { font-family:var(--font-display); font-size:15vw; color:var(--clay); letter-spacing:-0.05em; line-height:0.8; }
+
+        /* Grid overlay */
+        .system-grid { position:fixed; top:0; left:0; width:100vw; height:100vh; pointer-events:none; z-index:10; background-size:24px 24px; background-image:radial-gradient(circle, var(--grid-line-strong) 1px, transparent 1px); }
+
+        /* WebGL */
+        #canvas-container { position:fixed; top:0; left:0; width:100vw; height:100vh; z-index:0; opacity:0.4; pointer-events:none; }
+
+        /* Typography */
+        h1, .display-text { font-family:var(--font-display); text-transform:uppercase; font-weight:400; margin:0; }
+        h2 { font-family:var(--font-title); text-transform:uppercase; font-weight:700; letter-spacing:0.05em; margin:0; }
+        h3, h4 { font-family:var(--font-subtitle); text-transform:uppercase; font-weight:600; letter-spacing:0.04em; margin:0; }
+        .meta-label { font-family:var(--font-body); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); font-weight:500; }
+        .text-acid { color:var(--acid); } .text-clay { color:var(--clay); }
+        .star-motif { width:24px; height:24px; display:inline-block; }
+        .star-motif path { fill:currentColor; }
+
+        /* Layout */
+        main { position:relative; z-index:20; }
+        section { position:relative; padding:10vh var(--container-padding); min-height:100vh; display:flex; flex-direction:column; justify-content:center; border-bottom:1px solid var(--grid-line); }
+
+        /* Nav */
+        nav { position:fixed; top:0; left:0; width:100%; padding:1.25rem var(--container-padding); display:flex; justify-content:space-between; align-items:center; z-index:100; background:rgba(29,24,24,0.75); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid var(--grid-line-strong); }
+        .logo-img { height:28px; width:auto; filter:brightness(0) invert(1); }
+        .logo-fallback { font-family:var(--font-display); font-size:1.3rem; text-transform:uppercase; display:none; }
+        .nav-links { display:flex; align-items:center; gap:0.25rem; }
+        .nav-link { font-family:var(--font-body); font-size:0.75rem; font-weight:500; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted); text-decoration:none; padding:0.4rem 0.75rem; border-radius:20px; transition:color 0.2s, background 0.2s; white-space:nowrap; }
+        .nav-link:hover { color:var(--text-main); background:rgba(255,255,255,0.06); }
+        .nav-link.active { color:var(--bg); background:var(--clay); }
+
+        /* Lang toggle */
+        .lang-toggle { display:flex; align-items:center; gap:0; background:var(--surface); border:1px solid var(--grid-line-strong); border-radius:20px; overflow:hidden; }
+        .lang-btn { font-family:var(--font-body); font-size:0.72rem; font-weight:600; letter-spacing:0.08em; padding:0.35rem 0.85rem; border:none; background:transparent; color:var(--text-muted); cursor:pointer; transition:all 0.2s ease; text-transform:uppercase; }
+        .lang-btn.active { background:var(--clay); color:var(--bg); }
+        .lang-btn:not(.active):hover { color:var(--text-main); }
+
+        /* Hamburger */
+        .nav-hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; background:none; border:none; }
+        .nav-hamburger span { display:block; width:22px; height:1.5px; background:var(--text-main); transition:all 0.3s; }
+        .nav-hamburger.open span:nth-child(1) { transform:translateY(6.5px) rotate(45deg); }
+        .nav-hamburger.open span:nth-child(2) { opacity:0; }
+        .nav-hamburger.open span:nth-child(3) { transform:translateY(-6.5px) rotate(-45deg); }
+
+        /* Mobile drawer */
+        .nav-drawer { display:none; position:fixed; top:0; left:0; width:100%; height:100vh; background:rgba(29,24,24,0.97); z-index:99; flex-direction:column; align-items:center; justify-content:center; gap:2rem; }
+        .nav-drawer.open { display:flex; }
+        .nav-drawer .nav-link { font-size:1.5rem; letter-spacing:0.05em; padding:0.75rem 1.5rem; }
+
+        @media (max-width: 900px) { .nav-links { display:none; } .nav-hamburger { display:flex; } }
+
+        /* Hero */
+        .hero { display:grid; grid-template-columns:repeat(12,1fr); gap:2rem; align-items:end; padding-top:20vh; padding-bottom:5vh; }
+        .hero-content { grid-column:1/10; display:flex; flex-direction:column; gap:2rem; }
+        .hero h1 { font-size:clamp(3rem,7vw,8rem); line-height:1.1; color:var(--text-main); }
+        .hero p { font-size:clamp(1rem,1.5vw,1.5rem); line-height:1.5; max-width:600px; color:var(--text-muted); }
+        .monumental-vertical { position:absolute; right:var(--container-padding); top:0; writing-mode:vertical-rl; font-family:var(--font-display); font-size:15vw; text-transform:uppercase; color:transparent; -webkit-text-stroke:1px var(--grid-line-strong); line-height:1; letter-spacing:-0.05em; pointer-events:none; z-index:-1; height:100vh; display:flex; align-items:center; }
+
+        /* Buttons */
+        .btn-group { display:flex; gap:1rem; margin-top:2rem; flex-wrap:wrap; }
+        .btn { padding:1.25rem 2.5rem; font-family:var(--font-body); font-size:1rem; font-weight:500; cursor:pointer; transition:all 0.3s; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; border-radius:50px; border:none; }
+        .btn-primary { background:var(--clay); color:var(--bg); }
+        .btn-primary:hover { background:#fff; color:var(--bg); }
+        .btn-secondary { background:var(--surface); color:var(--text-main); }
+        .btn-secondary:hover { background:#4A4443; }
+
+        /* Section header */
+        .section-header { display:flex; flex-direction:column; gap:1rem; margin-bottom:5rem; }
+        .section-header h2 { font-size:clamp(1.75rem,3vw,3rem); line-height:1.12; max-width:none; letter-spacing:0.04em; }
+
+        /* Grid 3 */
+        .grid-3 { display:grid; grid-template-columns:repeat(12,1fr); gap:1.5rem; }
+        .grid-3 > * { grid-column:span 12; background:var(--surface); border-radius:32px; padding:3rem 2rem; display:flex; flex-direction:column; gap:1.5rem; border:1px solid var(--grid-line-strong); }
+        @media (min-width:768px) { .grid-3 > * { grid-column:span 4; } }
+
+        /* Panels */
+        .panel { position:relative; transition:transform 0.3s; }
+        .panel:hover .star-motif { color:var(--clay); transform:rotate(90deg); transition:all 0.5s; }
+        .panel-title { font-family:var(--font-subtitle); font-size:1.3rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; }
+        .panel-desc { font-size:0.95rem; color:var(--text-muted); line-height:1.6; }
+
+        /* Methodology */
+        .method-wrapper { display:grid; grid-template-columns:repeat(12,1fr); gap:2rem; }
+        .method-sticky { grid-column:1/5; position:sticky; top:20vh; height:max-content; }
+        .method-steps { grid-column:6/13; display:flex; flex-direction:column; gap:6vh; }
+        .step { position:relative; padding-left:2.5rem; border-left:1px solid var(--grid-line-strong); transition:opacity 0.3s; }
+        .step-num { position:absolute; left:-1.25rem; top:-1rem; background:var(--bg); padding:0.5rem; color:var(--clay); font-family:var(--font-display); font-size:1.5rem; }
+        .step-duration { font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; margin-top:0.5rem; }
+        .track-btn { cursor:pointer; border-radius:16px; padding:1.25rem; transition:border-color 0.25s, background 0.25s; }
+        .track-btn:not(.active) { border:1px solid var(--grid-line-strong); }
+        .track-btn.active { border:1px solid var(--clay); background:rgba(250,217,211,0.05); }
+        .track-btn .track-label { font-family:var(--font-body); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; font-weight:500; margin-bottom:0.5rem; transition:color 0.25s; color:var(--text-muted); }
+        .track-btn.active .track-label { color:var(--clay); }
+        .track-btn:hover:not(.active) { border-color:rgba(250,217,211,0.35); }
+        .step-content { transition:opacity 0.2s; }
+
+        /* Stats */
+        .stats-grid { display:grid; grid-template-columns:repeat(12,1fr); gap:2rem; }
+        .stat-item { grid-column:span 12; border-top:1px solid var(--grid-line-strong); padding-top:1.5rem; }
+        @media (min-width:768px) { .stat-item { grid-column:span 4; } }
+        .stat-num { font-family:var(--font-display); font-size:clamp(3rem,6vw,6rem); color:var(--clay); line-height:1; margin-bottom:1rem; letter-spacing:-0.03em; }
+
+        /* Shenzhen quote */
+        .shenzhen-quote { border:1px solid var(--grid-line-strong); border-radius:32px; padding:4rem; background:var(--surface); margin:4rem 0; display:flex; flex-direction:column; gap:1.5rem; }
+        .shenzhen-quote blockquote { font-family:var(--font-title); font-size:clamp(2rem,4vw,4rem); line-height:1.15; text-transform:uppercase; font-weight:600; letter-spacing:0.04em; color:var(--clay); }
+
+        /* Marquee */
+        .marquee-container { width:100%; overflow:hidden; border-top:1px solid var(--grid-line); border-bottom:1px solid var(--grid-line); padding:2rem 0; background:var(--surface); }
+        .marquee { display:flex; white-space:nowrap; gap:4rem; }
+        .marquee-item { font-family:var(--font-display); font-size:3rem; color:transparent; -webkit-text-stroke:1px var(--text-muted); text-transform:uppercase; }
+        .marquee-item.solid { color:var(--text-main); -webkit-text-stroke:0; }
+
+        /* Tiers */
+        .tiers { display:grid; grid-template-columns:repeat(12,1fr); gap:1.5rem; }
+        .tier-card { grid-column:span 12; border:1px solid var(--grid-line-strong); background:var(--surface); border-radius:32px; padding:2.5rem 2rem; display:flex; flex-direction:column; gap:1rem; }
+        @media (min-width:768px) { .tier-card { grid-column:span 6; } }
+        .tier-price { font-family:var(--font-display); font-size:2rem; color:var(--acid); margin-bottom:0.5rem; }
+        .tier-steps { list-style:none; display:flex; flex-direction:column; gap:0.5rem; margin-top:1rem; }
+        .tier-steps li { font-size:0.85rem; color:var(--text-muted); display:flex; align-items:flex-start; gap:0.5rem; line-height:1.4; }
+        .tier-steps li::before { content:'→'; color:var(--clay); flex-shrink:0; }
+
+        /* Milestone */
+        .milestone-row { display:grid; grid-template-columns:repeat(12,1fr); gap:1rem; padding:2rem 0; border-top:1px solid var(--grid-line-strong); }
+        .milestone-date { grid-column:span 2; font-family:var(--font-display); font-size:1.2rem; color:var(--clay); }
+        .milestone-content { grid-column:span 10; }
+
+        /* Avatar */
+        .avatar { width:80px; height:80px; border-radius:50%; border:1.5px solid var(--grid-line-strong); overflow:hidden; flex-shrink:0; transition:border-color 0.4s, box-shadow 0.4s; image-rendering:pixelated; background:var(--bg); }
+        .avatar img { width:100%; height:100%; display:block; }
+        .avatar-sm { width:52px; height:52px; border-radius:50%; border:1.5px solid var(--grid-line-strong); overflow:hidden; flex-shrink:0; transition:border-color 0.4s; image-rendering:pixelated; background:var(--bg); }
+        .avatar-sm img { width:100%; height:100%; display:block; }
+        .person-card:hover .avatar, .advisor-card:hover .avatar, .advisor-card:hover .avatar-sm { border-color:var(--clay); box-shadow:0 0 0 3px rgba(250,217,211,0.15); }
+
+        /* Team */
+        .team-grid { display:grid; grid-template-columns:repeat(12,1fr); gap:1.5rem; }
+        .person-card { grid-column:span 12; border:1px solid var(--grid-line-strong); border-radius:24px; padding:2rem; background:var(--surface); display:flex; flex-direction:column; gap:1rem; transition:border-color 0.3s; }
+        .person-card:hover { border-color:rgba(250,217,211,0.3); }
+        @media (min-width:640px) { .person-card { grid-column:span 6; } }
+        @media (min-width:1024px) { .person-card { grid-column:span 3; } }
+        .person-name { font-family:var(--font-subtitle); font-size:1rem; color:var(--text-main); text-transform:uppercase; font-weight:700; letter-spacing:0.05em; }
+        .person-role { font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--clay); }
+        .person-bio { font-size:0.85rem; color:var(--text-muted); line-height:1.6; }
+
+        /* Advisors */
+        .advisor-grid { display:grid; grid-template-columns:repeat(12,1fr); gap:1.5rem; }
+        .advisor-card { grid-column:span 12; border:1px solid var(--grid-line-strong); border-radius:24px; padding:2rem; background:var(--bg); display:flex; flex-direction:column; gap:0.75rem; transition:border-color 0.3s; }
+        .advisor-card:hover { border-color:rgba(250,217,211,0.3); }
+        @media (min-width:768px) { .advisor-card { grid-column:span 4; } }
+
+        /* Mentor inline */
+        .mentor-item { display:flex; align-items:flex-start; gap:1rem; }
+        .mentor-item .avatar-sm { margin-top:0.15rem; }
+
+        /* Footer CTA */
+        .footer-cta { min-height:80vh; align-items:center; text-align:center; }
+        .footer-cta h2 { font-size:clamp(3rem,7vw,8rem); color:var(--clay); }
+
+        /* Contact Modal */
+        .modal-overlay { position:fixed; inset:0; background:rgba(13,10,10,0.82); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); z-index:500; display:none; align-items:center; justify-content:center; padding:1.5rem; }
+        .modal-overlay.open { display:flex; }
+        .modal-card { background:var(--surface); border:1px solid var(--grid-line-strong); border-radius:24px; padding:2.5rem; max-width:560px; width:100%; display:flex; flex-direction:column; gap:1.25rem; position:relative; max-height:90vh; overflow-y:auto; }
+        .modal-close { position:absolute; top:1.25rem; right:1.25rem; background:none; border:none; color:var(--text-muted); cursor:pointer; font-size:1.5rem; line-height:1; padding:0.25rem 0.5rem; border-radius:8px; transition:color 0.2s, background 0.2s; }
+        .modal-close:hover { color:var(--text-main); background:rgba(255,255,255,0.06); }
+        .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+        .form-group { display:flex; flex-direction:column; gap:0.4rem; }
+        .form-label { font-family:var(--font-body); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); font-weight:600; }
+        .form-input, .form-textarea { background:var(--bg); border:1px solid var(--grid-line-strong); border-radius:10px; padding:0.8rem 1rem; color:var(--text-main); font-family:var(--font-body); font-size:0.95rem; outline:none; transition:border-color 0.2s; width:100%; }
+        .form-input:focus, .form-textarea:focus { border-color:var(--clay); }
+        .form-input::placeholder, .form-textarea::placeholder { color:var(--text-muted); opacity:0.5; }
+        .form-textarea { min-height:110px; resize:vertical; }
+        .form-submit { width:100%; margin-top:0.25rem; }
+        .form-submit:disabled { opacity:0.5; cursor:not-allowed; }
+        .form-notice { font-size:0.82rem; color:var(--text-muted); text-align:center; line-height:1.5; }
+        .form-success { display:none; text-align:center; padding:2rem 0; }
+        .form-success .success-icon { font-size:2.5rem; margin-bottom:1rem; }
+        .form-error-msg { display:none; font-size:0.85rem; color:#ff7070; text-align:center; padding:0.5rem; background:rgba(255,112,112,0.08); border-radius:8px; }
+        @media(max-width:480px) { .form-row { grid-template-columns:1fr; } .modal-card { padding:1.75rem; } }
+
+        .reveal { opacity:0; transform:translateY(30px); }
+
+        @keyframes pulse {
+            0% { opacity:1; box-shadow:0 0 0 0 rgba(250,217,211,0.4); }
+            70% { opacity:0.5; box-shadow:0 0 0 10px rgba(250,217,211,0); }
+            100% { opacity:1; box-shadow:0 0 0 0 rgba(250,217,211,0); }
+        }
+        ::-webkit-scrollbar { width:8px; }
+        ::-webkit-scrollbar-track { background:var(--bg); }
+        ::-webkit-scrollbar-thumb { background:var(--surface); border-radius:10px; }
+        ::-webkit-scrollbar-thumb:hover { background:var(--clay); }
+
+        @media (max-width:768px) {
+            .method-wrapper { display:flex; flex-direction:column; }
+            .method-sticky { position:static; }
+            .hero-content { grid-column:1/-1; }
+            .mentor-item { flex-direction:column; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="loader"><div class="counter">00</div></div>
+<div id="canvas-container"></div>
+<div class="system-grid"></div>
+
+<!-- Mobile drawer -->
+<div class="nav-drawer" id="navDrawer">
+    <a href="#vision"      class="nav-link" data-i18n="nav.vision"      onclick="closeDrawer()">Vision</a>
+    <a href="#problem"     class="nav-link" data-i18n="nav.problem"     onclick="closeDrawer()">Problem</a>
+    <a href="#shenzhen"    class="nav-link" data-i18n="nav.shenzhen"    onclick="closeDrawer()">Shenzhen</a>
+    <a href="#methodology" class="nav-link" data-i18n="nav.process"     onclick="closeDrawer()">Process</a>
+    <a href="#team"        class="nav-link" data-i18n="nav.team"        onclick="closeDrawer()">Team</a>
+    <a href="#roadmap"     class="nav-link" data-i18n="nav.roadmap"     onclick="closeDrawer()">Roadmap</a>
+    <a href="#" class="nav-link" data-i18n="nav.contact" onclick="closeDrawer(); openContactModal(); return false;" style="color:var(--bg);background:var(--clay);">Contact</a>
+</div>
+
+<nav>
+    <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" style="display:flex;align-items:center;text-decoration:none;">
+        <img class="logo-img" src="fastblogo_W.png" alt="Fast.B"
+             onerror="this.style.display='none';document.querySelector('.logo-fallback').style.display='block'">
+        <span class="logo-fallback">FAST.B</span>
+    </a>
+
+    <div class="nav-links">
+        <a href="#vision"      class="nav-link" data-i18n="nav.vision">Vision</a>
+        <a href="#problem"     class="nav-link" data-i18n="nav.problem">Problem</a>
+        <a href="#shenzhen"    class="nav-link" data-i18n="nav.shenzhen">Shenzhen</a>
+        <a href="#methodology" class="nav-link" data-i18n="nav.process">Process</a>
+        <a href="#team"        class="nav-link" data-i18n="nav.team">Team</a>
+        <a href="#roadmap"     class="nav-link" data-i18n="nav.roadmap">Roadmap</a>
+        <a href="#" class="nav-link" data-i18n="nav.contact" onclick="openContactModal(); return false;" style="color:var(--bg);background:var(--clay);margin-left:0.5rem;">Contact</a>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:0.75rem;">
+        <div class="lang-toggle">
+            <button class="lang-btn active" id="btnKo" onclick="setLanguage('ko')">KOR</button>
+            <button class="lang-btn"        id="btnEn" onclick="setLanguage('en')">ENG</button>
+        </div>
+        <button class="nav-hamburger" id="hamburger" onclick="toggleDrawer()" aria-label="메뉴">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<main>
+
+<!-- ── HERO ── -->
+<section class="hero">
+    <div class="monumental-vertical" data-i18n="hero.vertical">Hardware</div>
+    <div class="hero-content reveal">
+        <div style="display:flex;align-items:center;gap:1rem;">
+            <svg class="star-motif text-clay" style="width:36px;height:36px;flex-shrink:0;" viewBox="0 0 24 24" fill="none"><path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z"/></svg>
+            <span class="meta-label" style="font-size:1.5rem;letter-spacing:0.04em;color:var(--text-main);" data-i18n="hero.tagline">AI Hardware Prototyping and Acceleration Platform:<br>'A Catalyst for Physical AI, Spatial AI and Agentic AI Hardware'</span>
+        </div>
+        <h1><span style="color:#FF3333;" data-i18n="hero.fast1">Fast</span> <span data-i18n="hero.build">Build.</span><br><span style="color:#FF3333;" data-i18n="hero.fast2">Fast</span> <span data-i18n="hero.business">Business.</span></h1>
+        <p data-i18n="hero.desc">만들어 실현하고 싶은 AI 하드웨어를 중국 선전의 하드웨어 에코시스템과 협력하여 빠르게 프로토타이핑하여 검증하고 양산까지 연계하는 AI Hardware Prototyping &amp; Acceleration 플랫폼입니다.</p>
+        <div class="btn-group">
+            <a href="#" class="btn btn-primary" onclick="openContactModal(); return false;" data-i18n="hero.cta1">Begin Your Assessment</a>
+            <a href="#methodology" class="btn btn-secondary" data-i18n="hero.cta2">See How It Works</a>
+        </div>
+    </div>
+</section>
+
+<!-- ── VISION ── -->
+<section id="vision" class="reveal">
+    <div class="section-header">
+        <span class="meta-label" data-i18n="vision.meta">[01] Vision &amp; Mission</span>
+        <h2 data-i18n="vision.h2">더 나은 미래를 위한<br>AI 하드웨어를 실현한다.</h2>
+    </div>
+    <div class="shenzhen-quote reveal">
+        <blockquote data-i18n="vision.quote">"AI 산업 혁신의 롤모델이 되며,<br>이를 위한 글로벌 오픈 생태계를 만든다."</blockquote>
+        <p class="panel-desc" style="max-width:700px;" data-i18n="vision.desc">Fast.B의 미션은 세 가지입니다. AI가 실제 세계에서 구현되고 적용되어 혁신할 수 있게 돕고, 하드웨어의 가치와 사용성을 혁신하며 빠른 프로토타이핑을 통해 검증할 수 있게 합니다. 그리고 AI 하드웨어들이 우리의 삶을 더 나아지게 만들 수 있게 돕습니다.</p>
+    </div>
+    <div class="grid-3 reveal">
+        <div class="panel">
+            <svg class="star-motif text-acid" viewBox="0 0 24 24"><path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z"/></svg>
+            <h3 class="panel-title" data-i18n="vision.p1.title">Prototyping</h3>
+            <p class="panel-desc" data-i18n="vision.p1.desc">선전 제조 생태계를 활용하여 빠르고 경쟁력 있는 AI HW MVP를 프로토타이핑합니다. 신속한 프로토타이핑과 검증을 통해 시장성을 파악하여 빠른 실패를 실험합니다.</p>
+        </div>
+        <div class="panel">
+            <svg class="star-motif text-clay" viewBox="0 0 24 24"><path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z"/></svg>
+            <h3 class="panel-title" data-i18n="vision.p2.title">Manufacturing</h3>
+            <p class="panel-desc" data-i18n="vision.p2.desc">선전의 믿을만한 파트너들과 함께 제품성, 양산성, 서비스성이 확보된 제품을 시생산하고 검증합니다. 시장성이 확보된 제품은 선전의 다양한 소량 제조 인프라를 이용하여 빠르게 출시합니다.</p>
+        </div>
+        <div class="panel">
+            <svg class="star-motif" style="color:var(--text-main)" viewBox="0 0 24 24"><path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z"/></svg>
+            <h3 class="panel-title" data-i18n="vision.p3.title">Expert Network</h3>
+            <p class="panel-desc" data-i18n="vision.p3.desc">선전의 산업디자이너 및 파트너들과 협력하여 글로벌 시장에서 선택받고 사업화할 수 있는 제품을 빌드합니다. IP와 디자인을 사전 보호하고 국내·현지 전문가들의 지원을 연계합니다.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ── PROBLEM ── -->
+<section id="problem" class="reveal">
+    <div class="section-header">
+        <span class="meta-label" data-i18n="prob.meta">[02] Why Fast.B Exists</span>
+        <h2 data-i18n="prob.h2">AI 하드웨어 개발,<br>왜 어렵고 비싸고 느린가.</h2>
+        <p class="panel-desc" style="max-width:600px;" data-i18n="prob.sub">Fast.B는 이 7가지 문제를 직접 해결하기 위해 만들어졌습니다.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:1.5rem;">
+        <div class="panel" style="grid-column:span 12;border-top:1px solid var(--grid-line-strong);padding-top:1.5rem;">
+            <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:1.5rem;">
+                <div style="grid-column:span 1;font-family:var(--font-display);font-size:2rem;color:var(--clay);">01</div>
+                <div style="grid-column:span 11;"><h3 class="panel-title" style="font-size:1.1rem;margin-bottom:0.5rem;" data-i18n="prob.1.title">느리고 경쟁력 없는 국내 하드웨어 검증</h3><p class="panel-desc" data-i18n="prob.1.desc">국내에서의 하드웨어 검증과 프로토타이핑은 시간과 에너지가 많이 들며, 결과물에 대한 경쟁력 또한 낮습니다.</p></div>
+            </div>
+        </div>
+        <div class="panel" style="grid-column:span 12;border-top:1px solid var(--grid-line-strong);padding-top:1.5rem;">
+            <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:1.5rem;">
+                <div style="grid-column:span 1;font-family:var(--font-display);font-size:2rem;color:var(--clay);">02</div>
+                <div style="grid-column:span 11;"><h3 class="panel-title" style="font-size:1.1rem;margin-bottom:0.5rem;" data-i18n="prob.2.title">높은 비용, 낮은 ROI</h3><p class="panel-desc" data-i18n="prob.2.desc">AI 하드웨어의 구현이 어렵고 비용이 많이 들며, 투자대비 부가가치가 높지 않습니다.</p></div>
+            </div>
+        </div>
+        <div class="panel" style="grid-column:span 12;border-top:1px solid var(--grid-line-strong);padding-top:1.5rem;">
+            <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:1.5rem;">
+                <div style="grid-column:span 1;font-family:var(--font-display);font-size:2rem;color:var(--clay);">03</div>
+                <div style="grid-column:span 11;"><h3 class="panel-title" style="font-size:1.1rem;margin-bottom:0.5rem;" data-i18n="prob.3.title">대기업 중심 제조 생태계의 한계</h3><p class="panel-desc" data-i18n="prob.3.desc">대기업은 대기업 중심의 제조 생태계를 가지고 있어 프로토타이핑이나 소량생산의 경쟁력이 부족하고, 일반 제조기업은 AI와 같은 첨단기술의 이해와 응용에 대한 역량이 부족합니다.</p></div>
+            </div>
+        </div>
+        <div class="panel" style="grid-column:span 12;border-top:1px solid var(--grid-line-strong);padding-top:1.5rem;">
+            <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:1.5rem;">
+                <div style="grid-column:span 1;font-family:var(--font-display);font-size:2rem;color:var(--clay);">04</div>
+                <div style="grid-column:span 11;"><h3 class="panel-title" style="font-size:1.1rem;margin-bottom:0.5rem;" data-i18n="prob.4.title">소프트웨어 기업의 하드웨어 확장 어려움</h3><p class="panel-desc" data-i18n="prob.4.desc">소프트웨어 기업과 기업들은 내부 하드웨어 개발역량과 경험 부족으로 AI 하드웨어로의 핵심 서비스 확장이 어렵습니다.</p></div>
+            </div>
+        </div>
+        <div class="panel" style="grid-column:span 12;border-top:1px solid var(--grid-line-strong);padding-top:1.5rem;">
+            <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:1.5rem;">
+                <div style="grid-column:span 1;font-family:var(--font-display);font-size:2rem;color:var(--clay);">05</div>
+                <div style="grid-column:span 11;"><h3 class="panel-title" style="font-size:1.1rem;margin-bottom:0.5rem;" data-i18n="prob.5.title">스타트업 하드웨어 아이디어의 5가지 부족</h3><p class="panel-desc" data-i18n="prob.5.desc">스타트업들이 가진 하드웨어 아이디어들 대부분은 상품성, 사용성, 혁신성, 기술성, 서비스성이 부족합니다.</p></div>
+            </div>
+        </div>
+        <div class="panel" style="grid-column:span 12;border-top:1px solid var(--grid-line-strong);padding-top:1.5rem;">
+            <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:1.5rem;">
+                <div style="grid-column:span 1;font-family:var(--font-display);font-size:2rem;color:var(--clay);">06</div>
+                <div style="grid-column:span 11;"><h3 class="panel-title" style="font-size:1.1rem;margin-bottom:0.5rem;" data-i18n="prob.6.title">AI의 물리적 확장 수요</h3><p class="panel-desc" data-i18n="prob.6.desc">AI의 물리적 확장을 위해서 다양한 하드웨어와 디바이스 개발과 출시가 필요합니다.</p></div>
+            </div>
+        </div>
+        <div class="panel" style="grid-column:span 12;border-top:1px solid var(--grid-line-strong);border-bottom:1px solid var(--grid-line-strong);padding-top:1.5rem;padding-bottom:1.5rem;">
+            <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:1.5rem;">
+                <div style="grid-column:span 1;font-family:var(--font-display);font-size:2rem;color:var(--clay);">07</div>
+                <div style="grid-column:span 11;"><h3 class="panel-title" style="font-size:1.1rem;margin-bottom:0.5rem;" data-i18n="prob.7.title">IoT 디바이스 가치 극대화</h3><p class="panel-desc" data-i18n="prob.7.desc">사물인터넷(IoT) 디바이스의 유용성, 편의성, 가치 극대화는 AI가 적용되면서 완성됩니다.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── SHENZHEN ── -->
+<section id="shenzhen" class="reveal">
+    <div class="section-header">
+        <span class="meta-label" data-i18n="sz.meta">[03] Why Shenzhen?</span>
+    </div>
+    <div class="shenzhen-quote">
+        <blockquote data-i18n="sz.quote">"Hollywood of Hardware"</blockquote>
+        <p class="panel-desc" data-i18n="sz.desc">전 세계 IT 제품의 90% 이상이 선전을 거칩니다. 세계 최대 전자부품 시장 화창베이(Huaqiangbei)를 중심으로, 선전은 하드웨어 제조·디자인·양산의 모든 것이 집약된 도시입니다. Fast.B는 이 생태계의 핵심 파트너들과 긴밀하게 협력합니다.</p>
+    </div>
+</section>
+
+<!-- ── COMPETITIVE ── -->
+<section class="reveal">
+    <div class="section-header">
+        <span class="meta-label" data-i18n="comp.meta">[04] Fast.B의 경쟁력</span>
+        <h2 data-i18n="comp.h2">단순 컨설팅이 아닌,<br>실제 생태계 연결.</h2>
+    </div>
+    <div class="grid-3">
+        <div style="border:1px solid var(--grid-line-strong);background:var(--bg);">
+            <svg class="star-motif text-acid" viewBox="0 0 24 24"><path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z"/></svg>
+            <h3 class="panel-title" data-i18n="comp.p1.title">선전 현지 네트워크</h3>
+            <p class="panel-desc" data-i18n="comp.p1.desc">중국 선전 현지의 산업디자인·디바이스 전문가 네트워크, 하드웨어 솔루션·개발 네트워크, 소량 생산·제조 전문 네트워크와 긴밀하게 협력하고 최고의 시너지를 위해 역할을 분담합니다.</p>
+        </div>
+        <div style="border:1px solid var(--grid-line-strong);background:var(--bg);">
+            <svg class="star-motif text-clay" viewBox="0 0 24 24"><path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z"/></svg>
+            <h3 class="panel-title" data-i18n="comp.p2.title">현지 시장 조사 · 소싱 동반</h3>
+            <p class="panel-desc" data-i18n="comp.p2.desc">AI하드웨어 프로토타이핑을 위해 중국 현지 시장조사, 유사 제품 및 경쟁사 조사 분석, 핵심 부품 및 솔루션 소싱, 파트너 및 전문가 연결을 함께 진행합니다.</p>
+        </div>
+        <div style="border:1px solid var(--grid-line-strong);background:var(--bg);">
+            <svg class="star-motif" style="color:var(--text-main)" viewBox="0 0 24 24"><path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z"/></svg>
+            <h3 class="panel-title" data-i18n="comp.p3.title">국내 최고 전문가 코칭</h3>
+            <p class="panel-desc" data-i18n="comp.p3.desc">AI·통신·네트워크·센서·디바이스·플랫폼·UX/UI·제조 전문가들이 프로젝트 초기부터 코치와 멘토로 참여하여 단순 하드웨어가 아닌 AI 기반 하드웨어 비즈니스 모델과 전략을 중심으로 경쟁력 있는 구현을 가능하게 합니다.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ── METHODOLOGY ── -->
+<section id="methodology" class="reveal">
+    <div class="method-wrapper">
+        <div class="method-sticky reveal">
+            <span class="meta-label" data-i18n="method.meta">[05] Dual-Track Protocol</span>
+            <h2 class="display-text" style="font-size:clamp(3rem,5vw,6rem);margin-top:1rem;line-height:1.1;" data-i18n="method.h2">How We<br>Work</h2>
+            <p class="panel-desc" style="margin-top:1.5rem;" data-i18n="method.sub">프로젝트 성숙도와 요구사항에 따라 두 가지 트랙 중 최적을 선택합니다.</p>
+            <div style="margin-top:2rem;display:flex;flex-direction:column;gap:1rem;">
+                <div id="track-v-btn" class="track-btn active" onclick="selectTrack('v')">
+                    <div class="track-label">Track V</div>
+                    <p class="panel-desc" data-i18n="method.trackV">검증 &amp; PoC 중심 · 총 약 8주</p>
+                </div>
+                <div id="track-c-btn" class="track-btn" onclick="selectTrack('c')">
+                    <div class="track-label">Track C</div>
+                    <p class="panel-desc" data-i18n="method.trackC">전문 디자인 &amp; 양산 중심 · 총 12~36주</p>
+                </div>
+            </div>
+        </div>
+        <div class="method-steps">
+            <div class="step reveal">
+                <div class="step-num">01</div>
+                <h3 class="panel-title text-clay step-title" style="margin-bottom:0.75rem;" data-i18n-v="method.s1v.title" data-i18n-c="method.s1c.title">Team Building &amp; Spec. Review</h3>
+                <p class="panel-desc step-desc" data-i18n-v="method.s1v.desc" data-i18n-c="method.s1c.desc">프로젝트 스펙과 팀 구성을 검토하고 목표·예산·타임라인을 정렬합니다. 최적 트랙을 확정하고 선전 파트너 매칭을 시작합니다.</p>
+                <div class="step-duration step-dur" data-i18n-v="method.s1v.dur" data-i18n-c="method.s1c.dur">1–2주</div>
+            </div>
+            <div class="step reveal">
+                <div class="step-num">02</div>
+                <h3 class="panel-title text-clay step-title" style="margin-bottom:0.75rem;" data-i18n-v="method.s2v.title" data-i18n-c="method.s2c.title">EVP Build</h3>
+                <p class="panel-desc step-desc" data-i18n-v="method.s2v.desc" data-i18n-c="method.s2c.desc">Engineering Verification Prototype 제작. 하드웨어 핵심 기능 구현에 집중합니다.</p>
+                <div class="step-duration step-dur" data-i18n-v="method.s2v.dur" data-i18n-c="method.s2c.dur">2–3주</div>
+            </div>
+            <div class="step reveal">
+                <div class="step-num">03</div>
+                <h3 class="panel-title text-clay step-title" style="margin-bottom:0.75rem;" data-i18n-v="method.s3v.title" data-i18n-c="method.s3c.title">Function Verification &amp; PoC</h3>
+                <p class="panel-desc step-desc" data-i18n-v="method.s3v.desc" data-i18n-c="method.s3c.desc">기능 검증 및 개념 증명. 시장 피드백을 빠르게 수집하고 방향을 확정합니다.</p>
+                <div class="step-duration step-dur" data-i18n-v="method.s3v.dur" data-i18n-c="method.s3c.dur">2–3주</div>
+            </div>
+            <div class="step reveal">
+                <div class="step-num">04</div>
+                <h3 class="panel-title text-clay step-title" style="margin-bottom:0.75rem;" data-i18n-v="method.s4v.title" data-i18n-c="method.s4c.title">Small Batch Production</h3>
+                <p class="panel-desc step-desc" data-i18n-v="method.s4v.desc" data-i18n-c="method.s4c.desc">소량 생산(Small Batch)으로 빠르게 시장에 진입합니다. Track V의 완주 단계입니다.</p>
+                <div class="step-duration step-dur" data-i18n-v="method.s4v.dur" data-i18n-c="method.s4c.dur">2–4주 (Small Batch)</div>
+            </div>
+            <div class="step reveal" id="method-step5" style="display:none;">
+                <div class="step-num">05</div>
+                <h3 class="panel-title text-clay" style="margin-bottom:0.75rem;" data-i18n="method.s5c.title">Mass Production</h3>
+                <p class="panel-desc" data-i18n="method.s5c.desc">글로벌 양산 라인에 진입합니다. Fast.B가 글로벌 출시 연계까지 지원합니다.</p>
+                <div class="step-duration" data-i18n="method.s5c.dur">4–8주 (양산)</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── STATS ── -->
+<section class="reveal">
+    <div class="section-header" style="margin-bottom:3rem;">
+        <span class="meta-label" data-i18n="stats.meta">[06] Telemetry</span>
+        <h2 data-i18n="stats.h2">숫자로 보는 Fast.B</h2>
+    </div>
+    <div class="stats-grid">
+        <div class="stat-item">
+            <div class="meta-label" style="margin-bottom:1rem;" data-i18n="stats.1.meta">Track V 평균 완료</div>
+            <div class="stat-num">8<span style="font-size:0.4em"> wks</span></div>
+            <h4 class="panel-title" style="margin-bottom:0.5rem;" data-i18n="stats.1.title">Prototype to Small Batch</h4>
+            <p class="panel-desc" data-i18n="stats.1.desc">팀 빌딩부터 소량 생산까지. 국내 단독 개발 대비 절반 이하의 시간.</p>
+        </div>
+        <div class="stat-item">
+            <div class="meta-label" style="margin-bottom:1rem;" data-i18n="stats.2.meta">공동창업팀 보유 특허</div>
+            <div class="stat-num text-clay">180+</div>
+            <h4 class="panel-title" style="margin-bottom:0.5rem;" data-i18n="stats.2.title">Patents</h4>
+            <p class="panel-desc" data-i18n="stats.2.desc">Hugh Choi 50+, Jinsoo Jeon 130+ 특허 보유. CES Innovation Awards 심사위원.</p>
+        </div>
+        <div class="stat-item">
+            <div class="meta-label" style="margin-bottom:1rem;" data-i18n="stats.3.meta">Track C 최대 범위</div>
+            <div class="stat-num">MP</div>
+            <h4 class="panel-title" style="margin-bottom:0.5rem;" data-i18n="stats.3.title">Mass Production Ready</h4>
+            <p class="panel-desc" data-i18n="stats.3.desc">컨셉 리뷰부터 금형 개발·양산까지 단일 트랙으로 완주. 글로벌 출시 연계.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ── MARQUEE ── -->
+<div class="marquee-container reveal">
+    <div class="marquee" id="marquee">
+        <span class="marquee-item solid">Physical AI</span><span class="marquee-item">Spatial AI</span>
+        <span class="marquee-item solid">Agentic AI Hardware</span><span class="marquee-item">IoT Devices</span>
+        <span class="marquee-item solid">Wearables</span><span class="marquee-item">AR Glass</span>
+        <span class="marquee-item solid">Smart Home</span><span class="marquee-item">VR Headsets</span>
+        <span class="marquee-item solid">Medical Devices</span><span class="marquee-item">Electric Vehicles</span>
+        <span class="marquee-item solid">Physical AI</span><span class="marquee-item">Spatial AI</span>
+        <span class="marquee-item solid">Agentic AI Hardware</span><span class="marquee-item">IoT Devices</span>
+        <span class="marquee-item solid">Wearables</span><span class="marquee-item">AR Glass</span>
+    </div>
+</div>
+
+<!-- ── TIERS ── -->
+<section class="reveal">
+    <div class="section-header" style="margin-bottom:3rem;">
+        <span class="meta-label" data-i18n="tiers.meta">[07] Engagement Vectors</span>
+        <h2 data-i18n="tiers.h2">어디서 시작하시겠습니까</h2>
+    </div>
+    <div class="tiers">
+        <div class="tier-card panel" style="border-color:var(--clay);">
+            <span class="meta-label text-clay" data-i18n="tiers.v.label">Track V // Recommended for Startups</span>
+            <h3 class="panel-title" data-i18n="tiers.v.title">Verification Track</h3>
+            <div class="tier-price">~8<span style="font-size:0.4em;color:var(--text-muted)" data-i18n="tiers.v.price"> weeks total</span></div>
+            <p class="panel-desc" data-i18n="tiers.v.desc">빠른 기능 검증과 PoC가 필요한 팀. MVP 빌드가 필요한 초기 스타트업에 최적입니다.</p>
+            <ul class="tier-steps">
+                <li data-i18n="tiers.v.s1">Team Building &amp; Spec. Review (1–2w)</li>
+                <li data-i18n="tiers.v.s2">EVP Build (2–3w)</li>
+                <li data-i18n="tiers.v.s3">Function Verification &amp; PoC (2–3w)</li>
+                <li data-i18n="tiers.v.s4">Small Batch Production (2–4w)</li>
+            </ul>
+        </div>
+        <div class="tier-card panel">
+            <span class="meta-label" data-i18n="tiers.c.label">Track C // Professional Design &amp; Mass Production</span>
+            <h3 class="panel-title" data-i18n="tiers.c.title">Creation Track</h3>
+            <div class="tier-price">12–36<span style="font-size:0.4em;color:var(--text-muted)" data-i18n="tiers.c.price"> weeks total</span></div>
+            <p class="panel-desc" data-i18n="tiers.c.desc">전문 산업 디자인과 글로벌 양산 서비스가 필요한 팀.</p>
+            <ul class="tier-steps">
+                <li data-i18n="tiers.c.s1">Team Building &amp; Concept Review (2–4w)</li>
+                <li data-i18n="tiers.c.s2">EVP Build + Industrial Design (2–6w)</li>
+                <li data-i18n="tiers.c.s3">PoC &amp; DVP Build + UI/UX Design (2–6w)</li>
+                <li data-i18n="tiers.c.s4">SW Dev + PVP Build + Mold Development (4–8w)</li>
+                <li data-i18n="tiers.c.s5">Mass Production (4–8w)</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- ── ROADMAP ── -->
+<section id="roadmap" class="reveal">
+    <div class="section-header" style="margin-bottom:3rem;">
+        <span class="meta-label" data-i18n="road.meta">[08] Roadmap</span>
+        <h2 data-i18n="road.h2">2026 Milestones</h2>
+    </div>
+    <div>
+        <div class="milestone-row reveal"><div class="milestone-date">2026.04</div><div class="milestone-content"><h3 class="panel-title" style="font-size:1.1rem;margin-bottom:0.5rem;" data-i18n="road.1.title">Fast.B Beta Launching</h3><p class="panel-desc" data-i18n="road.1.desc">플랫폼 베타 론칭 및 파일럿 프로젝트 모집 시작</p></div></div>
+        <div class="milestone-row reveal"><div class="milestone-date">04 – 09</div><div class="milestone-content"><h3 class="panel-title" style="font-size:1.1rem;margin-bottom:0.5rem;" data-i18n="road.2.title">Fast.B Pilot Projects</h3><p class="panel-desc" data-i18n="road.2.desc">2~4개 하드웨어 프로젝트 진행 (Track V / Track C)</p></div></div>
+        <div class="milestone-row reveal"><div class="milestone-date">10 – 12</div><div class="milestone-content"><h3 class="panel-title" style="font-size:1.1rem;margin-bottom:0.5rem;" data-i18n="road.3.title">Product Innovation Batch Program</h3><p class="panel-desc" data-i18n="road.3.desc">2~6개 하드웨어 프로젝트 배치 프로그램 론칭</p></div></div>
+        <div class="milestone-row reveal"><div class="milestone-date">10 ~</div><div class="milestone-content"><h3 class="panel-title" style="font-size:1.1rem;margin-bottom:0.5rem;" data-i18n="road.4.title">Fast.B Platform Beta Open</h3><p class="panel-desc" data-i18n="road.4.desc">Online Platform + SaaS Service 오픈</p></div></div>
+        <div class="milestone-row reveal"><div class="milestone-date">11 – 12</div><div class="milestone-content"><h3 class="panel-title" style="font-size:1.1rem;margin-bottom:0.5rem;" data-i18n="road.5.title">Fast.B Funding &amp; 1.0 Open</h3><p class="panel-desc" data-i18n="road.5.desc">Track 1 + Track 2 펀딩 · Fast.B 1.0 정식 오픈</p></div></div>
+        <div class="milestone-row reveal" style="border-top:1px solid var(--clay);"><div class="milestone-date" style="color:var(--text-muted);">2027–28</div><div class="milestone-content"><h3 class="panel-title" style="font-size:1.1rem;margin-bottom:0.5rem;" data-i18n="road.6.title">Future Expansion</h3><p class="panel-desc" data-i18n="road.6.desc">Crowd Funding 연계 → Agentic AI PM Dashboard → In-house Product Design (AR Glass, VR Headsets, Smart Home, Electric Cars...) → Product Open Marketplace → Open Investment</p></div></div>
+    </div>
+</section>
+
+<!-- ── TEAM ── -->
+<section id="team" class="reveal">
+    <div class="section-header" style="margin-bottom:3rem;">
+        <span class="meta-label" data-i18n="team.meta">[09] Co-founders</span>
+        <h2 data-i18n="team.h2">Team &amp; Partners</h2>
+    </div>
+    <div class="team-grid">
+        <div class="person-card">
+            <div class="avatar"><img src="https://api.dicebear.com/9.x/pixel-art/svg?seed=HyongukChoi&backgroundColor=332e2d&scale=90" alt="Hugh Choi"></div>
+            <div class="person-role" data-i18n="team.c1.role">CEO &amp; Co-founder</div>
+            <div class="person-name">Hugh (Hyong-uk) Choi</div>
+            <p class="person-bio" data-i18n="team.c1.bio">USC 전기공학/컴퓨터 네트워크 전공. 삼성전자에서 최초 멀티터치 모바일 기기 개발 주도 (TIME지 '올해의 가젯 2007'). 50+ 특허 보유. CES Innovation Awards 심사위원. Future Designers 및 LIFESQUARE 창업.</p>
+        </div>
+        <div class="person-card">
+            <div class="avatar"><img src="https://api.dicebear.com/9.x/pixel-art/svg?seed=JinsooJeon&backgroundColor=332e2d&scale=90" alt="Jinsoo Jeon"></div>
+            <div class="person-role" data-i18n="team.c2.role">Co-founder</div>
+            <div class="person-name">Jinsoo Jeon</div>
+            <p class="person-bio" data-i18n="team.c2.bio">27년 IT 산업 경력. AI·XR·공간 컴퓨팅 전문가. 삼성전자 모바일 플랫폼 R&amp;D 리더, SK텔레콤 EVP (메타버스 플랫폼 'ifland' 상용화 총괄). 130+ 특허. BoldStep CEO, Companoid Labs 벤처 파트너. CES 심사위원.</p>
+        </div>
+        <div class="person-card">
+            <div class="avatar"><img src="https://api.dicebear.com/9.x/pixel-art/svg?seed=SunkyuChoi&backgroundColor=332e2d&scale=90" alt="Sunkyu Choi"></div>
+            <div class="person-role" data-i18n="team.c3.role">Co-founder</div>
+            <div class="person-name">Sunkyu Choi</div>
+            <p class="person-bio" data-i18n="team.c3.bio">ICT 업계 전문 경영인. USC 전기공학 석사. SAFIENCE CEO, 전 Cretures CEO, 전 Nokia 솔루션 부문장, 전 삼성전자 시니어 엔지니어.</p>
+        </div>
+        <div class="person-card">
+            <div class="avatar"><img src="https://api.dicebear.com/9.x/pixel-art/svg?seed=MichaelZheng&backgroundColor=332e2d&scale=90" alt="Michael Zheng"></div>
+            <div class="person-role" data-i18n="team.c4.role">Co-founder (Shenzhen)</div>
+            <div class="person-name">Michael Zheng</div>
+            <p class="person-bio" data-i18n="team.c4.bio">Brunel University London 석사. Innozen Design CEO, SIDA(선전산업디자인협회) 부회장. Red-Dot·iF·IDEA·Good Design·Red Star·Golden Pin 등 국제 디자인 어워드 다수 수상. 20개국 이상 글로벌 프로젝트 수행.</p>
+        </div>
+    </div>
+    <!-- Advisors -->
+    <div style="margin-top:4rem;">
+        <span class="meta-label" style="margin-bottom:2rem;display:block;" data-i18n="team.advisors">Strategic Advisors</span>
+        <div class="advisor-grid">
+            <div class="advisor-card">
+                <div class="avatar-sm"><img src="https://api.dicebear.com/9.x/pixel-art/svg?seed=YoungSupJoo&backgroundColor=1d1818&scale=90" alt="Dr. Young-sup Joo"></div>
+                <div class="person-role">Advisor</div>
+                <div class="person-name" style="font-size:1rem;text-transform:uppercase;">Dr. Young-sup Joo</div>
+                <p class="person-bio" data-i18n="team.a1.bio">서울대 특임교수. 전 중소기업청장(SMBA). NST 융합연구위원회 위원장, KODINA 위원장. GE Thermometrics Asia Pacific 대표 역임.</p>
+            </div>
+            <div class="advisor-card">
+                <div class="avatar-sm"><img src="https://api.dicebear.com/9.x/pixel-art/svg?seed=DavidLi&backgroundColor=1d1818&scale=90" alt="David Li"></div>
+                <div class="person-role">Advisor</div>
+                <div class="person-name" style="font-size:1rem;text-transform:uppercase;">David Li</div>
+                <p class="person-bio" data-i18n="team.a2.bio">전 세계 메이커 운동의 선구자. MIT Innovation Lab Research Affiliate. 중국 최초 해커스페이스 XinCheJian 공동창업. SZOIL(선전 오픈 이노베이션 랩) 총괄 디렉터.</p>
+            </div>
+            <div class="advisor-card">
+                <div class="avatar-sm"><img src="https://api.dicebear.com/9.x/pixel-art/svg?seed=RickyYe&backgroundColor=1d1818&scale=90" alt="Dr. Ricky Ye"></div>
+                <div class="person-role">Advisor</div>
+                <div class="person-name" style="font-size:1rem;text-transform:uppercase;">Dr. Ricky Ye</div>
+                <p class="person-bio" data-i18n="team.a3.bio">AI 로보틱스 박사. 전 Airbus 수석 연구원. DFRobot 창업자 &amp; CEO (LattePanda, HuskyLens 개발). 중국 최초 메이커스페이스 'Mushroom Cloud' 설립.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Mentors -->
+    <div style="margin-top:4rem;">
+        <span class="meta-label" style="margin-bottom:2rem;display:block;" data-i18n="team.mentors">Mentors</span>
+        <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:1.5rem;">
+            <div class="advisor-card" style="grid-column:span 12;">
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;">
+                    <div class="mentor-item"><div class="avatar-sm"><img src="https://api.dicebear.com/9.x/pixel-art/svg?seed=EugeneKim&backgroundColor=1d1818&scale=90" alt="Eugene Kim"></div><div><div class="person-role">Mentor</div><div class="person-name" style="font-size:0.95rem;text-transform:uppercase;margin-bottom:0.5rem;">Eugene Kim</div><p class="person-bio" data-i18n="team.m1.bio">20년+ UX 아키텍트 &amp; GTM 전문가. PotentialEyes 대표. 다수 한국 스타트업 북미 시장 진출 지원.</p></div></div>
+                    <div class="mentor-item"><div class="avatar-sm"><img src="https://api.dicebear.com/9.x/pixel-art/svg?seed=YoonseokJang&backgroundColor=1d1818&scale=90" alt="Dr. Yoonseok Jang"></div><div><div class="person-role">Mentor</div><div class="person-name" style="font-size:0.95rem;text-transform:uppercase;margin-bottom:0.5rem;">Dr. Yoonseok Jang</div><p class="person-bio" data-i18n="team.m2.bio">연세대 박사. General &amp; Company CEO. AX(AI 전환), 스마트 팩토리, 탄소 감축 전문가. 2024년 산업부 장관상.</p></div></div>
+                    <div class="mentor-item"><div class="avatar-sm"><img src="https://api.dicebear.com/9.x/pixel-art/svg?seed=MikeLee&backgroundColor=1d1818&scale=90" alt="Mike Lee"></div><div><div class="person-role">Mentor</div><div class="person-name" style="font-size:0.95rem;text-transform:uppercase;margin-bottom:0.5rem;">Mike Lee</div><p class="person-bio" data-i18n="team.m3.bio">선전 기반 유일한 한국인 AX 컨설턴트. 스타트업~Fortune 500 30개+ AI 프로젝트 리드. AI·로보틱스 공급망 파트너 소싱 전문.</p></div></div>
+                </div>
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:2rem;padding-top:2rem;border-top:1px solid var(--grid-line-strong);">
+                    <div class="mentor-item"><div class="avatar-sm"><img src="https://api.dicebear.com/9.x/pixel-art/svg?seed=BosungKim&backgroundColor=1d1818&scale=90" alt="Bosung Kim"></div><div><div class="person-role">Mentor</div><div class="person-name" style="font-size:0.95rem;text-transform:uppercase;margin-bottom:0.5rem;">Bosung Kim</div><p class="person-bio" data-i18n="team.m4.bio">20년+ 임베디드·BLE/RF 통신 전문가. LG전자·Monotype 출신. 테크 스타트업 CEO.</p></div></div>
+                    <div class="mentor-item"><div class="avatar-sm"><img src="https://api.dicebear.com/9.x/pixel-art/svg?seed=VincentKim&backgroundColor=1d1818&scale=90" alt="Vincent Sanghyun Kim"></div><div><div class="person-role">Mentor</div><div class="person-name" style="font-size:0.95rem;text-transform:uppercase;margin-bottom:0.5rem;">Vincent Sanghyun Kim</div><p class="person-bio" data-i18n="team.m5.bio">30년 음향·EEG 하드웨어 전문가. BrainBee CEO. 중국·대만 현지 제조 턴키 서비스 제공.</p></div></div>
+                    <div class="mentor-item"><div class="avatar-sm"><img src="https://api.dicebear.com/9.x/pixel-art/svg?seed=SeungwooJe&backgroundColor=1d1818&scale=90" alt="Dr. Seungwoo Je"></div><div><div class="person-role">Mentor</div><div class="person-name" style="font-size:0.95rem;text-transform:uppercase;margin-bottom:0.5rem;">Dr. Seungwoo Je</div><p class="person-bio" data-i18n="team.m6.bio">KAIST 산업디자인 박사. HCI·UX 연구자. Red Dot·iF·IDEA 수상. 삼성·현대 산학협력 프로젝트 참여.</p></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── PARTNERS ── -->
+<section class="reveal">
+    <div class="section-header" style="margin-bottom:3rem;">
+        <span class="meta-label" data-i18n="partners.meta">[10] Global Network</span>
+        <h2 data-i18n="partners.h2">파트너 생태계</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:2rem;">
+        <div style="grid-column:span 12;border-top:1px solid var(--grid-line-strong);padding-top:2rem;">
+            <div class="meta-label" style="margin-bottom:1rem;" data-i18n="partners.korea">Korea</div>
+            <p style="font-size:1rem;color:var(--text-main);line-height:2;">LIFESQUARE &nbsp;·&nbsp; SAFIENCE &nbsp;·&nbsp; IPLAB</p>
+        </div>
+        <div style="grid-column:span 12;border-top:1px solid var(--grid-line-strong);padding-top:2rem;">
+            <div class="meta-label" style="margin-bottom:1rem;" data-i18n="partners.shenzhen">Shenzhen, China</div>
+            <p style="font-size:1rem;color:var(--text-main);line-height:2;">SIDA (선전산업디자인협회) &nbsp;·&nbsp; Southern University of Science and Technology &nbsp;·&nbsp; SZOIL &nbsp;·&nbsp; Seeed Studio &nbsp;·&nbsp; Chaihuo Makers (柴火创客空间) &nbsp;·&nbsp; Innozen Design</p>
+        </div>
+    </div>
+</section>
+
+<!-- ── CTA ── -->
+<section id="cta" class="footer-cta reveal">
+    <div style="max-width:800px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:2rem;">
+        <svg class="star-motif text-acid" style="width:48px;height:48px;" viewBox="0 0 24 24"><path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z"/></svg>
+        <h2 data-i18n="cta.h2">Initiate Protocol.</h2>
+        <p class="panel-desc" style="font-size:1.2rem;text-align:center;" data-i18n="cta.desc">소개 리뷰 / 컨설팅 / 전문가 네트워크 리뷰 및 비즈니스 컨설팅 / 혁신상품 기획 및 디자인·하드웨어 프로토타이핑 프로그램 가이드 / 일반 문의 및 글로벌 협력·제휴 제안 — 무엇이든 시작은 대화입니다.</p>
+        <button onclick="openContactModal()" class="btn btn-primary" style="margin-top:1rem;" data-i18n="cta.btn">Begin Your Assessment</button>
+        <p style="font-size:0.75rem;color:var(--text-muted);" data-i18n="cta.footer">©LIFESQUARE. All Rights Reserved. Powered by Shenzhen–Seoul Open Hardware Initiative.</p>
+    </div>
+</section>
+
+</main>
+
+<!-- ── CONTACT MODAL ── -->
+<div id="contactModal" class="modal-overlay" onclick="handleOverlayClick(event)">
+    <div class="modal-card">
+        <button class="modal-close" onclick="closeContactModal()" aria-label="Close">×</button>
+
+        <!-- Header -->
+        <div>
+            <span class="meta-label" data-i18n="modal.meta">[Contact] Initiate Protocol</span>
+            <h3 class="panel-title" style="margin-top:0.6rem;font-size:1.4rem;" data-i18n="modal.title">문의 접수</h3>
+        </div>
+
+        <!-- Form -->
+        <form id="contactForm" onsubmit="submitContact(event)" novalidate>
+            <div class="form-row" style="margin-bottom:1rem;">
+                <div class="form-group">
+                    <label class="form-label" for="f-name" data-i18n="modal.name">성명</label>
+                    <input class="form-input" type="text" id="f-name" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="f-org" data-i18n="modal.org">소속</label>
+                    <input class="form-input" type="text" id="f-org" autocomplete="organization">
+                </div>
+            </div>
+            <div class="form-group" style="margin-bottom:1rem;">
+                <label class="form-label" for="f-email" data-i18n="modal.email">이메일</label>
+                <input class="form-input" type="email" id="f-email" autocomplete="email" required>
+            </div>
+            <div class="form-group" style="margin-bottom:1rem;">
+                <label class="form-label" for="f-subject" data-i18n="modal.subject">제목</label>
+                <input class="form-input" type="text" id="f-subject" required>
+            </div>
+            <div class="form-group" style="margin-bottom:1.25rem;">
+                <label class="form-label" for="f-message" data-i18n="modal.message">요청내용</label>
+                <textarea class="form-textarea" id="f-message" required></textarea>
+            </div>
+            <div id="form-error-msg" class="form-error-msg" data-i18n="modal.error">오류가 발생했습니다. 잠시 후 다시 시도해 주세요.</div>
+            <button type="submit" id="form-submit-btn" class="btn btn-primary form-submit" data-i18n="modal.submit">제출하기</button>
+        </form>
+
+        <!-- Success state -->
+        <div id="form-success" class="form-success">
+            <div class="success-icon">✦</div>
+            <h3 class="panel-title" style="color:var(--clay);margin-bottom:0.75rem;" data-i18n="modal.success.title">접수 완료</h3>
+            <p class="form-notice" data-i18n="modal.success.desc">요청이 접수되었습니다.<br>빠른 시일 내에 연락 드리겠습니다.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+// ── Translations ──────────────────────────────────────────────
+const T = {
+  ko: {
+    'nav.vision':'Vision','nav.problem':'Problem','nav.shenzhen':'Shenzhen',
+    'nav.process':'Process','nav.team':'Team','nav.roadmap':'Roadmap','nav.contact':'Contact',
+    'hero.vertical':'Hardware',
+    'hero.tagline':'AI Hardware Prototyping and Acceleration Platform:<br>\'A Catalyst for Physical AI, Spatial AI and Agentic AI Hardware\'',
+    'hero.fast1':'Fast','hero.build':'Build.','hero.fast2':'Fast','hero.business':'Business.',
+    'hero.desc':'만들어 실현하고 싶은 AI 하드웨어를 중국 선전의 하드웨어 에코시스템과 협력하여 빠르게 프로토타이핑하여 검증하고 양산까지 연계하는 AI Hardware Prototyping & Acceleration 플랫폼입니다.',
+    'hero.cta1':'Begin Your Assessment','hero.cta2':'See How It Works',
+    'vision.meta':'[01] Vision & Mission',
+    'vision.h2':'더 나은 미래를 위한<br>AI 하드웨어를 실현한다.',
+    'vision.quote':'"AI 산업 혁신의 롤모델이 되며,<br>이를 위한 글로벌 오픈 생태계를 만든다."',
+    'vision.desc':'Fast.B의 미션은 세 가지입니다. AI가 실제 세계에서 구현되고 적용되어 혁신할 수 있게 돕고, 하드웨어의 가치와 사용성을 혁신하며 빠른 프로토타이핑을 통해 검증할 수 있게 합니다. 그리고 AI 하드웨어들이 우리의 삶을 더 나아지게 만들 수 있게 돕습니다.',
+    'vision.p1.title':'Prototyping','vision.p1.desc':'선전 제조 생태계를 활용하여 빠르고 경쟁력 있는 AI HW MVP를 프로토타이핑합니다. 신속한 프로토타이핑과 검증을 통해 시장성을 파악하여 빠른 실패를 실험합니다.',
+    'vision.p2.title':'Manufacturing','vision.p2.desc':'선전의 믿을만한 파트너들과 함께 제품성, 양산성, 서비스성이 확보된 제품을 시생산하고 검증합니다. 시장성이 확보된 제품은 선전의 다양한 소량 제조 인프라를 이용하여 빠르게 출시합니다.',
+    'vision.p3.title':'Expert Network','vision.p3.desc':'선전의 산업디자이너 및 파트너들과 협력하여 글로벌 시장에서 선택받고 사업화할 수 있는 제품을 빌드합니다. IP와 디자인을 사전 보호하고 국내·현지 전문가들의 지원을 연계합니다.',
+    'prob.meta':'[02] Why Fast.B Exists',
+    'prob.h2':'AI 하드웨어 개발,<br>왜 어렵고 비싸고 느린가.',
+    'prob.sub':'Fast.B는 이 7가지 문제를 직접 해결하기 위해 만들어졌습니다.',
+    'prob.1.title':'느리고 경쟁력 없는 국내 하드웨어 검증','prob.1.desc':'국내에서의 하드웨어 검증과 프로토타이핑은 시간과 에너지가 많이 들며, 결과물에 대한 경쟁력 또한 낮습니다.',
+    'prob.2.title':'높은 비용, 낮은 ROI','prob.2.desc':'AI 하드웨어의 구현이 어렵고 비용이 많이 들며, 투자대비 부가가치가 높지 않습니다.',
+    'prob.3.title':'대기업 중심 제조 생태계의 한계','prob.3.desc':'대기업은 대기업 중심의 제조 생태계를 가지고 있어 프로토타이핑이나 소량생산의 경쟁력이 부족하고, 일반 제조기업은 AI와 같은 첨단기술의 이해와 응용에 대한 역량이 부족합니다.',
+    'prob.4.title':'소프트웨어 기업의 하드웨어 확장 어려움','prob.4.desc':'소프트웨어 기업과 기업들은 내부 하드웨어 개발역량과 경험 부족으로 AI 하드웨어로의 핵심 서비스 확장이 어렵습니다.',
+    'prob.5.title':'스타트업 하드웨어 아이디어의 5가지 부족','prob.5.desc':'스타트업들이 가진 하드웨어 아이디어들 대부분은 상품성, 사용성, 혁신성, 기술성, 서비스성이 부족합니다.',
+    'prob.6.title':'AI의 물리적 확장 수요','prob.6.desc':'AI의 물리적 확장을 위해서 다양한 하드웨어와 디바이스 개발과 출시가 필요합니다.',
+    'prob.7.title':'IoT 디바이스 가치 극대화','prob.7.desc':'사물인터넷(IoT) 디바이스의 유용성, 편의성, 가치 극대화는 AI가 적용되면서 완성됩니다.',
+    'sz.meta':'[03] Why Shenzhen?',
+    'sz.quote':'"Hollywood of Hardware"',
+    'sz.desc':'전 세계 IT 제품의 90% 이상이 선전을 거칩니다. 세계 최대 전자부품 시장 화창베이(Huaqiangbei)를 중심으로, 선전은 하드웨어 제조·디자인·양산의 모든 것이 집약된 도시입니다. Fast.B는 이 생태계의 핵심 파트너들과 긴밀하게 협력합니다.',
+    'comp.meta':'[04] Fast.B의 경쟁력',
+    'comp.h2':'단순 컨설팅이 아닌,<br>실제 생태계 연결.',
+    'comp.p1.title':'선전 현지 네트워크','comp.p1.desc':'중국 선전 현지의 산업디자인·디바이스 전문가 네트워크, 하드웨어 솔루션·개발 네트워크, 소량 생산·제조 전문 네트워크와 긴밀하게 협력하고 최고의 시너지를 위해 역할을 분담합니다.',
+    'comp.p2.title':'현지 시장 조사 · 소싱 동반','comp.p2.desc':'AI하드웨어 프로토타이핑을 위해 중국 현지 시장조사, 유사 제품 및 경쟁사 조사 분석, 핵심 부품 및 솔루션 소싱, 파트너 및 전문가 연결을 함께 진행합니다.',
+    'comp.p3.title':'국내 최고 전문가 코칭','comp.p3.desc':'AI·통신·네트워크·센서·디바이스·플랫폼·UX/UI·제조 전문가들이 프로젝트 초기부터 코치와 멘토로 참여하여 단순 하드웨어가 아닌 AI 기반 하드웨어 비즈니스 모델과 전략을 중심으로 경쟁력 있는 구현을 가능하게 합니다.',
+    'method.meta':'[05] Dual-Track Protocol','method.h2':'How We<br>Work',
+    'method.sub':'프로젝트 성숙도와 요구사항에 따라 두 가지 트랙 중 최적을 선택합니다.',
+    'method.trackV':'검증 & PoC 중심 · 총 약 8주','method.trackC':'전문 디자인 & 양산 중심 · 총 12~36주',
+    'method.s1v.title':'Team Building & Spec. Review','method.s1v.desc':'프로젝트 스펙과 팀 구성을 검토하고 목표·예산·타임라인을 정렬합니다. 최적 트랙을 확정하고 선전 파트너 매칭을 시작합니다.','method.s1v.dur':'1–2주',
+    'method.s1c.title':'Team Building & Concept Review','method.s1c.desc':'컨셉 검토부터 팀 구성, 목표·예산·타임라인을 정렬합니다. 선전 파트너 및 인더스트리얼 디자인 팀 매칭을 시작합니다.','method.s1c.dur':'2–4주',
+    'method.s2v.title':'EVP Build','method.s2v.desc':'Engineering Verification Prototype 제작. 하드웨어 핵심 기능 구현에 집중합니다.','method.s2v.dur':'2–3주',
+    'method.s2c.title':'EVP Build + Industrial Design','method.s2c.desc':'Engineering Verification Prototype 제작과 동시에, 선전 최고 수준의 인더스트리얼 디자이너와 산업 디자인을 병행합니다.','method.s2c.dur':'2–6주',
+    'method.s3v.title':'Function Verification & PoC','method.s3v.desc':'기능 검증 및 개념 증명. 시장 피드백을 빠르게 수집하고 방향을 확정합니다.','method.s3v.dur':'2–3주',
+    'method.s3c.title':'PoC & DVP Build + UI/UX Design','method.s3c.desc':'DVP(Design Verification Prototype) 빌드와 UI/UX 디자인을 병행하며 시장성과 완성도를 함께 검증합니다.','method.s3c.dur':'2–6주',
+    'method.s4v.title':'Small Batch Production','method.s4v.desc':'소량 생산(Small Batch)으로 빠르게 시장에 진입합니다. Track V의 완주 단계입니다.','method.s4v.dur':'2–4주 (Small Batch)',
+    'method.s4c.title':'SW Dev + PVP + Mold Development','method.s4c.desc':'소프트웨어 개발, PVP(Production Verification Prototype) 빌드, 금형 제작을 단계적으로 완료합니다.','method.s4c.dur':'4–8주',
+    'method.s5c.title':'Mass Production','method.s5c.desc':'글로벌 양산 라인에 진입합니다. Fast.B가 글로벌 출시 연계까지 지원합니다.','method.s5c.dur':'4–8주 (양산)',
+    'stats.meta':'[06] Telemetry','stats.h2':'숫자로 보는 Fast.B',
+    'stats.1.meta':'Track V 평균 완료','stats.1.title':'Prototype to Small Batch','stats.1.desc':'팀 빌딩부터 소량 생산까지. 국내 단독 개발 대비 절반 이하의 시간.',
+    'stats.2.meta':'공동창업팀 보유 특허','stats.2.title':'Patents','stats.2.desc':'Hugh Choi 50+, Jinsoo Jeon 130+ 특허 보유. CES Innovation Awards 심사위원.',
+    'stats.3.meta':'Track C 최대 범위','stats.3.title':'Mass Production Ready','stats.3.desc':'컨셉 리뷰부터 금형 개발·양산까지 단일 트랙으로 완주. 글로벌 출시 연계.',
+    'tiers.meta':'[07] Engagement Vectors','tiers.h2':'어디서 시작하시겠습니까',
+    'tiers.v.label':'Track V // Recommended for Startups','tiers.v.title':'Verification Track','tiers.v.price':' weeks total','tiers.v.desc':'빠른 기능 검증과 PoC가 필요한 팀. MVP 빌드가 필요한 초기 스타트업에 최적입니다.',
+    'tiers.v.s1':'Team Building & Spec. Review (1–2w)','tiers.v.s2':'EVP Build (2–3w)','tiers.v.s3':'Function Verification & PoC (2–3w)','tiers.v.s4':'Small Batch Production (2–4w)',
+    'tiers.c.label':'Track C // Professional Design & Mass Production','tiers.c.title':'Creation Track','tiers.c.price':' weeks total','tiers.c.desc':'전문 산업 디자인과 글로벌 양산 서비스가 필요한 팀.',
+    'tiers.c.s1':'Team Building & Concept Review (2–4w)','tiers.c.s2':'EVP Build + Industrial Design (2–6w)','tiers.c.s3':'PoC & DVP Build + UI/UX Design (2–6w)','tiers.c.s4':'SW Dev + PVP Build + Mold Development (4–8w)','tiers.c.s5':'Mass Production (4–8w)',
+    'road.meta':'[08] Roadmap','road.h2':'2026 Milestones',
+    'road.1.title':'Fast.B Beta Launching','road.1.desc':'플랫폼 베타 론칭 및 파일럿 프로젝트 모집 시작',
+    'road.2.title':'Fast.B Pilot Projects','road.2.desc':'2~4개 하드웨어 프로젝트 진행 (Track V / Track C)',
+    'road.3.title':'Product Innovation Batch Program','road.3.desc':'2~6개 하드웨어 프로젝트 배치 프로그램 론칭',
+    'road.4.title':'Fast.B Platform Beta Open','road.4.desc':'Online Platform + SaaS Service 오픈',
+    'road.5.title':'Fast.B Funding & 1.0 Open','road.5.desc':'Track 1 + Track 2 펀딩 · Fast.B 1.0 정식 오픈',
+    'road.6.title':'Future Expansion','road.6.desc':'Crowd Funding 연계 → Agentic AI PM Dashboard → In-house Product Design (AR Glass, VR Headsets, Smart Home, Electric Cars...) → Product Open Marketplace → Open Investment',
+    'team.meta':'[09] Co-founders','team.h2':'Team & Partners','team.advisors':'Strategic Advisors','team.mentors':'Mentors',
+    'team.c1.role':'CEO & Co-founder','team.c1.bio':'USC 전기공학/컴퓨터 네트워크 전공. 삼성전자에서 최초 멀티터치 모바일 기기 개발 주도 (TIME지 \'올해의 가젯 2007\'). 50+ 특허 보유. CES Innovation Awards 심사위원. Future Designers 및 LIFESQUARE 창업.',
+    'team.c2.role':'Co-founder','team.c2.bio':'27년 IT 산업 경력. AI·XR·공간 컴퓨팅 전문가. 삼성전자 모바일 플랫폼 R&D 리더, SK텔레콤 EVP (메타버스 플랫폼 \'ifland\' 상용화 총괄). 130+ 특허. BoldStep CEO, Companoid Labs 벤처 파트너. CES 심사위원.',
+    'team.c3.role':'Co-founder','team.c3.bio':'ICT 업계 전문 경영인. USC 전기공학 석사. SAFIENCE CEO, 전 Cretures CEO, 전 Nokia 솔루션 부문장, 전 삼성전자 시니어 엔지니어.',
+    'team.c4.role':'Co-founder (Shenzhen)','team.c4.bio':'Brunel University London 석사. Innozen Design CEO, SIDA(선전산업디자인협회) 부회장. Red-Dot·iF·IDEA·Good Design·Red Star·Golden Pin 등 국제 디자인 어워드 다수 수상. 20개국 이상 글로벌 프로젝트 수행.',
+    'team.a1.bio':'서울대 특임교수. 전 중소기업청장(SMBA). NST 융합연구위원회 위원장, KODINA 위원장. GE Thermometrics Asia Pacific 대표 역임.',
+    'team.a2.bio':'전 세계 메이커 운동의 선구자. MIT Innovation Lab Research Affiliate. 중국 최초 해커스페이스 XinCheJian 공동창업. SZOIL(선전 오픈 이노베이션 랩) 총괄 디렉터.',
+    'team.a3.bio':'AI 로보틱스 박사. 전 Airbus 수석 연구원. DFRobot 창업자 & CEO (LattePanda, HuskyLens 개발). 중국 최초 메이커스페이스 \'Mushroom Cloud\' 설립.',
+    'team.m1.bio':'20년+ UX 아키텍트 & GTM 전문가. PotentialEyes 대표. 다수 한국 스타트업 북미 시장 진출 지원.',
+    'team.m2.bio':'연세대 박사. General & Company CEO. AX(AI 전환), 스마트 팩토리, 탄소 감축 전문가. 2024년 산업부 장관상.',
+    'team.m3.bio':'선전 기반 유일한 한국인 AX 컨설턴트. 스타트업~Fortune 500 30개+ AI 프로젝트 리드. AI·로보틱스 공급망 파트너 소싱 전문.',
+    'team.m4.bio':'20년+ 임베디드·BLE/RF 통신 전문가. LG전자·Monotype 출신. 테크 스타트업 CEO.',
+    'team.m5.bio':'30년 음향·EEG 하드웨어 전문가. BrainBee CEO. 중국·대만 현지 제조 턴키 서비스 제공.',
+    'team.m6.bio':'KAIST 산업디자인 박사. HCI·UX 연구자. Red Dot·iF·IDEA 수상. 삼성·현대 산학협력 프로젝트 참여.',
+    'partners.meta':'[10] Global Network','partners.h2':'파트너 생태계','partners.korea':'Korea','partners.shenzhen':'Shenzhen, China',
+    'cta.h2':'Initiate Protocol.',
+    'cta.desc':'소개 리뷰 / 컨설팅 / 전문가 네트워크 리뷰 및 비즈니스 컨설팅 / 혁신상품 기획 및 디자인·하드웨어 프로토타이핑 프로그램 가이드 / 일반 문의 및 글로벌 협력·제휴 제안 — 무엇이든 시작은 대화입니다.',
+    'cta.btn':'Begin Your Assessment',
+    'cta.footer':'©LIFESQUARE. All Rights Reserved. Powered by Shenzhen–Seoul Open Hardware Initiative.',
+    'modal.meta':'[Contact] Initiate Protocol',
+    'modal.title':'문의 접수',
+    'modal.name':'성명','modal.org':'소속','modal.email':'이메일','modal.subject':'제목','modal.message':'요청내용',
+    'modal.submit':'제출하기',
+    'modal.error':'오류가 발생했습니다. 잠시 후 다시 시도해 주세요.',
+    'modal.success.title':'접수 완료','modal.success.desc':'요청이 접수되었습니다.<br>빠른 시일 내에 연락 드리겠습니다.'
+  },
+  en: {
+    'nav.vision':'Vision','nav.problem':'Problem','nav.shenzhen':'Shenzhen',
+    'nav.process':'Process','nav.team':'Team','nav.roadmap':'Roadmap','nav.contact':'Contact',
+    'hero.vertical':'Hardware',
+    'hero.tagline':'AI Hardware Prototyping and Acceleration Platform:<br>\'A Catalyst for Physical AI, Spatial AI and Agentic AI Hardware\'',
+    'hero.fast1':'Fast','hero.build':'Build.','hero.fast2':'Fast','hero.business':'Business.',
+    'hero.desc':'We connect your AI hardware idea with China\'s Shenzhen hardware ecosystem to rapidly prototype, validate, and link to mass production — the AI Hardware Prototyping & Acceleration platform.',
+    'hero.cta1':'Begin Your Assessment','hero.cta2':'See How It Works',
+    'vision.meta':'[01] Vision & Mission',
+    'vision.h2':'Realizing AI Hardware<br>for a Better Future.',
+    'vision.quote':'"Becoming a role model for AI industry innovation,<br>and building a global open ecosystem for it."',
+    'vision.desc':'Fast.B\'s mission is threefold: to help AI be implemented and applied in the real world for innovation; to innovate the value and usability of hardware through rapid prototyping and validation; and to help AI hardware make our lives better.',
+    'vision.p1.title':'Prototyping','vision.p1.desc':'We prototype fast, competitive AI HW MVPs using Shenzhen\'s manufacturing ecosystem. Through rapid prototyping and validation, we identify market fit and embrace fast failure.',
+    'vision.p2.title':'Manufacturing','vision.p2.desc':'Together with Shenzhen\'s trusted partners, we trial-produce and validate products with proven commercializability, scalability, and serviceability. Products with confirmed market fit are rapidly launched using Shenzhen\'s diverse small-batch manufacturing infrastructure.',
+    'vision.p3.title':'Expert Network','vision.p3.desc':'We build products that can be chosen by global markets and commercialized, collaborating with Shenzhen\'s industrial designers and partners. We pre-protect IP and design, and connect support from domestic and local experts.',
+    'prob.meta':'[02] Why Fast.B Exists',
+    'prob.h2':'Why AI Hardware Development<br>is Slow, Expensive & Difficult.',
+    'prob.sub':'Fast.B was created to directly address these 7 problems.',
+    'prob.1.title':'Slow & Uncompetitive Domestic Hardware Validation','prob.1.desc':'Hardware validation and prototyping in Korea takes enormous time and energy, and the competitiveness of the resulting outputs is also low.',
+    'prob.2.title':'High Cost, Low ROI','prob.2.desc':'Implementing AI hardware is difficult and expensive, and the value-added relative to investment is not high.',
+    'prob.3.title':'Limits of Large Enterprise-Centric Manufacturing Ecosystems','prob.3.desc':'Large enterprises have manufacturing ecosystems centered on themselves, lacking competitiveness in prototyping and small-batch production, while general manufacturers lack the capability to understand and apply advanced technologies like AI.',
+    'prob.4.title':'Difficulty for Software Companies to Expand into Hardware','prob.4.desc':'Software companies struggle to expand their core services into AI hardware due to lack of internal hardware development capabilities and experience.',
+    'prob.5.title':'5 Deficiencies in Startup Hardware Ideas','prob.5.desc':'Most hardware ideas held by startups lack commercializability, usability, innovativeness, technical feasibility, and serviceability.',
+    'prob.6.title':'Demand for AI\'s Physical Expansion','prob.6.desc':'Various hardware and device development and launches are needed for AI\'s physical expansion into the real world.',
+    'prob.7.title':'Maximizing IoT Device Value','prob.7.desc':'The utility, convenience, and value maximization of IoT devices is fully realized as AI is applied to them.',
+    'sz.meta':'[03] Why Shenzhen?',
+    'sz.quote':'"Hollywood of Hardware"',
+    'sz.desc':'Over 90% of the world\'s IT products pass through Shenzhen. Centered around the world\'s largest electronic components market, Huaqiangbei, Shenzhen is the city where everything about hardware manufacturing, design, and mass production is concentrated. Fast.B collaborates closely with core partners within this ecosystem.',
+    'comp.meta':'[04] Fast.B\'s Competitive Edge',
+    'comp.h2':'Not just consulting —<br>real ecosystem connection.',
+    'comp.p1.title':'Shenzhen Local Network','comp.p1.desc':'We closely collaborate with industrial design and device expert networks, hardware solution and development networks, and small-batch production and manufacturing expert networks in Shenzhen, China, dividing roles for maximum synergy.',
+    'comp.p2.title':'On-site Market Research & Sourcing','comp.p2.desc':'For AI hardware prototyping, we jointly conduct local market research in China, analysis of similar products and competitors, sourcing of core components and solutions, and connection to partners and experts.',
+    'comp.p3.title':'Korea\'s Top Expert Coaching','comp.p3.desc':'Korea\'s top experts in AI, communications, networks, sensors, devices, platforms, UX/UI, and manufacturing participate from the very beginning as coaches and mentors — enabling not just hardware prototyping but competitive AI hardware realization centered on AI-based business models and strategy.',
+    'method.meta':'[05] Dual-Track Protocol','method.h2':'How We<br>Work',
+    'method.sub':'We select the optimal track from two options based on project maturity and requirements.',
+    'method.trackV':'Verification & PoC Focus · ~8 weeks total','method.trackC':'Professional Design & Mass Production · 12–36 weeks total',
+    'method.s1v.title':'Team Building & Spec. Review','method.s1v.desc':'We review project specs and team composition and align goals, budget, and timeline. We confirm the optimal track and begin Shenzhen partner matching.','method.s1v.dur':'1–2 weeks',
+    'method.s1c.title':'Team Building & Concept Review','method.s1c.desc':'From concept review to team composition, we align goals, budget, and timeline. We start matching Shenzhen partners and industrial design teams.','method.s1c.dur':'2–4 weeks',
+    'method.s2v.title':'EVP Build','method.s2v.desc':'Engineering Verification Prototype build. Focused on core hardware function implementation.','method.s2v.dur':'2–3 weeks',
+    'method.s2c.title':'EVP Build + Industrial Design','method.s2c.desc':'EVP build runs simultaneously with top-tier industrial design from Shenzhen\'s leading designers.','method.s2c.dur':'2–6 weeks',
+    'method.s3v.title':'Function Verification & PoC','method.s3v.desc':'Functional verification and proof of concept. Rapidly collect market feedback and confirm direction.','method.s3v.dur':'2–3 weeks',
+    'method.s3c.title':'PoC & DVP Build + UI/UX Design','method.s3c.desc':'Design Verification Prototype build runs alongside UI/UX design, validating both market fit and product quality.','method.s3c.dur':'2–6 weeks',
+    'method.s4v.title':'Small Batch Production','method.s4v.desc':'Enter the market quickly with Small Batch production. This is the final stage of Track V.','method.s4v.dur':'2–4 weeks (Small Batch)',
+    'method.s4c.title':'SW Dev + PVP + Mold Development','method.s4c.desc':'Complete SW Development, Production Verification Prototype (PVP) build, and mold development step by step.','method.s4c.dur':'4–8 weeks',
+    'method.s5c.title':'Mass Production','method.s5c.desc':'Enter global mass production lines. Fast.B supports global launch connection through the end.','method.s5c.dur':'4–8 weeks (MP)',
+    'stats.meta':'[06] Telemetry','stats.h2':'Fast.B by the Numbers',
+    'stats.1.meta':'Track V Average','stats.1.title':'Prototype to Small Batch','stats.1.desc':'From team building to small batch production — less than half the time of a typical domestic development cycle.',
+    'stats.2.meta':'Co-founder Team Patents','stats.2.title':'Patents','stats.2.desc':'Hugh Choi 50+, Jinsoo Jeon 130+ patents. Both serve as CES Innovation Awards judges.',
+    'stats.3.meta':'Track C Maximum Scope','stats.3.title':'Mass Production Ready','stats.3.desc':'Complete journey from concept review to mold development and mass production in a single track. Global launch linkage included.',
+    'tiers.meta':'[07] Engagement Vectors','tiers.h2':'Where Would You Like to Start?',
+    'tiers.v.label':'Track V // Recommended for Startups','tiers.v.title':'Verification Track','tiers.v.price':' weeks total','tiers.v.desc':'For teams needing rapid functional validation and PoC. Optimal for early-stage startups that need MVP builds.',
+    'tiers.v.s1':'Team Building & Spec. Review (1–2w)','tiers.v.s2':'EVP Build (2–3w)','tiers.v.s3':'Function Verification & PoC (2–3w)','tiers.v.s4':'Small Batch Production (2–4w)',
+    'tiers.c.label':'Track C // Professional Design & Mass Production','tiers.c.title':'Creation Track','tiers.c.price':' weeks total','tiers.c.desc':'For teams requiring professional industrial design and global mass production services.',
+    'tiers.c.s1':'Team Building & Concept Review (2–4w)','tiers.c.s2':'EVP Build + Industrial Design (2–6w)','tiers.c.s3':'PoC & DVP Build + UI/UX Design (2–6w)','tiers.c.s4':'SW Dev + PVP Build + Mold Development (4–8w)','tiers.c.s5':'Mass Production (4–8w)',
+    'road.meta':'[08] Roadmap','road.h2':'2026 Milestones',
+    'road.1.title':'Fast.B Beta Launching','road.1.desc':'Platform beta launch and start of pilot project recruitment',
+    'road.2.title':'Fast.B Pilot Projects','road.2.desc':'2–4 hardware projects underway (Track V / Track C)',
+    'road.3.title':'Product Innovation Batch Program','road.3.desc':'Launch of 2–6 hardware project batch program',
+    'road.4.title':'Fast.B Platform Beta Open','road.4.desc':'Online Platform + SaaS Service opens to the public',
+    'road.5.title':'Fast.B Funding & 1.0 Open','road.5.desc':'Track 1 + Track 2 funding · Fast.B 1.0 official launch',
+    'road.6.title':'Future Expansion','road.6.desc':'Crowd Funding linkage → Agentic AI PM Dashboard → In-house Product Design (AR Glass, VR Headsets, Smart Home, Electric Cars...) → Product Open Marketplace → Open Investment',
+    'team.meta':'[09] Co-founders','team.h2':'Team & Partners','team.advisors':'Strategic Advisors','team.mentors':'Mentors',
+    'team.c1.role':'CEO & Co-founder','team.c1.bio':'Studied Electrical Engineering and Computer Networks at USC. Led development of Samsung\'s first multi-touch mobile device (TIME Magazine\'s "Gadget of the Year 2007"). 50+ patents. CES Innovation Awards judge. Founded Future Designers and LIFESQUARE.',
+    'team.c2.role':'Co-founder','team.c2.bio':'27 years of IT industry experience. Specialist in AI, XR, and spatial computing. Led mobile platform R&D at Samsung Electronics, served as EVP at SK Telecom overseeing commercialization of the metaverse platform \'ifland\'. 130+ patents. CEO of BoldStep, Venture Partner at Companoid Labs. CES judge.',
+    'team.c3.role':'Co-founder','team.c3.bio':'Accomplished executive leader in the ICT industry. MS in Electrical Engineering from USC. CEO of SAFIENCE, former CEO of Cretures, former Head of Solutions at Nokia, former Senior Engineer at Samsung Electronics.',
+    'team.c4.role':'Co-founder (Shenzhen)','team.c4.bio':'Master\'s from Brunel University London. CEO of Innozen Design, Vice Chairman of SIDA (Shenzhen Industrial Design Association). Multiple international design award winner including Red-Dot, iF, IDEA, Good Design, Red Star, and Golden Pin. Has worked on projects across 20+ countries.',
+    'team.a1.bio':'Distinguished Professor at Seoul National University. Former Minister of the Small & Medium Business Administration (SMBA). Chairman of NST\'s Convergence Research Committee and KODINA. Former President & CEO of GE Thermometrics Asia Pacific.',
+    'team.a2.bio':'Pioneer of the global maker movement. Research Affiliate at MIT Innovation Lab. Co-founded XinCheJian, China\'s first hackerspace. Executive Director of SZOIL (Shenzhen Open Innovation Lab).',
+    'team.a3.bio':'PhD in AI Robotics. Former Lead Researcher at Airbus. Founded DFRobot; creator of LattePanda and HuskyLens. Established \'Mushroom Cloud\', one of China\'s first makerspaces.',
+    'team.m1.bio':'20+ years as UX Architect and GTM expert. Representative of PotentialEyes. Has guided numerous Korean startups through North American market expansion.',
+    'team.m2.bio':'PhD from Yonsei University. CEO of General & Company. Expert in AX (AI Transformation), smart factories, and carbon reduction. 2024 Minister\'s Award from MOTIE.',
+    'team.m3.bio':'The only Korean AX Consultant based in Shenzhen. Led 30+ AI projects for clients from startups to Fortune Global 500 companies. Specializes in AI/robotics supply chain partner sourcing.',
+    'team.m4.bio':'20+ years in embedded systems and BLE/RF communications. Alumni of LG Electronics and Monotype. CEO of a tech startup.',
+    'team.m5.bio':'30 years of expertise in acoustics and EEG hardware. CEO of BrainBee. Delivers global turn-key product development and manufacturing services in China and Taiwan.',
+    'team.m6.bio':'PhD in Industrial Design from KAIST. HCI & UX researcher. Red Dot, iF, and IDEA award winner. Has participated in industry projects sponsored by Samsung and Hyundai.',
+    'partners.meta':'[10] Global Network','partners.h2':'Partner Ecosystem','partners.korea':'Korea','partners.shenzhen':'Shenzhen, China',
+    'cta.h2':'Initiate Protocol.',
+    'cta.desc':'Introduction review / consulting / expert network review & business consulting / innovative product planning and design·hardware prototyping program guidance / general inquiries and global collaboration proposals — whatever your need, every journey starts with a conversation.',
+    'cta.btn':'Begin Your Assessment',
+    'cta.footer':'©LIFESQUARE. All Rights Reserved. Powered by Shenzhen–Seoul Open Hardware Initiative.',
+    'modal.meta':'[Contact] Initiate Protocol',
+    'modal.title':'Contact Us',
+    'modal.name':'Name','modal.org':'Organization','modal.email':'Email','modal.subject':'Subject','modal.message':'Message',
+    'modal.submit':'Submit',
+    'modal.error':'Something went wrong. Please try again.',
+    'modal.success.title':'Request Received','modal.success.desc':'Your inquiry has been submitted.<br>We\'ll be in touch shortly.'
+  }
+};
+
+// ── i18n engine ────────────────────────────────────────────────
+let currentLang = localStorage.getItem('fastb-lang') || 'ko';
+let currentTrack = 'v';
+
+function applyTrackContent() {
+    const dict = T[currentLang];
+    const t = currentTrack;
+    document.querySelectorAll('.step-title, .step-desc, .step-dur').forEach(el => {
+        const key = el.getAttribute('data-i18n-' + t);
+        if (key && dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    document.getElementById('method-step5').style.display = (t === 'c') ? 'block' : 'none';
+    document.getElementById('track-v-btn').classList.toggle('active', t === 'v');
+    document.getElementById('track-c-btn').classList.toggle('active', t === 'c');
+}
+
+function selectTrack(track) {
+    currentTrack = track;
+    // brief fade transition
+    const steps = document.querySelector('.method-steps');
+    steps.style.opacity = '0';
+    setTimeout(() => {
+        applyTrackContent();
+        steps.style.opacity = '1';
+        steps.style.transition = 'opacity 0.25s';
+    }, 150);
+}
+
+function setLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('fastb-lang', lang);
+    const dict = T[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    document.getElementById('btnKo').classList.toggle('active', lang === 'ko');
+    document.getElementById('btnEn').classList.toggle('active', lang === 'en');
+    document.documentElement.lang = lang === 'ko' ? 'ko' : 'en';
+    applyTrackContent();
+}
+
+// Apply on load
+setLanguage(currentLang);
+
+// ── Supabase config ────────────────────────────────────────────
+const SUPABASE_URL     = 'https://dqgqayvsijrochmskhjr.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRxZ3FheXZzaWpyb2NobXNraGpyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk2NzM0NDAsImV4cCI6MjA5NTI0OTQ0MH0.Ryl9tJSKMKkQX7OtXTMOGquQKmVTg4khuSl8QPJEoI8';
+
+// ── Contact Modal ──────────────────────────────────────────────
+function openContactModal() {
+    const modal = document.getElementById('contactModal');
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+function closeContactModal() {
+    document.getElementById('contactModal').classList.remove('open');
+    document.body.style.overflow = '';
+}
+function handleOverlayClick(e) {
+    if (e.target === document.getElementById('contactModal')) closeContactModal();
+}
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeContactModal();
+});
+
+async function submitContact(e) {
+    e.preventDefault();
+    const btn = document.getElementById('form-submit-btn');
+    const errEl = document.getElementById('form-error-msg');
+    btn.disabled = true;
+    errEl.style.display = 'none';
+
+    const payload = {
+        name:         document.getElementById('f-name').value.trim(),
+        organization: document.getElementById('f-org').value.trim(),
+        email:        document.getElementById('f-email').value.trim(),
+        subject:      document.getElementById('f-subject').value.trim(),
+        message:      document.getElementById('f-message').value.trim(),
+    };
+
+    try {
+        // 1) Supabase에 저장
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/contacts`, {
+            method: 'POST',
+            headers: {
+                'Content-Type':  'application/json',
+                'apikey':        SUPABASE_ANON_KEY,
+                'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                'Prefer':        'return=minimal'
+            },
+            body: JSON.stringify(payload)
+        });
+        if (!res.ok) throw new Error(`Supabase HTTP ${res.status}`);
+
+        // 2) Edge Function으로 이메일 발송 (비동기, 실패해도 UI는 성공 처리)
+        fetch(`${SUPABASE_URL}/functions/v1/notify-contact`, {
+            method: 'POST',
+            headers: {
+                'Content-Type':  'application/json',
+                'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+            },
+            body: JSON.stringify(payload)
+        }).catch(e => console.warn('[FastB Notify]', e));
+
+        document.getElementById('contactForm').style.display  = 'none';
+        document.getElementById('form-success').style.display = 'block';
+    } catch (err) {
+        console.error('[FastB Contact]', err);
+        errEl.style.display = 'block';
+        btn.disabled = false;
+    }
+}
+
+// ── Hamburger / Drawer ─────────────────────────────────────────
+function toggleDrawer() {
+    const drawer = document.getElementById('navDrawer');
+    const btn = document.getElementById('hamburger');
+    drawer.classList.toggle('open');
+    btn.classList.toggle('open');
+    document.body.style.overflow = drawer.classList.contains('open') ? 'hidden' : '';
+}
+function closeDrawer() {
+    document.getElementById('navDrawer').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+// ── Scroll spy ─────────────────────────────────────────────────
+function initScrollSpy() {
+    const sections = ['vision','problem','shenzhen','methodology','team','roadmap','cta'];
+    const navH = document.querySelector('nav').offsetHeight;
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(id => {
+            const el = document.getElementById(id);
+            if (el && el.getBoundingClientRect().top <= navH + 80) current = id;
+        });
+        document.querySelectorAll('.nav-link[href]').forEach(a => {
+            const href = a.getAttribute('href').replace('#','');
+            if (href === 'cta') return;
+            a.classList.toggle('active', href === current);
+        });
+    }, { passive: true });
+}
+
+// ── Loader ─────────────────────────────────────────────────────
+const counter = document.querySelector('.counter');
+let count = 0;
+function updateLoader() {
+    count += Math.floor(Math.random() * 15) + 1;
+    if (count > 100) count = 100;
+    counter.innerText = count < 10 ? `0${count}` : count;
+    if (count < 100) {
+        requestAnimationFrame(updateLoader);
+    } else {
+        setTimeout(() => {
+            gsap.to('#loader', { yPercent:-100, duration:1, ease:"power4.inOut", onComplete: initInteractions });
+        }, 200);
+    }
+}
+requestAnimationFrame(updateLoader);
+
+// ── WebGL wave ──────────────────────────────────────────────────
+const initWebGL = () => {
+    const container = document.getElementById('canvas-container');
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+    camera.position.set(0, 5, 15); camera.rotation.x = -0.2;
+    const renderer = new THREE.WebGLRenderer({ alpha:true, antialias:true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    container.appendChild(renderer.domElement);
+    const geometry = new THREE.PlaneGeometry(60, 60, 64, 64);
+    geometry.rotateX(-Math.PI / 2);
+    const material = new THREE.ShaderMaterial({
+        vertexShader:`varying float vElevation;uniform float uTime;void main(){vec3 pos=position;float e=sin(pos.x*.2+uTime*.5)*cos(pos.z*.2+uTime*.3)*2.0;e+=sin(pos.x*.5-uTime*.2)*cos(pos.z*.5+uTime*.4)*.5;pos.y+=e;vElevation=pos.y;gl_Position=projectionMatrix*modelViewMatrix*vec4(pos,1.0);}`,
+        fragmentShader:`varying float vElevation;void main(){float m=clamp((vElevation+2.0)/4.0,0.0,1.0);vec3 color=mix(vec3(.2,.18,.18),vec3(.98,.85,.83),m);gl_FragColor=vec4(color,smoothstep(-1.0,2.0,vElevation)*.7);}`,
+        uniforms:{ uTime:{ value:0 } }, wireframe:true, transparent:true
+    });
+    scene.add(new THREE.Mesh(geometry, material));
+    let mouseX = 0;
+    document.addEventListener('mousemove', e => { mouseX=(e.clientX-window.innerWidth/2)*.001; });
+    const clock = new THREE.Clock();
+    (function animate(){
+        requestAnimationFrame(animate);
+        material.uniforms.uTime.value = clock.getElapsedTime();
+        scene.children[0].rotation.y += 0.0015;
+        camera.position.x += (mouseX*5-camera.position.x)*.05;
+        camera.lookAt(scene.position);
+        renderer.render(scene, camera);
+    })();
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth/window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+};
+
+// ── GSAP interactions ───────────────────────────────────────────
+function initInteractions() {
+    gsap.registerPlugin(ScrollTrigger);
+    document.querySelectorAll('.reveal').forEach(el => {
+        gsap.to(el, {
+            scrollTrigger:{ trigger:el, start:"top 85%", toggleActions:"play none none reverse" },
+            opacity:1, y:0, duration:1, ease:"power3.out"
+        });
+    });
+    gsap.to('.monumental-vertical', {
+        scrollTrigger:{ trigger:'.hero', start:"top top", end:"bottom top", scrub:1 },
+        y:200, opacity:0
+    });
+    gsap.to('#marquee', { xPercent:-50, ease:"none", duration:30, repeat:-1 });
+    initScrollSpy();
+    initWebGL();
+}
+</script>
+</body>
+</html>
