@@ -157,7 +157,8 @@
 
         /* Tiers */
         .tiers { display:grid; grid-template-columns:repeat(12,1fr); gap:1.5rem; }
-        .tier-card { grid-column:span 12; border:1px solid var(--grid-line-strong); background:var(--surface); border-radius:32px; padding:2.5rem 2rem; display:flex; flex-direction:column; gap:1rem; }
+        .tier-card { grid-column:span 12; border:1px solid var(--grid-line-strong); background:var(--surface); border-radius:32px; padding:2.5rem 2rem; display:flex; flex-direction:column; gap:1rem; transition:border-color 0.25s, background 0.25s; }
+        .tier-card.active { border-color:var(--clay); background:rgba(250,217,211,0.04); }
         @media (min-width:768px) { .tier-card { grid-column:span 6; } }
         .tier-price { font-family:var(--font-display); font-size:2rem; color:var(--acid); margin-bottom:0.5rem; }
         .tier-steps { list-style:none; display:flex; flex-direction:column; gap:0.5rem; margin-top:1rem; }
@@ -467,13 +468,10 @@
             </div>
         </div>
     </div>
-    <!-- ── WHERE TO START ── -->
+    <!-- ── TRACK SUMMARY ── -->
     <div style="margin-top:5rem;">
-        <div class="section-header" style="margin-bottom:3rem;">
-            <h2 data-i18n="tiers.h2">어디서 시작하시겠습니까</h2>
-        </div>
         <div class="tiers">
-            <div class="tier-card panel" style="border-color:var(--clay);">
+            <div id="tier-v-card" class="tier-card panel active">
                 <span class="meta-label text-clay" data-i18n="tiers.v.label">Track V // Recommended for Startups</span>
                 <h3 class="panel-title" data-i18n="tiers.v.title">Verification Track</h3>
                 <div class="tier-price">~8<span style="font-size:0.4em;color:var(--text-muted)" data-i18n="tiers.v.price"> weeks total</span></div>
@@ -485,9 +483,9 @@
                     <li data-i18n="tiers.v.s4">Small Batch Production (2–4w)</li>
                 </ul>
             </div>
-            <div class="tier-card panel">
+            <div id="tier-c-card" class="tier-card panel">
                 <span class="meta-label" data-i18n="tiers.c.label">Track C // Professional Design &amp; Mass Production</span>
-                <h3 class="panel-title" data-i18n="tiers.c.title">Creation Track</h3>
+                <h3 class="panel-title" data-i18n="tiers.c.title">Commercialization Track</h3>
                 <div class="tier-price">12–36<span style="font-size:0.4em;color:var(--text-muted)" data-i18n="tiers.c.price"> weeks total</span></div>
                 <p class="panel-desc" data-i18n="tiers.c.desc">전문 산업 디자인과 글로벌 양산 서비스가 필요한 팀.</p>
                 <ul class="tier-steps">
@@ -743,7 +741,7 @@ const T = {
     'tiers.meta':'[07] Engagement Vectors','tiers.h2':'어디서 시작하시겠습니까',
     'tiers.v.label':'Track V // Recommended for Startups','tiers.v.title':'Verification Track','tiers.v.price':' weeks total','tiers.v.desc':'빠른 기능 검증과 PoC가 필요한 팀. MVP 빌드가 필요한 초기 스타트업에 최적입니다.',
     'tiers.v.s1':'Team Building & Spec. Review (1–2w)','tiers.v.s2':'EVP Build (2–3w)','tiers.v.s3':'Function Verification & PoC (2–3w)','tiers.v.s4':'Small Batch Production (2–4w)',
-    'tiers.c.label':'Track C // Professional Design & Mass Production','tiers.c.title':'Creation Track','tiers.c.price':' weeks total','tiers.c.desc':'전문 산업 디자인과 글로벌 양산 서비스가 필요한 팀.',
+    'tiers.c.label':'Track C // Professional Design & Mass Production','tiers.c.title':'Commercialization Track','tiers.c.price':' weeks total','tiers.c.desc':'전문 산업 디자인과 글로벌 양산 서비스가 필요한 팀.',
     'tiers.c.s1':'Team Building & Concept Review (2–4w)','tiers.c.s2':'EVP Build + Industrial Design (2–6w)','tiers.c.s3':'PoC & DVP Build + UI/UX Design (2–6w)','tiers.c.s4':'SW Dev + PVP Build + Mold Development (4–8w)','tiers.c.s5':'Mass Production (4–8w)',
     'road.meta':'Roadmap','road.h2':'2026 Milestones',
     'road.1.title':'Fast.B Beta Launching','road.1.desc':'플랫폼 베타 론칭 및 파일럿 프로젝트 모집 시작',
@@ -831,7 +829,7 @@ const T = {
     'tiers.meta':'[07] Engagement Vectors','tiers.h2':'Where Would You Like to Start?',
     'tiers.v.label':'Track V // Recommended for Startups','tiers.v.title':'Verification Track','tiers.v.price':' weeks total','tiers.v.desc':'For teams needing rapid functional validation and PoC. Optimal for early-stage startups that need MVP builds.',
     'tiers.v.s1':'Team Building & Spec. Review (1–2w)','tiers.v.s2':'EVP Build (2–3w)','tiers.v.s3':'Function Verification & PoC (2–3w)','tiers.v.s4':'Small Batch Production (2–4w)',
-    'tiers.c.label':'Track C // Professional Design & Mass Production','tiers.c.title':'Creation Track','tiers.c.price':' weeks total','tiers.c.desc':'For teams requiring professional industrial design and global mass production services.',
+    'tiers.c.label':'Track C // Professional Design & Mass Production','tiers.c.title':'Commercialization Track','tiers.c.price':' weeks total','tiers.c.desc':'For teams requiring professional industrial design and global mass production services.',
     'tiers.c.s1':'Team Building & Concept Review (2–4w)','tiers.c.s2':'EVP Build + Industrial Design (2–6w)','tiers.c.s3':'PoC & DVP Build + UI/UX Design (2–6w)','tiers.c.s4':'SW Dev + PVP Build + Mold Development (4–8w)','tiers.c.s5':'Mass Production (4–8w)',
     'road.meta':'Roadmap','road.h2':'2026 Milestones',
     'road.1.title':'Fast.B Beta Launching','road.1.desc':'Platform beta launch and start of pilot project recruitment',
@@ -882,6 +880,8 @@ function applyTrackContent() {
     document.getElementById('method-step5').style.display = (t === 'c') ? 'block' : 'none';
     document.getElementById('track-v-btn').classList.toggle('active', t === 'v');
     document.getElementById('track-c-btn').classList.toggle('active', t === 'c');
+    document.getElementById('tier-v-card').classList.toggle('active', t === 'v');
+    document.getElementById('tier-c-card').classList.toggle('active', t === 'c');
 }
 
 function selectTrack(track) {
