@@ -252,12 +252,11 @@
 <div class="nav-drawer" id="navDrawer">
     <a href="#problem"     class="nav-link" data-i18n="nav.problem"     onclick="closeDrawer()">Problem</a>
     <a href="#vision"      class="nav-link" data-i18n="nav.vision"      onclick="closeDrawer()">Vision</a>
-    <a href="#shenzhen"    class="nav-link" data-i18n="nav.shenzhen"    onclick="closeDrawer()">Fast.B</a>
+    <a href="#shenzhen"    class="nav-link" data-i18n="nav.shenzhen"    onclick="closeDrawer()">Fast.B Innovation</a>
     <a href="#methodology" class="nav-link" data-i18n="nav.process"     onclick="closeDrawer()">Process</a>
     <a href="#team"        class="nav-link" data-i18n="nav.team"        onclick="closeDrawer()">Team</a>
     <a href="#roadmap"     class="nav-link" data-i18n="nav.roadmap"     onclick="closeDrawer()">Roadmap</a>
-    <a href="#" class="nav-link" data-page="inno-design" data-i18n="nav.innodesign" onclick="closeDrawer(); showPage('inno-design'); return false;">Innovation Design</a>
-    <a href="#" class="nav-link" data-page="inno-tour"   data-i18n="nav.innotour"   onclick="closeDrawer(); showPage('inno-tour'); return false;">Innovation Tour</a>
+    <a href="#" class="nav-link" data-page="inno-tour" data-i18n="nav.innotour" onclick="closeDrawer(); showPage('inno-tour'); return false;">Innovation Tour</a>
     <a href="#" class="nav-link" data-i18n="nav.contact" onclick="closeDrawer(); openContactModal(); return false;">Contact</a>
 </div>
 
@@ -271,12 +270,11 @@
     <div class="nav-links">
         <a href="#problem"     class="nav-link" data-i18n="nav.problem">Problem</a>
         <a href="#vision"      class="nav-link" data-i18n="nav.vision">Vision</a>
-        <a href="#shenzhen"    class="nav-link" data-i18n="nav.shenzhen">Fast.B</a>
+        <a href="#shenzhen"    class="nav-link" data-i18n="nav.shenzhen">Fast.B Innovation</a>
         <a href="#methodology" class="nav-link" data-i18n="nav.process">Process</a>
         <a href="#team"        class="nav-link" data-i18n="nav.team">Team</a>
         <a href="#roadmap"     class="nav-link" data-i18n="nav.roadmap">Roadmap</a>
-        <a href="#" class="nav-link" data-page="inno-design" data-i18n="nav.innodesign" onclick="showPage('inno-design'); return false;">Innovation Design</a>
-        <a href="#" class="nav-link" data-page="inno-tour"   data-i18n="nav.innotour"   onclick="showPage('inno-tour'); return false;">Innovation Tour</a>
+        <a href="#" class="nav-link" data-page="inno-tour" data-i18n="nav.innotour" onclick="showPage('inno-tour'); return false;">Innovation Tour</a>
         <a href="#" class="nav-link" data-i18n="nav.contact" onclick="openContactModal(); return false;">Contact</a>
     </div>
 
@@ -642,14 +640,6 @@
 </main>
 
 <!-- ── SUB PAGES ── -->
-<div id="page-inno-design" style="display:none; position:relative; z-index:20; min-height:100vh; padding:18vh var(--container-padding) 16vh;">
-    <div class="section-header">
-        <span class="meta-label" data-i18n="inno.design.meta">Innovation Design</span>
-        <h2 data-i18n="inno.design.h2">Innovation Design</h2>
-    </div>
-    <p class="panel-desc" style="max-width:600px;font-size:1.1rem;line-height:1.8;" data-i18n="inno.design.desc">Coming soon.</p>
-</div>
-
 <div id="page-inno-tour" style="display:none; position:relative; z-index:20; min-height:100vh; padding:18vh var(--container-padding) 16vh;">
     <div class="section-header">
         <span class="meta-label" data-i18n="inno.tour.meta">Innovation Tour</span>
@@ -710,10 +700,9 @@
 // ── Translations ──────────────────────────────────────────────
 const T = {
   ko: {
-    'nav.vision':'Vision','nav.problem':'Problem','nav.shenzhen':'Fast.B',
+    'nav.vision':'Vision','nav.problem':'Problem','nav.shenzhen':'Fast.B Innovation',
     'nav.process':'Process','nav.team':'Team','nav.roadmap':'Roadmap','nav.contact':'Contact',
-    'nav.innodesign':'Innovation Design','nav.innotour':'Innovation Tour',
-    'inno.design.meta':'Innovation Design','inno.design.h2':'Innovation Design','inno.design.desc':'준비 중입니다.',
+    'nav.innotour':'Innovation Tour',
     'inno.tour.meta':'Innovation Tour','inno.tour.h2':'Innovation Tour','inno.tour.desc':'준비 중입니다.',
     'hero.vertical':'Hardware',
     'hero.tagline':'AI Hardware Prototyping and Acceleration Platform:<br>\'A Catalyst for Physical AI, Spatial AI and Agentic AI Hardware\'',
@@ -801,10 +790,9 @@ const T = {
     'modal.success.title':'접수 완료','modal.success.desc':'요청이 접수되었습니다.<br>빠른 시일 내에 연락 드리겠습니다.'
   },
   en: {
-    'nav.vision':'Vision','nav.problem':'Problem','nav.shenzhen':'Fast.B',
+    'nav.vision':'Vision','nav.problem':'Problem','nav.shenzhen':'Fast.B Innovation',
     'nav.process':'Process','nav.team':'Team','nav.roadmap':'Roadmap','nav.contact':'Contact',
-    'nav.innodesign':'Innovation Design','nav.innotour':'Innovation Tour',
-    'inno.design.meta':'Innovation Design','inno.design.h2':'Innovation Design','inno.design.desc':'Coming soon.',
+    'nav.innotour':'Innovation Tour',
     'inno.tour.meta':'Innovation Tour','inno.tour.h2':'Innovation Tour','inno.tour.desc':'Coming soon.',
     'hero.vertical':'Hardware',
     'hero.tagline':'AI Hardware Prototyping and Acceleration Platform:<br>\'A Catalyst for Physical AI, Spatial AI and Agentic AI Hardware\'',
@@ -1027,9 +1015,8 @@ function closeDrawer() {
 let currentPage = 'home';
 function showPage(page, scrollTarget) {
     currentPage = page;
-    document.getElementById('page-home').style.display        = page === 'home'        ? '' : 'none';
-    document.getElementById('page-inno-design').style.display = page === 'inno-design' ? '' : 'none';
-    document.getElementById('page-inno-tour').style.display   = page === 'inno-tour'   ? '' : 'none';
+    document.getElementById('page-home').style.display      = page === 'home'      ? '' : 'none';
+    document.getElementById('page-inno-tour').style.display = page === 'inno-tour' ? '' : 'none';
     document.querySelectorAll('.nav-link[data-page]').forEach(a => {
         a.classList.toggle('active', a.dataset.page === page);
     });
