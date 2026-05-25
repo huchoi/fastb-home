@@ -1025,20 +1025,21 @@ function closeDrawer() {
 
 // ── Page router ────────────────────────────────────────────────
 let currentPage = 'home';
-function showPage(page) {
+function showPage(page, scrollTarget) {
     currentPage = page;
-    const home = document.getElementById('page-home');
-    const innoDesign = document.getElementById('page-inno-design');
-    const innoTour = document.getElementById('page-inno-tour');
-    home.style.display        = page === 'home'        ? '' : 'none';
-    innoDesign.style.display  = page === 'inno-design' ? '' : 'none';
-    innoTour.style.display    = page === 'inno-tour'   ? '' : 'none';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.getElementById('page-home').style.display        = page === 'home'        ? '' : 'none';
+    document.getElementById('page-inno-design').style.display = page === 'inno-design' ? '' : 'none';
+    document.getElementById('page-inno-tour').style.display   = page === 'inno-tour'   ? '' : 'none';
     document.querySelectorAll('.nav-link[data-page]').forEach(a => {
         a.classList.toggle('active', a.dataset.page === page);
     });
-    if (page === 'home') {
-        document.querySelectorAll('.nav-link[data-page]').forEach(a => a.classList.remove('active'));
+    if (scrollTarget) {
+        setTimeout(() => {
+            const el = document.getElementById(scrollTarget);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 50);
+    } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 }
 
@@ -1129,6 +1130,21 @@ function initInteractions() {
     gsap.to('#marquee', { xPercent:-50, ease:"none", duration:30, repeat:-1 });
     initScrollSpy();
     initWebGL();
+
+    // 홈 앵커 링크 클릭 시 서브페이지에서 홈으로 복귀
+    document.querySelectorAll('a.nav-link[href^="#"]:not([data-page])').forEach(a => {
+        a.addEventListener('click', function(e) {
+            if (currentPage !== 'home') {
+                const hash = this.getAttribute('href').replace('#', '');
+                if (hash && hash !== '') {
+                    e.preventDefault();
+                    showPage('home', hash);
+                } else {
+                    showPage('home');
+                }
+            }
+        });
+    });
 }
 </script>
 </body>
