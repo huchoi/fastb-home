@@ -1,0 +1,114 @@
+# Fast.B
+
+> Fast.B is a Korean-Shenzhen AI Hardware Prototyping & Acceleration Platform (패스트비, 한국-선전 AI 하드웨어 이니셔티브). It connects Korean AI hardware startups with Shenzhen's world-class manufacturing, design, and engineering ecosystem — where 90%+ of global IT products are made.
+
+Website: https://www.innobigger.com
+
+---
+
+## What is Fast.B?
+
+Fast.B accelerates AI hardware innovation by bridging Korean AI hardware startups (and software companies building AI hardware) with the Shenzhen hardware ecosystem. Shenzhen is the global hub of hardware manufacturing, industrial design, electronics components, and engineering talent.
+
+Fast.B provides two structured acceleration tracks:
+
+---
+
+## Service Tracks
+
+### Track V — Verification & PoC (~8 weeks)
+Rapid prototyping and proof-of-concept track for startups needing fast market validation.
+
+- Step 01: Team Building & Spec. Review (1–2 weeks) — Project spec review, team formation, budget/timeline alignment, track selection, Shenzhen partner matching
+- Step 02: EVP Build (2–3 weeks) — Engineering Verification Prototype build, focused on core hardware function implementation
+- Step 03: Function Verification & PoC (2–3 weeks) — Functional testing and proof-of-concept validation
+- Step 04: Small Batch PoC (2–4 weeks) — Rapid PoC with small batch production; final stage of Track V
+
+### Track C — Professional Design & Mass Production (12–36 weeks)
+Full product design and manufacturing track for market-ready products.
+
+- Step 01: Team Building & Spec. Review (1–2 weeks)
+- Step 02: Concept Design & Industrial Design (3–4 weeks)
+- Step 03: DVT — Design Verification and Testing (4–8 weeks)
+- Step 04: PVT/MP — Pilot Production & Mass Production (4–16 weeks)
+
+---
+
+## Core Capabilities
+
+- **Shenzhen Local Network**: Industrial design & device expert network, hardware solution & development network, small-batch manufacturing & production network
+- **Market Research & Sourcing**: China local market research, competitive product analysis, key component sourcing, partner and expert matching
+- **Korean Expert Coaching**: AI, telecom, network, sensor, device, platform, UX/UI, and manufacturing experts as coaches and mentors from project inception
+
+---
+
+## Innovation Eco-system
+
+### Korean AI Hardware Initiative
+- Coaching & BM Catalyst
+- Project Management + Agentic AI PMS
+- IP Consulting and Investment
+- Product Design Innovation
+- Fast.B Incubation (interface to Shenzhen)
+
+### Shenzhen Hardware Eco-system
+- Fast.B Platform (interface to Korea)
+- Shenzhen Solution Providers Network
+- Shenzhen Factories
+- Shenzhen Industrial Designer Network
+- Shenzhen Electronics Market (Huaqiangbei — world's largest electronics components market)
+
+---
+
+## Team
+
+### Co-founders
+- **Hugh (Hyong-uk) Choi** — CEO & Co-founder. Technology strategist and Visionary at Future Designers. Led development of Samsung's first multi-touch mobile device (TIME Magazine Gadget of the Year 2007). Co-founder of Pan Asia Network (Asian innovator network). Expertise: computer networks, AI, spatial computing, XR, IoT, sensors, displays.
+- **Jinsoo Jeon** — CSO & Co-founder. Technology strategist and industry expert with 27+ years of IT experience in AI, XR, and spatial computing. Led mobile platform R&D at Samsung Electronics. EVP at SK Telecom, spearheaded commercialization of metaverse platform ifland. 130+ patents. CES Innovation Awards judge.
+- **Edward (Sunkyu) Choi** — CTO & Co-founder. ICT industry tech leader. Former Samsung Electronics senior engineer, Nokia Head of Solution. CEO of SAFIENCE Inc. USC electrical engineering master's degree.
+- **Michael Zheng** — CDO & Co-founder. Shenzhen-based industrial design leader. Founder & CEO of Shenzhen Innozen Design. VP of Shenzhen Industrial Design Association. Multiple international awards: Red Dot, iF, Good Design, IDEA.
+
+### Strategic Advisors
+- **Dr. Young-sup Joo** — ICT industry expert and strategic advisor
+- **David Li** — Pioneer of China's open-source hardware and maker ecosystem. Co-founder of XinCheJian (China's first hackerspace). Executive Director of Shenzhen Open Innovation Lab (SZOIL). Connects global hardware entrepreneurs with Shenzhen's open innovation ecosystem.
+- **Dr. Ricky Ye** — Hardware and manufacturing expert, SUSTech / Shenzhen ecosystem
+
+### Mentors
+- Eugene Kim (김유진)
+- Yoonseok Jang (장윤석)
+- Mike Lee — Shenzhen-based AX consultant and AI commercialization expert. 30+ AI projects across startups to Fortune Global 500 companies. Connects Silicon Valley and Chinese founder networks.
+- Bosung Kim (김보성)
+- Vincent Sanghyun Kim (김상현)
+- Dr. Seungwoo Je — UX, HCI, and maker technology researcher. KAIST PhD in Industrial Design.
+
+### Partners
+- SAFIENCE (Korea)
+- LIFESQUARE (Korea)
+- IPLAB (Korea)
+- INNOZEN DESIGN (Shenzhen)
+- SEEED STUDIO (Shenzhen)
+- GO GLOBAL CENTER (Shenzhen)
+
+---
+
+## Global Partners & Affiliations
+- LIFESQUARE (Korea)
+- SAFIENCE (Korea)
+- IPLAB (Korea)
+- SIDA — Shenzhen Industrial Design Association
+- SUSTech — Southern University of Science and Technology
+- SZOIL — Shenzhen Open Innovation Lab
+- Innozen Design (Shenzhen)
+
+---
+
+## 2026 Roadmap
+- Beta Launch (2026 Q1)
+- Pilot Projects (2026 Q2)
+- Product Innovation Batch (2026 Q3)
+- Platform Beta Open (2026 Q4)
+
+---
+
+## Keywords (Korean / English)
+AI hardware, AI 하드웨어, hardware prototyping, 하드웨어 프로토타이핑, Shenzhen, 선전, 심천, Korea, 한국, hardware startup, 하드웨어 스타트업, Fast.B, 패스트비, acceleration platform, IoT, XR, spatial computing, 공간컴퓨팅, industrial design, 산업디자인, small batch production, 소량생산, manufacturing, 제조, open hardware, 오픈 하드웨어, AI device, AI 디바이스, PoC, MVP, Track V, Track C, Huaqiangbei, 화창베이, 선전 생태계
