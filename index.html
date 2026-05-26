@@ -1331,9 +1331,13 @@ function showPage(page, scrollTarget) {
     currentPage = page;
     document.getElementById('page-home').style.display      = page === 'home'      ? '' : 'none';
     document.getElementById('page-inno-tour').style.display = page === 'inno-tour' ? '' : 'none';
-    document.querySelectorAll('.nav-link[data-page]').forEach(a => {
-        a.classList.toggle('active', a.dataset.page === page);
-    });
+    // 모든 nav active 초기화 후 해당 페이지만 활성화
+    document.querySelectorAll('.nav-link').forEach(a => a.classList.remove('active'));
+    if (page !== 'home') {
+        document.querySelectorAll('.nav-link[data-page]').forEach(a => {
+            a.classList.toggle('active', a.dataset.page === page);
+        });
+    }
     if (scrollTarget) {
         setTimeout(() => {
             const el = document.getElementById(scrollTarget);
@@ -1347,14 +1351,17 @@ function showPage(page, scrollTarget) {
 // ── Scroll spy ─────────────────────────────────────────────────
 function initScrollSpy() {
     const sections = ['problem','vision','shenzhen','methodology','team','cta'];
+    // href="#section" 형태만 대상으로 함 (href="#"인 페이지/모달 링크 제외)
+    const sectionLinks = document.querySelectorAll('.nav-link[href^="#"]:not([href="#"])');
     const navH = document.querySelector('nav').offsetHeight;
     window.addEventListener('scroll', () => {
+        if (currentPage !== 'home') return;
         let current = '';
         sections.forEach(id => {
             const el = document.getElementById(id);
             if (el && el.getBoundingClientRect().top <= navH + 80) current = id;
         });
-        document.querySelectorAll('.nav-link[href]').forEach(a => {
+        sectionLinks.forEach(a => {
             const href = a.getAttribute('href').replace('#','');
             if (href === 'cta') return;
             a.classList.toggle('active', href === current);
