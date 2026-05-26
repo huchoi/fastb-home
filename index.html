@@ -115,7 +115,7 @@
 
         /* Grid 3 */
         .grid-3 { display:grid; grid-template-columns:repeat(12,1fr); gap:2rem; }
-        .grid-3 > * { grid-column:span 12; background:rgba(51,46,45,0.5); border-radius:24px; padding:2.5rem 2rem; display:flex; flex-direction:column; gap:1.5rem; border:1px solid var(--grid-line-strong); }
+        .grid-3 > * { grid-column:span 12; background:rgba(51,46,45,0.6); border-radius:24px; padding:2.5rem 2rem; display:flex; flex-direction:column; gap:1.5rem; border:1px solid var(--grid-line-strong); }
         @media (min-width:768px) { .grid-3 > * { grid-column:span 4; } }
 
         /* Panels */
@@ -146,7 +146,7 @@
         .stat-num { font-family:var(--font-display); font-size:clamp(3rem,6vw,6rem); color:var(--clay); line-height:1; margin-bottom:1rem; letter-spacing:-0.03em; }
 
         /* Shenzhen quote */
-        .shenzhen-quote { border:1px solid var(--grid-line-strong); border-radius:24px; padding:3rem 3.5rem; background:rgba(51,46,45,0.5); margin:4rem 0; display:flex; flex-direction:column; gap:1.5rem; }
+        .shenzhen-quote { border:1px solid var(--grid-line-strong); border-radius:24px; padding:3rem 3.5rem; background:rgba(51,46,45,0.6); margin:4rem 0; display:flex; flex-direction:column; gap:1.5rem; }
         .shenzhen-quote blockquote { font-family:var(--font-title); font-size:clamp(2rem,4vw,4rem); line-height:1.15; text-transform:uppercase; font-weight:600; letter-spacing:0.04em; color:var(--clay); }
 
         /* Marquee */
@@ -157,8 +157,8 @@
 
         /* Tiers */
         .tiers { display:grid; grid-template-columns:repeat(12,1fr); gap:1.5rem; }
-        .tier-card { grid-column:span 12; border:1px solid var(--grid-line-strong); background:rgba(51,46,45,0.5); border-radius:24px; padding:2.5rem 2.5rem; display:flex; flex-direction:column; gap:1.25rem; transition:border-color 0.25s, background 0.25s; }
-        .tier-card.active { border-color:var(--clay); background:rgba(51,46,45,0.65); }
+        .tier-card { grid-column:span 12; border:1px solid var(--grid-line-strong); background:rgba(51,46,45,0.6); border-radius:24px; padding:2.5rem 2.5rem; display:flex; flex-direction:column; gap:1.25rem; transition:border-color 0.25s, background 0.25s; }
+        .tier-card.active { border-color:var(--clay); background:rgba(51,46,45,0.75); }
         @media (min-width:768px) { .tier-card { grid-column:span 6; } }
         .tier-price { font-family:var(--font-display); font-size:2rem; color:var(--acid); margin-bottom:0.5rem; }
         .tier-steps { list-style:none; display:flex; flex-direction:column; gap:0.5rem; margin-top:1rem; }
@@ -179,7 +179,7 @@
 
         /* Team */
         .team-grid { display:grid; grid-template-columns:repeat(12,1fr); gap:1.5rem; }
-        .person-card { grid-column:span 12; border:1px solid var(--grid-line-strong); border-radius:20px; padding:1.5rem; background:rgba(51,46,45,0.5); display:flex; flex-direction:column; gap:0.85rem; transition:border-color 0.3s; }
+        .person-card { grid-column:span 12; border:1px solid var(--grid-line-strong); border-radius:20px; padding:1.5rem; background:rgba(51,46,45,0.6); display:flex; flex-direction:column; gap:0.85rem; transition:border-color 0.3s; }
         .person-card:hover { border-color:rgba(250,217,211,0.3); }
         @media (min-width:640px) { .person-card { grid-column:span 6; } }
         @media (min-width:1024px) { .person-card { grid-column:span 3; } }
@@ -189,7 +189,7 @@
 
         /* Advisors */
         .advisor-grid { display:grid; grid-template-columns:repeat(12,1fr); gap:1.5rem; }
-        .advisor-card { grid-column:span 12; border:1px solid var(--grid-line-strong); border-radius:20px; padding:1.5rem; background:rgba(29,24,24,0.5); display:flex; flex-direction:column; gap:0.75rem; transition:border-color 0.3s; }
+        .advisor-card { grid-column:span 12; border:1px solid var(--grid-line-strong); border-radius:20px; padding:1.5rem; background:rgba(29,24,24,0.6); display:flex; flex-direction:column; gap:0.75rem; transition:border-color 0.3s; }
         .advisor-card:hover { border-color:rgba(250,217,211,0.3); }
         @media (min-width:768px) { .advisor-card { grid-column:span 4; } }
 
@@ -390,17 +390,17 @@
         <p class="panel-desc" data-i18n="sz.desc">전 세계 IT 제품의 90% 이상이 선전을 거칩니다. 세계 최대 전자부품 시장 화창베이(Huaqiangbei)를 중심으로, 선전은 하드웨어 제조·디자인·양산의 모든 것이 집약된 도시입니다. Fast.B는 이 생태계의 핵심 파트너들과 긴밀하게 협력합니다.</p>
     </div>
     <div class="grid-3">
-        <div style="border:1px solid var(--grid-line-strong);background:rgba(29,24,24,0.5);">
+        <div style="border:1px solid var(--grid-line-strong);background:rgba(29,24,24,0.6);">
             <svg class="star-motif text-acid" viewBox="0 0 24 24"><path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z"/></svg>
             <h3 class="panel-title" data-i18n="comp.p1.title">선전 현지 네트워크</h3>
             <p class="panel-desc" data-i18n="comp.p1.desc">중국 선전 현지의 산업디자인·디바이스 전문가 네트워크, 하드웨어 솔루션·개발 네트워크, 소량 생산·제조 전문 네트워크와 긴밀하게 협력하고 최고의 시너지를 위해 역할을 분담합니다.</p>
         </div>
-        <div style="border:1px solid var(--grid-line-strong);background:rgba(29,24,24,0.5);">
+        <div style="border:1px solid var(--grid-line-strong);background:rgba(29,24,24,0.6);">
             <svg class="star-motif text-clay" viewBox="0 0 24 24"><path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z"/></svg>
             <h3 class="panel-title" data-i18n="comp.p2.title">현지 시장 조사 · 소싱 동반</h3>
             <p class="panel-desc" data-i18n="comp.p2.desc">AI하드웨어 프로토타이핑을 위해 중국 현지 시장조사, 유사 제품 및 경쟁사 조사 분석, 핵심 부품 및 솔루션 소싱, 파트너 및 전문가 연결을 함께 진행합니다.</p>
         </div>
-        <div style="border:1px solid var(--grid-line-strong);background:rgba(29,24,24,0.5);">
+        <div style="border:1px solid var(--grid-line-strong);background:rgba(29,24,24,0.6);">
             <svg class="star-motif" style="color:var(--text-main)" viewBox="0 0 24 24"><path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z"/></svg>
             <h3 class="panel-title" data-i18n="comp.p3.title">국내 최고 전문가 코칭</h3>
             <p class="panel-desc" data-i18n="comp.p3.desc">AI·통신·네트워크·센서·디바이스·플랫폼·UX/UI·제조 전문가들이 프로젝트 초기부터 코치와 멘토로 참여하여 단순 하드웨어가 아닌 AI 기반 하드웨어 비즈니스 모델과 전략을 중심으로 경쟁력 있는 구현을 가능하게 합니다.</p>
@@ -532,16 +532,6 @@
         </div>
         <div class="person-card" style="grid-column:auto;">
             <div style="display:flex;align-items:center;gap:1.25rem;padding-bottom:1rem;border-bottom:1px solid var(--grid-line);">
-                <div class="avatar"><img src="images/photo-sunkyu.png" alt="Sunkyu Choi"></div>
-                <div>
-                    <div class="person-role" data-i18n="team.c2.role">CTO &amp; Co-founder</div>
-                    <div class="person-name">Sunkyu Choi</div>
-                </div>
-            </div>
-            <p class="person-bio" data-i18n="team.c2.bio">ICT 산업에서 기술 전문성과 사업 리더십을 함께 축적해온 실행형 테크 리더다. 삼성전자 선임 엔지니어로 기술 역량을 다졌고, Nokia Head of Solution으로 글로벌 시장과 솔루션 비즈니스 경험을 쌓았다. 이후 Cretures Inc. CEO를 거쳐 현재 SAFIENCE Inc. CEO로 기업 성장과 기술 혁신을 이끌고 있다. USC 전기공학 석사 출신으로, Fast.B의 기술 전략과 실행 기반을 책임진다.</p>
-        </div>
-        <div class="person-card" style="grid-column:auto;">
-            <div style="display:flex;align-items:center;gap:1.25rem;padding-bottom:1rem;border-bottom:1px solid var(--grid-line);">
                 <div class="avatar"><img src="images/photo-jinsoo.jpeg" alt="Jinsoo Jeon"></div>
                 <div>
                     <div class="person-role" data-i18n="team.c3.role">CSO &amp; Co-founder</div>
@@ -549,6 +539,16 @@
                 </div>
             </div>
             <p class="person-bio" data-i18n="team.c3.bio">27년 이상의 IT 산업 경험을 보유한 AI, XR, 공간컴퓨팅 분야의 기술 전략가이자 기업가다. 삼성전자에서 모바일 플랫폼 R&amp;D를 이끌었고, SK텔레콤 EVP로서 메타버스 플랫폼 ifland의 상용화를 주도했다. 현재 BoldStep CEO이자 Companoid Labs 벤처 파트너로 활동하며, 130건 이상의 특허와 CES Innovation Awards 심사 경험을 기반으로 글로벌 기술 생태계 자문과 사업 전략을 수행한다.</p>
+        </div>
+        <div class="person-card" style="grid-column:auto;">
+            <div style="display:flex;align-items:center;gap:1.25rem;padding-bottom:1rem;border-bottom:1px solid var(--grid-line);">
+                <div class="avatar"><img src="images/photo-sunkyu.png" alt="Sunkyu Choi"></div>
+                <div>
+                    <div class="person-role" data-i18n="team.c2.role">CTO &amp; Co-founder</div>
+                    <div class="person-name">Sunkyu Choi</div>
+                </div>
+            </div>
+            <p class="person-bio" data-i18n="team.c2.bio">ICT 산업에서 기술 전문성과 사업 리더십을 함께 축적해온 실행형 테크 리더다. 삼성전자 선임 엔지니어로 기술 역량을 다졌고, Nokia Head of Solution으로 글로벌 시장과 솔루션 비즈니스 경험을 쌓았다. 이후 Cretures Inc. CEO를 거쳐 현재 SAFIENCE Inc. CEO로 기업 성장과 기술 혁신을 이끌고 있다. USC 전기공학 석사 출신으로, Fast.B의 기술 전략과 실행 기반을 책임진다.</p>
         </div>
         <div class="person-card" style="grid-column:auto;">
             <div style="display:flex;align-items:center;gap:1.25rem;padding-bottom:1rem;border-bottom:1px solid var(--grid-line);">
@@ -747,7 +747,7 @@
         <div style="display:grid;grid-template-columns:repeat(1,1fr);gap:2rem;">
 
             <!-- Day 1 -->
-            <div style="background:rgba(51,46,45,0.5);border-radius:24px;padding:2rem;border:1px solid var(--grid-line-strong);">
+            <div style="background:rgba(51,46,45,0.6);border-radius:24px;padding:2rem;border:1px solid var(--grid-line-strong);">
                 <div style="display:flex;align-items:baseline;gap:1.5rem;margin-bottom:2.5rem;padding-bottom:2rem;border-bottom:1px solid var(--grid-line-strong);">
                     <span style="font-family:var(--font-display);font-size:3.5rem;color:var(--clay);line-height:1;letter-spacing:-0.03em;">D1</span>
                     <div><div class="meta-label" style="margin-bottom:0.3rem;">Day 1</div><h3 style="font-family:var(--font-subtitle);font-size:1.05rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-main);" data-i18n="tour.d1.h">Shenzhen 도착 및 제조 생태계 입문</h3></div>
@@ -761,7 +761,7 @@
             </div>
 
             <!-- Day 2 -->
-            <div style="background:rgba(51,46,45,0.5);border-radius:24px;padding:2rem;border:1px solid var(--grid-line-strong);">
+            <div style="background:rgba(51,46,45,0.6);border-radius:24px;padding:2rem;border:1px solid var(--grid-line-strong);">
                 <div style="display:flex;align-items:baseline;gap:1.5rem;margin-bottom:2.5rem;padding-bottom:2rem;border-bottom:1px solid var(--grid-line-strong);">
                     <span style="font-family:var(--font-display);font-size:3.5rem;color:var(--clay);line-height:1;letter-spacing:-0.03em;">D2</span>
                     <div><div class="meta-label" style="margin-bottom:0.3rem;">Day 2</div><h3 style="font-family:var(--font-subtitle);font-size:1.05rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-main);" data-i18n="tour.d2.h">공장 투어 &amp; 공급망 워크숍</h3></div>
@@ -775,7 +775,7 @@
             </div>
 
             <!-- Day 3 -->
-            <div style="background:rgba(51,46,45,0.5);border-radius:24px;padding:2rem;border:1px solid var(--grid-line-strong);">
+            <div style="background:rgba(51,46,45,0.6);border-radius:24px;padding:2rem;border:1px solid var(--grid-line-strong);">
                 <div style="display:flex;align-items:baseline;gap:1.5rem;margin-bottom:2.5rem;padding-bottom:2rem;border-bottom:1px solid var(--grid-line-strong);">
                     <span style="font-family:var(--font-display);font-size:3.5rem;color:var(--clay);line-height:1;letter-spacing:-0.03em;">D3</span>
                     <div><div class="meta-label" style="margin-bottom:0.3rem;">Day 3</div><h3 style="font-family:var(--font-subtitle);font-size:1.05rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-main);" data-i18n="tour.d3.h">로보틱스 · AI 하드웨어 · 시장 탐방</h3></div>
@@ -789,7 +789,7 @@
             </div>
 
             <!-- Day 4 -->
-            <div style="background:rgba(51,46,45,0.5);border-radius:24px;padding:2rem;border:1px solid var(--grid-line-strong);">
+            <div style="background:rgba(51,46,45,0.6);border-radius:24px;padding:2rem;border:1px solid var(--grid-line-strong);">
                 <div style="display:flex;align-items:baseline;gap:1.5rem;margin-bottom:2.5rem;padding-bottom:2rem;border-bottom:1px solid var(--grid-line-strong);">
                     <span style="font-family:var(--font-display);font-size:3.5rem;color:var(--clay);line-height:1;letter-spacing:-0.03em;">D4</span>
                     <div><div class="meta-label" style="margin-bottom:0.3rem;">Day 4</div><h3 style="font-family:var(--font-subtitle);font-size:1.05rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-main);" data-i18n="tour.d4.h">전략 세션 &amp; Wrap-up</h3></div>
@@ -811,7 +811,7 @@
             <h2 style="font-family:var(--font-title);font-size:clamp(1.75rem,3vw,3rem);font-weight:700;text-transform:uppercase;letter-spacing:0.04em;line-height:1.12;" data-i18n="tour.target.h2">참가 대상 및 일정</h2>
         </div>
         <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:2rem;">
-            <div style="grid-column:span 12;background:rgba(51,46,45,0.5);border-radius:24px;padding:2.5rem 2rem;border:1px solid var(--grid-line-strong);">
+            <div style="grid-column:span 12;background:rgba(51,46,45,0.6);border-radius:24px;padding:2.5rem 2rem;border:1px solid var(--grid-line-strong);">
                 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:3rem;">
                     <div>
                         <div class="meta-label" style="margin-bottom:1.25rem;" data-i18n="tour.target.l1">대상</div>
