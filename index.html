@@ -171,10 +171,10 @@
         .milestone-content { grid-column:span 10; }
 
         /* Avatar */
-        .avatar { width:80px; height:80px; border-radius:50%; border:1.5px solid var(--grid-line-strong); overflow:hidden; flex-shrink:0; transition:border-color 0.4s, box-shadow 0.4s; image-rendering:pixelated; background:var(--bg); }
-        .avatar img { width:100%; height:100%; display:block; }
-        .avatar-sm { width:52px; height:52px; border-radius:50%; border:1.5px solid var(--grid-line-strong); overflow:hidden; flex-shrink:0; transition:border-color 0.4s; image-rendering:pixelated; background:var(--bg); }
-        .avatar-sm img { width:100%; height:100%; display:block; }
+        .avatar { width:88px; height:88px; border-radius:50%; border:2px solid var(--grid-line-strong); overflow:hidden; flex-shrink:0; transition:border-color 0.4s, box-shadow 0.4s; background:var(--surface); }
+        .avatar img { width:100%; height:100%; display:block; object-fit:cover; object-position:center top; }
+        .avatar-sm { width:52px; height:52px; border-radius:50%; border:1.5px solid var(--grid-line-strong); overflow:hidden; flex-shrink:0; transition:border-color 0.4s; background:var(--surface); }
+        .avatar-sm img { width:100%; height:100%; display:block; object-fit:cover; object-position:center top; }
         .person-card:hover .avatar, .advisor-card:hover .avatar, .advisor-card:hover .avatar-sm { border-color:var(--clay); box-shadow:0 0 0 3px rgba(250,217,211,0.15); }
 
         /* Team */
@@ -522,7 +522,7 @@
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:1.5rem;">
         <div class="person-card" style="grid-column:auto;">
             <div style="display:flex;align-items:center;gap:1.25rem;padding-bottom:1rem;border-bottom:1px solid var(--grid-line);">
-                <div class="avatar"><img src="https://api.dicebear.com/9.x/pixel-art/svg?seed=HyongukChoi&backgroundColor=332e2d&scale=90" alt="Hugh Choi"></div>
+                <div class="avatar"><img src="images/photo-hugh.jpg" alt="Hugh Choi"></div>
                 <div>
                     <div class="person-role" data-i18n="team.c1.role">CEO &amp; Co-founder</div>
                     <div class="person-name">Hugh (Hyong-uk) Choi</div>
@@ -532,7 +532,7 @@
         </div>
         <div class="person-card" style="grid-column:auto;">
             <div style="display:flex;align-items:center;gap:1.25rem;padding-bottom:1rem;border-bottom:1px solid var(--grid-line);">
-                <div class="avatar"><img src="https://api.dicebear.com/9.x/pixel-art/svg?seed=SunkyuChoi&backgroundColor=332e2d&scale=90" alt="Sunkyu Choi"></div>
+                <div class="avatar"><img src="images/photo-sunkyu.png" alt="Sunkyu Choi"></div>
                 <div>
                     <div class="person-role" data-i18n="team.c2.role">CTO &amp; Co-founder</div>
                     <div class="person-name">Sunkyu Choi</div>
@@ -542,7 +542,7 @@
         </div>
         <div class="person-card" style="grid-column:auto;">
             <div style="display:flex;align-items:center;gap:1.25rem;padding-bottom:1rem;border-bottom:1px solid var(--grid-line);">
-                <div class="avatar"><img src="https://api.dicebear.com/9.x/pixel-art/svg?seed=JinsooJeon&backgroundColor=332e2d&scale=90" alt="Jinsoo Jeon"></div>
+                <div class="avatar"><img src="images/photo-jinsoo.jpeg" alt="Jinsoo Jeon"></div>
                 <div>
                     <div class="person-role" data-i18n="team.c3.role">CSO &amp; Co-founder</div>
                     <div class="person-name">Jinsoo Jeon</div>
@@ -552,7 +552,7 @@
         </div>
         <div class="person-card" style="grid-column:auto;">
             <div style="display:flex;align-items:center;gap:1.25rem;padding-bottom:1rem;border-bottom:1px solid var(--grid-line);">
-                <div class="avatar"><img src="https://api.dicebear.com/9.x/pixel-art/svg?seed=MichaelZheng&backgroundColor=332e2d&scale=90" alt="Michael Zheng"></div>
+                <div class="avatar"><img src="images/photo-michael-zheng.jpg" alt="Michael Zheng"></div>
                 <div>
                     <div class="person-role" data-i18n="team.c4.role">CDO &amp; Co-founder (Shenzhen)</div>
                     <div class="person-name">Michael Zheng</div>
@@ -568,7 +568,7 @@
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:1.5rem;">
             <div class="advisor-card" style="grid-column:auto;">
                 <div style="display:flex;align-items:center;gap:1rem;padding-bottom:0.75rem;border-bottom:1px solid var(--grid-line);">
-                    <div class="avatar-sm"><img src="https://api.dicebear.com/9.x/pixel-art/svg?seed=YoungSupJoo&backgroundColor=1d1818&scale=90" alt="Dr. Young-sup Joo"></div>
+                    <div class="avatar-sm"><img src="images/photo-youngsup.jpg" alt="Dr. Young-sup Joo"></div>
                     <div>
                         <div class="person-role">Chief Advisor</div>
                         <div class="person-name" style="font-size:0.95rem;">Dr. Young-sup Joo</div>
@@ -578,7 +578,7 @@
             </div>
             <div class="advisor-card" style="grid-column:auto;">
                 <div style="display:flex;align-items:center;gap:1rem;padding-bottom:0.75rem;border-bottom:1px solid var(--grid-line);">
-                    <div class="avatar-sm"><img src="https://api.dicebear.com/9.x/pixel-art/svg?seed=DavidLi&backgroundColor=1d1818&scale=90" alt="David Li"></div>
+                    <div class="avatar-sm"><img src="images/photo-david-li.jpeg" alt="David Li"></div>
                     <div>
                         <div class="person-role">Advisor (Shenzhen)</div>
                         <div class="person-name" style="font-size:0.95rem;">David Li</div>
@@ -588,7 +588,7 @@
             </div>
             <div class="advisor-card" style="grid-column:auto;">
                 <div style="display:flex;align-items:center;gap:1rem;padding-bottom:0.75rem;border-bottom:1px solid var(--grid-line);">
-                    <div class="avatar-sm"><img src="https://api.dicebear.com/9.x/pixel-art/svg?seed=RickyYe&backgroundColor=1d1818&scale=90" alt="Dr. Ricky Ye"></div>
+                    <div class="avatar-sm"><img src="images/photo-ricky-ye.jpeg" alt="Dr. Ricky Ye"></div>
                     <div>
                         <div class="person-role">Advisor (Shanghai)</div>
                         <div class="person-name" style="font-size:0.95rem;">Dr. Ricky Ye</div>
@@ -605,7 +605,7 @@
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:1.5rem;">
             <div class="advisor-card" style="grid-column:auto;">
                 <div style="display:flex;align-items:center;gap:1rem;padding-bottom:0.75rem;border-bottom:1px solid var(--grid-line);">
-                    <div class="avatar-sm"><img src="https://api.dicebear.com/9.x/pixel-art/svg?seed=EugeneKim&backgroundColor=1d1818&scale=90" alt="Eugene Kim"></div>
+                    <div class="avatar-sm"><img src="images/photo-eugene-kim.jpeg" alt="Eugene Kim"></div>
                     <div>
                         <div class="person-role">Mentor</div>
                         <div class="person-name" style="font-size:0.95rem;">Eugene Kim</div>
@@ -615,7 +615,7 @@
             </div>
             <div class="advisor-card" style="grid-column:auto;">
                 <div style="display:flex;align-items:center;gap:1rem;padding-bottom:0.75rem;border-bottom:1px solid var(--grid-line);">
-                    <div class="avatar-sm"><img src="https://api.dicebear.com/9.x/pixel-art/svg?seed=YoonseokJang&backgroundColor=1d1818&scale=90" alt="Dr. Yoonseok Jang"></div>
+                    <div class="avatar-sm"><img src="images/photo-yoonseok-jang.png" alt="Dr. Yoonseok Jang"></div>
                     <div>
                         <div class="person-role">Mentor</div>
                         <div class="person-name" style="font-size:0.95rem;">Dr. Yoonseok Jang</div>
@@ -625,7 +625,7 @@
             </div>
             <div class="advisor-card" style="grid-column:auto;">
                 <div style="display:flex;align-items:center;gap:1rem;padding-bottom:0.75rem;border-bottom:1px solid var(--grid-line);">
-                    <div class="avatar-sm"><img src="https://api.dicebear.com/9.x/pixel-art/svg?seed=MikeLee&backgroundColor=1d1818&scale=90" alt="Mike Lee"></div>
+                    <div class="avatar-sm"><img src="images/photo-mike-lee.jpg" alt="Mike Lee"></div>
                     <div>
                         <div class="person-role">Mentor (Shenzhen)</div>
                         <div class="person-name" style="font-size:0.95rem;">Mike Lee</div>
@@ -635,7 +635,7 @@
             </div>
             <div class="advisor-card" style="grid-column:auto;">
                 <div style="display:flex;align-items:center;gap:1rem;padding-bottom:0.75rem;border-bottom:1px solid var(--grid-line);">
-                    <div class="avatar-sm"><img src="https://api.dicebear.com/9.x/pixel-art/svg?seed=BosungKim&backgroundColor=1d1818&scale=90" alt="Bosung Kim"></div>
+                    <div class="avatar-sm"><img src="images/photo-bosung-kim.png" alt="Bosung Kim"></div>
                     <div>
                         <div class="person-role">Mentor</div>
                         <div class="person-name" style="font-size:0.95rem;">Bosung Kim</div>
@@ -645,7 +645,7 @@
             </div>
             <div class="advisor-card" style="grid-column:auto;">
                 <div style="display:flex;align-items:center;gap:1rem;padding-bottom:0.75rem;border-bottom:1px solid var(--grid-line);">
-                    <div class="avatar-sm"><img src="https://api.dicebear.com/9.x/pixel-art/svg?seed=VincentKim&backgroundColor=1d1818&scale=90" alt="Vincent Sanghyun Kim"></div>
+                    <div class="avatar-sm"><img src="images/photo-sanghyun-kim.jpeg" alt="Vincent Sanghyun Kim"></div>
                     <div>
                         <div class="person-role">Mentor</div>
                         <div class="person-name" style="font-size:0.95rem;">Vincent Sanghyun Kim</div>
@@ -655,7 +655,7 @@
             </div>
             <div class="advisor-card" style="grid-column:auto;">
                 <div style="display:flex;align-items:center;gap:1rem;padding-bottom:0.75rem;border-bottom:1px solid var(--grid-line);">
-                    <div class="avatar-sm"><img src="https://api.dicebear.com/9.x/pixel-art/svg?seed=SeungwooJe&backgroundColor=1d1818&scale=90" alt="Dr. Seungwoo Je"></div>
+                    <div class="avatar-sm"><img src="images/photo-seungwoo-je.webp" alt="Dr. Seungwoo Je"></div>
                     <div>
                         <div class="person-role">Mentor (Shenzhen)</div>
                         <div class="person-name" style="font-size:0.95rem;">Dr. Seungwoo Je</div>
