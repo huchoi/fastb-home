@@ -447,8 +447,8 @@
             </div>
             <div class="step reveal">
                 <div class="step-num">04</div>
-                <h3 class="panel-title text-clay step-title" style="margin-bottom:0.75rem;" data-i18n-v="method.s4v.title" data-i18n-c="method.s4c.title">Small Batch Production</h3>
-                <p class="panel-desc step-desc" data-i18n-v="method.s4v.desc" data-i18n-c="method.s4c.desc">소량 생산(Small Batch)으로 빠르게 시장에 진입합니다. Track V의 완주 단계입니다.</p>
+                <h3 class="panel-title text-clay step-title" style="margin-bottom:0.75rem;" data-i18n-v="method.s4v.title" data-i18n-c="method.s4c.title">Small Batch PoC</h3>
+                <p class="panel-desc step-desc" data-i18n-v="method.s4v.desc" data-i18n-c="method.s4c.desc">소량 생산(Small Batch)으로 빠르게 PoC를 진행합니다. Track V의 완주 단계입니다.</p>
                 <div class="step-duration step-dur" data-i18n-v="method.s4v.dur" data-i18n-c="method.s4c.dur">2–4주 (Small Batch)</div>
             </div>
             <div class="step reveal" id="method-step5" style="display:none;">
@@ -471,7 +471,7 @@
                     <li data-i18n="tiers.v.s1">Team Building &amp; Spec. Review (1–2w)</li>
                     <li data-i18n="tiers.v.s2">EVP Build (2–3w)</li>
                     <li data-i18n="tiers.v.s3">Function Verification &amp; PoC (2–3w)</li>
-                    <li data-i18n="tiers.v.s4">Small Batch Production (2–4w)</li>
+                    <li data-i18n="tiers.v.s4">Small Batch PoC (2–4w)</li>
                 </ul>
             </div>
             <div id="tier-c-card" class="tier-card panel" onclick="selectTrack('c')" style="cursor:pointer;">
@@ -1012,7 +1012,7 @@ const T = {
     'method.s2c.title':'EVP Build + Industrial Design','method.s2c.desc':'Engineering Verification Prototype 제작과 동시에, 선전 최고 수준의 인더스트리얼 디자이너와 산업 디자인을 병행합니다.','method.s2c.dur':'2–6주',
     'method.s3v.title':'Function Verification & PoC','method.s3v.desc':'기능 검증 및 개념 증명. 시장 피드백을 빠르게 수집하고 방향을 확정합니다.','method.s3v.dur':'2–3주',
     'method.s3c.title':'PoC & DVP Build + UI/UX Design','method.s3c.desc':'DVP(Design Verification Prototype) 빌드와 UI/UX 디자인을 병행하며 시장성과 완성도를 함께 검증합니다.','method.s3c.dur':'2–6주',
-    'method.s4v.title':'Small Batch Production','method.s4v.desc':'소량 생산(Small Batch)으로 빠르게 시장에 진입합니다. Track V의 완주 단계입니다.','method.s4v.dur':'2–4주 (Small Batch)',
+    'method.s4v.title':'Small Batch PoC','method.s4v.desc':'소량 생산(Small Batch)으로 빠르게 PoC를 진행합니다. Track V의 완주 단계입니다.','method.s4v.dur':'2–4주 (Small Batch)',
     'method.s4c.title':'SW Dev + PVP + Mold Development','method.s4c.desc':'소프트웨어 개발, PVP(Production Verification Prototype) 빌드, 금형 제작을 단계적으로 완료합니다.','method.s4c.dur':'4–8주',
     'method.s5c.title':'Mass Production','method.s5c.desc':'글로벌 양산 라인에 진입합니다. Fast.B가 글로벌 출시 연계까지 지원합니다.','method.s5c.dur':'4–8주 (양산)',
     'stats.meta':'[06] Telemetry','stats.h2':'숫자로 보는 Fast.B',
@@ -1021,7 +1021,7 @@ const T = {
     'stats.3.meta':'Track C 최대 범위','stats.3.title':'Mass Production Ready','stats.3.desc':'컨셉 리뷰부터 금형 개발·양산까지 단일 트랙으로 완주. 글로벌 출시 연계.',
     'tiers.meta':'[07] Engagement Vectors','tiers.h2':'어디서 시작하시겠습니까',
     'tiers.v.label':'Track V // Recommended for Startups','tiers.v.title':'Verification Track','tiers.v.price':' weeks total','tiers.v.desc':'빠른 기능 검증과 PoC가 필요한 팀. MVP 빌드가 필요한 초기 스타트업에 최적입니다.',
-    'tiers.v.s1':'Team Building & Spec. Review (1–2w)','tiers.v.s2':'EVP Build (2–3w)','tiers.v.s3':'Function Verification & PoC (2–3w)','tiers.v.s4':'Small Batch Production (2–4w)',
+    'tiers.v.s1':'Team Building & Spec. Review (1–2w)','tiers.v.s2':'EVP Build (2–3w)','tiers.v.s3':'Function Verification & PoC (2–3w)','tiers.v.s4':'Small Batch PoC (2–4w)',
     'tiers.c.label':'Track C // Professional Design & Mass Production','tiers.c.title':'Commercialization Track','tiers.c.price':' weeks total','tiers.c.desc':'전문 산업 디자인과 글로벌 양산 서비스가 필요한 팀.',
     'tiers.c.s1':'Team Building & Concept Review (2–4w)','tiers.c.s2':'EVP Build + Industrial Design (2–6w)','tiers.c.s3':'PoC & DVP Build + UI/UX Design (2–6w)','tiers.c.s4':'SW Dev + PVP Build + Mold Development (4–8w)','tiers.c.s5':'Mass Production (4–8w)',
     'road.meta':'Roadmap','road.h2':'2026 Milestones',
@@ -1153,7 +1153,7 @@ const T = {
     'method.s2c.title':'EVP Build + Industrial Design','method.s2c.desc':'EVP build runs simultaneously with top-tier industrial design from Shenzhen\'s leading designers.','method.s2c.dur':'2–6 weeks',
     'method.s3v.title':'Function Verification & PoC','method.s3v.desc':'Functional verification and proof of concept. Rapidly collect market feedback and confirm direction.','method.s3v.dur':'2–3 weeks',
     'method.s3c.title':'PoC & DVP Build + UI/UX Design','method.s3c.desc':'Design Verification Prototype build runs alongside UI/UX design, validating both market fit and product quality.','method.s3c.dur':'2–6 weeks',
-    'method.s4v.title':'Small Batch Production','method.s4v.desc':'Enter the market quickly with Small Batch production. This is the final stage of Track V.','method.s4v.dur':'2–4 weeks (Small Batch)',
+    'method.s4v.title':'Small Batch PoC','method.s4v.desc':'Quickly conduct a PoC with Small Batch production. This is the final stage of Track V.','method.s4v.dur':'2–4 weeks (Small Batch)',
     'method.s4c.title':'SW Dev + PVP + Mold Development','method.s4c.desc':'Complete SW Development, Production Verification Prototype (PVP) build, and mold development step by step.','method.s4c.dur':'4–8 weeks',
     'method.s5c.title':'Mass Production','method.s5c.desc':'Enter global mass production lines. Fast.B supports global launch connection through the end.','method.s5c.dur':'4–8 weeks (MP)',
     'stats.meta':'[06] Telemetry','stats.h2':'Fast.B by the Numbers',
@@ -1162,7 +1162,7 @@ const T = {
     'stats.3.meta':'Track C Maximum Scope','stats.3.title':'Mass Production Ready','stats.3.desc':'Complete journey from concept review to mold development and mass production in a single track. Global launch linkage included.',
     'tiers.meta':'[07] Engagement Vectors','tiers.h2':'Where Would You Like to Start?',
     'tiers.v.label':'Track V // Recommended for Startups','tiers.v.title':'Verification Track','tiers.v.price':' weeks total','tiers.v.desc':'For teams needing rapid functional validation and PoC. Optimal for early-stage startups that need MVP builds.',
-    'tiers.v.s1':'Team Building & Spec. Review (1–2w)','tiers.v.s2':'EVP Build (2–3w)','tiers.v.s3':'Function Verification & PoC (2–3w)','tiers.v.s4':'Small Batch Production (2–4w)',
+    'tiers.v.s1':'Team Building & Spec. Review (1–2w)','tiers.v.s2':'EVP Build (2–3w)','tiers.v.s3':'Function Verification & PoC (2–3w)','tiers.v.s4':'Small Batch PoC (2–4w)',
     'tiers.c.label':'Track C // Professional Design & Mass Production','tiers.c.title':'Commercialization Track','tiers.c.price':' weeks total','tiers.c.desc':'For teams requiring professional industrial design and global mass production services.',
     'tiers.c.s1':'Team Building & Concept Review (2–4w)','tiers.c.s2':'EVP Build + Industrial Design (2–6w)','tiers.c.s3':'PoC & DVP Build + UI/UX Design (2–6w)','tiers.c.s4':'SW Dev + PVP Build + Mold Development (4–8w)','tiers.c.s5':'Mass Production (4–8w)',
     'road.meta':'Roadmap','road.h2':'2026 Milestones',
