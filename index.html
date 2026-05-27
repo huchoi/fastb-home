@@ -110,7 +110,7 @@
         :root {
             --bg: #1D1818; --clay: #FAD9D3; --acid: #FFFFFF;
             --text-main: #E8E4E3; --text-muted: #959190;
-            --grid-line: rgba(255,255,255,0.05); --grid-line-strong: rgba(255,255,255,0.15);
+            --grid-line: rgba(255,255,255,0.04); --grid-line-strong: rgba(255,255,255,0.08);
             --surface: #332E2D;
             --font-display: 'DotGothic16', monospace;
             --font-body: 'Pretendard', 'Montserrat', sans-serif;
@@ -126,7 +126,7 @@
         .counter { font-family:var(--font-display); font-size:15vw; color:var(--clay); letter-spacing:-0.05em; line-height:0.8; }
 
         /* Grid overlay */
-        .system-grid { position:fixed; top:0; left:0; width:100vw; height:100vh; pointer-events:none; z-index:10; background-size:24px 24px; background-image:radial-gradient(circle, var(--grid-line-strong) 1px, transparent 1px); }
+        .system-grid { position:fixed; top:0; left:0; width:100vw; height:100vh; pointer-events:none; z-index:10; background-size:24px 24px; background-image:radial-gradient(circle, rgba(255,255,255,0.12) 1px, transparent 1px); }
 
         /* WebGL */
         #canvas-container { position:fixed; top:0; left:0; width:100vw; height:100vh; z-index:0; opacity:0.4; pointer-events:none; }
@@ -215,7 +215,7 @@
         .track-btn.active { border:1px solid var(--clay); background:rgba(250,217,211,0.05); }
         .track-btn .track-label { font-family:var(--font-body); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; font-weight:500; margin-bottom:0.5rem; transition:color 0.25s; color:var(--text-muted); }
         .track-btn.active .track-label { color:var(--clay); }
-        .track-btn:hover:not(.active) { border-color:rgba(250,217,211,0.35); }
+        .track-btn:hover:not(.active) { border-color:rgba(250,217,211,0.55); }
         .step-content { transition:opacity 0.2s; }
 
         /* Stats */
@@ -259,7 +259,7 @@
         /* Team */
         .team-grid { display:grid; grid-template-columns:repeat(12,1fr); gap:1.5rem; }
         .person-card { grid-column:span 12; border:1px solid var(--grid-line-strong); border-radius:20px; padding:1.5rem; background:rgba(51,46,45,0.6); display:flex; flex-direction:column; gap:0.85rem; transition:border-color 0.3s; }
-        .person-card:hover { border-color:rgba(250,217,211,0.3); }
+        .person-card:hover { border-color:rgba(250,217,211,0.55); }
         @media (min-width:640px) { .person-card { grid-column:span 6; } }
         @media (min-width:1024px) { .person-card { grid-column:span 3; } }
         .person-name { font-family:var(--font-subtitle); font-size:1rem; color:var(--text-main); text-transform:uppercase; font-weight:700; letter-spacing:0.05em; }
@@ -269,7 +269,7 @@
         /* Advisors */
         .advisor-grid { display:grid; grid-template-columns:repeat(12,1fr); gap:1.5rem; }
         .advisor-card { grid-column:span 12; border:1px solid var(--grid-line-strong); border-radius:20px; padding:1.5rem; background:rgba(29,24,24,0.6); display:flex; flex-direction:column; gap:0.75rem; transition:border-color 0.3s; }
-        .advisor-card:hover { border-color:rgba(250,217,211,0.3); }
+        .advisor-card:hover { border-color:rgba(250,217,211,0.55); }
         @media (min-width:768px) { .advisor-card { grid-column:span 4; } }
 
         /* Mentor inline */
