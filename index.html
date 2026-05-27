@@ -215,7 +215,7 @@
         .track-btn.active { border:1px solid var(--clay); background:rgba(250,217,211,0.05); }
         .track-btn .track-label { font-family:var(--font-body); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; font-weight:500; margin-bottom:0.5rem; transition:color 0.25s; color:var(--text-muted); }
         .track-btn.active .track-label { color:var(--clay); }
-        .track-btn:hover:not(.active) { border-color:rgba(250,217,211,0.55); }
+        .track-btn:hover:not(.active) { border-color:rgba(250,217,211,0.28); }
         .step-content { transition:opacity 0.2s; }
 
         /* Stats */
@@ -254,12 +254,12 @@
         .avatar img { width:100%; height:100%; display:block; object-fit:cover; object-position:center top; }
         .avatar-sm { width:52px; height:52px; border-radius:50%; border:1.5px solid var(--grid-line-strong); overflow:hidden; flex-shrink:0; transition:border-color 0.4s; background:var(--surface); }
         .avatar-sm img { width:100%; height:100%; display:block; object-fit:cover; object-position:center top; }
-        .person-card:hover .avatar, .advisor-card:hover .avatar, .advisor-card:hover .avatar-sm { border-color:var(--clay); box-shadow:0 0 0 3px rgba(250,217,211,0.15); }
+        .person-card:hover .avatar, .advisor-card:hover .avatar, .advisor-card:hover .avatar-sm { border-color:var(--clay); box-shadow:0 0 0 3px rgba(250,217,211,0.08); }
 
         /* Team */
         .team-grid { display:grid; grid-template-columns:repeat(12,1fr); gap:1.5rem; }
         .person-card { grid-column:span 12; border:1px solid var(--grid-line-strong); border-radius:20px; padding:1.5rem; background:rgba(51,46,45,0.6); display:flex; flex-direction:column; gap:0.85rem; transition:border-color 0.3s; }
-        .person-card:hover { border-color:rgba(250,217,211,0.55); }
+        .person-card:hover { border-color:rgba(250,217,211,0.28); }
         @media (min-width:640px) { .person-card { grid-column:span 6; } }
         @media (min-width:1024px) { .person-card { grid-column:span 3; } }
         .person-name { font-family:var(--font-subtitle); font-size:1rem; color:var(--text-main); text-transform:uppercase; font-weight:700; letter-spacing:0.05em; }
@@ -269,7 +269,7 @@
         /* Advisors */
         .advisor-grid { display:grid; grid-template-columns:repeat(12,1fr); gap:1.5rem; }
         .advisor-card { grid-column:span 12; border:1px solid var(--grid-line-strong); border-radius:20px; padding:1.5rem; background:rgba(29,24,24,0.6); display:flex; flex-direction:column; gap:0.75rem; transition:border-color 0.3s; }
-        .advisor-card:hover { border-color:rgba(250,217,211,0.55); }
+        .advisor-card:hover { border-color:rgba(250,217,211,0.28); }
         @media (min-width:768px) { .advisor-card { grid-column:span 4; } }
 
         /* Mentor inline */
@@ -805,27 +805,27 @@
     <div style="margin-top:4rem;">
         <span class="meta-label" style="margin-bottom:2rem;display:block;" data-i18n="team.partners">Partners</span>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:1rem;">
-            <div style="border:1px solid var(--grid-line-strong);border-radius:16px;padding:1.5rem 1.25rem;background:rgba(29,24,24,0.6);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:0.4rem;min-height:80px;transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(250,217,211,0.3)'" onmouseout="this.style.borderColor='var(--grid-line-strong)'">
+            <div style="border:1px solid var(--grid-line-strong);border-radius:16px;padding:1.5rem 1.25rem;background:rgba(29,24,24,0.6);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:0.4rem;min-height:80px;transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(250,217,211,0.15)'" onmouseout="this.style.borderColor='var(--grid-line-strong)'">
                 <span style="font-size:0.75rem;font-weight:700;letter-spacing:0.14em;color:var(--text-main);">SAFIENCE</span>
                 <span style="font-size:0.68rem;letter-spacing:0.05em;color:var(--text-muted);">Korea</span>
             </div>
-            <div style="border:1px solid var(--grid-line-strong);border-radius:16px;padding:1.5rem 1.25rem;background:rgba(29,24,24,0.6);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:0.4rem;min-height:80px;transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(250,217,211,0.3)'" onmouseout="this.style.borderColor='var(--grid-line-strong)'">
+            <div style="border:1px solid var(--grid-line-strong);border-radius:16px;padding:1.5rem 1.25rem;background:rgba(29,24,24,0.6);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:0.4rem;min-height:80px;transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(250,217,211,0.15)'" onmouseout="this.style.borderColor='var(--grid-line-strong)'">
                 <span style="font-size:0.75rem;font-weight:700;letter-spacing:0.14em;color:var(--text-main);">LIFESQUARE</span>
                 <span style="font-size:0.68rem;letter-spacing:0.05em;color:var(--text-muted);">Korea</span>
             </div>
-            <div style="border:1px solid var(--grid-line-strong);border-radius:16px;padding:1.5rem 1.25rem;background:rgba(29,24,24,0.6);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:0.4rem;min-height:80px;transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(250,217,211,0.3)'" onmouseout="this.style.borderColor='var(--grid-line-strong)'">
+            <div style="border:1px solid var(--grid-line-strong);border-radius:16px;padding:1.5rem 1.25rem;background:rgba(29,24,24,0.6);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:0.4rem;min-height:80px;transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(250,217,211,0.15)'" onmouseout="this.style.borderColor='var(--grid-line-strong)'">
                 <span style="font-size:0.75rem;font-weight:700;letter-spacing:0.14em;color:var(--text-main);">IPLAB</span>
                 <span style="font-size:0.68rem;letter-spacing:0.05em;color:var(--text-muted);">Korea</span>
             </div>
-            <div style="border:1px solid var(--grid-line-strong);border-radius:16px;padding:1.5rem 1.25rem;background:rgba(29,24,24,0.6);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:0.4rem;min-height:80px;transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(250,217,211,0.3)'" onmouseout="this.style.borderColor='var(--grid-line-strong)'">
+            <div style="border:1px solid var(--grid-line-strong);border-radius:16px;padding:1.5rem 1.25rem;background:rgba(29,24,24,0.6);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:0.4rem;min-height:80px;transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(250,217,211,0.15)'" onmouseout="this.style.borderColor='var(--grid-line-strong)'">
                 <span style="font-size:0.75rem;font-weight:700;letter-spacing:0.14em;color:var(--text-main);">INNOZEN DESIGN</span>
                 <span style="font-size:0.68rem;letter-spacing:0.05em;color:var(--text-muted);">Shenzhen</span>
             </div>
-            <div style="border:1px solid var(--grid-line-strong);border-radius:16px;padding:1.5rem 1.25rem;background:rgba(29,24,24,0.6);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:0.4rem;min-height:80px;transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(250,217,211,0.3)'" onmouseout="this.style.borderColor='var(--grid-line-strong)'">
+            <div style="border:1px solid var(--grid-line-strong);border-radius:16px;padding:1.5rem 1.25rem;background:rgba(29,24,24,0.6);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:0.4rem;min-height:80px;transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(250,217,211,0.15)'" onmouseout="this.style.borderColor='var(--grid-line-strong)'">
                 <span style="font-size:0.75rem;font-weight:700;letter-spacing:0.14em;color:var(--text-main);">SEEED STUDIO</span>
                 <span style="font-size:0.68rem;letter-spacing:0.05em;color:var(--text-muted);">Shenzhen</span>
             </div>
-            <div style="border:1px solid var(--grid-line-strong);border-radius:16px;padding:1.5rem 1.25rem;background:rgba(29,24,24,0.6);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:0.4rem;min-height:80px;transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(250,217,211,0.3)'" onmouseout="this.style.borderColor='var(--grid-line-strong)'">
+            <div style="border:1px solid var(--grid-line-strong);border-radius:16px;padding:1.5rem 1.25rem;background:rgba(29,24,24,0.6);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:0.4rem;min-height:80px;transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(250,217,211,0.15)'" onmouseout="this.style.borderColor='var(--grid-line-strong)'">
                 <span style="font-size:0.75rem;font-weight:700;letter-spacing:0.14em;color:var(--text-main);">GO GLOBAL CENTER</span>
                 <span style="font-size:0.68rem;letter-spacing:0.05em;color:var(--text-muted);">Shenzhen</span>
             </div>
