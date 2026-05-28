@@ -1,6 +1,6 @@
 # Fast.B
 
-> Fast.B is a Korean-Shenzhen AI Hardware Prototyping & Acceleration Platform (패스트비, 한국-선전 AI 하드웨어 이니셔티브). It connects Korean AI hardware startups with Shenzhen's world-class manufacturing, design, and engineering ecosystem — where 90%+ of global IT products are made.
+> Fast.B(패스트비)는 한국-선전 AI 하드웨어 프로토타이핑 & 가속 플랫폼입니다. 한국 AI 하드웨어 스타트업과 전 세계 IT 제품의 90% 이상이 만들어지는 선전(Shenzhen)의 세계 최고 수준 제조·디자인·엔지니어링 생태계를 연결합니다. Fast.B is a Korean-Shenzhen AI Hardware Prototyping & Acceleration Platform. It connects Korean AI hardware startups with Shenzhen's world-class manufacturing, design, and engineering ecosystem — where 90%+ of global IT products are made.
 
 Website: https://www.fastb-uild.com
 
@@ -60,11 +60,37 @@ Full product design and manufacturing track for market-ready products.
 
 ---
 
+## Shenzhen Innovation Tour
+
+Fast.B's Innovation Tour is a 4-day (3 nights) immersive program in Shenzhen for Korean AI hardware entrepreneurs, engineers, R&D leaders, and decision-makers.
+
+### Program Highlights (6 core activities)
+1. **PCB · Assembly · Molding · Packaging Factory Tours** — Visit PCB fabrication, SMT assembly, tooling, and packaging factories; experience manufacturing processes and quality control standards
+2. **Robotics & Physical AI Company Visits** — Visit Shenzhen-based robotics manufacturers and physical AI hardware companies; understand production processes and supply chain structure
+3. **NVIDIA OEM & Automated Production Line Tours** — Understand AI hardware manufacturing and global OEM strategy; observe global market readiness through automated production lines
+4. **Huaqiangbei Electronics Market Exploration** — Experience component sourcing, BOM optimization, and rapid prototyping strategies at the world's largest electronics market
+5. **Networking with Shenzhen Hardware Founders & Engineers** — Direct engagement with Shenzhen hardware founders, engineers, and manufacturing specialists; experience the global open innovation ecosystem
+6. **Supply Chain · Pricing Negotiation · Mass Production Strategy Session** — Learn MOQ, quote negotiation, supplier verification, DFM principles, and NPI operational strategies
+
+### 4-Day Schedule Overview
+- **Day 1**: Arrival in Shenzhen, manufacturing ecosystem orientation, Huaqiangbei market tour, networking dinner with local founders
+- **Day 2**: PCB & SMT factory tour, electronics assembly facility visit, supply chain strategy workshop
+- **Day 3**: Robotics & AI hardware company visits, Physical AI ecosystem exploration, NVIDIA OEM facility
+- **Day 4**: Supply chain negotiation session, wrap-up and action planning, departure
+
+### Target Participants
+- Korean AI hardware startup founders and CTOs
+- Corporate R&D leaders considering AI hardware expansion
+- Software companies planning to enter AI device market
+- Investors and accelerators in the hardware/AI sector
+
+---
+
 ## Team
 
 ### Co-founders
-- **Hugh (Hyong-uk) Choi** — CEO & Co-founder. Technology strategist and Visionary at Future Designers. Led development of Samsung's first multi-touch mobile device (TIME Magazine Gadget of the Year 2007). Co-founder of Pan Asia Network (Asian innovator network). Expertise: computer networks, AI, spatial computing, XR, IoT, sensors, displays.
-- **Jinsoo Jeon** — CSO & Co-founder. Technology strategist and industry expert with 27+ years of IT experience in AI, XR, and spatial computing. Led mobile platform R&D at Samsung Electronics. EVP at SK Telecom, spearheaded commercialization of metaverse platform ifland. 130+ patents. CES Innovation Awards judge.
+- **Hugh (Hyong-uk) Choi** — CEO & Co-founder. Technology strategist and Visionary at Future Designers. Led development of Samsung's first multi-touch mobile device (TIME Magazine Gadget of the Year 2007). Co-founder of Pan Asia Network (Asian innovator network). Expertise: computer networks, AI, spatial computing, XR, IoT, sensors, displays. Innovation ecosystem builder who has conceived and executed dozens of diverse innovation projects and products.
+- **Jinsoo Jeon** — CSO & Co-founder. Technology strategist and industry expert with 27+ years of IT experience in AI, XR, and spatial computing. Led mobile platform R&D at Samsung Electronics. EVP at SK Telecom, spearheaded commercialization of metaverse platform ifland. Drove generative AI service development and device business initiatives. Venture Partner at Companoid Labs. 130+ patents. CES Innovation Awards judge.
 - **Edward (Sunkyu) Choi** — CTO & Co-founder. ICT industry tech leader. Former Samsung Electronics senior engineer, Nokia Head of Solution. CEO of SAFIENCE Inc. USC electrical engineering master's degree.
 - **Michael Zheng** — CDO & Co-founder. Shenzhen-based industrial design leader. Founder & CEO of Shenzhen Innozen Design. VP of Shenzhen Industrial Design Association. Multiple international awards: Red Dot, iF, Good Design, IDEA.
 
@@ -99,6 +125,33 @@ Full product design and manufacturing track for market-ready products.
 - SUSTech — Southern University of Science and Technology
 - SZOIL — Shenzhen Open Innovation Lab
 - Innozen Design (Shenzhen)
+- SEEED STUDIO (Shenzhen)
+- GO GLOBAL CENTER (Shenzhen)
+
+---
+
+## Why Shenzhen?
+
+Shenzhen is the world's hardware manufacturing capital:
+- 90%+ of global IT products are manufactured in or through Shenzhen
+- Huaqiangbei: world's largest electronics components market — source any component in hours
+- World-class industrial design talent and studios
+- Rapid iteration: prototype in days, not weeks
+- Complete supply chain: PCB, SMT, injection molding, packaging, testing — all within 30 minutes
+- Open innovation culture: maker spaces, hardware accelerators, open-source hardware communities
+- SUSTech, SZOIL, SIDA ecosystem connections
+
+---
+
+## Problems Fast.B Solves
+
+1. **Slow & Uncompetitive Domestic Hardware Development** — Korean hardware prototyping is slow, expensive, and lacks competitiveness. Fast.B provides direct access to Shenzhen's speed and scale.
+2. **High Cost, Low ROI** — Hardware implementation is expensive with limited value-add. Shenzhen's manufacturing efficiency dramatically reduces cost and time-to-market.
+3. **Large-Enterprise-Centric Manufacturing Limits** — Korean manufacturing is dominated by large enterprises; prototyping and small-batch production are underserved. Shenzhen excels at small-batch and rapid iteration.
+4. **Software Companies Can't Expand to Hardware** — Software companies lack internal hardware R&D capability. Fast.B provides the bridge.
+5. **AI Hardware Startups Lack Depth** — Startups often lack commercializability, usability, innovation depth, and manufacturing knowledge. Fast.B's expert coaching and Shenzhen network fills these gaps.
+6. **Physical AI Expansion Demands Diverse AI Devices** — AI needs to exist in the real world through devices. Fast.B accelerates Physical AI and AIoT product development.
+7. **AIoT Evolution Requires AI-Integrated Connected Devices** — Fast.B enables AIoT product development combining AI intelligence with IoT connectivity.
 
 ---
 
@@ -111,4 +164,4 @@ Full product design and manufacturing track for market-ready products.
 ---
 
 ## Keywords (Korean / English)
-AI hardware, AI 하드웨어, hardware prototyping, 하드웨어 프로토타이핑, Shenzhen, 선전, 심천, Korea, 한국, hardware startup, 하드웨어 스타트업, Fast.B, 패스트비, acceleration platform, IoT, XR, spatial computing, 공간컴퓨팅, industrial design, 산업디자인, small batch production, 소량생산, manufacturing, 제조, open hardware, 오픈 하드웨어, AI device, AI 디바이스, PoC, MVP, Track V, Track C, Huaqiangbei, 화창베이, 선전 생태계
+AI hardware, AI 하드웨어, hardware prototyping, 하드웨어 프로토타이핑, Shenzhen, 선전, 심천, Korea, 한국, hardware startup, 하드웨어 스타트업, Fast.B, 패스트비, acceleration platform, IoT, XR, spatial computing, 공간컴퓨팅, physical AI, 피지컬 AI, AIoT, industrial design, 산업디자인, small batch production, 소량생산, manufacturing, 제조, open hardware, 오픈 하드웨어, AI device, AI 디바이스, PoC, MVP, EVP, DVT, PVT, Track V, Track C, Huaqiangbei, 화창베이, 선전 생태계, innovation tour, 이노베이션 투어, Shenzhen factory tour, 선전 공장 투어, hardware acceleration, 하드웨어 가속, Korean AI startup, 한국 AI 스타트업, mass production, 양산
