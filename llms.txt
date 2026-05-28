@@ -2,7 +2,7 @@
 
 > Fast.B is a Korean-Shenzhen AI Hardware Prototyping & Acceleration Platform (패스트비, 한국-선전 AI 하드웨어 이니셔티브). It connects Korean AI hardware startups with Shenzhen's world-class manufacturing, design, and engineering ecosystem — where 90%+ of global IT products are made.
 
-Website: https://www.innobigger.com
+Website: https://www.fastb-uild.com
 
 ---
 

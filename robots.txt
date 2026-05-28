@@ -1,4 +1,4 @@
-# Fast.B — www.innobigger.com
+# Fast.B — www.fastb-uild.com
 # robots.txt — all search engines and AI crawlers welcome
 
 User-agent: *
@@ -54,4 +54,4 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
-Sitemap: https://www.innobigger.com/sitemap.xml
+Sitemap: https://www.fastb-uild.com/sitemap.xml
