@@ -447,7 +447,6 @@
 
 <!-- Mobile drawer -->
 <div class="nav-drawer" id="navDrawer">
-    <a href="#problem"     class="nav-link" data-i18n="nav.problem"     onclick="closeDrawer()">Problem</a>
     <a href="#vision"      class="nav-link" data-i18n="nav.vision"      onclick="closeDrawer()">Vision</a>
     <a href="#shenzhen"    class="nav-link" data-i18n="nav.shenzhen"    onclick="closeDrawer()">Fast.B Innovation</a>
     <a href="#methodology" class="nav-link" data-i18n="nav.process"     onclick="closeDrawer()">Process</a>
@@ -465,7 +464,6 @@
     </a>
 
     <div class="nav-links">
-        <a href="#problem"     class="nav-link" data-i18n="nav.problem">Problem</a>
         <a href="#vision"      class="nav-link" data-i18n="nav.vision">Vision</a>
         <a href="#shenzhen"    class="nav-link" data-i18n="nav.shenzhen">Fast.B Innovation</a>
         <a href="#methodology" class="nav-link" data-i18n="nav.process">Process</a>
@@ -508,8 +506,37 @@
     </div>
 </section>
 
+
 <!-- ── VISION ── -->
-<section id="problem" class="reveal" aria-label="AI 하드웨어 개발의 문제점 — Why AI Hardware Development is Difficult">
+<section id="vision" class="reveal" aria-label="Fast.B 비전, 미션 및 AI 하드웨어 문제 — Vision, Mission & Why Fast.B Exists">
+    <div class="section-header">
+        <span class="meta-label" data-i18n="vision.meta">Vision &amp; Mission</span>
+        <h2 data-i18n="vision.h2">더 나은 미래를 위한<br>AI 하드웨어를 실현한다.</h2>
+    </div>
+    <div class="shenzhen-quote reveal">
+        <blockquote style="font-size:clamp(1.2rem,2.4vw,2.4rem);" data-i18n="vision.quote">"AI 하드웨어 창발의 생태계를 만들고<br>AI 산업혁신을 통해 더 나은 내일을 만든다."</blockquote>
+        <p class="panel-desc" style="max-width:700px;" data-i18n="vision.desc">Fast.B는<br>1. AI가 실제 세계에서 구현되고 적용되어 혁신할 수 있게 돕고,<br>2. AI 하드웨어의 가치와 유용성을 빠른 프로토타이핑을 통해 실현하고,<br>3. AI 하드웨어 개발과 확산을 통해 우리의 삶을 더 나아지게 만듭니다.</p>
+    </div>
+    <div class="grid-3 reveal">
+        <div class="panel">
+            <svg class="star-motif text-acid" viewBox="0 0 24 24"><path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z"/></svg>
+            <h3 class="panel-title" data-i18n="vision.p1.title">Prototyping</h3>
+            <p class="panel-desc" data-i18n="vision.p1.desc">선전 제조 생태계를 활용하여 빠르고 경쟁력 있는 AI HW MVP를 프로토타이핑합니다. 신속한 프로토타이핑과 검증을 통해 시장성을 파악하여 빠른 실패를 실험합니다.</p>
+        </div>
+        <div class="panel">
+            <svg class="star-motif text-clay" viewBox="0 0 24 24"><path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z"/></svg>
+            <h3 class="panel-title" data-i18n="vision.p2.title">Manufacturing</h3>
+            <p class="panel-desc" data-i18n="vision.p2.desc">선전의 믿을만한 파트너들과 함께 제품성, 양산성, 서비스성이 확보된 제품을 시생산하고 검증합니다. 시장성이 확보된 제품은 선전의 다양한 소량 제조 인프라를 이용하여 빠르게 출시합니다.</p>
+        </div>
+        <div class="panel">
+            <svg class="star-motif" style="color:var(--text-main)" viewBox="0 0 24 24"><path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z"/></svg>
+            <h3 class="panel-title" data-i18n="vision.p3.title">Expert Network</h3>
+            <p class="panel-desc" data-i18n="vision.p3.desc">선전의 산업디자이너 및 파트너들과 협력하여 글로벌 시장에서 선택받고 사업화할 수 있는 제품을 빌드합니다. IP와 디자인을 사전 보호하고 국내·현지 전문가들의 지원을 연계합니다.</p>
+        </div>
+    </div>
+
+    <!-- ── WHY FAST.B EXISTS ── -->
+    <div style="border-top:1px solid var(--grid-line-strong);padding-top:6rem;margin-top:2rem;" class="reveal">
     <div class="section-header">
         <span class="meta-label" data-i18n="prob.meta">Why Fast.B Exists</span>
         <h2 data-i18n="prob.h2">AI 하드웨어 개발,<br>왜 어렵고 비싸고 느린가.</h2>
@@ -547,34 +574,6 @@
             </div>
         </div>
     </div>
-</section>
-
-<!-- ── VISION ── -->
-<section id="vision" class="reveal" aria-label="Fast.B 비전 및 핵심 역량 — Vision & Core Capabilities">
-    <div class="section-header">
-        <span class="meta-label" data-i18n="vision.meta">Vision &amp; Mission</span>
-        <h2 data-i18n="vision.h2">더 나은 미래를 위한<br>AI 하드웨어를 실현한다.</h2>
-    </div>
-    <div class="shenzhen-quote reveal">
-        <blockquote style="font-size:clamp(1.2rem,2.4vw,2.4rem);" data-i18n="vision.quote">"AI 하드웨어 창발의 생태계를 만들고<br>AI 산업혁신을 통해 더 나은 내일을 만든다."</blockquote>
-        <p class="panel-desc" style="max-width:700px;" data-i18n="vision.desc">Fast.B는<br>1. AI가 실제 세계에서 구현되고 적용되어 혁신할 수 있게 돕고,<br>2. AI 하드웨어의 가치와 유용성을 빠른 프로토타이핑을 통해 실현하고,<br>3. AI 하드웨어 개발과 확산을 통해 우리의 삶을 더 나아지게 만듭니다.</p>
-    </div>
-    <div class="grid-3 reveal">
-        <div class="panel">
-            <svg class="star-motif text-acid" viewBox="0 0 24 24"><path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z"/></svg>
-            <h3 class="panel-title" data-i18n="vision.p1.title">Prototyping</h3>
-            <p class="panel-desc" data-i18n="vision.p1.desc">선전 제조 생태계를 활용하여 빠르고 경쟁력 있는 AI HW MVP를 프로토타이핑합니다. 신속한 프로토타이핑과 검증을 통해 시장성을 파악하여 빠른 실패를 실험합니다.</p>
-        </div>
-        <div class="panel">
-            <svg class="star-motif text-clay" viewBox="0 0 24 24"><path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z"/></svg>
-            <h3 class="panel-title" data-i18n="vision.p2.title">Manufacturing</h3>
-            <p class="panel-desc" data-i18n="vision.p2.desc">선전의 믿을만한 파트너들과 함께 제품성, 양산성, 서비스성이 확보된 제품을 시생산하고 검증합니다. 시장성이 확보된 제품은 선전의 다양한 소량 제조 인프라를 이용하여 빠르게 출시합니다.</p>
-        </div>
-        <div class="panel">
-            <svg class="star-motif" style="color:var(--text-main)" viewBox="0 0 24 24"><path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z"/></svg>
-            <h3 class="panel-title" data-i18n="vision.p3.title">Expert Network</h3>
-            <p class="panel-desc" data-i18n="vision.p3.desc">선전의 산업디자이너 및 파트너들과 협력하여 글로벌 시장에서 선택받고 사업화할 수 있는 제품을 빌드합니다. IP와 디자인을 사전 보호하고 국내·현지 전문가들의 지원을 연계합니다.</p>
-        </div>
     </div>
 </section>
 
@@ -2055,7 +2054,7 @@ function showPage(page, scrollTarget) {
 
 // ── Scroll spy ─────────────────────────────────────────────────
 function initScrollSpy() {
-    const sections = ['problem','vision','shenzhen','methodology','team','cta'];
+    const sections = ['vision','shenzhen','methodology','team','cta'];
     // href="#section" 형태만 대상으로 함 (href="#"인 페이지/모달 링크 제외)
     const sectionLinks = document.querySelectorAll('.nav-link[href^="#"]:not([href="#"])');
     const navH = document.querySelector('nav').offsetHeight;
