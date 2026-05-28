@@ -1137,11 +1137,11 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label class="form-label" for="t-name" data-i18n="tour.form.name.label">성명</label>
-                        <input class="form-input" type="text" id="t-name" autocomplete="name" placeholder="홍길동" required>
+                        <input class="form-input" type="text" id="t-name" autocomplete="name" data-i18n-placeholder="form.name.ph" placeholder="홍길동" required>
                     </div>
                     <div class="form-group">
                         <label class="form-label" for="t-org" data-i18n="tour.form.org.label">소속</label>
-                        <input class="form-input" type="text" id="t-org" autocomplete="organization" placeholder="회사 / 팀명">
+                        <input class="form-input" type="text" id="t-org" autocomplete="organization" data-i18n-placeholder="form.org.ph" placeholder="회사 / 팀명">
                     </div>
                 </div>
                 <div class="form-group">
@@ -1150,11 +1150,11 @@
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="t-subject" data-i18n="tour.form.subject.label">제목</label>
-                    <input class="form-input" type="text" id="t-subject" placeholder="Innovation Tour 참가 문의" required>
+                    <input class="form-input" type="text" id="t-subject" data-i18n-placeholder="tour.form.subject.ph" placeholder="Innovation Tour 참가 문의" required>
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="t-message" data-i18n="tour.form.msg.label">요청내용</label>
-                    <textarea class="form-textarea" id="t-message" placeholder="참가 목적, 현재 프로젝트 단계, 궁금한 점 등을 자유롭게 작성해 주세요." required></textarea>
+                    <textarea class="form-textarea" id="t-message" data-i18n-placeholder="tour.form.msg.ph" placeholder="참가 목적, 현재 프로젝트 단계, 궁금한 점 등을 자유롭게 작성해 주세요." required></textarea>
                 </div>
                 <div id="tour-form-error" class="form-error-msg" data-i18n="modal.error">오류가 발생했습니다. 잠시 후 다시 시도해 주세요.</div>
                 <button type="submit" id="tour-form-btn" class="btn btn-primary" style="align-self:flex-start;margin-top:0.5rem;" data-i18n="tour.form.submit">신청서 제출하기</button>
@@ -1369,11 +1369,11 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label class="form-label" for="w-name" data-i18n="tour.form.name.label">성명</label>
-                        <input class="form-input" type="text" id="w-name" autocomplete="name" placeholder="홍길동" required>
+                        <input class="form-input" type="text" id="w-name" autocomplete="name" data-i18n-placeholder="form.name.ph" placeholder="홍길동" required>
                     </div>
                     <div class="form-group">
                         <label class="form-label" for="w-org" data-i18n="tour.form.org.label">소속</label>
-                        <input class="form-input" type="text" id="w-org" autocomplete="organization" placeholder="회사 / 팀명">
+                        <input class="form-input" type="text" id="w-org" autocomplete="organization" data-i18n-placeholder="form.org.ph" placeholder="회사 / 팀명">
                     </div>
                 </div>
                 <div class="form-group">
@@ -1392,7 +1392,7 @@
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="w-message" data-i18n="tour.form.msg.label">요청내용</label>
-                    <textarea class="form-textarea" id="w-message" placeholder="워크샵 목적, 참가 인원, 일정 희망 등을 자유롭게 작성해 주세요." required></textarea>
+                    <textarea class="form-textarea" id="w-message" data-i18n-placeholder="ws.form.msg.ph" placeholder="워크샵 목적, 참가 인원, 일정 희망 등을 자유롭게 작성해 주세요." required></textarea>
                 </div>
                 <div id="ws-form-error" class="form-error-msg" data-i18n="modal.error">오류가 발생했습니다. 잠시 후 다시 시도해 주세요.</div>
                 <button type="submit" id="ws-form-btn" class="btn btn-primary" style="align-self:flex-start;margin-top:0.5rem;" data-i18n="ws.form.submit">문의 제출하기</button>
@@ -1631,7 +1631,11 @@ const T = {
     'modal.name':'성명','modal.org':'소속','modal.email':'이메일','modal.subject':'제목','modal.message':'요청내용',
     'modal.submit':'제출하기',
     'modal.error':'오류가 발생했습니다. 잠시 후 다시 시도해 주세요.',
-    'modal.success.title':'접수 완료','modal.success.desc':'요청이 접수되었습니다.<br>빠른 시일 내에 연락 드리겠습니다.'
+    'modal.success.title':'접수 완료','modal.success.desc':'요청이 접수되었습니다.<br>빠른 시일 내에 연락 드리겠습니다.',
+    'form.name.ph':'성함','form.org.ph':'소속 (회사 / 팀명)',
+    'tour.form.subject.ph':'Innovation Tour 참가 문의',
+    'tour.form.msg.ph':'참가 목적, 현재 프로젝트 단계, 궁금한 점 등을 자유롭게 작성해 주세요.',
+    'ws.form.msg.ph':'워크샵 목적, 참가 인원, 일정 희망 등을 자유롭게 작성해 주세요.'
   },
   en: {
     'nav.vision':'Vision','nav.problem':'Problem','nav.shenzhen':'Fast.B Innovation',
@@ -1806,7 +1810,11 @@ const T = {
     'modal.name':'Name','modal.org':'Organization','modal.email':'Email','modal.subject':'Subject','modal.message':'Message',
     'modal.submit':'Submit',
     'modal.error':'Something went wrong. Please try again.',
-    'modal.success.title':'Request Received','modal.success.desc':'Your inquiry has been submitted.<br>We\'ll be in touch shortly.'
+    'modal.success.title':'Request Received','modal.success.desc':'Your inquiry has been submitted.<br>We\'ll be in touch shortly.',
+    'form.name.ph':'Full Name','form.org.ph':'Company / Team',
+    'tour.form.subject.ph':'Inquiry about Innovation Tour participation',
+    'tour.form.msg.ph':'Purpose of participation, current project stage, any questions...',
+    'ws.form.msg.ph':'Workshop purpose, number of participants, preferred dates...'
   }
 };
 
@@ -1847,6 +1855,10 @@ function setLanguage(lang) {
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (dict[key] !== undefined) el.placeholder = dict[key];
     });
     document.getElementById('btnKo').classList.toggle('active', lang === 'ko');
     document.getElementById('btnEn').classList.toggle('active', lang === 'en');
