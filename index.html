@@ -407,6 +407,9 @@
         .form-input, .form-textarea { background:var(--bg); border:1px solid var(--grid-line-strong); border-radius:10px; padding:0.8rem 1rem; color:var(--text-main); font-family:var(--font-body); font-size:0.95rem; outline:none; transition:border-color 0.2s; width:100%; }
         .form-input:focus, .form-textarea:focus { border-color:var(--clay); }
         .form-input::placeholder, .form-textarea::placeholder { color:var(--text-muted); opacity:0.5; }
+        select.form-input { -webkit-appearance:none; appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23959190' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 1rem center; padding-right:2.5rem; }
+        select.form-input option { background:var(--surface); color:var(--text-main); }
+        @media(max-width:760px) { #page-inno-workshop [style*="grid-template-columns:1fr 1fr"] { grid-template-columns:1fr !important; } }
         .form-textarea { min-height:110px; resize:vertical; }
         .form-submit { width:100%; margin-top:0.25rem; }
         .form-submit:disabled { opacity:0.5; cursor:not-allowed; }
@@ -449,6 +452,7 @@
     <a href="#shenzhen"    class="nav-link" data-i18n="nav.shenzhen"    onclick="closeDrawer()">Fast.B Innovation</a>
     <a href="#methodology" class="nav-link" data-i18n="nav.process"     onclick="closeDrawer()">Process</a>
     <a href="#team"        class="nav-link" data-i18n="nav.team"        onclick="closeDrawer()">Team</a>
+    <a href="#" class="nav-link" data-page="inno-workshop" data-i18n="nav.innoworkshop" onclick="closeDrawer(); showPage('inno-workshop'); return false;">Innovation Workshop</a>
     <a href="#" class="nav-link" data-page="inno-tour" data-i18n="nav.innotour" onclick="closeDrawer(); showPage('inno-tour'); return false;">Innovation Tour</a>
     <a href="#" class="nav-link" data-i18n="nav.contact" onclick="closeDrawer(); openContactModal(); return false;">Contact</a>
 </div>
@@ -466,6 +470,7 @@
         <a href="#shenzhen"    class="nav-link" data-i18n="nav.shenzhen">Fast.B Innovation</a>
         <a href="#methodology" class="nav-link" data-i18n="nav.process">Process</a>
         <a href="#team"        class="nav-link" data-i18n="nav.team">Team</a>
+        <a href="#" class="nav-link" data-page="inno-workshop" data-i18n="nav.innoworkshop" onclick="showPage('inno-workshop'); return false;">Innovation Workshop</a>
         <a href="#" class="nav-link" data-page="inno-tour" data-i18n="nav.innotour" onclick="showPage('inno-tour'); return false;">Innovation Tour</a>
         <a href="#" class="nav-link" data-i18n="nav.contact" onclick="openContactModal(); return false;">Contact</a>
     </div>
@@ -1165,6 +1170,244 @@
 
 </div>
 
+<div id="page-inno-workshop" style="display:none; position:relative; z-index:20;">
+
+    <!-- ── HERO ── -->
+    <div style="padding:20vh var(--container-padding) 14vh; border-bottom:1px solid var(--grid-line);">
+        <span class="meta-label" style="display:block;margin-bottom:2rem;letter-spacing:0.18em;" data-i18n="ws.hero.meta">Fast.B Flagship Workshop Program</span>
+        <h1 class="display-text" style="font-size:clamp(3.5rem,8vw,9rem);line-height:0.95;margin-bottom:3.5rem;letter-spacing:-0.02em;">Fast.B<br>Innovation<br>Workshop</h1>
+        <p style="max-width:780px;font-size:1.15rem;line-height:2;color:var(--text-main);font-family:var(--font-body);" data-i18n="ws.hero.p">Fast.B "AI Hardware Prototyping &amp; Acceleration Platform"은 flagship workshop program을 운영합니다. <span style="color:var(--clay);font-weight:600;">"생각"이 아니라 "만들고 검증하는 경험"</span>으로 가져가는 것입니다. 문제 정의 → 아이디어 발산 → 시나리오 설계 → 프로토타입 → 실행 전략.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:4rem;border-top:1px solid var(--grid-line-strong);padding-top:4rem;margin-top:5rem;">
+            <div><div style="font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4rem);color:var(--clay);line-height:1;letter-spacing:-0.02em;">3</div><div class="meta-label" style="margin-top:0.75rem;" data-i18n="ws.stat1">Workshop Programs</div></div>
+            <div><div style="font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4rem);color:var(--clay);line-height:1;letter-spacing:-0.02em;">1-Day</div><div class="meta-label" style="margin-top:0.75rem;" data-i18n="ws.stat2">집중 프로그램</div></div>
+            <div><div style="font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4rem);color:var(--text-main);line-height:1;letter-spacing:-0.02em;">AI+HW</div><div class="meta-label" style="margin-top:0.75rem;" data-i18n="ws.stat3">AI × Hardware × Future Strategy</div></div>
+        </div>
+    </div>
+
+    <!-- ── CORE PHILOSOPHY ── -->
+    <div style="padding:14vh var(--container-padding); border-bottom:1px solid var(--grid-line);">
+        <div style="display:flex;flex-direction:column;gap:1.25rem;margin-bottom:7rem;">
+            <span class="meta-label" data-i18n="ws.phil.meta">Core Philosophy</span>
+            <h2 style="font-family:var(--font-title);font-size:clamp(1.75rem,3vw,3rem);font-weight:700;text-transform:uppercase;letter-spacing:0.04em;line-height:1.12;" data-i18n="ws.phil.h2">생각이 아니라,<br>만들고 검증하는 경험</h2>
+        </div>
+        <div class="grid-3">
+            <div class="panel">
+                <svg class="star-motif text-clay" viewBox="0 0 24 24"><path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z"/></svg>
+                <h3 class="panel-title" data-i18n="ws.phil.p1.title">AI + Hardware</h3>
+                <p class="panel-desc" data-i18n="ws.phil.p1.desc">AI와 하드웨어 기술 트렌드를 기반으로, 아이디어를 현실적인 제품과 서비스로 연결하는 방법론을 제공합니다.</p>
+            </div>
+            <div class="panel">
+                <svg class="star-motif text-acid" viewBox="0 0 24 24"><path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z"/></svg>
+                <h3 class="panel-title" data-i18n="ws.phil.p2.title">Prototype Fast</h3>
+                <p class="panel-desc" data-i18n="ws.phil.p2.desc">단순한 브레인스토밍이 아닌 "실행 가능한 결과물"을 만드는 데 초점을 둡니다. 하루 만에 MVP 수준의 프로토타입과 실행 방향성을 확보합니다.</p>
+            </div>
+            <div class="panel">
+                <svg class="star-motif" style="color:var(--text-main)" viewBox="0 0 24 24"><path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z"/></svg>
+                <h3 class="panel-title" data-i18n="ws.phil.p3.title">Future Strategy</h3>
+                <p class="panel-desc" data-i18n="ws.phil.p3.desc">Shenzhen의 빠른 하드웨어 생태계와 AI 기술 트렌드를 기반으로 현재 문제를 넘어 미래 시나리오를 설계하고 전략적 대응 방향을 수립합니다.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── PROGRAM 01: IDEATION ── -->
+    <div style="padding:14vh var(--container-padding); border-bottom:1px solid var(--grid-line);">
+        <div style="display:flex;flex-direction:column;gap:1.25rem;margin-bottom:6rem;">
+            <span class="meta-label" data-i18n="ws.w1.meta">Workshop Program 01</span>
+            <h2 style="font-family:var(--font-title);font-size:clamp(1.75rem,3vw,3rem);font-weight:700;text-transform:uppercase;letter-spacing:0.04em;line-height:1.12;" data-i18n="ws.w1.h2">Ideation &amp;<br>Rapid Prototyping</h2>
+            <p style="font-size:0.78rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--clay);font-family:var(--font-body);" data-i18n="ws.w1.sub">From Idea to Tangible Prototype</p>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;margin-bottom:5rem;">
+            <div>
+                <p class="panel-desc" style="line-height:1.9;margin-bottom:2rem;" data-i18n="ws.w1.desc">Fast.B의 Ideation &amp; Rapid Prototyping Workshop은 아이디어를 빠르게 검증 가능한 형태로 구현하는 집중형 워크샵입니다. 참가자들은 문제 정의부터 아이디어 발굴, 사용자 시나리오 설계, AI 기반 서비스 기획, 하드웨어 컨셉 스케치, 인터랙션 설계, 그리고 실제 프로토타입 제작까지 전 과정을 경험합니다. 이 프로그램은 단순한 브레인스토밍이 아니라 "실행 가능한 결과물"을 만드는 데 초점을 둡니다.</p>
+                <div style="background:rgba(51,46,45,0.6);border-radius:20px;padding:2rem;border:1px solid var(--grid-line-strong);">
+                    <div class="meta-label" style="margin-bottom:1.25rem;" data-i18n="ws.recommended">Recommended For</div>
+                    <ul style="list-style:none;display:flex;flex-direction:column;gap:0.75rem;">
+                        <li style="font-size:0.95rem;color:var(--text-main);display:flex;gap:0.75rem;align-items:flex-start;"><span style="color:var(--clay);margin-top:0.15rem;">✦</span><span data-i18n="ws.w1.for1">AI Hardware Startup Teams</span></li>
+                        <li style="font-size:0.95rem;color:var(--text-main);display:flex;gap:0.75rem;align-items:flex-start;"><span style="color:var(--clay);margin-top:0.15rem;">✦</span><span data-i18n="ws.w1.for2">New Business &amp; Innovation Teams</span></li>
+                        <li style="font-size:0.95rem;color:var(--text-main);display:flex;gap:0.75rem;align-items:flex-start;"><span style="color:var(--clay);margin-top:0.15rem;">✦</span><span data-i18n="ws.w1.for3">Product Managers &amp; Designers</span></li>
+                        <li style="font-size:0.95rem;color:var(--text-main);display:flex;gap:0.75rem;align-items:flex-start;"><span style="color:var(--clay);margin-top:0.15rem;">✦</span><span data-i18n="ws.w1.for4">Entrepreneurs &amp; Makers</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div class="meta-label" style="margin-bottom:1.5rem;" data-i18n="ws.schedule">1-Day Sample Schedule</div>
+                <div style="display:flex;flex-direction:column;gap:0;">
+                    <div style="display:grid;grid-template-columns:110px 1fr;gap:1.25rem;padding:1.1rem 0;border-top:1px solid var(--grid-line);"><span style="font-family:var(--font-body);font-size:0.78rem;font-weight:600;letter-spacing:0.04em;color:var(--text-muted);padding-top:0.1rem;font-variant-numeric:tabular-nums;">09:00–09:30</span><div style="font-size:0.9rem;color:var(--text-main);font-family:var(--font-body);" data-i18n="ws.w1.s1">Opening &amp; Innovation Icebreaking</div></div>
+                    <div style="display:grid;grid-template-columns:110px 1fr;gap:1.25rem;padding:1.1rem 0;border-top:1px solid var(--grid-line);"><span style="font-family:var(--font-body);font-size:0.78rem;font-weight:600;letter-spacing:0.04em;color:var(--text-muted);padding-top:0.1rem;font-variant-numeric:tabular-nums;">09:30–10:30</span><div style="font-size:0.9rem;color:var(--text-main);font-family:var(--font-body);" data-i18n="ws.w1.s2">Problem Discovery &amp; Opportunity Mapping</div></div>
+                    <div style="display:grid;grid-template-columns:110px 1fr;gap:1.25rem;padding:1.1rem 0;border-top:1px solid var(--grid-line);"><span style="font-family:var(--font-body);font-size:0.78rem;font-weight:600;letter-spacing:0.04em;color:var(--text-muted);padding-top:0.1rem;font-variant-numeric:tabular-nums;">10:30–11:30</span><div style="font-size:0.9rem;color:var(--text-main);font-family:var(--font-body);" data-i18n="ws.w1.s3">Ideation Sprint &amp; Concept Generation</div></div>
+                    <div style="display:grid;grid-template-columns:110px 1fr;gap:1.25rem;padding:1.1rem 0;border-top:1px solid var(--grid-line);"><span style="font-family:var(--font-body);font-size:0.78rem;font-weight:600;letter-spacing:0.04em;color:var(--text-muted);padding-top:0.1rem;font-variant-numeric:tabular-nums;">11:30–12:30</span><div style="font-size:0.9rem;color:var(--text-main);font-family:var(--font-body);" data-i18n="ws.w1.s4">AI + Hardware Use Case Exploration</div></div>
+                    <div style="display:grid;grid-template-columns:110px 1fr;gap:1.25rem;padding:1.1rem 0;border-top:1px solid var(--grid-line);background:rgba(250,217,211,0.04);"><span style="font-family:var(--font-body);font-size:0.78rem;font-weight:600;letter-spacing:0.04em;color:var(--clay);padding-top:0.1rem;font-variant-numeric:tabular-nums;">12:30–13:30</span><div style="font-size:0.9rem;color:var(--clay);font-family:var(--font-body);" data-i18n="ws.lunch">Lunch &amp; Networking</div></div>
+                    <div style="display:grid;grid-template-columns:110px 1fr;gap:1.25rem;padding:1.1rem 0;border-top:1px solid var(--grid-line);"><span style="font-family:var(--font-body);font-size:0.78rem;font-weight:600;letter-spacing:0.04em;color:var(--text-muted);padding-top:0.1rem;font-variant-numeric:tabular-nums;">13:30–15:00</span><div style="font-size:0.9rem;color:var(--text-main);font-family:var(--font-body);" data-i18n="ws.w1.s6">Rapid Prototyping Session</div></div>
+                    <div style="display:grid;grid-template-columns:110px 1fr;gap:1.25rem;padding:1.1rem 0;border-top:1px solid var(--grid-line);"><span style="font-family:var(--font-body);font-size:0.78rem;font-weight:600;letter-spacing:0.04em;color:var(--text-muted);padding-top:0.1rem;font-variant-numeric:tabular-nums;">15:00–16:00</span><div style="font-size:0.9rem;color:var(--text-main);font-family:var(--font-body);" data-i18n="ws.w1.s7">User Journey &amp; Experience Design</div></div>
+                    <div style="display:grid;grid-template-columns:110px 1fr;gap:1.25rem;padding:1.1rem 0;border-top:1px solid var(--grid-line);"><span style="font-family:var(--font-body);font-size:0.78rem;font-weight:600;letter-spacing:0.04em;color:var(--text-muted);padding-top:0.1rem;font-variant-numeric:tabular-nums;">16:00–17:00</span><div style="font-size:0.9rem;color:var(--text-main);font-family:var(--font-body);" data-i18n="ws.w1.s8">Prototype Validation &amp; Feedback</div></div>
+                    <div style="display:grid;grid-template-columns:110px 1fr;gap:1.25rem;padding:1.1rem 0;border-top:1px solid var(--grid-line);border-bottom:1px solid var(--grid-line);"><span style="font-family:var(--font-body);font-size:0.78rem;font-weight:600;letter-spacing:0.04em;color:var(--text-muted);padding-top:0.1rem;font-variant-numeric:tabular-nums;">17:00–18:00</span><div style="font-size:0.9rem;color:var(--text-main);font-family:var(--font-body);" data-i18n="ws.w1.s9">Final Demo &amp; Action Planning</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── PROGRAM 02: DESIGN THINKING ── -->
+    <div style="padding:14vh var(--container-padding); border-bottom:1px solid var(--grid-line);">
+        <div style="display:flex;flex-direction:column;gap:1.25rem;margin-bottom:6rem;">
+            <span class="meta-label" data-i18n="ws.w2.meta">Workshop Program 02</span>
+            <h2 style="font-family:var(--font-title);font-size:clamp(1.75rem,3vw,3rem);font-weight:700;text-transform:uppercase;letter-spacing:0.04em;line-height:1.12;" data-i18n="ws.w2.h2">Design Thinking</h2>
+            <p style="font-size:0.78rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--clay);font-family:var(--font-body);" data-i18n="ws.w2.sub">Human-Centered Innovation for Real Problems</p>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;margin-bottom:5rem;">
+            <div>
+                <p class="panel-desc" style="line-height:1.9;margin-bottom:2rem;" data-i18n="ws.w2.desc">Fast.B의 Design Thinking Workshop은 복잡한 문제를 인간 중심(Human-Centered) 관점에서 재정의하고 혁신적인 해결책을 도출하는 워크샵입니다. 공감(Empathy), 문제 정의(Define), 아이디어 발산(Ideate), 프로토타이핑(Prototype), 테스트(Test)의 전 과정을 실습 기반으로 경험합니다. AI 시대의 사용자 경험과 서비스 혁신 전략까지 함께 다루며, 실제 고객 문제를 해결하는 경험을 제공합니다.</p>
+                <div style="background:rgba(51,46,45,0.6);border-radius:20px;padding:2rem;border:1px solid var(--grid-line-strong);">
+                    <div class="meta-label" style="margin-bottom:1.25rem;" data-i18n="ws.recommended">Recommended For</div>
+                    <ul style="list-style:none;display:flex;flex-direction:column;gap:0.75rem;">
+                        <li style="font-size:0.95rem;color:var(--text-main);display:flex;gap:0.75rem;align-items:flex-start;"><span style="color:var(--clay);margin-top:0.15rem;">✦</span><span data-i18n="ws.w2.for1">Corporate Innovation Teams</span></li>
+                        <li style="font-size:0.95rem;color:var(--text-main);display:flex;gap:0.75rem;align-items:flex-start;"><span style="color:var(--clay);margin-top:0.15rem;">✦</span><span data-i18n="ws.w2.for2">UX/UI Designers</span></li>
+                        <li style="font-size:0.95rem;color:var(--text-main);display:flex;gap:0.75rem;align-items:flex-start;"><span style="color:var(--clay);margin-top:0.15rem;">✦</span><span data-i18n="ws.w2.for3">Service Planners</span></li>
+                        <li style="font-size:0.95rem;color:var(--text-main);display:flex;gap:0.75rem;align-items:flex-start;"><span style="color:var(--clay);margin-top:0.15rem;">✦</span><span data-i18n="ws.w2.for4">Customer Experience Teams</span></li>
+                        <li style="font-size:0.95rem;color:var(--text-main);display:flex;gap:0.75rem;align-items:flex-start;"><span style="color:var(--clay);margin-top:0.15rem;">✦</span><span data-i18n="ws.w2.for5">Cross-functional Organizations</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div class="meta-label" style="margin-bottom:1.5rem;" data-i18n="ws.schedule">1-Day Sample Schedule</div>
+                <div style="display:flex;flex-direction:column;gap:0;">
+                    <div style="display:grid;grid-template-columns:110px 1fr;gap:1.25rem;padding:1.1rem 0;border-top:1px solid var(--grid-line);"><span style="font-family:var(--font-body);font-size:0.78rem;font-weight:600;letter-spacing:0.04em;color:var(--text-muted);padding-top:0.1rem;font-variant-numeric:tabular-nums;">09:00–09:30</span><div style="font-size:0.9rem;color:var(--text-main);font-family:var(--font-body);" data-i18n="ws.w2.s1">Introduction &amp; Team Building</div></div>
+                    <div style="display:grid;grid-template-columns:110px 1fr;gap:1.25rem;padding:1.1rem 0;border-top:1px solid var(--grid-line);"><span style="font-family:var(--font-body);font-size:0.78rem;font-weight:600;letter-spacing:0.04em;color:var(--text-muted);padding-top:0.1rem;font-variant-numeric:tabular-nums;">09:30–10:30</span><div style="font-size:0.9rem;color:var(--text-main);font-family:var(--font-body);" data-i18n="ws.w2.s2">Understanding Complex Problems</div></div>
+                    <div style="display:grid;grid-template-columns:110px 1fr;gap:1.25rem;padding:1.1rem 0;border-top:1px solid var(--grid-line);"><span style="font-family:var(--font-body);font-size:0.78rem;font-weight:600;letter-spacing:0.04em;color:var(--text-muted);padding-top:0.1rem;font-variant-numeric:tabular-nums;">10:30–11:30</span><div style="font-size:0.9rem;color:var(--text-main);font-family:var(--font-body);" data-i18n="ws.w2.s3">Empathy Mapping &amp; User Interviews</div></div>
+                    <div style="display:grid;grid-template-columns:110px 1fr;gap:1.25rem;padding:1.1rem 0;border-top:1px solid var(--grid-line);"><span style="font-family:var(--font-body);font-size:0.78rem;font-weight:600;letter-spacing:0.04em;color:var(--text-muted);padding-top:0.1rem;font-variant-numeric:tabular-nums;">11:30–12:30</span><div style="font-size:0.9rem;color:var(--text-main);font-family:var(--font-body);" data-i18n="ws.w2.s4">Defining Core Challenges</div></div>
+                    <div style="display:grid;grid-template-columns:110px 1fr;gap:1.25rem;padding:1.1rem 0;border-top:1px solid var(--grid-line);background:rgba(250,217,211,0.04);"><span style="font-family:var(--font-body);font-size:0.78rem;font-weight:600;letter-spacing:0.04em;color:var(--clay);padding-top:0.1rem;font-variant-numeric:tabular-nums;">12:30–13:30</span><div style="font-size:0.9rem;color:var(--clay);font-family:var(--font-body);" data-i18n="ws.lunch">Lunch &amp; Networking</div></div>
+                    <div style="display:grid;grid-template-columns:110px 1fr;gap:1.25rem;padding:1.1rem 0;border-top:1px solid var(--grid-line);"><span style="font-family:var(--font-body);font-size:0.78rem;font-weight:600;letter-spacing:0.04em;color:var(--text-muted);padding-top:0.1rem;font-variant-numeric:tabular-nums;">13:30–14:30</span><div style="font-size:0.9rem;color:var(--text-main);font-family:var(--font-body);" data-i18n="ws.w2.s6">Ideation &amp; Creative Thinking</div></div>
+                    <div style="display:grid;grid-template-columns:110px 1fr;gap:1.25rem;padding:1.1rem 0;border-top:1px solid var(--grid-line);"><span style="font-family:var(--font-body);font-size:0.78rem;font-weight:600;letter-spacing:0.04em;color:var(--text-muted);padding-top:0.1rem;font-variant-numeric:tabular-nums;">14:30–15:30</span><div style="font-size:0.9rem;color:var(--text-main);font-family:var(--font-body);" data-i18n="ws.w2.s7">Concept Sketching &amp; Storyboarding</div></div>
+                    <div style="display:grid;grid-template-columns:110px 1fr;gap:1.25rem;padding:1.1rem 0;border-top:1px solid var(--grid-line);"><span style="font-family:var(--font-body);font-size:0.78rem;font-weight:600;letter-spacing:0.04em;color:var(--text-muted);padding-top:0.1rem;font-variant-numeric:tabular-nums;">15:30–16:30</span><div style="font-size:0.9rem;color:var(--text-main);font-family:var(--font-body);" data-i18n="ws.w2.s8">Prototype Building</div></div>
+                    <div style="display:grid;grid-template-columns:110px 1fr;gap:1.25rem;padding:1.1rem 0;border-top:1px solid var(--grid-line);"><span style="font-family:var(--font-body);font-size:0.78rem;font-weight:600;letter-spacing:0.04em;color:var(--text-muted);padding-top:0.1rem;font-variant-numeric:tabular-nums;">16:30–17:30</span><div style="font-size:0.9rem;color:var(--text-main);font-family:var(--font-body);" data-i18n="ws.w2.s9">Testing &amp; Feedback Session</div></div>
+                    <div style="display:grid;grid-template-columns:110px 1fr;gap:1.25rem;padding:1.1rem 0;border-top:1px solid var(--grid-line);border-bottom:1px solid var(--grid-line);"><span style="font-family:var(--font-body);font-size:0.78rem;font-weight:600;letter-spacing:0.04em;color:var(--text-muted);padding-top:0.1rem;font-variant-numeric:tabular-nums;">17:30–18:00</span><div style="font-size:0.9rem;color:var(--text-main);font-family:var(--font-body);" data-i18n="ws.w2.s10">Reflection &amp; Innovation Takeaways</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── PROGRAM 03: FUTURE CASTING ── -->
+    <div style="padding:14vh var(--container-padding); border-bottom:1px solid var(--grid-line);">
+        <div style="display:flex;flex-direction:column;gap:1.25rem;margin-bottom:6rem;">
+            <span class="meta-label" data-i18n="ws.w3.meta">Workshop Program 03</span>
+            <h2 style="font-family:var(--font-title);font-size:clamp(1.75rem,3vw,3rem);font-weight:700;text-transform:uppercase;letter-spacing:0.04em;line-height:1.12;" data-i18n="ws.w3.h2">Future Casting</h2>
+            <p style="font-size:0.78rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--clay);font-family:var(--font-body);" data-i18n="ws.w3.sub">Scenario Planning for the Age of AI &amp; Physical Intelligence</p>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;margin-bottom:5rem;">
+            <div>
+                <p class="panel-desc" style="line-height:1.9;margin-bottom:2rem;" data-i18n="ws.w3.desc">Fast.B의 Future Casting Workshop은 AI, Robotics, Spatial Computing, XR, Mobility 등 빠르게 변화하는 산업 환경 속에서 미래 시나리오를 설계하고 전략적 대응 방향을 수립하는 미래 전략 워크샵입니다. 시나리오 플래닝(Scenario Planning)을 기반으로 미래의 불확실성을 구조적으로 분석합니다. AI와 Physical AI 시대의 산업 구조 변화, 조직 변화, 고객 경험 변화, 비즈니스 모델 재편을 중심으로 미래 전략 인사이트를 도출합니다.</p>
+                <div style="background:rgba(51,46,45,0.6);border-radius:20px;padding:2rem;border:1px solid var(--grid-line-strong);">
+                    <div class="meta-label" style="margin-bottom:1.25rem;" data-i18n="ws.recommended">Recommended For</div>
+                    <ul style="list-style:none;display:flex;flex-direction:column;gap:0.75rem;">
+                        <li style="font-size:0.95rem;color:var(--text-main);display:flex;gap:0.75rem;align-items:flex-start;"><span style="color:var(--clay);margin-top:0.15rem;">✦</span><span data-i18n="ws.w3.for1">C-Level Executives</span></li>
+                        <li style="font-size:0.95rem;color:var(--text-main);display:flex;gap:0.75rem;align-items:flex-start;"><span style="color:var(--clay);margin-top:0.15rem;">✦</span><span data-i18n="ws.w3.for2">Strategy &amp; Future Teams</span></li>
+                        <li style="font-size:0.95rem;color:var(--text-main);display:flex;gap:0.75rem;align-items:flex-start;"><span style="color:var(--clay);margin-top:0.15rem;">✦</span><span data-i18n="ws.w3.for3">Innovation Leaders</span></li>
+                        <li style="font-size:0.95rem;color:var(--text-main);display:flex;gap:0.75rem;align-items:flex-start;"><span style="color:var(--clay);margin-top:0.15rem;">✦</span><span data-i18n="ws.w3.for4">Enterprise Transformation Organizations</span></li>
+                        <li style="font-size:0.95rem;color:var(--text-main);display:flex;gap:0.75rem;align-items:flex-start;"><span style="color:var(--clay);margin-top:0.15rem;">✦</span><span data-i18n="ws.w3.for5">Public Sector &amp; Policy Organizations</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div class="meta-label" style="margin-bottom:1.5rem;" data-i18n="ws.schedule">1-Day Sample Schedule</div>
+                <div style="display:flex;flex-direction:column;gap:0;">
+                    <div style="display:grid;grid-template-columns:110px 1fr;gap:1.25rem;padding:1.1rem 0;border-top:1px solid var(--grid-line);"><span style="font-family:var(--font-body);font-size:0.78rem;font-weight:600;letter-spacing:0.04em;color:var(--text-muted);padding-top:0.1rem;font-variant-numeric:tabular-nums;">09:00–09:30</span><div style="font-size:0.9rem;color:var(--text-main);font-family:var(--font-body);" data-i18n="ws.w3.s1">Future Signals &amp; Megatrends Overview</div></div>
+                    <div style="display:grid;grid-template-columns:110px 1fr;gap:1.25rem;padding:1.1rem 0;border-top:1px solid var(--grid-line);"><span style="font-family:var(--font-body);font-size:0.78rem;font-weight:600;letter-spacing:0.04em;color:var(--text-muted);padding-top:0.1rem;font-variant-numeric:tabular-nums;">09:30–10:30</span><div style="font-size:0.9rem;color:var(--text-main);font-family:var(--font-body);" data-i18n="ws.w3.s2">Emerging Technology Landscape</div></div>
+                    <div style="display:grid;grid-template-columns:110px 1fr;gap:1.25rem;padding:1.1rem 0;border-top:1px solid var(--grid-line);"><span style="font-family:var(--font-body);font-size:0.78rem;font-weight:600;letter-spacing:0.04em;color:var(--text-muted);padding-top:0.1rem;font-variant-numeric:tabular-nums;">10:30–11:30</span><div style="font-size:0.9rem;color:var(--text-main);font-family:var(--font-body);" data-i18n="ws.w3.s3">Uncertainty &amp; Driving Forces Mapping</div></div>
+                    <div style="display:grid;grid-template-columns:110px 1fr;gap:1.25rem;padding:1.1rem 0;border-top:1px solid var(--grid-line);"><span style="font-family:var(--font-body);font-size:0.78rem;font-weight:600;letter-spacing:0.04em;color:var(--text-muted);padding-top:0.1rem;font-variant-numeric:tabular-nums;">11:30–12:30</span><div style="font-size:0.9rem;color:var(--text-main);font-family:var(--font-body);" data-i18n="ws.w3.s4">Scenario Framework Design</div></div>
+                    <div style="display:grid;grid-template-columns:110px 1fr;gap:1.25rem;padding:1.1rem 0;border-top:1px solid var(--grid-line);background:rgba(250,217,211,0.04);"><span style="font-family:var(--font-body);font-size:0.78rem;font-weight:600;letter-spacing:0.04em;color:var(--clay);padding-top:0.1rem;font-variant-numeric:tabular-nums;">12:30–13:30</span><div style="font-size:0.9rem;color:var(--clay);font-family:var(--font-body);" data-i18n="ws.lunch">Lunch &amp; Networking</div></div>
+                    <div style="display:grid;grid-template-columns:110px 1fr;gap:1.25rem;padding:1.1rem 0;border-top:1px solid var(--grid-line);"><span style="font-family:var(--font-body);font-size:0.78rem;font-weight:600;letter-spacing:0.04em;color:var(--text-muted);padding-top:0.1rem;font-variant-numeric:tabular-nums;">13:30–14:30</span><div style="font-size:0.9rem;color:var(--text-main);font-family:var(--font-body);" data-i18n="ws.w3.s6">Future Scenario Development</div></div>
+                    <div style="display:grid;grid-template-columns:110px 1fr;gap:1.25rem;padding:1.1rem 0;border-top:1px solid var(--grid-line);"><span style="font-family:var(--font-body);font-size:0.78rem;font-weight:600;letter-spacing:0.04em;color:var(--text-muted);padding-top:0.1rem;font-variant-numeric:tabular-nums;">14:30–15:30</span><div style="font-size:0.9rem;color:var(--text-main);font-family:var(--font-body);" data-i18n="ws.w3.s7">Strategic Opportunity Mapping</div></div>
+                    <div style="display:grid;grid-template-columns:110px 1fr;gap:1.25rem;padding:1.1rem 0;border-top:1px solid var(--grid-line);"><span style="font-family:var(--font-body);font-size:0.78rem;font-weight:600;letter-spacing:0.04em;color:var(--text-muted);padding-top:0.1rem;font-variant-numeric:tabular-nums;">15:30–16:30</span><div style="font-size:0.9rem;color:var(--text-main);font-family:var(--font-body);" data-i18n="ws.w3.s8">Business Model &amp; Ecosystem Impacts</div></div>
+                    <div style="display:grid;grid-template-columns:110px 1fr;gap:1.25rem;padding:1.1rem 0;border-top:1px solid var(--grid-line);"><span style="font-family:var(--font-body);font-size:0.78rem;font-weight:600;letter-spacing:0.04em;color:var(--text-muted);padding-top:0.1rem;font-variant-numeric:tabular-nums;">16:30–17:30</span><div style="font-size:0.9rem;color:var(--text-main);font-family:var(--font-body);" data-i18n="ws.w3.s9">Action Roadmap &amp; Strategic Priorities</div></div>
+                    <div style="display:grid;grid-template-columns:110px 1fr;gap:1.25rem;padding:1.1rem 0;border-top:1px solid var(--grid-line);border-bottom:1px solid var(--grid-line);"><span style="font-family:var(--font-body);font-size:0.78rem;font-weight:600;letter-spacing:0.04em;color:var(--text-muted);padding-top:0.1rem;font-variant-numeric:tabular-nums;">17:30–18:00</span><div style="font-size:0.9rem;color:var(--text-main);font-family:var(--font-body);" data-i18n="ws.w3.s10">Final Presentation &amp; Insights Sharing</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── WORKSHOP PHILOSOPHY ── -->
+    <div style="padding:14vh var(--container-padding); border-bottom:1px solid var(--grid-line);">
+        <div style="display:flex;flex-direction:column;gap:1.25rem;margin-bottom:7rem;">
+            <span class="meta-label" data-i18n="ws.why.meta">Fast.B Workshop Philosophy</span>
+            <h2 style="font-family:var(--font-title);font-size:clamp(1.75rem,3vw,3rem);font-weight:700;text-transform:uppercase;letter-spacing:0.04em;line-height:1.12;" data-i18n="ws.why.h2">From Future Imagination<br>to Real Innovation.</h2>
+            <p class="panel-desc" style="max-width:640px;line-height:1.9;margin-top:0.5rem;" data-i18n="ws.why.desc">Fast.B는 단순히 아이디어를 논의하는 곳이 아닙니다. AI, Hardware, Robotics, Spatial Computing, 그리고 Shenzhen의 빠른 제조 생태계를 기반으로 미래를 실제로 만들어가는 실행형 혁신 플랫폼입니다.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;">
+            <div style="border:1px solid var(--grid-line-strong);border-radius:20px;padding:2rem 1.75rem;background:rgba(51,46,45,0.4);">
+                <div style="font-family:var(--font-display);font-size:1.5rem;color:var(--clay);margin-bottom:1rem;">01</div>
+                <h3 style="font-family:var(--font-subtitle);font-size:0.9rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-main);" data-i18n="ws.goal1">Think Beyond<br>the Present</h3>
+            </div>
+            <div style="border:1px solid var(--grid-line-strong);border-radius:20px;padding:2rem 1.75rem;background:rgba(51,46,45,0.4);">
+                <div style="font-family:var(--font-display);font-size:1.5rem;color:var(--clay);margin-bottom:1rem;">02</div>
+                <h3 style="font-family:var(--font-subtitle);font-size:0.9rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-main);" data-i18n="ws.goal2">Prototype<br>Fast</h3>
+            </div>
+            <div style="border:1px solid var(--grid-line-strong);border-radius:20px;padding:2rem 1.75rem;background:rgba(51,46,45,0.4);">
+                <div style="font-family:var(--font-display);font-size:1.5rem;color:var(--clay);margin-bottom:1rem;">03</div>
+                <h3 style="font-family:var(--font-subtitle);font-size:0.9rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-main);" data-i18n="ws.goal3">Validate<br>Quickly</h3>
+            </div>
+            <div style="border:1px solid var(--grid-line-strong);border-radius:20px;padding:2rem 1.75rem;background:rgba(51,46,45,0.4);">
+                <div style="font-family:var(--font-display);font-size:1.5rem;color:var(--clay);margin-bottom:1rem;">04</div>
+                <h3 style="font-family:var(--font-subtitle);font-size:0.9rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-main);" data-i18n="ws.goal4">Build What<br>Matters</h3>
+            </div>
+            <div style="border:1px solid var(--grid-line-strong);border-radius:20px;padding:2rem 1.75rem;background:rgba(51,46,45,0.4);">
+                <div style="font-family:var(--font-display);font-size:1.5rem;color:var(--clay);margin-bottom:1rem;">05</div>
+                <h3 style="font-family:var(--font-subtitle);font-size:0.9rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-main);" data-i18n="ws.goal5">Create Future<br>Impact</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── APPLY FORM ── -->
+    <div style="padding:14vh var(--container-padding) 18vh;">
+        <div style="display:flex;flex-direction:column;gap:1.25rem;margin-bottom:7rem;">
+            <span class="meta-label" data-i18n="ws.apply.meta">Apply Now</span>
+            <h2 style="font-family:var(--font-title);font-size:clamp(1.75rem,3vw,3rem);font-weight:700;text-transform:uppercase;letter-spacing:0.04em;line-height:1.12;" data-i18n="ws.apply.h2">워크샵 문의</h2>
+            <p class="panel-desc" style="max-width:500px;margin-top:0.25rem;" data-i18n="ws.apply.desc">관심 워크샵 프로그램을 선택하고 문의 내용을 보내주시면 Fast.B 팀이 세부 내용을 안내 드립니다.</p>
+        </div>
+        <div style="max-width:680px;">
+            <form id="workshopForm" onsubmit="submitWorkshopForm(event)" novalidate style="display:flex;flex-direction:column;gap:1.25rem;">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="w-name" data-i18n="tour.form.name.label">성명</label>
+                        <input class="form-input" type="text" id="w-name" autocomplete="name" placeholder="홍길동" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="w-org" data-i18n="tour.form.org.label">소속</label>
+                        <input class="form-input" type="text" id="w-org" autocomplete="organization" placeholder="회사 / 팀명">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="w-email" data-i18n="tour.form.email.label">이메일</label>
+                    <input class="form-input" type="email" id="w-email" autocomplete="email" placeholder="name@company.com" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="w-workshop" data-i18n="ws.form.ws.label">관심 워크샵</label>
+                    <select class="form-input" id="w-workshop" required style="cursor:pointer;">
+                        <option value="" disabled selected data-i18n="ws.form.ws.placeholder">워크샵을 선택해 주세요</option>
+                        <option value="Ideation & Rapid Prototyping Workshop" data-i18n="ws.form.ws.opt1">01. Ideation &amp; Rapid Prototyping Workshop</option>
+                        <option value="Design Thinking Workshop" data-i18n="ws.form.ws.opt2">02. Design Thinking Workshop</option>
+                        <option value="Future Casting Workshop" data-i18n="ws.form.ws.opt3">03. Future Casting Workshop</option>
+                        <option value="Custom / Multiple Programs" data-i18n="ws.form.ws.opt4">커스텀 / 복수 프로그램</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="w-message" data-i18n="tour.form.msg.label">요청내용</label>
+                    <textarea class="form-textarea" id="w-message" placeholder="워크샵 목적, 참가 인원, 일정 희망 등을 자유롭게 작성해 주세요." required></textarea>
+                </div>
+                <div id="ws-form-error" class="form-error-msg" data-i18n="modal.error">오류가 발생했습니다. 잠시 후 다시 시도해 주세요.</div>
+                <button type="submit" id="ws-form-btn" class="btn btn-primary" style="align-self:flex-start;margin-top:0.5rem;" data-i18n="ws.form.submit">문의 제출하기</button>
+            </form>
+            <div id="ws-form-success" style="display:none;text-align:center;padding:4rem 2rem;">
+                <div style="font-size:2rem;color:var(--clay);margin-bottom:1.5rem;">✦</div>
+                <h3 class="panel-title" style="color:var(--clay);margin-bottom:1rem;font-size:1.3rem;" data-i18n="tour.success.title">신청 접수 완료</h3>
+                <p class="panel-desc" data-i18n="ws.success.desc">문의가 접수되었습니다.<br>Fast.B 팀이 빠른 시일 내에 연락 드리겠습니다.</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
 <!-- ── CONTACT MODAL ── -->
 <div id="contactModal" class="modal-overlay" onclick="handleOverlayClick(event)">
     <div class="modal-card">
@@ -1219,6 +1462,40 @@ const T = {
   ko: {
     'nav.vision':'Vision','nav.problem':'Problem','nav.shenzhen':'Fast.B Innovation',
     'nav.process':'Process','nav.team':'Team','nav.roadmap':'Roadmap','nav.contact':'Contact',
+    'nav.innoworkshop':'Innovation Workshop',
+    'ws.hero.meta':'Fast.B Flagship Workshop Program',
+    'ws.hero.p':'Fast.B "AI Hardware Prototyping & Acceleration Platform"은 flagship workshop program을 운영합니다. "생각"이 아니라 "만들고 검증하는 경험"으로 가져가는 것입니다. 문제 정의 → 아이디어 발산 → 시나리오 설계 → 프로토타입 → 실행 전략.',
+    'ws.stat1':'Workshop Programs','ws.stat2':'집중 프로그램','ws.stat3':'AI × Hardware × Future Strategy',
+    'ws.phil.meta':'Core Philosophy','ws.phil.h2':'생각이 아니라,<br>만들고 검증하는 경험',
+    'ws.phil.p1.title':'AI + Hardware','ws.phil.p1.desc':'AI와 하드웨어 기술 트렌드를 기반으로, 아이디어를 현실적인 제품과 서비스로 연결하는 방법론을 제공합니다.',
+    'ws.phil.p2.title':'Prototype Fast','ws.phil.p2.desc':'단순한 브레인스토밍이 아닌 "실행 가능한 결과물"을 만드는 데 초점을 둡니다. 하루 만에 MVP 수준의 프로토타입과 실행 방향성을 확보합니다.',
+    'ws.phil.p3.title':'Future Strategy','ws.phil.p3.desc':'Shenzhen의 빠른 하드웨어 생태계와 AI 기술 트렌드를 기반으로 현재 문제를 넘어 미래 시나리오를 설계하고 전략적 대응 방향을 수립합니다.',
+    'ws.recommended':'Recommended For','ws.schedule':'1-Day Sample Schedule','ws.lunch':'Lunch & Networking',
+    'ws.w1.meta':'Workshop Program 01','ws.w1.h2':'Ideation &<br>Rapid Prototyping','ws.w1.sub':'From Idea to Tangible Prototype',
+    'ws.w1.desc':'Fast.B의 Ideation & Rapid Prototyping Workshop은 아이디어를 빠르게 검증 가능한 형태로 구현하는 집중형 워크샵입니다. 참가자들은 문제 정의부터 아이디어 발굴, 사용자 시나리오 설계, AI 기반 서비스 기획, 하드웨어 컨셉 스케치, 인터랙션 설계, 그리고 실제 프로토타입 제작까지 전 과정을 경험합니다.',
+    'ws.w1.for1':'AI Hardware Startup Teams','ws.w1.for2':'New Business & Innovation Teams','ws.w1.for3':'Product Managers & Designers','ws.w1.for4':'Entrepreneurs & Makers',
+    'ws.w1.s1':'Opening & Innovation Icebreaking','ws.w1.s2':'Problem Discovery & Opportunity Mapping','ws.w1.s3':'Ideation Sprint & Concept Generation',
+    'ws.w1.s4':'AI + Hardware Use Case Exploration','ws.w1.s6':'Rapid Prototyping Session','ws.w1.s7':'User Journey & Experience Design',
+    'ws.w1.s8':'Prototype Validation & Feedback','ws.w1.s9':'Final Demo & Action Planning',
+    'ws.w2.meta':'Workshop Program 02','ws.w2.h2':'Design Thinking','ws.w2.sub':'Human-Centered Innovation for Real Problems',
+    'ws.w2.desc':'Fast.B의 Design Thinking Workshop은 복잡한 문제를 인간 중심(Human-Centered) 관점에서 재정의하고 혁신적인 해결책을 도출하는 워크샵입니다. 공감, 문제 정의, 아이디어 발산, 프로토타이핑, 테스트의 전 과정을 실습 기반으로 경험하며 AI 시대의 사용자 경험과 서비스 혁신 전략을 다룹니다.',
+    'ws.w2.for1':'Corporate Innovation Teams','ws.w2.for2':'UX/UI Designers','ws.w2.for3':'Service Planners','ws.w2.for4':'Customer Experience Teams','ws.w2.for5':'Cross-functional Organizations',
+    'ws.w2.s1':'Introduction & Team Building','ws.w2.s2':'Understanding Complex Problems','ws.w2.s3':'Empathy Mapping & User Interviews',
+    'ws.w2.s4':'Defining Core Challenges','ws.w2.s6':'Ideation & Creative Thinking','ws.w2.s7':'Concept Sketching & Storyboarding',
+    'ws.w2.s8':'Prototype Building','ws.w2.s9':'Testing & Feedback Session','ws.w2.s10':'Reflection & Innovation Takeaways',
+    'ws.w3.meta':'Workshop Program 03','ws.w3.h2':'Future Casting','ws.w3.sub':'Scenario Planning for the Age of AI & Physical Intelligence',
+    'ws.w3.desc':'Fast.B의 Future Casting Workshop은 AI, Robotics, Spatial Computing, XR, Mobility 등 빠르게 변화하는 산업 환경 속에서 미래 시나리오를 설계하고 전략적 대응 방향을 수립하는 미래 전략 워크샵입니다. 시나리오 플래닝을 기반으로 미래의 불확실성을 구조적으로 분석합니다.',
+    'ws.w3.for1':'C-Level Executives','ws.w3.for2':'Strategy & Future Teams','ws.w3.for3':'Innovation Leaders','ws.w3.for4':'Enterprise Transformation Organizations','ws.w3.for5':'Public Sector & Policy Organizations',
+    'ws.w3.s1':'Future Signals & Megatrends Overview','ws.w3.s2':'Emerging Technology Landscape','ws.w3.s3':'Uncertainty & Driving Forces Mapping',
+    'ws.w3.s4':'Scenario Framework Design','ws.w3.s6':'Future Scenario Development','ws.w3.s7':'Strategic Opportunity Mapping',
+    'ws.w3.s8':'Business Model & Ecosystem Impacts','ws.w3.s9':'Action Roadmap & Strategic Priorities','ws.w3.s10':'Final Presentation & Insights Sharing',
+    'ws.why.meta':'Fast.B Workshop Philosophy','ws.why.h2':'From Future Imagination<br>to Real Innovation.',
+    'ws.why.desc':'Fast.B는 단순히 아이디어를 논의하는 곳이 아닙니다. AI, Hardware, Robotics, Spatial Computing, 그리고 Shenzhen의 빠른 제조 생태계를 기반으로 미래를 실제로 만들어가는 실행형 혁신 플랫폼입니다.',
+    'ws.goal1':'Think Beyond<br>the Present','ws.goal2':'Prototype<br>Fast','ws.goal3':'Validate<br>Quickly','ws.goal4':'Build What<br>Matters','ws.goal5':'Create Future<br>Impact',
+    'ws.apply.meta':'Apply Now','ws.apply.h2':'워크샵 문의','ws.apply.desc':'관심 워크샵 프로그램을 선택하고 문의 내용을 보내주시면 Fast.B 팀이 세부 내용을 안내 드립니다.',
+    'ws.form.ws.label':'관심 워크샵','ws.form.ws.placeholder':'워크샵을 선택해 주세요',
+    'ws.form.ws.opt1':'01. Ideation & Rapid Prototyping Workshop','ws.form.ws.opt2':'02. Design Thinking Workshop','ws.form.ws.opt3':'03. Future Casting Workshop','ws.form.ws.opt4':'커스텀 / 복수 프로그램',
+    'ws.form.submit':'문의 제출하기','ws.success.desc':'문의가 접수되었습니다.<br>Fast.B 팀이 빠른 시일 내에 연락 드리겠습니다.',
     'nav.innotour':'Innovation Tour',
     'inno.tour.meta':'Innovation Tour','inno.tour.h2':'Innovation Tour','inno.tour.desc':'준비 중입니다.',
     'hero.vertical':'Hardware',
@@ -1360,6 +1637,40 @@ const T = {
   en: {
     'nav.vision':'Vision','nav.problem':'Problem','nav.shenzhen':'Fast.B Innovation',
     'nav.process':'Process','nav.team':'Team','nav.roadmap':'Roadmap','nav.contact':'Contact',
+    'nav.innoworkshop':'Innovation Workshop',
+    'ws.hero.meta':'Fast.B Flagship Workshop Program',
+    'ws.hero.p':'Fast.B "AI Hardware Prototyping & Acceleration Platform" runs flagship workshop programs. Not about "thinking" — about the experience of "building and validating." Problem Definition → Ideation → Scenario Design → Prototype → Execution Strategy.',
+    'ws.stat1':'Workshop Programs','ws.stat2':'Intensive Program','ws.stat3':'AI × Hardware × Future Strategy',
+    'ws.phil.meta':'Core Philosophy','ws.phil.h2':'Not Thinking,<br>But Building & Validating',
+    'ws.phil.p1.title':'AI + Hardware','ws.phil.p1.desc':'Based on AI and hardware technology trends, we provide a methodology that connects ideas to real products and services.',
+    'ws.phil.p2.title':'Prototype Fast','ws.phil.p2.desc':'Focused on creating "actionable outputs," not mere brainstorming. Participants secure MVP-level prototypes and an execution direction in just one day.',
+    'ws.phil.p3.title':'Future Strategy','ws.phil.p3.desc':'Go beyond current problems to design future scenarios and establish strategic responses — centered on AI and Physical AI era industry transformation.',
+    'ws.recommended':'Recommended For','ws.schedule':'1-Day Sample Schedule','ws.lunch':'Lunch & Networking',
+    'ws.w1.meta':'Workshop Program 01','ws.w1.h2':'Ideation &<br>Rapid Prototyping','ws.w1.sub':'From Idea to Tangible Prototype',
+    'ws.w1.desc':'Fast.B's Ideation & Rapid Prototyping Workshop is an intensive workshop that rapidly implements ideas into verifiable forms. Participants experience the full process from problem definition through ideation, user scenario design, AI-based service planning, hardware concept sketching, interaction design, and actual prototype creation.',
+    'ws.w1.for1':'AI Hardware Startup Teams','ws.w1.for2':'New Business & Innovation Teams','ws.w1.for3':'Product Managers & Designers','ws.w1.for4':'Entrepreneurs & Makers',
+    'ws.w1.s1':'Opening & Innovation Icebreaking','ws.w1.s2':'Problem Discovery & Opportunity Mapping','ws.w1.s3':'Ideation Sprint & Concept Generation',
+    'ws.w1.s4':'AI + Hardware Use Case Exploration','ws.w1.s6':'Rapid Prototyping Session','ws.w1.s7':'User Journey & Experience Design',
+    'ws.w1.s8':'Prototype Validation & Feedback','ws.w1.s9':'Final Demo & Action Planning',
+    'ws.w2.meta':'Workshop Program 02','ws.w2.h2':'Design Thinking','ws.w2.sub':'Human-Centered Innovation for Real Problems',
+    'ws.w2.desc':'Fast.B's Design Thinking Workshop is a hands-on workshop for reframing complex problems from a human-centered perspective and generating innovative solutions. Participants practice Empathy, Define, Ideate, Prototype, and Test phases. It addresses user experience and service innovation strategy for the AI era.',
+    'ws.w2.for1':'Corporate Innovation Teams','ws.w2.for2':'UX/UI Designers','ws.w2.for3':'Service Planners','ws.w2.for4':'Customer Experience Teams','ws.w2.for5':'Cross-functional Organizations',
+    'ws.w2.s1':'Introduction & Team Building','ws.w2.s2':'Understanding Complex Problems','ws.w2.s3':'Empathy Mapping & User Interviews',
+    'ws.w2.s4':'Defining Core Challenges','ws.w2.s6':'Ideation & Creative Thinking','ws.w2.s7':'Concept Sketching & Storyboarding',
+    'ws.w2.s8':'Prototype Building','ws.w2.s9':'Testing & Feedback Session','ws.w2.s10':'Reflection & Innovation Takeaways',
+    'ws.w3.meta':'Workshop Program 03','ws.w3.h2':'Future Casting','ws.w3.sub':'Scenario Planning for the Age of AI & Physical Intelligence',
+    'ws.w3.desc':'Fast.B's Future Casting Workshop is a future strategy workshop for designing future scenarios and establishing strategic responses amid rapidly changing industries including AI, Robotics, Spatial Computing, XR, and Mobility. Based on Scenario Planning, it structurally analyzes future uncertainties.',
+    'ws.w3.for1':'C-Level Executives','ws.w3.for2':'Strategy & Future Teams','ws.w3.for3':'Innovation Leaders','ws.w3.for4':'Enterprise Transformation Organizations','ws.w3.for5':'Public Sector & Policy Organizations',
+    'ws.w3.s1':'Future Signals & Megatrends Overview','ws.w3.s2':'Emerging Technology Landscape','ws.w3.s3':'Uncertainty & Driving Forces Mapping',
+    'ws.w3.s4':'Scenario Framework Design','ws.w3.s6':'Future Scenario Development','ws.w3.s7':'Strategic Opportunity Mapping',
+    'ws.w3.s8':'Business Model & Ecosystem Impacts','ws.w3.s9':'Action Roadmap & Strategic Priorities','ws.w3.s10':'Final Presentation & Insights Sharing',
+    'ws.why.meta':'Fast.B Workshop Philosophy','ws.why.h2':'From Future Imagination<br>to Real Innovation.',
+    'ws.why.desc':'Fast.B is not just a place to discuss ideas. It is an execution-driven innovation platform that actually builds the future — based on AI, Hardware, Robotics, Spatial Computing, and Shenzhen's fast manufacturing ecosystem.',
+    'ws.goal1':'Think Beyond<br>the Present','ws.goal2':'Prototype<br>Fast','ws.goal3':'Validate<br>Quickly','ws.goal4':'Build What<br>Matters','ws.goal5':'Create Future<br>Impact',
+    'ws.apply.meta':'Apply Now','ws.apply.h2':'Workshop Inquiry','ws.apply.desc':'Select the workshop program you're interested in and send us your inquiry. The Fast.B team will get back to you with details.',
+    'ws.form.ws.label':'Program of Interest','ws.form.ws.placeholder':'Select a Workshop',
+    'ws.form.ws.opt1':'01. Ideation & Rapid Prototyping Workshop','ws.form.ws.opt2':'02. Design Thinking Workshop','ws.form.ws.opt3':'03. Future Casting Workshop','ws.form.ws.opt4':'Custom / Multiple Programs',
+    'ws.form.submit':'Submit Inquiry','ws.success.desc':'Your inquiry has been received.<br>The Fast.B team will contact you shortly.',
     'nav.innotour':'Innovation Tour',
     'inno.tour.meta':'Innovation Tour','inno.tour.h2':'Innovation Tour','inno.tour.desc':'Coming soon.',
     'hero.vertical':'Hardware',
@@ -1660,6 +1971,50 @@ async function submitTourForm(e) {
     }
 }
 
+async function submitWorkshopForm(e) {
+    e.preventDefault();
+    const btn = document.getElementById('ws-form-btn');
+    const errEl = document.getElementById('ws-form-error');
+    btn.disabled = true;
+    errEl.style.display = 'none';
+
+    const workshopVal = document.getElementById('w-workshop').value;
+    const payload = {
+        name:         document.getElementById('w-name').value.trim(),
+        organization: document.getElementById('w-org').value.trim(),
+        email:        document.getElementById('w-email').value.trim(),
+        subject:      '[Innovation Workshop] ' + workshopVal,
+        message:      document.getElementById('w-message').value.trim(),
+    };
+
+    try {
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/contacts`, {
+            method: 'POST',
+            headers: {
+                'Content-Type':  'application/json',
+                'apikey':        SUPABASE_ANON_KEY,
+                'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                'Prefer':        'return=minimal'
+            },
+            body: JSON.stringify(payload)
+        });
+        if (!res.ok) throw new Error(`Supabase HTTP ${res.status}`);
+
+        fetch(`${SUPABASE_URL}/functions/v1/notify-contact`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${SUPABASE_ANON_KEY}` },
+            body: JSON.stringify(payload)
+        }).catch(e => console.warn('[FastB Notify]', e));
+
+        document.getElementById('workshopForm').style.display = 'none';
+        document.getElementById('ws-form-success').style.display = 'block';
+    } catch (err) {
+        console.error('[FastB Workshop]', err);
+        errEl.style.display = 'block';
+        btn.disabled = false;
+    }
+}
+
 // ── Hamburger / Drawer ─────────────────────────────────────────
 function toggleDrawer() {
     const drawer = document.getElementById('navDrawer');
@@ -1680,6 +2035,7 @@ function showPage(page, scrollTarget) {
     currentPage = page;
     document.getElementById('page-home').style.display      = page === 'home'      ? '' : 'none';
     document.getElementById('page-inno-tour').style.display = page === 'inno-tour' ? '' : 'none';
+    document.getElementById('page-inno-workshop').style.display = page === 'inno-workshop' ? '' : 'none';
     // 모든 nav active 초기화 후 해당 페이지만 활성화
     document.querySelectorAll('.nav-link').forEach(a => a.classList.remove('active'));
     if (page !== 'home') {
