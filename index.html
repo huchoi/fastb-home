@@ -373,17 +373,22 @@
 
         /* Team */
         .team-grid { display:grid; grid-template-columns:repeat(12,1fr); gap:1.5rem; }
-        .person-card { grid-column:span 12; border:1px solid var(--grid-line-strong); border-radius:20px; padding:1.5rem; background:rgba(51,46,45,0.6); display:flex; flex-direction:column; gap:0.85rem; transition:border-color 0.3s; }
+        .person-card { grid-column:span 12; border:1px solid var(--grid-line-strong); border-radius:20px; padding:1.5rem; background:rgba(51,46,45,0.6); display:flex; flex-direction:column; gap:0; cursor:pointer; position:relative; transition:border-color 0.3s; }
         .person-card:hover { border-color:rgba(250,217,211,0.28); }
         @media (min-width:640px) { .person-card { grid-column:span 6; } }
         @media (min-width:1024px) { .person-card { grid-column:span 3; } }
         .person-name { font-family:var(--font-subtitle); font-size:1rem; color:var(--text-main); text-transform:uppercase; font-weight:700; letter-spacing:0.05em; }
         .person-role { font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--clay); }
-        .person-bio { font-size:0.85rem; color:var(--text-muted); line-height:1.6; }
+        .person-bio { font-size:0.85rem; color:var(--text-muted); line-height:1.7; max-height:0; overflow:hidden; opacity:0; margin-top:0; transition:max-height 0.42s cubic-bezier(0.4,0,0.2,1), opacity 0.26s ease 0.1s, margin-top 0.32s ease; }
+        .person-card.profile-open .person-bio, .advisor-card.profile-open .person-bio { opacity:1; margin-top:0.9rem; }
+        /* expand/collapse indicator */
+        .person-card::after, .advisor-card::after { content:'+'; position:absolute; top:1.35rem; right:1.35rem; font-size:1.15rem; font-weight:300; font-family:var(--font-display); color:var(--clay); opacity:0.38; line-height:1; pointer-events:none; transition:transform 0.32s ease, opacity 0.25s ease; }
+        .person-card:hover::after, .advisor-card:hover::after { opacity:0.7; }
+        .person-card.profile-open::after, .advisor-card.profile-open::after { transform:rotate(45deg); opacity:1; }
 
         /* Advisors */
         .advisor-grid { display:grid; grid-template-columns:repeat(12,1fr); gap:1.5rem; }
-        .advisor-card { grid-column:span 12; border:1px solid var(--grid-line-strong); border-radius:20px; padding:1.5rem; background:rgba(29,24,24,0.6); display:flex; flex-direction:column; gap:0.75rem; transition:border-color 0.3s; }
+        .advisor-card { grid-column:span 12; border:1px solid var(--grid-line-strong); border-radius:20px; padding:1.5rem; background:rgba(29,24,24,0.6); display:flex; flex-direction:column; gap:0; cursor:pointer; position:relative; transition:border-color 0.3s; }
         .advisor-card:hover { border-color:rgba(250,217,211,0.28); }
         @media (min-width:768px) { .advisor-card { grid-column:span 4; } }
 
@@ -1873,6 +1878,22 @@ function setLanguage(lang) {
 
 // Apply on load
 setLanguage(currentLang);
+
+// ── Team card bio toggle ───────────────────────────────────────────────────
+document.querySelectorAll('.person-card, .advisor-card').forEach(function(card) {
+    var bio = card.querySelector('.person-bio');
+    if (!bio) return;
+    card.addEventListener('click', function() {
+        var isOpen = card.classList.contains('profile-open');
+        if (isOpen) {
+            bio.style.maxHeight = '0';
+            card.classList.remove('profile-open');
+        } else {
+            bio.style.maxHeight = bio.scrollHeight + 'px';
+            card.classList.add('profile-open');
+        }
+    });
+});
 
 // ── Supabase config ────────────────────────────────────────────
 const SUPABASE_URL     = 'https://dqgqayvsijrochmskhjr.supabase.co';
