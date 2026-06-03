@@ -392,6 +392,37 @@
         .advisor-card:hover { border-color:rgba(250,217,211,0.28); }
         @media (min-width:768px) { .advisor-card { grid-column:span 4; } }
 
+        /* ── Innovation Eco-system Diagram ── */
+        .eco-grid { display:grid; grid-template-columns:1fr 100px 1fr; align-items:stretch; }
+        .eco-panel { display:flex; flex-direction:column; gap:0.9rem; padding:1.75rem 1.5rem; }
+        .eco-panel-korea { border:1.5px solid rgba(110,145,235,0.4); border-right:none; border-radius:20px 0 0 20px; background:rgba(45,65,135,0.2); }
+        .eco-panel-shenzhen { border:1.5px solid rgba(215,155,55,0.4); border-left:none; border-radius:0 20px 20px 0; background:rgba(110,75,15,0.2); }
+        .eco-panel-header { font-size:0.61rem; font-weight:700; letter-spacing:0.13em; text-transform:uppercase; padding-bottom:0.7rem; border-bottom:1px solid rgba(255,255,255,0.1); }
+        .eco-panel-header--blue { color:rgba(160,185,255,0.85); border-bottom-color:rgba(110,145,235,0.28); }
+        .eco-panel-header--gold { color:rgba(235,195,85,0.85); border-bottom-color:rgba(215,155,55,0.28); }
+        .eco-panel-top { border-radius:12px; padding:0.8rem 1rem; text-align:center; font-size:0.7rem; line-height:1.7; font-weight:500; }
+        .eco-panel-top--blue { background:rgba(55,90,185,0.38); border:1px solid rgba(110,145,235,0.55); color:rgba(215,225,255,0.95); }
+        .eco-panel-top--gold { background:rgba(120,85,20,0.42); border:1px solid rgba(215,155,55,0.55); color:rgba(255,235,165,0.95); }
+        .eco-items { display:grid; grid-template-columns:1fr 1fr; gap:0.45rem; flex:1; }
+        .eco-item { background:rgba(22,18,18,0.78); border-radius:10px; padding:0.7rem 0.6rem; text-align:center; font-size:0.62rem; line-height:1.6; display:flex; align-items:center; justify-content:center; }
+        .eco-item--blue { border:1px solid rgba(110,145,235,0.3); color:rgba(195,210,255,0.82); }
+        .eco-item--gold { border:1px solid rgba(215,155,55,0.3); color:rgba(255,220,140,0.82); }
+        .eco-bridge { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.55rem; background:rgba(250,217,211,0.05); border-top:1.5px solid rgba(250,217,211,0.2); border-bottom:1.5px solid rgba(250,217,211,0.2); padding:1.5rem 0.6rem; }
+        .eco-bridge-pill { background:rgba(250,217,211,0.18); border:1.5px solid rgba(250,217,211,0.65); border-radius:12px; padding:0.7rem 0.5rem; text-align:center; font-size:0.62rem; font-weight:700; letter-spacing:0.05em; color:var(--clay); line-height:1.5; width:100%; }
+        .eco-bridge-arrow { display:flex; flex-direction:column; align-items:center; gap:3px; }
+        .eco-bridge-line { width:1px; height:12px; background:linear-gradient(to bottom,rgba(250,217,211,0.35),rgba(250,217,211,0.6)); }
+        @media(max-width:620px) {
+            .eco-grid { grid-template-columns:1fr; }
+            .eco-panel-korea { border-radius:16px 16px 0 0; border-right:1.5px solid rgba(110,145,235,0.4); border-bottom:none; }
+            .eco-panel-shenzhen { border-radius:0 0 16px 16px; border-left:1.5px solid rgba(215,155,55,0.4); border-top:none; }
+            .eco-bridge { flex-direction:row; border-top:none; border-bottom:none; border-left:1.5px solid rgba(250,217,211,0.2); border-right:1.5px solid rgba(250,217,211,0.2); padding:0.9rem 1.25rem; gap:0.6rem; }
+            .eco-bridge-pill { width:auto; flex:1; }
+            .eco-bridge-arrow { flex-direction:row; }
+            .eco-bridge-line { width:10px; height:1px; background:linear-gradient(to right,rgba(250,217,211,0.35),rgba(250,217,211,0.6)); }
+            .eco-bridge-arrow svg:first-child { transform:rotate(-90deg); }
+            .eco-bridge-arrow svg:last-child { transform:rotate(90deg); }
+        }
+
         /* Mentor inline */
         .mentor-item { display:flex; align-items:flex-start; gap:1rem; }
         .mentor-item .avatar-sm { margin-top:0.15rem; }
@@ -611,55 +642,41 @@
     </div>
     <!-- Fast.B Innovation Eco-system Diagram -->
     <div style="margin-top:4rem;" class="reveal">
-        <span class="meta-label" style="margin-bottom:1.75rem;display:block;">Fast.B Innovation Eco-system</span>
-
-        <!--
-          Layout (matches original image):
-          [Korean panel: label / top-box / 2x2 services | FastB.Incubation]  [←dashed→]  [FastB.Platform | 2x2 services / top-box / label :Shenzhen panel]
-          Fast.B Incubation (right-edge of left panel) and Fast.B Platform (left-edge of right panel) are the central interface.
-        -->
-        <div style="display:flex;gap:0.75rem;align-items:stretch;flex-wrap:wrap;">
+        <span class="meta-label" style="margin-bottom:2rem;display:block;">Fast.B Innovation Eco-system</span>
+        <div class="eco-grid">
 
             <!-- ── LEFT: Korean AI Hardware Initiative ── -->
-            <div style="flex:1;min-width:240px;border:1px solid rgba(110,145,235,0.65);border-radius:20px;padding:1.25rem;background:rgba(55,75,145,0.22);display:flex;flex-direction:column;gap:0.6rem;">
-                <div style="font-size:0.59rem;letter-spacing:0.13em;text-transform:uppercase;color:rgba(180,205,255,0.95);text-align:center;padding-bottom:0.55rem;border-bottom:1px solid rgba(110,145,235,0.45);">Korean AI Hardware Initiative</div>
-                <div style="background:rgba(65,105,200,0.55);border:1px solid rgba(65,105,200,0.75);border-radius:9px;padding:0.65rem 0.875rem;text-align:center;font-size:0.66rem;line-height:1.6;color:var(--text-main);">AI Hardware Start-ups or Software Companies<br>to build AI hardwares</div>
-                <!-- Inner grid: 2 service cols + Fast.B Incubation at right edge (spans both rows) -->
-                <div style="display:grid;grid-template-columns:1fr 1fr minmax(62px,0.65fr);grid-template-rows:1fr 1fr;gap:0.4rem;flex:1;min-height:112px;">
-                    <div style="background:rgba(29,24,24,0.92);border:1px solid rgba(255,255,255,0.28);border-radius:8px;padding:0.5rem 0.4rem;text-align:center;font-size:0.57rem;line-height:1.55;color:var(--text-main);display:flex;align-items:center;justify-content:center;">Coaching &amp;<br>BM Catalyst</div>
-                    <div style="background:rgba(29,24,24,0.92);border:1px solid rgba(255,255,255,0.28);border-radius:8px;padding:0.5rem 0.4rem;text-align:center;font-size:0.57rem;line-height:1.55;color:var(--text-main);display:flex;align-items:center;justify-content:center;">Project Mgmt<br>+ Agentic AI PMS</div>
-                    <!-- Fast.B Incubation: right edge, spans both rows, the interface point -->
-                    <div style="grid-column:3;grid-row:1/3;background:rgba(250,217,211,0.28);border:2px solid rgba(250,217,211,0.82);border-radius:9px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:0.62rem;font-weight:700;letter-spacing:0.04em;color:var(--clay);line-height:1.55;padding:0.5rem 0.35rem;">Fast.B<br>Incubation</div>
-                    <div style="background:rgba(29,24,24,0.92);border:1px solid rgba(255,255,255,0.28);border-radius:8px;padding:0.5rem 0.4rem;text-align:center;font-size:0.57rem;line-height:1.55;color:var(--text-main);display:flex;align-items:center;justify-content:center;">IP Consulting<br>&amp; Investment</div>
-                    <div style="background:rgba(29,24,24,0.92);border:1px solid rgba(255,255,255,0.28);border-radius:8px;padding:0.5rem 0.4rem;text-align:center;font-size:0.57rem;line-height:1.55;color:var(--text-main);display:flex;align-items:center;justify-content:center;">Product Design<br>Innovation</div>
+            <div class="eco-panel eco-panel-korea">
+                <div class="eco-panel-header eco-panel-header--blue">Korean AI Hardware Initiative</div>
+                <div class="eco-panel-top eco-panel-top--blue">AI Hardware Startups<br>&amp; Software Companies</div>
+                <div class="eco-items">
+                    <div class="eco-item eco-item--blue">Coaching &amp;<br>BM Catalyst</div>
+                    <div class="eco-item eco-item--blue">Project Mgmt<br>+ Agentic AI PMS</div>
+                    <div class="eco-item eco-item--blue">IP Consulting<br>&amp; Investment</div>
+                    <div class="eco-item eco-item--blue">Product Design<br>Innovation</div>
                 </div>
             </div>
 
-            <!-- ── CENTER CONNECTOR: dashed arrow between Incubation ↔ Platform ── -->
-            <div style="display:flex;align-items:flex-end;justify-content:center;flex-shrink:0;padding-bottom:calc((112px + 0.4rem) / 2);width:36px;">
-                <div style="display:flex;align-items:center;gap:3px;">
-                    <svg width="7" height="11" viewBox="0 0 7 11" style="flex-shrink:0;"><polygon points="7,5.5 0,0 0,11" fill="rgba(250,217,211,0.9)"/></svg>
-                    <span style="display:flex;gap:2.5px;align-items:center;">
-                        <span style="width:3.5px;height:3.5px;border-radius:50%;background:rgba(250,217,211,0.7);display:inline-block;"></span>
-                        <span style="width:3.5px;height:3.5px;border-radius:50%;background:rgba(250,217,211,0.9);display:inline-block;"></span>
-                        <span style="width:3.5px;height:3.5px;border-radius:50%;background:rgba(250,217,211,0.7);display:inline-block;"></span>
-                    </span>
-                    <svg width="7" height="11" viewBox="0 0 7 11" style="flex-shrink:0;"><polygon points="0,5.5 7,0 7,11" fill="rgba(250,217,211,0.9)"/></svg>
+            <!-- ── CENTER BRIDGE ── -->
+            <div class="eco-bridge">
+                <div class="eco-bridge-pill">Fast.B<br>Incubation</div>
+                <div class="eco-bridge-arrow">
+                    <svg width="7" height="6" viewBox="0 0 7 6"><polygon points="3.5,0 7,6 0,6" fill="rgba(250,217,211,0.65)"/></svg>
+                    <div class="eco-bridge-line"></div>
+                    <svg width="7" height="6" viewBox="0 0 7 6" style="transform:rotate(180deg)"><polygon points="3.5,0 7,6 0,6" fill="rgba(250,217,211,0.65)"/></svg>
                 </div>
+                <div class="eco-bridge-pill">Fast.B<br>Platform</div>
             </div>
 
             <!-- ── RIGHT: Shenzhen Hardware Eco-system ── -->
-            <div style="flex:1;min-width:240px;border:1px solid rgba(215,155,55,0.65);border-radius:20px;padding:1.25rem;background:rgba(120,85,18,0.22);display:flex;flex-direction:column;gap:0.6rem;">
-                <div style="font-size:0.59rem;letter-spacing:0.13em;text-transform:uppercase;color:rgba(235,200,95,0.95);text-align:center;padding-bottom:0.55rem;border-bottom:1px solid rgba(215,155,55,0.45);">Shenzhen Hardware Eco-system</div>
-                <div style="background:rgba(65,105,200,0.55);border:1px solid rgba(65,105,200,0.75);border-radius:9px;padding:0.65rem 0.875rem;text-align:center;font-size:0.66rem;line-height:1.6;color:var(--text-main);">Makers, Hardware &amp; Manufacturing Experts,<br>Components &amp; Molds Experts to collaborate</div>
-                <!-- Inner grid: Fast.B Platform at left edge (spans both rows) + 2 service cols -->
-                <div style="display:grid;grid-template-columns:minmax(62px,0.65fr) 1fr 1fr;grid-template-rows:1fr 1fr;gap:0.4rem;flex:1;min-height:112px;">
-                    <!-- Fast.B Platform: left edge, spans both rows, the interface point -->
-                    <div style="grid-column:1;grid-row:1/3;background:rgba(250,217,211,0.28);border:2px solid rgba(250,217,211,0.82);border-radius:9px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:0.62rem;font-weight:700;letter-spacing:0.04em;color:var(--clay);line-height:1.55;padding:0.5rem 0.35rem;">Fast.B<br>Platform</div>
-                    <div style="background:rgba(29,24,24,0.92);border:1px solid rgba(255,255,255,0.28);border-radius:8px;padding:0.5rem 0.4rem;text-align:center;font-size:0.57rem;line-height:1.55;color:var(--text-main);display:flex;align-items:center;justify-content:center;">Shenzhen Solution<br>Providers Network</div>
-                    <div style="background:rgba(29,24,24,0.92);border:1px solid rgba(255,255,255,0.28);border-radius:8px;padding:0.5rem 0.4rem;text-align:center;font-size:0.57rem;line-height:1.55;color:var(--text-main);display:flex;align-items:center;justify-content:center;">Shenzhen<br>Factories</div>
-                    <div style="background:rgba(29,24,24,0.92);border:1px solid rgba(255,255,255,0.28);border-radius:8px;padding:0.5rem 0.4rem;text-align:center;font-size:0.57rem;line-height:1.55;color:var(--text-main);display:flex;align-items:center;justify-content:center;">Shenzhen Industrial<br>Designer Network</div>
-                    <div style="background:rgba(29,24,24,0.92);border:1px solid rgba(255,255,255,0.28);border-radius:8px;padding:0.5rem 0.4rem;text-align:center;font-size:0.57rem;line-height:1.55;color:var(--text-main);display:flex;align-items:center;justify-content:center;">Shenzhen<br>Electronics Market</div>
+            <div class="eco-panel eco-panel-shenzhen">
+                <div class="eco-panel-header eco-panel-header--gold">Shenzhen Hardware Eco-system</div>
+                <div class="eco-panel-top eco-panel-top--gold">Makers, Hardware &amp; Manufacturing<br>Experts &amp; Partners</div>
+                <div class="eco-items">
+                    <div class="eco-item eco-item--gold">Solution Providers<br>Network</div>
+                    <div class="eco-item eco-item--gold">Shenzhen<br>Factories</div>
+                    <div class="eco-item eco-item--gold">Industrial Designer<br>Network</div>
+                    <div class="eco-item eco-item--gold">Electronics Market<br>(Huaqiangbei)</div>
                 </div>
             </div>
 
