@@ -416,12 +416,14 @@
         /* Center bridge — SVG bidirectional arrow */
         .eco-bridge { display:flex; flex-direction:column; align-items:center; justify-content:center; background:rgba(250,217,211,0.04); border-top:1.5px solid rgba(250,217,211,0.18); border-bottom:1.5px solid rgba(250,217,211,0.18); padding:0.75rem 0; }
         .eco-bridge-svg { width:100%; height:auto; display:block; overflow:visible; }
+        .eco-bridge-v { display:none; }
         @media(max-width:620px) {
             .eco-grid { grid-template-columns:1fr; }
             .eco-panel-korea { border-radius:16px 16px 0 0; border-right:1.5px solid rgba(110,145,235,0.4); border-bottom:none; }
             .eco-panel-shenzhen { border-radius:0 0 16px 16px; border-left:1.5px solid rgba(215,155,55,0.4); border-top:none; }
-            .eco-bridge { flex-direction:row; padding:0.65rem 1rem; border-top:none; border-bottom:none; border-left:1.5px solid rgba(250,217,211,0.18); border-right:1.5px solid rgba(250,217,211,0.18); }
-            .eco-bridge-svg { width:60px; flex-shrink:0; }
+            .eco-bridge { flex-direction:column; padding:0.5rem 0; min-height:60px; border-top:none; border-bottom:none; border-left:1.5px solid rgba(250,217,211,0.18); border-right:1.5px solid rgba(250,217,211,0.18); }
+            .eco-bridge-h { display:none; }
+            .eco-bridge-v { display:block; width:28px; height:auto; overflow:visible; }
             /* Mobile: Incubation at bottom of Korea panel, Platform at top of Shenzhen panel */
             .eco-korea-inner { grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr auto; }
             .eco-shenzhen-inner { grid-template-columns:1fr 1fr; grid-template-rows:auto 1fr 1fr; }
@@ -667,17 +669,21 @@
 
             <!-- ── CENTER BRIDGE: bidirectional SVG arrow ── -->
             <div class="eco-bridge">
-                <svg class="eco-bridge-svg" viewBox="0 0 52 32" xmlns="http://www.w3.org/2000/svg" overflow="visible">
-                    <!-- Left arrowhead — solid, 50% dimmer -->
+                <!-- Desktop: horizontal ◄━━━━► -->
+                <svg class="eco-bridge-svg eco-bridge-h" viewBox="0 0 52 32" xmlns="http://www.w3.org/2000/svg" overflow="visible">
                     <polygon points="0,16 14,6 14,26" fill="rgba(250,217,211,0.44)"/>
-                    <!-- Dashed shaft — 2× thicker (8px), 50% dimmer -->
                     <line x1="13" y1="16" x2="39" y2="16"
-                          stroke="rgba(250,217,211,0.27)"
-                          stroke-width="8"
-                          stroke-dasharray="6 4"
-                          stroke-linecap="butt"/>
-                    <!-- Right arrowhead — solid, 50% dimmer -->
+                          stroke="rgba(250,217,211,0.27)" stroke-width="8"
+                          stroke-dasharray="6 4" stroke-linecap="butt"/>
                     <polygon points="52,16 38,6 38,26" fill="rgba(250,217,211,0.44)"/>
+                </svg>
+                <!-- Mobile: vertical ▲━━━━▼ -->
+                <svg class="eco-bridge-v" viewBox="0 0 32 52" xmlns="http://www.w3.org/2000/svg" overflow="visible">
+                    <polygon points="16,0 6,14 26,14" fill="rgba(250,217,211,0.44)"/>
+                    <line x1="16" y1="13" x2="16" y2="39"
+                          stroke="rgba(250,217,211,0.27)" stroke-width="8"
+                          stroke-dasharray="6 4" stroke-linecap="butt"/>
+                    <polygon points="16,52 6,38 26,38" fill="rgba(250,217,211,0.44)"/>
                 </svg>
             </div>
 
