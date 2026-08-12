@@ -481,6 +481,26 @@
             .hero-content { grid-column:1/-1; }
             .mentor-item { flex-direction:column; }
         }
+
+        /* ── Application Modal ── */
+        .app-modal-card { background:var(--surface); border:1px solid var(--grid-line-strong); border-radius:24px; padding:2rem 2.5rem 1.5rem; max-width:700px; width:100%; display:flex; flex-direction:column; gap:0.9rem; position:relative; max-height:90vh; overflow-y:auto; }
+        .app-progress-wrap { background:var(--bg); border-radius:10px; height:3px; overflow:hidden; margin:0.25rem 0; }
+        .app-progress-fill { height:100%; background:var(--clay); border-radius:10px; transition:width 0.4s ease; }
+        .app-step-info { font-size:0.72rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.1em; }
+        .app-step-panel { display:none; flex-direction:column; gap:0.85rem; }
+        .app-step-panel.active { display:flex; }
+        .app-sec-title { font-family:var(--font-subtitle); font-size:0.68rem; text-transform:uppercase; letter-spacing:0.14em; color:var(--clay); font-weight:700; padding-bottom:0.4rem; border-bottom:1px solid var(--grid-line); }
+        .app-sec-desc { font-size:0.8rem; color:var(--text-muted); line-height:1.5; }
+        .opt-grid { display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:0.35rem; }
+        .opt-item { position:relative; }
+        .opt-item input { position:absolute; opacity:0; width:0; height:0; }
+        .opt-item span { font-size:0.8rem; padding:0.32rem 0.75rem; border:1px solid var(--grid-line-strong); border-radius:20px; cursor:pointer; transition:all 0.18s; color:var(--text-muted); display:block; }
+        .opt-item input:checked + span { background:var(--clay); color:var(--bg); border-color:var(--clay); }
+        .opt-item span:hover { border-color:var(--clay); color:var(--text-main); }
+        .app-nav { display:flex; justify-content:space-between; align-items:center; padding-top:0.75rem; border-top:1px solid var(--grid-line); }
+        .q-label { font-family:var(--font-body); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); font-weight:600; margin-bottom:0.3rem; }
+        .q-desc { font-size:0.77rem; color:var(--text-muted); margin-bottom:0.3rem; font-style:italic; line-height:1.4; }
+        @media(max-width:480px) { .app-modal-card { padding:1.5rem 1.25rem 1.25rem; } }
     </style>
 </head>
 <body>
@@ -544,7 +564,7 @@
         <h1><span style="color:#FF3333;" data-i18n="hero.fast1">Fast</span> <span data-i18n="hero.build">Build.</span><br><span style="color:#FF3333;" data-i18n="hero.fast2">Fast</span> <span data-i18n="hero.business">Business.</span></h1>
         <p data-i18n="hero.desc">Fast.B는 혁신적인 아이디어를 선전(Shenzhen)의 세계 최고 수준 하드웨어 프로토타이핑 및 제조 생태계와 연결하는 AI 하드웨어 혁신 플랫폼입니다. Physical AI, Spatial AI, AI-Native 시대를 위해 설계된 Fast.B는 컨셉 개발과 비즈니스 모델 설계부터 빠른 MVP 제작, 검증, 양산, 시장 진입까지 전체 혁신 여정을 가속합니다.</p>
         <div class="btn-group">
-            <a href="#" class="btn btn-primary" onclick="openContactModal(); return false;" data-i18n="hero.cta1">Begin Your Assessment</a>
+            <a href="#" class="btn btn-primary" onclick="(currentLang==='ko' ? openAppModal() : openAppModalEn()); return false;" data-i18n="hero.cta1">Begin Your Assessment</a>
             <a href="#methodology" class="btn btn-secondary" data-i18n="hero.cta2">See How It Works</a>
         </div>
     </div>
@@ -1028,6 +1048,10 @@
                 <span style="font-size:0.68rem;letter-spacing:0.05em;color:var(--text-muted);">Seoul</span>
             </div>
             <div style="border:1px solid var(--grid-line-strong);border-radius:16px;padding:1.5rem 1.25rem;background:rgba(29,24,24,0.6);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:0.4rem;min-height:80px;transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(250,217,211,0.15)'" onmouseout="this.style.borderColor='var(--grid-line-strong)'">
+                <span style="font-size:0.75rem;font-weight:700;letter-spacing:0.14em;color:var(--text-main);">BOLDSTEP</span>
+                <span style="font-size:0.68rem;letter-spacing:0.05em;color:var(--text-muted);">Seoul</span>
+            </div>
+            <div style="border:1px solid var(--grid-line-strong);border-radius:16px;padding:1.5rem 1.25rem;background:rgba(29,24,24,0.6);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:0.4rem;min-height:80px;transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(250,217,211,0.15)'" onmouseout="this.style.borderColor='var(--grid-line-strong)'">
                 <span style="font-size:0.75rem;font-weight:700;letter-spacing:0.14em;color:var(--text-main);">INNOZEN DESIGN</span>
                 <span style="font-size:0.68rem;letter-spacing:0.05em;color:var(--text-muted);">Shenzhen</span>
             </div>
@@ -1073,7 +1097,7 @@
         <p class="panel-desc" style="font-size:1.2rem;text-align:center;" data-i18n="cta.desc">소개 리뷰 / 컨설팅 / 전문가 네트워크 리뷰 및 비즈니스 컨설팅 / 혁신상품 기획 및 디자인·하드웨어 프로토타이핑 프로그램 가이드 / 일반 문의 및 글로벌 협력·제휴 제안 — 무엇이든 시작은 대화입니다.</p>
         <div class="btn-group" style="margin-top:1rem;justify-content:center;">
             <button onclick="openContactModal(); return false;" class="btn btn-secondary" data-i18n="cta.btn.general">일반문의</button>
-            <button onclick="openContactModal()" class="btn btn-primary" data-i18n="cta.btn">Begin Your Assessment</button>
+            <button onclick="(currentLang==='ko' ? openAppModal() : openAppModalEn()); return false;" class="btn btn-primary" data-i18n="cta.btn">Begin Your Assessment</button>
         </div>
         <p style="font-size:0.75rem;color:var(--text-muted);" data-i18n="cta.footer">©Fast.B. All Rights Reserved. Fast Build and Fast Business by AI Hardware Innovation Catalyst.</p>
     </div>
@@ -1526,6 +1550,777 @@
 
 </div>
 
+<!-- ── APPLICATION MODAL ── -->
+<div id="appModal" class="modal-overlay" onclick="handleAppOverlay(event)">
+  <div class="app-modal-card">
+    <button class="modal-close" onclick="closeAppModal()" aria-label="Close">×</button>
+    <p class="meta-label" style="color:var(--clay);">AI 하드웨어 프로토타이핑 의뢰서</p>
+    <div>
+      <div class="app-progress-wrap"><div class="app-progress-fill" id="appProgressFill" style="width:12.5%"></div></div>
+      <div class="app-step-info"><span id="appStepNum">1</span> / 8 섹션 &nbsp;·&nbsp; <span id="appStepName">신청자 기본 정보</span></div>
+    </div>
+    <!-- S1 -->
+    <div class="app-step-panel active" id="app-s1">
+      <div class="app-sec-title">Section 1 · 신청자 및 프로젝트 기본 정보</div>
+      <p class="app-sec-desc">프로젝트 상담과 후속 연락을 위해 필요한 기본 정보를 입력해주세요.</p>
+      <div class="form-group"><label class="q-label">이메일 *</label><input class="form-input" type="email" id="a-email" required></div>
+      <div class="form-group"><label class="q-label">1. 회사명 또는 팀명 *</label><p class="q-desc">개인 프로젝트인 경우 개인명 또는 프로젝트명을 입력해주세요.</p><input class="form-input" type="text" id="a-company" required></div>
+      <div class="form-row">
+        <div class="form-group"><label class="q-label">2. 담당자 성함 *</label><input class="form-input" type="text" id="a-name" required></div>
+        <div class="form-group"><label class="q-label">3. 담당자 연락처 *</label><input class="form-input" type="text" id="a-phone" placeholder="휴대폰 번호" required></div>
+      </div>
+      <div class="form-group"><label class="q-label">카카오톡·WeChat 메신저 ID</label><input class="form-input" type="text" id="a-messenger"></div>
+      <div class="form-group"><label class="q-label">4. 현재 프로젝트 단계 *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="radio" name="stage" value="아이디어 단계"><span>아이디어 단계</span></label>
+          <label class="opt-item"><input type="radio" name="stage" value="컨셉 기획 완료"><span>컨셉 기획 완료</span></label>
+          <label class="opt-item"><input type="radio" name="stage" value="디자인·스케치 보유"><span>디자인·스케치 보유</span></label>
+          <label class="opt-item"><input type="radio" name="stage" value="기술 검토 중"><span>기술 검토 중</span></label>
+          <label class="opt-item"><input type="radio" name="stage" value="POC 개발 중"><span>POC 개발 중</span></label>
+          <label class="opt-item"><input type="radio" name="stage" value="1차 프로토타입 보유"><span>1차 프로토타입 보유</span></label>
+          <label class="opt-item"><input type="radio" name="stage" value="고객 테스트·파일럿 준비 중"><span>고객 테스트·파일럿</span></label>
+          <label class="opt-item"><input type="radio" name="stage" value="양산 전환 검토 중"><span>양산 전환 검토 중</span></label>
+        </div>
+      </div>
+      <div class="form-group"><label class="q-label">5. 본 프로젝트의 주요 목적 *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="checkbox" name="purpose" value="아이디어 검증"><span>아이디어 검증</span></label>
+          <label class="opt-item"><input type="checkbox" name="purpose" value="기술 가능성 검증"><span>기술 가능성 검증</span></label>
+          <label class="opt-item"><input type="checkbox" name="purpose" value="투자유치용 데모"><span>투자유치용 데모</span></label>
+          <label class="opt-item"><input type="checkbox" name="purpose" value="전시회·박람회 데모"><span>전시회 데모</span></label>
+          <label class="opt-item"><input type="checkbox" name="purpose" value="고객 제안용 샘플"><span>고객 제안용 샘플</span></label>
+          <label class="opt-item"><input type="checkbox" name="purpose" value="내부 R&amp;D"><span>내부 R&amp;D</span></label>
+          <label class="opt-item"><input type="checkbox" name="purpose" value="파일럿 테스트"><span>파일럿 테스트</span></label>
+          <label class="opt-item"><input type="checkbox" name="purpose" value="소량 생산"><span>소량 생산</span></label>
+          <label class="opt-item"><input type="checkbox" name="purpose" value="양산 준비"><span>양산 준비</span></label>
+        </div>
+      </div>
+    </div>
+    <!-- S2 -->
+    <div class="app-step-panel" id="app-s2">
+      <div class="app-sec-title">Section 2 · 제품 개요 및 핵심 요구사항</div>
+      <p class="app-sec-desc">제품의 기본 개념, 해결 문제, 타깃 고객, 핵심 기능을 입력해주세요.</p>
+      <div class="form-group"><label class="q-label">6. 제품명 또는 임시 프로젝트명 *</label><p class="q-desc">확정된 이름이 없다면 임시명으로 작성해주세요.</p><input class="form-input" type="text" id="a-pname" required></div>
+      <div class="form-group"><label class="q-label">7. 제품을 한 문장으로 설명해주세요 *</label><p class="q-desc">예: 매장 방문객의 행동을 온디바이스 AI로 분석하는 소형 AI 카메라</p><textarea class="form-textarea" id="a-pdesc" style="min-height:70px;" required></textarea></div>
+      <div class="form-group"><label class="q-label">8. 이 제품이 해결하려는 문제는 무엇인가요? *</label><p class="q-desc">고객의 불편, 비용, 위험, 비효율, 기존 제품의 한계 등을 구체적으로 작성해주세요.</p><textarea class="form-textarea" id="a-problem" style="min-height:80px;" required></textarea></div>
+      <div class="form-group"><label class="q-label">9. 주요 타깃 고객 *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="checkbox" name="target" value="일반 소비자"><span>일반 소비자</span></label>
+          <label class="opt-item"><input type="checkbox" name="target" value="기업·B2B"><span>기업·B2B</span></label>
+          <label class="opt-item"><input type="checkbox" name="target" value="매장·리테일"><span>매장·리테일</span></label>
+          <label class="opt-item"><input type="checkbox" name="target" value="제조·공장"><span>제조·공장</span></label>
+          <label class="opt-item"><input type="checkbox" name="target" value="물류·창고"><span>물류·창고</span></label>
+          <label class="opt-item"><input type="checkbox" name="target" value="병원·헬스케어"><span>병원·헬스케어</span></label>
+          <label class="opt-item"><input type="checkbox" name="target" value="학교·교육기관"><span>학교·교육기관</span></label>
+          <label class="opt-item"><input type="checkbox" name="target" value="공공기관"><span>공공기관</span></label>
+          <label class="opt-item"><input type="checkbox" name="target" value="모빌리티·차량"><span>모빌리티·차량</span></label>
+          <label class="opt-item"><input type="checkbox" name="target" value="로봇·드론"><span>로봇·드론</span></label>
+          <label class="opt-item"><input type="checkbox" name="target" value="보안·관제"><span>보안·관제</span></label>
+        </div>
+      </div>
+      <div class="form-group"><label class="q-label">10. 핵심 기능 3~5가지 *</label><p class="q-desc">예: 사람 감지, 음성 명령 인식, 앱 연동, 실시간 알림, 클라우드 데이터 저장</p><textarea class="form-textarea" id="a-features" style="min-height:80px;" required></textarea></div>
+      <div class="form-group"><label class="q-label">11. 필수 기능 vs 선택 기능 구분 *</label><p class="q-desc">예: 필수: 카메라 인식, Wi-Fi 연결 / 선택: 배터리, LTE, 터치스크린</p><textarea class="form-textarea" id="a-reqopt" style="min-height:70px;" required></textarea></div>
+    </div>
+    <!-- S3 -->
+    <div class="app-step-panel" id="app-s3">
+      <div class="app-sec-title">Section 3 · AI 기능 및 데이터 요구사항</div>
+      <p class="app-sec-desc">AI 기능, 처리 방식, 데이터 유형, 개인정보 처리 여부를 입력해주세요.</p>
+      <div class="form-group"><label class="q-label">12. 필요한 AI 기능 *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="checkbox" name="aifunc" value="객체 인식"><span>객체 인식</span></label>
+          <label class="opt-item"><input type="checkbox" name="aifunc" value="사람 감지"><span>사람 감지</span></label>
+          <label class="opt-item"><input type="checkbox" name="aifunc" value="얼굴 인식"><span>얼굴 인식</span></label>
+          <label class="opt-item"><input type="checkbox" name="aifunc" value="얼굴 인증"><span>얼굴 인증</span></label>
+          <label class="opt-item"><input type="checkbox" name="aifunc" value="행동 분석"><span>행동 분석</span></label>
+          <label class="opt-item"><input type="checkbox" name="aifunc" value="자세·동작 인식"><span>자세·동작 인식</span></label>
+          <label class="opt-item"><input type="checkbox" name="aifunc" value="음성 인식"><span>음성 인식</span></label>
+          <label class="opt-item"><input type="checkbox" name="aifunc" value="음성 명령"><span>음성 명령</span></label>
+          <label class="opt-item"><input type="checkbox" name="aifunc" value="자연어 대화"><span>자연어 대화</span></label>
+          <label class="opt-item"><input type="checkbox" name="aifunc" value="소리 감지"><span>소리 감지</span></label>
+          <label class="opt-item"><input type="checkbox" name="aifunc" value="이상 상황 감지"><span>이상 상황 감지</span></label>
+          <label class="opt-item"><input type="checkbox" name="aifunc" value="OCR"><span>OCR</span></label>
+          <label class="opt-item"><input type="checkbox" name="aifunc" value="센서 데이터 분석"><span>센서 데이터 분석</span></label>
+          <label class="opt-item"><input type="checkbox" name="aifunc" value="예측·추천"><span>예측·추천</span></label>
+          <label class="opt-item"><input type="checkbox" name="aifunc" value="로봇 제어"><span>로봇 제어</span></label>
+        </div>
+      </div>
+      <div class="form-group"><label class="q-label">13. AI 처리 위치 *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="radio" name="aiproc" value="디바이스 내부에서만 처리"><span>디바이스 내부</span></label>
+          <label class="opt-item"><input type="radio" name="aiproc" value="클라우드에서 처리"><span>클라우드</span></label>
+          <label class="opt-item"><input type="radio" name="aiproc" value="디바이스와 클라우드 하이브리드"><span>하이브리드</span></label>
+          <label class="opt-item"><input type="radio" name="aiproc" value="아직 미정"><span>미정</span></label>
+          <label class="opt-item"><input type="radio" name="aiproc" value="상담 필요"><span>상담 필요</span></label>
+        </div>
+      </div>
+      <div class="form-group"><label class="q-label">14. AI 응답 속도 목표 *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="radio" name="aispeed" value="100ms 이하"><span>100ms 이하</span></label>
+          <label class="opt-item"><input type="radio" name="aispeed" value="300ms 이하"><span>300ms 이하</span></label>
+          <label class="opt-item"><input type="radio" name="aispeed" value="500ms 이하"><span>500ms 이하</span></label>
+          <label class="opt-item"><input type="radio" name="aispeed" value="1초 이하"><span>1초 이하</span></label>
+          <label class="opt-item"><input type="radio" name="aispeed" value="3초 이하"><span>3초 이하</span></label>
+          <label class="opt-item"><input type="radio" name="aispeed" value="실시간일 필요 없음"><span>실시간 불필요</span></label>
+          <label class="opt-item"><input type="radio" name="aispeed" value="미정"><span>미정</span></label>
+          <label class="opt-item"><input type="radio" name="aispeed" value="상담 필요"><span>상담 필요</span></label>
+        </div>
+      </div>
+      <div class="form-group"><label class="q-label">15. 보유 AI 모델·데이터 *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="checkbox" name="aiasset" value="학습 데이터 보유"><span>학습 데이터</span></label>
+          <label class="opt-item"><input type="checkbox" name="aiasset" value="테스트 데이터 보유"><span>테스트 데이터</span></label>
+          <label class="opt-item"><input type="checkbox" name="aiasset" value="라벨링 데이터 보유"><span>라벨링 데이터</span></label>
+          <label class="opt-item"><input type="checkbox" name="aiasset" value="학습된 모델 파일 보유"><span>모델 파일</span></label>
+          <label class="opt-item"><input type="checkbox" name="aiasset" value="API 보유"><span>API</span></label>
+          <label class="opt-item"><input type="checkbox" name="aiasset" value="소스코드 보유"><span>소스코드</span></label>
+          <label class="opt-item"><input type="checkbox" name="aiasset" value="없음"><span>없음</span></label>
+          <label class="opt-item"><input type="checkbox" name="aiasset" value="오픈소스 모델 활용 예정"><span>오픈소스 예정</span></label>
+          <label class="opt-item"><input type="checkbox" name="aiasset" value="외부 개발 필요"><span>외부 개발 필요</span></label>
+          <label class="opt-item"><input type="checkbox" name="aiasset" value="상담 필요"><span>상담 필요</span></label>
+        </div>
+      </div>
+      <div class="form-group"><label class="q-label">16. 데이터 유형 *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="checkbox" name="dtype" value="이미지"><span>이미지</span></label>
+          <label class="opt-item"><input type="checkbox" name="dtype" value="영상"><span>영상</span></label>
+          <label class="opt-item"><input type="checkbox" name="dtype" value="음성"><span>음성</span></label>
+          <label class="opt-item"><input type="checkbox" name="dtype" value="텍스트"><span>텍스트</span></label>
+          <label class="opt-item"><input type="checkbox" name="dtype" value="위치 정보"><span>위치 정보</span></label>
+          <label class="opt-item"><input type="checkbox" name="dtype" value="생체 정보"><span>생체 정보</span></label>
+          <label class="opt-item"><input type="checkbox" name="dtype" value="온도·습도"><span>온도·습도</span></label>
+          <label class="opt-item"><input type="checkbox" name="dtype" value="움직임·가속도"><span>움직임·가속도</span></label>
+          <label class="opt-item"><input type="checkbox" name="dtype" value="거리·깊이"><span>거리·깊이</span></label>
+          <label class="opt-item"><input type="checkbox" name="dtype" value="레이더·LiDAR"><span>레이더·LiDAR</span></label>
+          <label class="opt-item"><input type="checkbox" name="dtype" value="사용자 행동 데이터"><span>사용자 행동 데이터</span></label>
+        </div>
+      </div>
+      <div class="form-group"><label class="q-label">17. 개인정보·민감정보 처리 여부 *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="radio" name="privacy" value="예"><span>예</span></label>
+          <label class="opt-item"><input type="radio" name="privacy" value="아니오"><span>아니오</span></label>
+          <label class="opt-item"><input type="radio" name="privacy" value="아직 미정"><span>미정</span></label>
+          <label class="opt-item"><input type="radio" name="privacy" value="상담 필요"><span>상담 필요</span></label>
+        </div>
+      </div>
+    </div>
+    <!-- S4 -->
+    <div class="app-step-panel" id="app-s4">
+      <div class="app-sec-title">Section 4 · 하드웨어 구성 및 제품 형태</div>
+      <p class="app-sec-desc">제품 형태, 주요 하드웨어 구성요소, 칩셋, 전원, 크기·내구성을 입력해주세요.</p>
+      <div class="form-group"><label class="q-label">18. 제품 형태 *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="radio" name="hwform" value="AI 카메라형 디바이스"><span>AI 카메라형</span></label>
+          <label class="opt-item"><input type="radio" name="hwform" value="웨어러블"><span>웨어러블</span></label>
+          <label class="opt-item"><input type="radio" name="hwform" value="스피커·음성 디바이스"><span>스피커·음성</span></label>
+          <label class="opt-item"><input type="radio" name="hwform" value="센서 모듈"><span>센서 모듈</span></label>
+          <label class="opt-item"><input type="radio" name="hwform" value="로봇·로봇 부품"><span>로봇·부품</span></label>
+          <label class="opt-item"><input type="radio" name="hwform" value="IoT 디바이스"><span>IoT 디바이스</span></label>
+          <label class="opt-item"><input type="radio" name="hwform" value="휴대용 단말기"><span>휴대용 단말기</span></label>
+          <label class="opt-item"><input type="radio" name="hwform" value="거치형 장치"><span>거치형 장치</span></label>
+          <label class="opt-item"><input type="radio" name="hwform" value="산업용 장비"><span>산업용 장비</span></label>
+          <label class="opt-item"><input type="radio" name="hwform" value="차량용 장치"><span>차량용 장치</span></label>
+          <label class="opt-item"><input type="radio" name="hwform" value="드론·모빌리티 장치"><span>드론·모빌리티</span></label>
+        </div>
+      </div>
+      <div class="form-group"><label class="q-label">19. 주요 하드웨어 구성요소 *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="checkbox" name="hwcomp" value="카메라"><span>카메라</span></label>
+          <label class="opt-item"><input type="checkbox" name="hwcomp" value="마이크"><span>마이크</span></label>
+          <label class="opt-item"><input type="checkbox" name="hwcomp" value="스피커"><span>스피커</span></label>
+          <label class="opt-item"><input type="checkbox" name="hwcomp" value="디스플레이"><span>디스플레이</span></label>
+          <label class="opt-item"><input type="checkbox" name="hwcomp" value="터치스크린"><span>터치스크린</span></label>
+          <label class="opt-item"><input type="checkbox" name="hwcomp" value="버튼"><span>버튼</span></label>
+          <label class="opt-item"><input type="checkbox" name="hwcomp" value="LED"><span>LED</span></label>
+          <label class="opt-item"><input type="checkbox" name="hwcomp" value="배터리"><span>배터리</span></label>
+          <label class="opt-item"><input type="checkbox" name="hwcomp" value="Wi-Fi"><span>Wi-Fi</span></label>
+          <label class="opt-item"><input type="checkbox" name="hwcomp" value="Bluetooth·BLE"><span>Bluetooth·BLE</span></label>
+          <label class="opt-item"><input type="checkbox" name="hwcomp" value="LTE·5G"><span>LTE·5G</span></label>
+          <label class="opt-item"><input type="checkbox" name="hwcomp" value="GPS"><span>GPS</span></label>
+          <label class="opt-item"><input type="checkbox" name="hwcomp" value="IMU"><span>IMU</span></label>
+          <label class="opt-item"><input type="checkbox" name="hwcomp" value="ToF 센서"><span>ToF 센서</span></label>
+          <label class="opt-item"><input type="checkbox" name="hwcomp" value="LiDAR"><span>LiDAR</span></label>
+          <label class="opt-item"><input type="checkbox" name="hwcomp" value="레이더"><span>레이더</span></label>
+          <label class="opt-item"><input type="checkbox" name="hwcomp" value="온습도 센서"><span>온습도 센서</span></label>
+          <label class="opt-item"><input type="checkbox" name="hwcomp" value="모터·액추에이터"><span>모터·액추에이터</span></label>
+        </div>
+      </div>
+      <div class="form-group"><label class="q-label">20. 선호 칩셋·보드 *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="checkbox" name="chipset" value="Raspberry Pi"><span>Raspberry Pi</span></label>
+          <label class="opt-item"><input type="checkbox" name="chipset" value="NVIDIA Jetson"><span>NVIDIA Jetson</span></label>
+          <label class="opt-item"><input type="checkbox" name="chipset" value="Rockchip RK3588 계열"><span>Rockchip RK3588</span></label>
+          <label class="opt-item"><input type="checkbox" name="chipset" value="Qualcomm 계열"><span>Qualcomm</span></label>
+          <label class="opt-item"><input type="checkbox" name="chipset" value="MediaTek 계열"><span>MediaTek</span></label>
+          <label class="opt-item"><input type="checkbox" name="chipset" value="ESP32 계열"><span>ESP32</span></label>
+          <label class="opt-item"><input type="checkbox" name="chipset" value="STM32 계열"><span>STM32</span></label>
+          <label class="opt-item"><input type="checkbox" name="chipset" value="Arduino 계열"><span>Arduino</span></label>
+          <label class="opt-item"><input type="checkbox" name="chipset" value="자체 설계 필요"><span>자체 설계</span></label>
+          <label class="opt-item"><input type="checkbox" name="chipset" value="아직 미정"><span>미정</span></label>
+          <label class="opt-item"><input type="checkbox" name="chipset" value="상담 필요"><span>상담 필요</span></label>
+        </div>
+      </div>
+      <div class="form-group"><label class="q-label">21. 전원 방식 *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="radio" name="power" value="내장 배터리"><span>내장 배터리</span></label>
+          <label class="opt-item"><input type="radio" name="power" value="교체형 배터리"><span>교체형 배터리</span></label>
+          <label class="opt-item"><input type="radio" name="power" value="USB-C 전원"><span>USB-C</span></label>
+          <label class="opt-item"><input type="radio" name="power" value="어댑터 전원"><span>어댑터</span></label>
+          <label class="opt-item"><input type="radio" name="power" value="PoE"><span>PoE</span></label>
+          <label class="opt-item"><input type="radio" name="power" value="차량 전원"><span>차량 전원</span></label>
+          <label class="opt-item"><input type="radio" name="power" value="산업용 전원"><span>산업용 전원</span></label>
+          <label class="opt-item"><input type="radio" name="power" value="태양광·에너지 하베스팅"><span>태양광</span></label>
+          <label class="opt-item"><input type="radio" name="power" value="미정"><span>미정</span></label>
+        </div>
+      </div>
+      <div class="form-group"><label class="q-label">22. 크기·무게·내구성 요구사항</label><p class="q-desc">예: 손바닥 크기, 100×60×30mm 이하, 300g 이하, 실외 방수·방진 등</p><textarea class="form-textarea" id="a-size" style="min-height:70px;"></textarea></div>
+    </div>
+    <!-- S5 -->
+    <div class="app-step-panel" id="app-s5">
+      <div class="app-sec-title">Section 5 · 소프트웨어·앱·클라우드</div>
+      <p class="app-sec-desc">앱, 웹 대시보드, 클라우드 연동, OTA 업데이트 필요 여부를 입력해주세요.</p>
+      <div class="form-group"><label class="q-label">23. 모바일 앱·웹 대시보드 필요 여부 *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="radio" name="app" value="iOS 앱 필요"><span>iOS 앱</span></label>
+          <label class="opt-item"><input type="radio" name="app" value="Android 앱 필요"><span>Android 앱</span></label>
+          <label class="opt-item"><input type="radio" name="app" value="iOS·Android 모두 필요"><span>iOS + Android</span></label>
+          <label class="opt-item"><input type="radio" name="app" value="웹 대시보드 필요"><span>웹 대시보드</span></label>
+          <label class="opt-item"><input type="radio" name="app" value="앱·웹 모두 필요"><span>앱 + 웹</span></label>
+          <label class="opt-item"><input type="radio" name="app" value="필요 없음"><span>필요 없음</span></label>
+          <label class="opt-item"><input type="radio" name="app" value="미정"><span>미정</span></label>
+          <label class="opt-item"><input type="radio" name="app" value="상담 필요"><span>상담 필요</span></label>
+        </div>
+      </div>
+      <div class="form-group"><label class="q-label">24. 클라우드 연동·OTA 업데이트 *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="checkbox" name="cloud" value="클라우드 연동 필요"><span>클라우드 연동</span></label>
+          <label class="opt-item"><input type="checkbox" name="cloud" value="클라우드 불필요"><span>클라우드 불필요</span></label>
+          <label class="opt-item"><input type="checkbox" name="cloud" value="펌웨어 OTA 필요"><span>펌웨어 OTA</span></label>
+          <label class="opt-item"><input type="checkbox" name="cloud" value="AI 모델 OTA 필요"><span>AI 모델 OTA</span></label>
+          <label class="opt-item"><input type="checkbox" name="cloud" value="로그 수집 필요"><span>로그 수집</span></label>
+          <label class="opt-item"><input type="checkbox" name="cloud" value="원격 제어 필요"><span>원격 제어</span></label>
+          <label class="opt-item"><input type="checkbox" name="cloud" value="API 연동 필요"><span>API 연동</span></label>
+          <label class="opt-item"><input type="checkbox" name="cloud" value="미정"><span>미정</span></label>
+          <label class="opt-item"><input type="checkbox" name="cloud" value="상담 필요"><span>상담 필요</span></label>
+        </div>
+      </div>
+    </div>
+    <!-- S6 -->
+    <div class="app-step-panel" id="app-s6">
+      <div class="app-sec-title">Section 6 · 프로토타입 제작 범위·수량·일정</div>
+      <p class="app-sec-desc">프로토타입 수량, 개발 수준, 의뢰 범위, 예산, 희망 일정을 입력해주세요.</p>
+      <div class="form-group"><label class="q-label">25. 희망 첫 프로토타입 수량 *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="radio" name="qty" value="1대"><span>1대</span></label>
+          <label class="opt-item"><input type="radio" name="qty" value="2~3대"><span>2~3대</span></label>
+          <label class="opt-item"><input type="radio" name="qty" value="5대"><span>5대</span></label>
+          <label class="opt-item"><input type="radio" name="qty" value="10대"><span>10대</span></label>
+          <label class="opt-item"><input type="radio" name="qty" value="20대"><span>20대</span></label>
+          <label class="opt-item"><input type="radio" name="qty" value="50대 이상"><span>50대 이상</span></label>
+          <label class="opt-item"><input type="radio" name="qty" value="미정"><span>미정</span></label>
+        </div>
+      </div>
+      <div class="form-group"><label class="q-label">26. 원하는 프로토타입 수준 *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="radio" name="ptlevel" value="외관 목업"><span>외관 목업</span></label>
+          <label class="opt-item"><input type="radio" name="ptlevel" value="기능 검증용 POC"><span>기능 검증 POC</span></label>
+          <label class="opt-item"><input type="radio" name="ptlevel" value="작동 가능한 엔지니어링 샘플"><span>엔지니어링 샘플</span></label>
+          <label class="opt-item"><input type="radio" name="ptlevel" value="전시회 데모용 샘플"><span>전시회 데모</span></label>
+          <label class="opt-item"><input type="radio" name="ptlevel" value="고객 테스트용 샘플"><span>고객 테스트</span></label>
+          <label class="opt-item"><input type="radio" name="ptlevel" value="소량 생산 전 단계"><span>소량 생산 전</span></label>
+          <label class="opt-item"><input type="radio" name="ptlevel" value="상담 필요"><span>상담 필요</span></label>
+        </div>
+      </div>
+      <div class="form-group"><label class="q-label">27. 전체 프로토타이핑 예산 *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="radio" name="budget" value="5,000만원 이하"><span>5,000만원 이하</span></label>
+          <label class="opt-item"><input type="radio" name="budget" value="5,000만원 ~ 1억원"><span>5천만 ~ 1억</span></label>
+          <label class="opt-item"><input type="radio" name="budget" value="1억원 ~ 1억 5,000만원"><span>1억 ~ 1.5억</span></label>
+          <label class="opt-item"><input type="radio" name="budget" value="1억 5,000만원 ~ 2억원"><span>1.5억 ~ 2억</span></label>
+          <label class="opt-item"><input type="radio" name="budget" value="2억원 ~ 3억원"><span>2억 ~ 3억</span></label>
+          <label class="opt-item"><input type="radio" name="budget" value="3억원 이상"><span>3억 이상</span></label>
+          <label class="opt-item"><input type="radio" name="budget" value="상담 필요"><span>상담 필요</span></label>
+        </div>
+      </div>
+      <div class="form-group"><label class="q-label">28. Fast.B 의뢰 범위 *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="checkbox" name="scope" value="제품 기획 보완"><span>제품 기획</span></label>
+          <label class="opt-item"><input type="checkbox" name="scope" value="산업디자인"><span>산업디자인</span></label>
+          <label class="opt-item"><input type="checkbox" name="scope" value="기구 설계"><span>기구 설계</span></label>
+          <label class="opt-item"><input type="checkbox" name="scope" value="회로 설계"><span>회로 설계</span></label>
+          <label class="opt-item"><input type="checkbox" name="scope" value="PCB 설계"><span>PCB 설계</span></label>
+          <label class="opt-item"><input type="checkbox" name="scope" value="부품 선정"><span>부품 선정</span></label>
+          <label class="opt-item"><input type="checkbox" name="scope" value="펌웨어 개발"><span>펌웨어</span></label>
+          <label class="opt-item"><input type="checkbox" name="scope" value="AI 모델 최적화"><span>AI 모델 최적화</span></label>
+          <label class="opt-item"><input type="checkbox" name="scope" value="앱 개발"><span>앱 개발</span></label>
+          <label class="opt-item"><input type="checkbox" name="scope" value="클라우드 개발"><span>클라우드</span></label>
+          <label class="opt-item"><input type="checkbox" name="scope" value="시제품 제작"><span>시제품 제작</span></label>
+          <label class="opt-item"><input type="checkbox" name="scope" value="금형 설계"><span>금형 설계</span></label>
+          <label class="opt-item"><input type="checkbox" name="scope" value="소량 생산"><span>소량 생산</span></label>
+          <label class="opt-item"><input type="checkbox" name="scope" value="양산 준비"><span>양산 준비</span></label>
+          <label class="opt-item"><input type="checkbox" name="scope" value="인증 대응"><span>인증 대응</span></label>
+        </div>
+      </div>
+      <div class="form-group"><label class="q-label">29. 1차 프로토타입 완료 희망 시점 *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="radio" name="deadline" value="2주 이내"><span>2주 이내</span></label>
+          <label class="opt-item"><input type="radio" name="deadline" value="1개월 이내"><span>1개월 이내</span></label>
+          <label class="opt-item"><input type="radio" name="deadline" value="2개월 이내"><span>2개월 이내</span></label>
+          <label class="opt-item"><input type="radio" name="deadline" value="3개월 이내"><span>3개월 이내</span></label>
+          <label class="opt-item"><input type="radio" name="deadline" value="6개월 이내"><span>6개월 이내</span></label>
+          <label class="opt-item"><input type="radio" name="deadline" value="일정 협의 가능"><span>일정 협의</span></label>
+          <label class="opt-item"><input type="radio" name="deadline" value="미정"><span>미정</span></label>
+        </div>
+      </div>
+    </div>
+    <!-- S7 -->
+    <div class="app-step-panel" id="app-s7">
+      <div class="app-sec-title">Section 7 · 제조·원가·양산 계획</div>
+      <p class="app-sec-desc">목표 가격, 제조원가, 향후 생산 수량을 입력해주세요.</p>
+      <div class="form-group"><label class="q-label">30. 예상 판매가 또는 목표 제조원가</label><p class="q-desc">예: 판매가 299달러, 제조원가 100달러 이하, BOM 50달러 이하, 아직 미정 등</p><textarea class="form-textarea" id="a-price" style="min-height:70px;"></textarea></div>
+      <div class="form-group"><label class="q-label">31. 향후 예상 생산 수량 *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="radio" name="vol" value="아직 미정"><span>미정</span></label>
+          <label class="opt-item"><input type="radio" name="vol" value="10대 이하"><span>10대 이하</span></label>
+          <label class="opt-item"><input type="radio" name="vol" value="10~50대"><span>10~50대</span></label>
+          <label class="opt-item"><input type="radio" name="vol" value="50~100대"><span>50~100대</span></label>
+          <label class="opt-item"><input type="radio" name="vol" value="100~500대"><span>100~500대</span></label>
+          <label class="opt-item"><input type="radio" name="vol" value="500~1,000대"><span>500~1,000대</span></label>
+          <label class="opt-item"><input type="radio" name="vol" value="1,000~5,000대"><span>1,000~5,000대</span></label>
+          <label class="opt-item"><input type="radio" name="vol" value="5,000~10,000대"><span>5,000~10,000대</span></label>
+          <label class="opt-item"><input type="radio" name="vol" value="10,000대 이상"><span>10,000대 이상</span></label>
+        </div>
+      </div>
+    </div>
+    <!-- S8 -->
+    <div class="app-step-panel" id="app-s8">
+      <div class="app-sec-title">Section 8 · IP·보안·산출물</div>
+      <p class="app-sec-desc">NDA, 지식재산권, 확보해야 할 개발 산출물을 입력해주세요.</p>
+      <div class="form-group"><label class="q-label">32. NDA·지식재산권 보호 *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="checkbox" name="ip" value="NDA 필요"><span>NDA 필요</span></label>
+          <label class="opt-item"><input type="checkbox" name="ip" value="특허 출원 완료"><span>특허 출원 완료</span></label>
+          <label class="opt-item"><input type="checkbox" name="ip" value="특허 출원 예정"><span>특허 출원 예정</span></label>
+          <label class="opt-item"><input type="checkbox" name="ip" value="상표 등록·출원"><span>상표 등록</span></label>
+          <label class="opt-item"><input type="checkbox" name="ip" value="디자인권 등록·출원"><span>디자인권</span></label>
+          <label class="opt-item"><input type="checkbox" name="ip" value="영업비밀로 관리 중"><span>영업비밀</span></label>
+          <label class="opt-item"><input type="checkbox" name="ip" value="특별히 없음"><span>특별히 없음</span></label>
+          <label class="opt-item"><input type="checkbox" name="ip" value="상담 필요"><span>상담 필요</span></label>
+        </div>
+      </div>
+      <div class="form-group"><label class="q-label">33. 반드시 확보해야 할 개발 산출물 *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="checkbox" name="deliverable" value="제품 샘플"><span>제품 샘플</span></label>
+          <label class="opt-item"><input type="checkbox" name="deliverable" value="회로도"><span>회로도</span></label>
+          <label class="opt-item"><input type="checkbox" name="deliverable" value="PCB 설계 파일"><span>PCB 파일</span></label>
+          <label class="opt-item"><input type="checkbox" name="deliverable" value="Gerber 파일"><span>Gerber</span></label>
+          <label class="opt-item"><input type="checkbox" name="deliverable" value="BOM"><span>BOM</span></label>
+          <label class="opt-item"><input type="checkbox" name="deliverable" value="펌웨어 소스코드"><span>펌웨어 코드</span></label>
+          <label class="opt-item"><input type="checkbox" name="deliverable" value="앱 소스코드"><span>앱 코드</span></label>
+          <label class="opt-item"><input type="checkbox" name="deliverable" value="클라우드·API 문서"><span>API 문서</span></label>
+          <label class="opt-item"><input type="checkbox" name="deliverable" value="3D CAD 파일"><span>3D CAD</span></label>
+          <label class="opt-item"><input type="checkbox" name="deliverable" value="금형 파일"><span>금형 파일</span></label>
+          <label class="opt-item"><input type="checkbox" name="deliverable" value="테스트 리포트"><span>테스트 리포트</span></label>
+          <label class="opt-item"><input type="checkbox" name="deliverable" value="제조 공정 문서"><span>제조 공정</span></label>
+          <label class="opt-item"><input type="checkbox" name="deliverable" value="부품 공급처 리스트"><span>부품 공급처</span></label>
+        </div>
+      </div>
+      <div id="app-error-msg" class="form-error-msg" style="margin-top:0.5rem;">오류가 발생했습니다. 잠시 후 다시 시도해 주세요.</div>
+    </div>
+    <!-- 성공 -->
+    <div id="app-success" class="form-success" style="display:none;text-align:center;padding:2rem 0;">
+      <div style="font-size:2.5rem;margin-bottom:1rem;">✦</div>
+      <h3 class="panel-title" style="color:var(--clay);margin-bottom:0.75rem;">의뢰서 접수 완료</h3>
+      <p class="form-notice">의뢰서가 성공적으로 접수되었습니다.<br>빠른 시일 내에 검토 후 연락 드리겠습니다.</p>
+    </div>
+    <!-- 네비게이션 -->
+    <div class="app-nav" id="app-nav-bar">
+      <button class="btn btn-secondary" id="app-back-btn" onclick="appStepPrev()" style="display:none;padding:0.8rem 1.8rem;font-size:0.9rem;">이전</button>
+      <div style="flex:1"></div>
+      <button class="btn btn-primary" id="app-next-btn" onclick="appStepNext()" style="padding:0.8rem 1.8rem;font-size:0.9rem;">다음</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── APPLICATION MODAL (EN) ── -->
+<div id="appModalEn" class="modal-overlay" onclick="handleAppOverlayEn(event)">
+  <div class="app-modal-card">
+    <button class="modal-close" onclick="closeAppModalEn()" aria-label="Close">×</button>
+    <p class="meta-label" style="color:var(--clay);">AI Hardware Prototyping Application</p>
+    <div>
+      <div class="app-progress-wrap"><div class="app-progress-fill" id="enProgressFill" style="width:12.5%"></div></div>
+      <div class="app-step-info"><span id="enStepNum">1</span> / 8 &nbsp;·&nbsp; <span id="enStepName">Applicant Information</span></div>
+    </div>
+    <!-- S1: Applicant -->
+    <div class="app-step-panel active" id="en-s1">
+      <div class="app-sec-title">Section 1 · Applicant &amp; Project Basic Information</div>
+      <p class="app-sec-desc">Please provide basic information required for project consultation and follow-up communication.</p>
+      <div class="form-group"><label class="q-label">Email *</label><input class="form-input" type="email" id="en-email" required></div>
+      <div class="form-group"><label class="q-label">1. Company Name or Team Name *</label><p class="q-desc">If this is an individual project, please enter your name or project name.</p><input class="form-input" type="text" id="en-company" required></div>
+      <div class="form-row">
+        <div class="form-group"><label class="q-label">2. Contact Person Name *</label><input class="form-input" type="text" id="en-name" required></div>
+        <div class="form-group"><label class="q-label">3. Contact Information *</label><input class="form-input" type="text" id="en-phone" placeholder="Email, phone, KakaoTalk, WeChat…" required></div>
+      </div>
+      <div class="form-group"><label class="q-label">4. Current Project Stage *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="radio" name="en-stage" value="Idea stage"><span>Idea stage</span></label>
+          <label class="opt-item"><input type="radio" name="en-stage" value="Product concept completed"><span>Concept completed</span></label>
+          <label class="opt-item"><input type="radio" name="en-stage" value="Design or sketch available"><span>Design / sketch available</span></label>
+          <label class="opt-item"><input type="radio" name="en-stage" value="Technical review in progress"><span>Technical review</span></label>
+          <label class="opt-item"><input type="radio" name="en-stage" value="POC development in progress"><span>POC in progress</span></label>
+          <label class="opt-item"><input type="radio" name="en-stage" value="First prototype available"><span>1st prototype available</span></label>
+          <label class="opt-item"><input type="radio" name="en-stage" value="Preparing for customer testing or pilot"><span>Customer testing / pilot</span></label>
+          <label class="opt-item"><input type="radio" name="en-stage" value="Reviewing transition to mass production"><span>Mass production review</span></label>
+        </div>
+      </div>
+      <div class="form-group"><label class="q-label">5. Main Purpose of This Project *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="checkbox" name="en-purpose" value="Idea validation"><span>Idea validation</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-purpose" value="Technical feasibility validation"><span>Feasibility validation</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-purpose" value="Demo for fundraising"><span>Fundraising demo</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-purpose" value="Demo for exhibition or trade show"><span>Exhibition demo</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-purpose" value="Sample for customer proposal"><span>Customer proposal sample</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-purpose" value="Internal R&D"><span>Internal R&amp;D</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-purpose" value="Pilot testing"><span>Pilot testing</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-purpose" value="Small-batch production"><span>Small-batch production</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-purpose" value="Mass production preparation"><span>Mass production prep</span></label>
+        </div>
+      </div>
+    </div>
+    <!-- S2: Product Overview -->
+    <div class="app-step-panel" id="en-s2">
+      <div class="app-sec-title">Section 2 · Product Overview &amp; Core Requirements</div>
+      <p class="app-sec-desc">Please describe the product concept, target problem, customer segment, and core functions.</p>
+      <div class="form-group"><label class="q-label">6. Product Name or Temporary Project Name *</label><p class="q-desc">If the name has not been finalized, please enter a temporary project name.</p><input class="form-input" type="text" id="en-pname" required></div>
+      <div class="form-group"><label class="q-label">7. Describe the product in one sentence *</label><p class="q-desc">Example: A compact AI camera that analyzes in-store visitor behavior using on-device AI.</p><textarea class="form-textarea" id="en-pdesc" style="min-height:70px;" required></textarea></div>
+      <div class="form-group"><label class="q-label">8. What problem does this product aim to solve? *</label><p class="q-desc">Describe the customer pain point, cost issue, risk, inefficiency, or limitation of existing products.</p><textarea class="form-textarea" id="en-problem" style="min-height:80px;" required></textarea></div>
+      <div class="form-group"><label class="q-label">9. Main target customers *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="checkbox" name="en-target" value="General consumers"><span>General consumers</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-target" value="Enterprise / B2B"><span>Enterprise / B2B</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-target" value="Retail stores"><span>Retail stores</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-target" value="Manufacturing / Factories"><span>Manufacturing</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-target" value="Logistics / Warehouses"><span>Logistics</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-target" value="Hospitals / Healthcare"><span>Healthcare</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-target" value="Schools / Educational institutions"><span>Education</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-target" value="Public institutions"><span>Public sector</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-target" value="Mobility / Vehicles"><span>Mobility / Vehicles</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-target" value="Robots / Drones"><span>Robots / Drones</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-target" value="Security / Surveillance"><span>Security</span></label>
+        </div>
+      </div>
+      <div class="form-group"><label class="q-label">10. 3–5 core functions of the product *</label><p class="q-desc">Example: Human detection, voice command recognition, mobile app integration, real-time alerts, cloud data storage.</p><textarea class="form-textarea" id="en-features" style="min-height:80px;" required></textarea></div>
+      <div class="form-group"><label class="q-label">11. Must-have vs. nice-to-have features *</label><p class="q-desc">Example: Must-have: camera recognition, Wi-Fi / Nice-to-have: battery, LTE, touchscreen.</p><textarea class="form-textarea" id="en-reqopt" style="min-height:70px;" required></textarea></div>
+    </div>
+    <!-- S3: AI -->
+    <div class="app-step-panel" id="en-s3">
+      <div class="app-sec-title">Section 3 · AI Function &amp; Data Requirements</div>
+      <p class="app-sec-desc">Please specify AI functions, processing location, response speed, available assets, and data privacy considerations.</p>
+      <div class="form-group"><label class="q-label">12. AI functions required *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="checkbox" name="en-aifunc" value="Object recognition"><span>Object recognition</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-aifunc" value="Human detection"><span>Human detection</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-aifunc" value="Face recognition"><span>Face recognition</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-aifunc" value="Face authentication"><span>Face authentication</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-aifunc" value="Behavior analysis"><span>Behavior analysis</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-aifunc" value="Pose / motion recognition"><span>Pose / motion</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-aifunc" value="Speech recognition"><span>Speech recognition</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-aifunc" value="Voice command"><span>Voice command</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-aifunc" value="Natural language conversation"><span>NLP conversation</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-aifunc" value="Sound detection"><span>Sound detection</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-aifunc" value="Anomaly detection"><span>Anomaly detection</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-aifunc" value="OCR"><span>OCR</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-aifunc" value="Sensor data analysis"><span>Sensor data analysis</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-aifunc" value="Prediction / recommendation"><span>Prediction / recommendation</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-aifunc" value="Robot control"><span>Robot control</span></label>
+        </div>
+      </div>
+      <div class="form-group"><label class="q-label">13. Where should AI processing take place? *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="radio" name="en-aiproc" value="On-device only"><span>On-device only</span></label>
+          <label class="opt-item"><input type="radio" name="en-aiproc" value="Cloud only"><span>Cloud only</span></label>
+          <label class="opt-item"><input type="radio" name="en-aiproc" value="Hybrid: device and cloud"><span>Hybrid</span></label>
+          <label class="opt-item"><input type="radio" name="en-aiproc" value="TBD"><span>TBD</span></label>
+          <label class="opt-item"><input type="radio" name="en-aiproc" value="Consultation needed"><span>Consultation needed</span></label>
+        </div>
+      </div>
+      <div class="form-group"><label class="q-label">14. Target AI response time *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="radio" name="en-aispeed" value="Under 100ms"><span>Under 100 ms</span></label>
+          <label class="opt-item"><input type="radio" name="en-aispeed" value="Under 300ms"><span>Under 300 ms</span></label>
+          <label class="opt-item"><input type="radio" name="en-aispeed" value="Under 500ms"><span>Under 500 ms</span></label>
+          <label class="opt-item"><input type="radio" name="en-aispeed" value="Under 1 second"><span>Under 1 second</span></label>
+          <label class="opt-item"><input type="radio" name="en-aispeed" value="Under 3 seconds"><span>Under 3 seconds</span></label>
+          <label class="opt-item"><input type="radio" name="en-aispeed" value="Real-time response is not required"><span>Not required</span></label>
+          <label class="opt-item"><input type="radio" name="en-aispeed" value="TBD"><span>TBD</span></label>
+          <label class="opt-item"><input type="radio" name="en-aispeed" value="Consultation needed"><span>Consultation needed</span></label>
+        </div>
+      </div>
+      <div class="form-group"><label class="q-label">15. Existing AI model or data *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="checkbox" name="en-aiasset" value="Training data available"><span>Training data</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-aiasset" value="Test data available"><span>Test data</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-aiasset" value="Labeled data available"><span>Labeled data</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-aiasset" value="Trained model file available"><span>Trained model</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-aiasset" value="API available"><span>API</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-aiasset" value="Source code available"><span>Source code</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-aiasset" value="None"><span>None</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-aiasset" value="Planning to use open-source model"><span>Open-source planned</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-aiasset" value="External development required"><span>External dev needed</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-aiasset" value="Consultation needed"><span>Consultation needed</span></label>
+        </div>
+      </div>
+      <div class="form-group"><label class="q-label">16. Types of data to be collected or processed *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="checkbox" name="en-dtype" value="Images"><span>Images</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-dtype" value="Video"><span>Video</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-dtype" value="Audio"><span>Audio</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-dtype" value="Text"><span>Text</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-dtype" value="Location information"><span>Location</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-dtype" value="Biometric information"><span>Biometric</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-dtype" value="Temperature / humidity"><span>Temperature / humidity</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-dtype" value="Motion / acceleration"><span>Motion / acceleration</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-dtype" value="Distance / depth"><span>Distance / depth</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-dtype" value="Radar / LiDAR"><span>Radar / LiDAR</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-dtype" value="User behavior data"><span>User behavior data</span></label>
+        </div>
+      </div>
+      <div class="form-group"><label class="q-label">17. Will the product handle personal or sensitive information? *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="radio" name="en-privacy" value="Yes"><span>Yes</span></label>
+          <label class="opt-item"><input type="radio" name="en-privacy" value="No"><span>No</span></label>
+          <label class="opt-item"><input type="radio" name="en-privacy" value="TBD"><span>TBD</span></label>
+          <label class="opt-item"><input type="radio" name="en-privacy" value="Consultation needed"><span>Consultation needed</span></label>
+        </div>
+      </div>
+    </div>
+    <!-- S4: Hardware -->
+    <div class="app-step-panel" id="en-s4">
+      <div class="app-sec-title">Section 4 · Hardware Configuration &amp; Product Form Factor</div>
+      <p class="app-sec-desc">Please specify the product type, hardware components, chipset, power source, size, weight, and durability requirements.</p>
+      <div class="form-group"><label class="q-label">18. Product type *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="radio" name="en-hwform" value="AI camera device"><span>AI camera device</span></label>
+          <label class="opt-item"><input type="radio" name="en-hwform" value="Wearable device"><span>Wearable</span></label>
+          <label class="opt-item"><input type="radio" name="en-hwform" value="Speaker / voice device"><span>Speaker / voice</span></label>
+          <label class="opt-item"><input type="radio" name="en-hwform" value="Sensor module"><span>Sensor module</span></label>
+          <label class="opt-item"><input type="radio" name="en-hwform" value="Robot / robot component"><span>Robot / component</span></label>
+          <label class="opt-item"><input type="radio" name="en-hwform" value="IoT device"><span>IoT device</span></label>
+          <label class="opt-item"><input type="radio" name="en-hwform" value="Portable terminal"><span>Portable terminal</span></label>
+          <label class="opt-item"><input type="radio" name="en-hwform" value="Stationary / desktop device"><span>Stationary device</span></label>
+          <label class="opt-item"><input type="radio" name="en-hwform" value="Industrial equipment"><span>Industrial equipment</span></label>
+          <label class="opt-item"><input type="radio" name="en-hwform" value="Vehicle-mounted device"><span>Vehicle-mounted</span></label>
+          <label class="opt-item"><input type="radio" name="en-hwform" value="Drone / mobility device"><span>Drone / mobility</span></label>
+        </div>
+      </div>
+      <div class="form-group"><label class="q-label">19. Major hardware components required *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="checkbox" name="en-hwcomp" value="Camera"><span>Camera</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-hwcomp" value="Microphone"><span>Microphone</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-hwcomp" value="Speaker"><span>Speaker</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-hwcomp" value="Display"><span>Display</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-hwcomp" value="Touchscreen"><span>Touchscreen</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-hwcomp" value="Button"><span>Button</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-hwcomp" value="LED"><span>LED</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-hwcomp" value="Battery"><span>Battery</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-hwcomp" value="Wi-Fi"><span>Wi-Fi</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-hwcomp" value="Bluetooth / BLE"><span>Bluetooth / BLE</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-hwcomp" value="LTE / 5G"><span>LTE / 5G</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-hwcomp" value="GPS"><span>GPS</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-hwcomp" value="IMU"><span>IMU</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-hwcomp" value="ToF sensor"><span>ToF sensor</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-hwcomp" value="LiDAR"><span>LiDAR</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-hwcomp" value="Radar"><span>Radar</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-hwcomp" value="Temperature / humidity sensor"><span>Temp / humidity sensor</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-hwcomp" value="Motor / actuator"><span>Motor / actuator</span></label>
+        </div>
+      </div>
+      <div class="form-group"><label class="q-label">20. Preferred chipset / development board *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="checkbox" name="en-chipset" value="Raspberry Pi"><span>Raspberry Pi</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-chipset" value="NVIDIA Jetson"><span>NVIDIA Jetson</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-chipset" value="Rockchip RK3588 series"><span>Rockchip RK3588</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-chipset" value="Qualcomm series"><span>Qualcomm</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-chipset" value="MediaTek series"><span>MediaTek</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-chipset" value="ESP32 series"><span>ESP32</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-chipset" value="STM32 series"><span>STM32</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-chipset" value="Arduino series"><span>Arduino</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-chipset" value="Custom board design required"><span>Custom design</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-chipset" value="TBD"><span>TBD</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-chipset" value="Consultation needed"><span>Consultation needed</span></label>
+        </div>
+      </div>
+      <div class="form-group"><label class="q-label">21. Power source *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="radio" name="en-power" value="Built-in battery"><span>Built-in battery</span></label>
+          <label class="opt-item"><input type="radio" name="en-power" value="Replaceable battery"><span>Replaceable battery</span></label>
+          <label class="opt-item"><input type="radio" name="en-power" value="USB-C power"><span>USB-C</span></label>
+          <label class="opt-item"><input type="radio" name="en-power" value="Power adapter"><span>Power adapter</span></label>
+          <label class="opt-item"><input type="radio" name="en-power" value="PoE"><span>PoE</span></label>
+          <label class="opt-item"><input type="radio" name="en-power" value="Vehicle power"><span>Vehicle power</span></label>
+          <label class="opt-item"><input type="radio" name="en-power" value="Industrial power"><span>Industrial power</span></label>
+          <label class="opt-item"><input type="radio" name="en-power" value="Solar / energy harvesting"><span>Solar / harvesting</span></label>
+          <label class="opt-item"><input type="radio" name="en-power" value="TBD"><span>TBD</span></label>
+        </div>
+      </div>
+      <div class="form-group"><label class="q-label">22. Size, weight, or durability requirements *</label><p class="q-desc">Example: Palm-sized, under 100×60×30 mm, under 300 g, outdoor use, water/dust resistance, 1-meter drop resistance.</p><textarea class="form-textarea" id="en-size" style="min-height:70px;"></textarea></div>
+    </div>
+    <!-- S5: Software -->
+    <div class="app-step-panel" id="en-s5">
+      <div class="app-sec-title">Section 5 · Software, App &amp; Cloud</div>
+      <p class="app-sec-desc">Please specify mobile app, web dashboard, cloud integration, OTA update, log collection, and API requirements.</p>
+      <div class="form-group"><label class="q-label">23. Mobile app or web dashboard required? *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="radio" name="en-app" value="iOS app required"><span>iOS app</span></label>
+          <label class="opt-item"><input type="radio" name="en-app" value="Android app required"><span>Android app</span></label>
+          <label class="opt-item"><input type="radio" name="en-app" value="Both iOS and Android apps required"><span>iOS + Android</span></label>
+          <label class="opt-item"><input type="radio" name="en-app" value="Web dashboard required"><span>Web dashboard</span></label>
+          <label class="opt-item"><input type="radio" name="en-app" value="Both app and web dashboard required"><span>App + Web</span></label>
+          <label class="opt-item"><input type="radio" name="en-app" value="Not required"><span>Not required</span></label>
+          <label class="opt-item"><input type="radio" name="en-app" value="TBD"><span>TBD</span></label>
+          <label class="opt-item"><input type="radio" name="en-app" value="Consultation needed"><span>Consultation needed</span></label>
+        </div>
+      </div>
+      <div class="form-group"><label class="q-label">24. Cloud integration or OTA update required? *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="checkbox" name="en-cloud" value="Cloud integration required"><span>Cloud integration</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-cloud" value="Cloud integration not required"><span>Cloud not required</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-cloud" value="Firmware OTA required"><span>Firmware OTA</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-cloud" value="AI model OTA required"><span>AI model OTA</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-cloud" value="Log collection required"><span>Log collection</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-cloud" value="Remote control required"><span>Remote control</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-cloud" value="API integration required"><span>API integration</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-cloud" value="TBD"><span>TBD</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-cloud" value="Consultation needed"><span>Consultation needed</span></label>
+        </div>
+      </div>
+    </div>
+    <!-- S6: Prototype Scope -->
+    <div class="app-step-panel" id="en-s6">
+      <div class="app-sec-title">Section 6 · Prototype Scope, Quantity &amp; Timeline</div>
+      <p class="app-sec-desc">Please specify prototype quantity, prototype level, development scope, preferred timeline, and budget.</p>
+      <div class="form-group"><label class="q-label">25. Number of units for first prototype *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="radio" name="en-qty" value="1 unit"><span>1 unit</span></label>
+          <label class="opt-item"><input type="radio" name="en-qty" value="2–3 units"><span>2–3 units</span></label>
+          <label class="opt-item"><input type="radio" name="en-qty" value="5 units"><span>5 units</span></label>
+          <label class="opt-item"><input type="radio" name="en-qty" value="10 units"><span>10 units</span></label>
+          <label class="opt-item"><input type="radio" name="en-qty" value="20 units"><span>20 units</span></label>
+          <label class="opt-item"><input type="radio" name="en-qty" value="More than 50 units"><span>50+ units</span></label>
+          <label class="opt-item"><input type="radio" name="en-qty" value="TBD"><span>TBD</span></label>
+        </div>
+      </div>
+      <div class="form-group"><label class="q-label">26. Prototype level needed *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="radio" name="en-ptlevel" value="Appearance mockup"><span>Appearance mockup</span></label>
+          <label class="opt-item"><input type="radio" name="en-ptlevel" value="Functional POC"><span>Functional POC</span></label>
+          <label class="opt-item"><input type="radio" name="en-ptlevel" value="Working engineering sample"><span>Engineering sample</span></label>
+          <label class="opt-item"><input type="radio" name="en-ptlevel" value="Exhibition demo sample"><span>Exhibition demo</span></label>
+          <label class="opt-item"><input type="radio" name="en-ptlevel" value="Customer testing sample"><span>Customer testing</span></label>
+          <label class="opt-item"><input type="radio" name="en-ptlevel" value="Pre-small-batch production stage"><span>Pre-small-batch</span></label>
+          <label class="opt-item"><input type="radio" name="en-ptlevel" value="Consultation needed"><span>Consultation needed</span></label>
+        </div>
+      </div>
+      <div class="form-group"><label class="q-label">27. Scope for Shenzhen partner to handle *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="checkbox" name="en-scope" value="Product planning refinement"><span>Product planning</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-scope" value="Industrial design"><span>Industrial design</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-scope" value="Mechanical design"><span>Mechanical design</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-scope" value="Circuit design"><span>Circuit design</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-scope" value="PCB design"><span>PCB design</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-scope" value="Component selection"><span>Component selection</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-scope" value="Firmware development"><span>Firmware</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-scope" value="AI model optimization"><span>AI model optimization</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-scope" value="App development"><span>App development</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-scope" value="Cloud development"><span>Cloud development</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-scope" value="Prototype fabrication"><span>Prototype fabrication</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-scope" value="Mold design"><span>Mold design</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-scope" value="Small-batch production"><span>Small-batch production</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-scope" value="Mass production preparation"><span>Mass production prep</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-scope" value="Certification support"><span>Certification</span></label>
+        </div>
+      </div>
+      <div class="form-group"><label class="q-label">28. Target completion date for first prototype *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="radio" name="en-deadline" value="Within 2 weeks"><span>Within 2 weeks</span></label>
+          <label class="opt-item"><input type="radio" name="en-deadline" value="Within 1 month"><span>Within 1 month</span></label>
+          <label class="opt-item"><input type="radio" name="en-deadline" value="Within 2 months"><span>Within 2 months</span></label>
+          <label class="opt-item"><input type="radio" name="en-deadline" value="Within 3 months"><span>Within 3 months</span></label>
+          <label class="opt-item"><input type="radio" name="en-deadline" value="Within 6 months"><span>Within 6 months</span></label>
+          <label class="opt-item"><input type="radio" name="en-deadline" value="Timeline negotiable"><span>Negotiable</span></label>
+          <label class="opt-item"><input type="radio" name="en-deadline" value="TBD"><span>TBD</span></label>
+        </div>
+      </div>
+      <div class="form-group"><label class="q-label">29. Estimated prototyping budget *</label><p class="q-desc">Example: USD 50,000, USD 100K–200K, TBD, Consultation needed.</p><textarea class="form-textarea" id="en-budget" style="min-height:60px;" required></textarea></div>
+    </div>
+    <!-- S7: Manufacturing -->
+    <div class="app-step-panel" id="en-s7">
+      <div class="app-sec-title">Section 7 · Manufacturing, Cost &amp; Production Plan</div>
+      <p class="app-sec-desc">Please provide target selling price, target manufacturing cost, and expected future production volume.</p>
+      <div class="form-group"><label class="q-label">30. Expected selling price or target manufacturing cost *</label><p class="q-desc">Example: Selling price USD 299, manufacturing cost under USD 100, BOM cost under USD 50, TBD.</p><textarea class="form-textarea" id="en-price" style="min-height:70px;" required></textarea></div>
+      <div class="form-group"><label class="q-label">31. Expected future production volume *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="radio" name="en-vol" value="TBD"><span>TBD</span></label>
+          <label class="opt-item"><input type="radio" name="en-vol" value="Fewer than 10 units"><span>&lt;10 units</span></label>
+          <label class="opt-item"><input type="radio" name="en-vol" value="10–50 units"><span>10–50</span></label>
+          <label class="opt-item"><input type="radio" name="en-vol" value="50–100 units"><span>50–100</span></label>
+          <label class="opt-item"><input type="radio" name="en-vol" value="100–500 units"><span>100–500</span></label>
+          <label class="opt-item"><input type="radio" name="en-vol" value="500–1,000 units"><span>500–1K</span></label>
+          <label class="opt-item"><input type="radio" name="en-vol" value="1,000–5,000 units"><span>1K–5K</span></label>
+          <label class="opt-item"><input type="radio" name="en-vol" value="5,000–10,000 units"><span>5K–10K</span></label>
+          <label class="opt-item"><input type="radio" name="en-vol" value="More than 10,000 units"><span>10K+</span></label>
+        </div>
+      </div>
+    </div>
+    <!-- S8: IP & Deliverables -->
+    <div class="app-step-panel" id="en-s8">
+      <div class="app-sec-title">Section 8 · IP, Security &amp; Deliverables</div>
+      <p class="app-sec-desc">Please specify NDA, IP protection, and required deliverables from the development process.</p>
+      <div class="form-group"><label class="q-label">32. NDA or intellectual property protection required? *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="checkbox" name="en-ip" value="NDA required"><span>NDA required</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-ip" value="Patent application completed"><span>Patent filed</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-ip" value="Patent application planned"><span>Patent planned</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-ip" value="Trademark registered / application filed"><span>Trademark</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-ip" value="Design right registered / application filed"><span>Design right</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-ip" value="Managed as trade secret"><span>Trade secret</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-ip" value="No special requirement"><span>No requirement</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-ip" value="Consultation needed"><span>Consultation needed</span></label>
+        </div>
+      </div>
+      <div class="form-group"><label class="q-label">33. Deliverables that must be secured *</label>
+        <div class="opt-grid">
+          <label class="opt-item"><input type="checkbox" name="en-deliverable" value="Product samples"><span>Product samples</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-deliverable" value="Schematic"><span>Schematic</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-deliverable" value="PCB design files"><span>PCB files</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-deliverable" value="Gerber files"><span>Gerber files</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-deliverable" value="BOM"><span>BOM</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-deliverable" value="Firmware source code"><span>Firmware code</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-deliverable" value="App source code"><span>App code</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-deliverable" value="Cloud / API documentation"><span>API docs</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-deliverable" value="3D CAD files"><span>3D CAD</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-deliverable" value="Mold files"><span>Mold files</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-deliverable" value="Test report"><span>Test report</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-deliverable" value="Manufacturing process documentation"><span>Manufacturing docs</span></label>
+          <label class="opt-item"><input type="checkbox" name="en-deliverable" value="Component supplier list"><span>Supplier list</span></label>
+        </div>
+      </div>
+      <div id="en-error-msg" class="form-error-msg" style="margin-top:0.5rem;">An error occurred. Please try again later.</div>
+    </div>
+    <!-- Success -->
+    <div id="en-success" class="form-success" style="display:none;text-align:center;padding:2rem 0;">
+      <div style="font-size:2.5rem;margin-bottom:1rem;">✦</div>
+      <h3 class="panel-title" style="color:var(--clay);margin-bottom:0.75rem;">Application Submitted</h3>
+      <p class="form-notice">Your application has been successfully received.<br>We will review it and get back to you shortly.</p>
+    </div>
+    <!-- Nav -->
+    <div class="app-nav" id="en-nav-bar">
+      <button class="btn btn-secondary" id="en-back-btn" onclick="enStepPrev()" style="display:none;padding:0.8rem 1.8rem;font-size:0.9rem;">Back</button>
+      <div style="flex:1"></div>
+      <button class="btn btn-primary" id="en-next-btn" onclick="enStepNext()" style="padding:0.8rem 1.8rem;font-size:0.9rem;">Next</button>
+    </div>
+  </div>
+</div>
+
 <!-- ── CONTACT MODAL ── -->
 <div id="contactModal" class="modal-overlay" onclick="handleOverlayClick(event)">
     <div class="modal-card">
@@ -1570,6 +2365,12 @@
             <div class="success-icon">✦</div>
             <h3 class="panel-title" style="color:var(--clay);margin-bottom:0.75rem;" data-i18n="modal.success.title">접수 완료</h3>
             <p class="form-notice" data-i18n="modal.success.desc">요청이 접수되었습니다.<br>빠른 시일 내에 연락 드리겠습니다.</p>
+        </div>
+
+        <!-- Build Your Future upsell -->
+        <div style="margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--grid-line);display:flex;flex-direction:column;align-items:center;gap:0.85rem;text-align:center;">
+            <p style="font-size:0.8rem;color:var(--text-muted);line-height:1.6;" data-i18n="modal.upsell">세부 프로젝트 문의가 필요한 경우 Build Your Future를 클릭하여 프로젝트 내용을 접수해주시기 바랍니다.</p>
+            <button onclick="closeContactModal(); setTimeout(function(){ currentLang==='ko' ? openAppModal() : openAppModalEn(); },200);" class="btn btn-primary" style="padding:0.75rem 1.5rem;font-size:0.9rem;" data-i18n="modal.upsell.btn">Build Your Future</button>
         </div>
     </div>
 </div>
@@ -1757,6 +2558,7 @@ const T = {
     'modal.submit':'제출하기',
     'modal.error':'오류가 발생했습니다. 잠시 후 다시 시도해 주세요.',
     'modal.success.title':'접수 완료','modal.success.desc':'요청이 접수되었습니다.<br>빠른 시일 내에 연락 드리겠습니다.',
+    'modal.upsell':'세부 프로젝트 문의가 필요한 경우 Build Your Future를 클릭하여 프로젝트 내용을 접수해주시기 바랍니다.','modal.upsell.btn':'Build Your Future',
     'form.name.ph':'성함','form.org.ph':'소속 (회사 / 팀명)',
     'tour.form.subject.ph':'Innovation Tour 참가 문의',
     'tour.form.msg.ph':'참가 목적, 현재 프로젝트 단계, 궁금한 점 등을 자유롭게 작성해 주세요.',
@@ -1942,6 +2744,7 @@ const T = {
     'modal.submit':'Submit',
     'modal.error':'Something went wrong. Please try again.',
     'modal.success.title':'Request Received','modal.success.desc':'Your inquiry has been submitted.<br>We\'ll be in touch shortly.',
+    'modal.upsell':'For detailed project inquiries, please click \'Build Your Future\' and submit your project details.','modal.upsell.btn':'Build Your Future',
     'form.name.ph':'Full Name','form.org.ph':'Company / Team',
     'tour.form.subject.ph':'Inquiry about Innovation Tour participation',
     'tour.form.msg.ph':'Purpose of participation, current project stage, any questions...',
@@ -2319,6 +3122,196 @@ function initInteractions() {
             }
         });
     });
+}
+
+// ── Application Modal ──────────────────────────────────────────
+const APP_SECTION_NAMES = ['신청자 기본 정보','제품 개요','AI 기능','하드웨어 구성','소프트웨어·앱','제작 범위·일정','제조·양산 계획','IP·보안·산출물'];
+let appCurrentStep = 0;
+
+function openAppModal() {
+    appCurrentStep = 0;
+    document.getElementById('appModal').classList.add('open');
+    appShowStep(0);
+    document.getElementById('app-success').style.display = 'none';
+    document.getElementById('app-nav-bar').style.display = 'flex';
+    document.getElementById('app-error-msg').style.display = 'none';
+    document.body.style.overflow = 'hidden';
+}
+function closeAppModal() {
+    document.getElementById('appModal').classList.remove('open');
+    document.body.style.overflow = '';
+}
+function handleAppOverlay(e) { if (e.target === document.getElementById('appModal')) closeAppModal(); }
+function appShowStep(n) {
+    document.querySelectorAll('.app-step-panel').forEach(function(p,i){ p.classList.toggle('active', i===n); });
+    document.getElementById('appProgressFill').style.width = ((n+1)/8*100)+'%';
+    document.getElementById('appStepNum').textContent = n+1;
+    document.getElementById('appStepName').textContent = APP_SECTION_NAMES[n];
+    document.getElementById('app-back-btn').style.display = n===0 ? 'none' : 'inline-flex';
+    document.getElementById('app-next-btn').textContent = n===7 ? '제출하기' : '다음';
+    document.querySelector('.app-modal-card').scrollTop = 0;
+}
+function appStepPrev() { if (appCurrentStep>0) { appCurrentStep--; appShowStep(appCurrentStep); } }
+function appStepNext() { if (appCurrentStep<7) { appCurrentStep++; appShowStep(appCurrentStep); } else { submitApplication(); } }
+function appGetChecked(name) { return Array.from(document.querySelectorAll('input[name="'+name+'"]:checked')).map(function(el){ return el.value; }); }
+function appGetRadio(name) { var el=document.querySelector('input[name="'+name+'"]:checked'); return el ? el.value : ''; }
+
+async function submitApplication() {
+    var btn=document.getElementById('app-next-btn');
+    var errEl=document.getElementById('app-error-msg');
+    btn.disabled=true; btn.textContent='제출 중...'; errEl.style.display='none';
+    var payload = {
+        email: document.getElementById('a-email').value.trim(),
+        company_name: document.getElementById('a-company').value.trim(),
+        contact_name: document.getElementById('a-name').value.trim(),
+        contact_phone: document.getElementById('a-phone').value.trim(),
+        messenger_id: document.getElementById('a-messenger').value.trim(),
+        project_stage: appGetRadio('stage'),
+        project_purpose: appGetChecked('purpose'),
+        product_name: document.getElementById('a-pname').value.trim(),
+        product_description: document.getElementById('a-pdesc').value.trim(),
+        problem_statement: document.getElementById('a-problem').value.trim(),
+        target_customers: appGetChecked('target'),
+        core_features: document.getElementById('a-features').value.trim(),
+        required_optional_features: document.getElementById('a-reqopt').value.trim(),
+        ai_functions: appGetChecked('aifunc'),
+        ai_processing_location: appGetRadio('aiproc'),
+        ai_response_speed: appGetRadio('aispeed'),
+        existing_ai_assets: appGetChecked('aiasset'),
+        data_types: appGetChecked('dtype'),
+        personal_data_handling: appGetRadio('privacy'),
+        product_form: appGetRadio('hwform'),
+        hardware_components: appGetChecked('hwcomp'),
+        preferred_chipset: appGetChecked('chipset'),
+        power_source: appGetRadio('power'),
+        size_requirements: document.getElementById('a-size').value.trim(),
+        app_dashboard: appGetRadio('app'),
+        cloud_ota: appGetChecked('cloud'),
+        prototype_quantity: appGetRadio('qty'),
+        prototype_level: appGetRadio('ptlevel'),
+        prototyping_budget: appGetRadio('budget'),
+        development_scope: appGetChecked('scope'),
+        prototype_deadline: appGetRadio('deadline'),
+        target_price: document.getElementById('a-price').value.trim(),
+        production_volume: appGetRadio('vol'),
+        ip_protection: appGetChecked('ip'),
+        required_deliverables: appGetChecked('deliverable')
+    };
+    try {
+        var res = await fetch(SUPABASE_URL+'/rest/v1/prototyping_requests', {
+            method:'POST',
+            headers:{'Content-Type':'application/json','apikey':SUPABASE_ANON_KEY,'Authorization':'Bearer '+SUPABASE_ANON_KEY,'Prefer':'return=minimal'},
+            body: JSON.stringify(payload)
+        });
+        if (!res.ok) throw new Error('HTTP '+res.status);
+        fetch(SUPABASE_URL+'/functions/v1/notify-application', {
+            method:'POST',
+            headers:{'Content-Type':'application/json','Authorization':'Bearer '+SUPABASE_ANON_KEY},
+            body: JSON.stringify(payload)
+        }).catch(function(e){ console.warn('[FastB App]',e); });
+        document.querySelectorAll('.app-step-panel').forEach(function(p){ p.classList.remove('active'); });
+        document.getElementById('app-success').style.display='block';
+        document.getElementById('app-nav-bar').style.display='none';
+    } catch(err) {
+        console.error('[FastB App]',err);
+        errEl.style.display='block';
+        btn.disabled=false; btn.textContent='제출하기';
+    }
+}
+
+// ── Application Modal (EN) ─────────────────────────────────────
+const EN_SECTION_NAMES = ['Applicant Information','Product Overview','AI Functions & Data','Hardware Configuration','Software & Cloud','Prototype Scope & Timeline','Manufacturing & Production','IP & Deliverables'];
+let enCurrentStep = 0;
+
+function openAppModalEn() {
+    enCurrentStep = 0;
+    document.getElementById('appModalEn').classList.add('open');
+    enShowStep(0);
+    document.getElementById('en-success').style.display = 'none';
+    document.getElementById('en-nav-bar').style.display = 'flex';
+    document.getElementById('en-error-msg').style.display = 'none';
+    document.body.style.overflow = 'hidden';
+}
+function closeAppModalEn() {
+    document.getElementById('appModalEn').classList.remove('open');
+    document.body.style.overflow = '';
+}
+function handleAppOverlayEn(e) { if (e.target === document.getElementById('appModalEn')) closeAppModalEn(); }
+function enShowStep(n) {
+    document.querySelectorAll('#appModalEn .app-step-panel').forEach(function(p,i){ p.classList.toggle('active', i===n); });
+    document.getElementById('enProgressFill').style.width = ((n+1)/8*100)+'%';
+    document.getElementById('enStepNum').textContent = n+1;
+    document.getElementById('enStepName').textContent = EN_SECTION_NAMES[n];
+    document.getElementById('en-back-btn').style.display = n===0 ? 'none' : 'inline-flex';
+    document.getElementById('en-next-btn').textContent = n===7 ? 'Submit' : 'Next';
+    document.querySelector('#appModalEn .app-modal-card').scrollTop = 0;
+}
+function enStepPrev() { if (enCurrentStep>0) { enCurrentStep--; enShowStep(enCurrentStep); } }
+function enStepNext() { if (enCurrentStep<7) { enCurrentStep++; enShowStep(enCurrentStep); } else { submitApplicationEn(); } }
+function enGetChecked(name) { return Array.from(document.querySelectorAll('input[name="'+name+'"]:checked')).map(function(el){ return el.value; }); }
+function enGetRadio(name) { var el=document.querySelector('input[name="'+name+'"]:checked'); return el ? el.value : ''; }
+
+async function submitApplicationEn() {
+    var btn=document.getElementById('en-next-btn');
+    var errEl=document.getElementById('en-error-msg');
+    btn.disabled=true; btn.textContent='Submitting...'; errEl.style.display='none';
+    var payload = {
+        email: document.getElementById('en-email').value.trim(),
+        company_name: document.getElementById('en-company').value.trim(),
+        contact_name: document.getElementById('en-name').value.trim(),
+        contact_phone: document.getElementById('en-phone').value.trim(),
+        project_stage: enGetRadio('en-stage'),
+        project_purpose: enGetChecked('en-purpose'),
+        product_name: document.getElementById('en-pname').value.trim(),
+        product_description: document.getElementById('en-pdesc').value.trim(),
+        problem_statement: document.getElementById('en-problem').value.trim(),
+        target_customers: enGetChecked('en-target'),
+        core_features: document.getElementById('en-features').value.trim(),
+        required_optional_features: document.getElementById('en-reqopt').value.trim(),
+        ai_functions: enGetChecked('en-aifunc'),
+        ai_processing_location: enGetRadio('en-aiproc'),
+        ai_response_speed: enGetRadio('en-aispeed'),
+        existing_ai_assets: enGetChecked('en-aiasset'),
+        data_types: enGetChecked('en-dtype'),
+        personal_data_handling: enGetRadio('en-privacy'),
+        product_form: enGetRadio('en-hwform'),
+        hardware_components: enGetChecked('en-hwcomp'),
+        preferred_chipset: enGetChecked('en-chipset'),
+        power_source: enGetRadio('en-power'),
+        size_requirements: document.getElementById('en-size').value.trim(),
+        app_dashboard: enGetRadio('en-app'),
+        cloud_ota: enGetChecked('en-cloud'),
+        prototype_quantity: enGetRadio('en-qty'),
+        prototype_level: enGetRadio('en-ptlevel'),
+        development_scope: enGetChecked('en-scope'),
+        prototype_deadline: enGetRadio('en-deadline'),
+        prototyping_budget: document.getElementById('en-budget').value.trim(),
+        target_price: document.getElementById('en-price').value.trim(),
+        production_volume: enGetRadio('en-vol'),
+        ip_protection: enGetChecked('en-ip'),
+        required_deliverables: enGetChecked('en-deliverable'),
+        lang: 'en'
+    };
+    try {
+        var res = await fetch(SUPABASE_URL+'/rest/v1/prototyping_requests', {
+            method:'POST',
+            headers:{'Content-Type':'application/json','apikey':SUPABASE_ANON_KEY,'Authorization':'Bearer '+SUPABASE_ANON_KEY,'Prefer':'return=minimal'},
+            body: JSON.stringify(payload)
+        });
+        if (!res.ok) throw new Error('HTTP '+res.status);
+        fetch(SUPABASE_URL+'/functions/v1/notify-application', {
+            method:'POST',
+            headers:{'Content-Type':'application/json','Authorization':'Bearer '+SUPABASE_ANON_KEY},
+            body: JSON.stringify(payload)
+        }).catch(function(e){ console.warn('[FastB App EN]',e); });
+        document.querySelectorAll('#appModalEn .app-step-panel').forEach(function(p){ p.classList.remove('active'); });
+        document.getElementById('en-success').style.display='block';
+        document.getElementById('en-nav-bar').style.display='none';
+    } catch(err) {
+        console.error('[FastB App EN]',err);
+        errEl.style.display='block';
+        btn.disabled=false; btn.textContent='Submit';
+    }
 }
 </script>
 </body>
