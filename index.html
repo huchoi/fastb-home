@@ -2224,6 +2224,9 @@ function initScrollSpy() {
             const el = document.getElementById(id);
             if (el && el.getBoundingClientRect().top <= navH + 80) current = id;
         });
+        // CTA 섹션은 뷰포트보다 짧아(min-height:80vh) top이 임계값을 못 넘을 수 있으므로
+        // 문서 최하단 도달 시 별도로 처리해 이전 섹션(team) 하이라이트가 남지 않게 함
+        if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) current = 'cta';
         sectionLinks.forEach(a => {
             const href = a.getAttribute('href').replace('#','');
             if (href === 'cta') return;
