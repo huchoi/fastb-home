@@ -1071,7 +1071,10 @@
         <svg class="star-motif text-acid" style="width:48px;height:48px;" viewBox="0 0 24 24"><path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z"/></svg>
         <h2 style="font-size:clamp(1.4rem,2.8vw,2.8rem);" data-i18n="cta.h2">Initiate Protocol.</h2>
         <p class="panel-desc" style="font-size:1.2rem;text-align:center;" data-i18n="cta.desc">소개 리뷰 / 컨설팅 / 전문가 네트워크 리뷰 및 비즈니스 컨설팅 / 혁신상품 기획 및 디자인·하드웨어 프로토타이핑 프로그램 가이드 / 일반 문의 및 글로벌 협력·제휴 제안 — 무엇이든 시작은 대화입니다.</p>
-        <button onclick="openContactModal()" class="btn btn-primary" style="margin-top:1rem;" data-i18n="cta.btn">Begin Your Assessment</button>
+        <div class="btn-group" style="margin-top:1rem;justify-content:center;">
+            <button onclick="openContactModal(); return false;" class="btn btn-secondary" data-i18n="cta.btn.general">일반문의</button>
+            <button onclick="openContactModal()" class="btn btn-primary" data-i18n="cta.btn">Begin Your Assessment</button>
+        </div>
         <p style="font-size:0.75rem;color:var(--text-muted);" data-i18n="cta.footer">©Fast.B. All Rights Reserved. Fast Build and Fast Business by AI Hardware Innovation Catalyst.</p>
     </div>
 </section>
@@ -1696,6 +1699,7 @@ const T = {
     'cta.h2':'Initiate Protocol.',
     'cta.desc':'AI 제품혁신 및 디자인 / AI하드웨어 프로토타이핑 / AI 하드웨어 및 비즈니스 모델 전략<br>프로그램 문의 및 지원 / 전문가 네트워크 연계 / 글로벌 협력·제휴 제안은 늘 열려있습니다.',
     'cta.btn':'Build Your Future',
+    'cta.btn.general':'일반문의',
     'cta.footer':'©Fast.B. All Rights Reserved. Fast Build and Fast Business by AI Hardware Innovation Catalyst.',
     'tour.hero.meta':'Asia On-Site Manufacturing Acceleration Program',
     'tour.hero.p':'하드웨어·로보틱스·피지컬 AI 스타트업과 기업들을 위해 설계된 아시아 현장형 제조·공급망 액셀러레이션 프로그램. 단순한 공장 투어나 네트워킹 행사가 아니라, 실제 제품을 <span style="color:var(--clay);font-weight:600;">"프로토타입 단계"에서 "양산 가능한 제품"</span>으로 전환하기 위한 실전 제조 역량과 글로벌 공급망 감각을 직접 체험하도록 구성되어 있습니다.',
@@ -1880,6 +1884,7 @@ const T = {
     'cta.h2':'Initiate Protocol.',
     'cta.desc':'AI product innovation & design / AI hardware prototyping / AI hardware & business model strategy<br>program inquiries and support / expert network connection / global collaboration & partnership proposals are always open.',
     'cta.btn':'Build Your Future',
+    'cta.btn.general':'General Inquiry',
     'cta.footer':'©Fast.B. All Rights Reserved. Fast Build and Fast Business by AI Hardware Innovation Catalyst.',
     'tour.hero.meta':'Asia On-Site Manufacturing Acceleration Program',
     'tour.hero.p':'An Asia on-site manufacturing &amp; supply chain acceleration program designed for hardware, robotics, and physical AI startups and companies. Not just a factory tour or networking event — structured to give participants hands-on manufacturing capabilities and global supply chain intuition to transform products from <span style="color:var(--clay);font-weight:600;">"prototype stage" to "mass-producible product."</span>',
