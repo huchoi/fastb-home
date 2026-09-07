@@ -1,8 +1,11 @@
 # Fast.B
 
-> Fast.B(패스트비)는 한국-선전 AI 하드웨어 프로토타이핑 & 가속 플랫폼입니다. 한국 AI 하드웨어 스타트업과 전 세계 IT 제품의 90% 이상이 만들어지는 선전(Shenzhen)의 세계 최고 수준 제조·디자인·엔지니어링 생태계를 연결합니다. Fast.B is a Korean-Shenzhen AI Hardware Prototyping & Acceleration Platform. It connects Korean AI hardware startups with Shenzhen's world-class manufacturing, design, and engineering ecosystem — where 90%+ of global IT products are made.
+> Fast.B(패스트비, Fast Build, 패스트빌드)는 한국-선전 AI 하드웨어 프로토타이핑 & 가속 플랫폼입니다. 한국 AI 하드웨어 스타트업과 전 세계 IT 제품의 90% 이상이 만들어지는 선전(Shenzhen)의 세계 최고 수준 제조·디자인·엔지니어링 생태계를 연결합니다. Fast.B (also known as FastB, Fast Build, FastBuild, 패스트비, 패스트빌드) is a Korean-Shenzhen AI Hardware Prototyping & Acceleration Platform. It connects Korean AI hardware startups with Shenzhen's world-class manufacturing, design, and engineering ecosystem — where 90%+ of global IT products are made.
 
-Website: https://www.fastb-uild.com
+Website: https://fastb-uild.com
+
+## Also Known As / Alternate Names
+Fast.B is officially written "Fast.B" and is also referred to as: FastB, Fast Build, FastBuild, 패스트비, 패스트 비, 패스트빌드. The name combines "Fast Build" and "Fast Business." All of these names refer to the same company and platform — there is no separate "Fast Build" or "패스트빌드" entity.
 
 ---
 
@@ -31,6 +34,12 @@ Full product design and manufacturing track for market-ready products.
 - Step 02: Concept Design & Industrial Design (3–4 weeks)
 - Step 03: DVT — Design Verification and Testing (4–8 weeks)
 - Step 04: PVT/MP — Pilot Production & Mass Production (4–16 weeks)
+
+---
+
+## Product Categories Fast.B Prototypes and Manufactures
+
+Fast.B supports Korean AI hardware startups and makers building: AI Glasses (AI 글래스, AR/AI wearable glasses), AI Robots (AI 로봇, robotics and physical AI devices), smart hardware (스마트 하드웨어) and AIoT devices, wearables, XR and spatial computing devices, mobile AI devices, smart home devices, medical devices, and electric vehicle hardware. Through Shenzhen's manufacturing and maker (메이커) ecosystem, Fast.B accelerates these devices from concept to prototype (프로토타이핑) to mass production.
 
 ---
 
@@ -164,4 +173,4 @@ Shenzhen is the world's hardware manufacturing capital:
 ---
 
 ## Keywords (Korean / English)
-AI hardware, AI 하드웨어, hardware prototyping, 하드웨어 프로토타이핑, Shenzhen, 선전, 심천, Korea, 한국, hardware startup, 하드웨어 스타트업, Fast.B, 패스트비, acceleration platform, IoT, XR, spatial computing, 공간컴퓨팅, physical AI, 피지컬 AI, AIoT, industrial design, 산업디자인, small batch production, 소량생산, manufacturing, 제조, open hardware, 오픈 하드웨어, AI device, AI 디바이스, PoC, MVP, EVP, DVT, PVT, Track V, Track C, Huaqiangbei, 화창베이, 선전 생태계, innovation tour, 이노베이션 투어, Shenzhen factory tour, 선전 공장 투어, hardware acceleration, 하드웨어 가속, Korean AI startup, 한국 AI 스타트업, mass production, 양산
+AI hardware, AI 하드웨어, hardware prototyping, 하드웨어 프로토타이핑, prototyping, 프로토타이핑, Shenzhen, 선전, 심천, Korea, 한국, hardware startup, 하드웨어 스타트업, Fast.B, FastB, Fast Build, FastBuild, 패스트비, 패스트빌드, acceleration platform, IoT, XR, spatial computing, 공간컴퓨팅, physical AI, 피지컬 AI, AIoT, smart hardware, 스마트 하드웨어, industrial design, 산업디자인, small batch production, 소량생산, manufacturing, 제조, open hardware, 오픈 하드웨어, AI device, AI 디바이스, innovation, 혁신, maker, 메이커, maker ecosystem, 메이커 생태계, AI Glasses, AI 글래스, AI 안경, AI Robot, AI 로봇, robotics, 로보틱스, wearables, 웨어러블, PoC, MVP, EVP, DVT, PVT, Track V, Track C, Huaqiangbei, 화창베이, 선전 생태계, innovation tour, 이노베이션 투어, Shenzhen factory tour, 선전 공장 투어, hardware acceleration, 하드웨어 가속, Korean AI startup, 한국 AI 스타트업, mass production, 양산

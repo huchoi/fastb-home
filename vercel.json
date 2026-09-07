@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.fastb-uild.com" }],
+      "destination": "https://fastb-uild.com/:path*",
+      "permanent": true
+    }
+  ]
+}
