@@ -95,7 +95,9 @@
           "knowsAbout": ["AI Hardware", "Hardware Prototyping", "Shenzhen Manufacturing", "IoT", "XR", "Spatial Computing", "Industrial Design", "Small Batch Production", "Physical AI", "AIoT", "EVP", "DVT", "Mass Production", "Smart Hardware", "AI Glasses", "AI Robot", "Robotics", "Maker Ecosystem", "Hardware Innovation"],
           "makesOffer": [
             {"@id": "https://fastb-uild.com/#track-v"},
-            {"@id": "https://fastb-uild.com/#track-c"}
+            {"@id": "https://fastb-uild.com/#track-c"},
+            {"@id": "https://fastb-uild.com/#innovation-tour"},
+            {"@id": "https://fastb-uild.com/#innovation-workshop"}
           ],
           "contactPoint": {
             "@type": "ContactPoint",
@@ -147,6 +149,43 @@
           "areaServed": [
             {"@type": "Country", "name": "South Korea"},
             {"@type": "AdministrativeArea", "name": "Shenzhen"}
+          ]
+        },
+        {
+          "@type": "Service",
+          "@id": "https://fastb-uild.com/#innovation-tour",
+          "name": "Fast.B Innovation Tour",
+          "alternateName": "Fast.B 선전 이노베이션 투어",
+          "provider": {"@id": "https://fastb-uild.com/#organization"},
+          "description": "4-day (3-night) Shenzhen on-site manufacturing and supply chain acceleration program for Korean AI hardware, robotics, and physical AI entrepreneurs, engineers, and decision-makers. Includes PCB/SMT/molding/packaging factory tours, robotics and physical AI company visits, NVIDIA OEM facility tours, Huaqiangbei electronics market exploration, networking with Shenzhen hardware founders, and supply chain & mass production strategy workshops.",
+          "serviceType": "Shenzhen Manufacturing Innovation Tour",
+          "areaServed": {"@type": "AdministrativeArea", "name": "Shenzhen"}
+        },
+        {
+          "@type": "Service",
+          "@id": "https://fastb-uild.com/#innovation-workshop",
+          "name": "Fast.B Innovation Workshop",
+          "alternateName": "Fast.B 크리에이티브 프로토타이핑 워크샵",
+          "provider": {"@id": "https://fastb-uild.com/#organization"},
+          "description": "Fast.B's Creative Prototyping Workshop Program for AI hardware teams, innovation teams, product managers, designers, entrepreneurs, and makers. Covers Design Thinking (human-centered problem definition, ideation, prototyping, testing) and Future Casting (scenario planning for AI, Robotics, Spatial Computing, XR, and Mobility) to turn ideas into validated, built prototypes.",
+          "serviceType": "AI Hardware Innovation Workshop",
+          "areaServed": [
+            {"@type": "Country", "name": "South Korea"},
+            {"@type": "AdministrativeArea", "name": "Shenzhen"}
+          ]
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "@id": "https://fastb-uild.com/#sitenav",
+          "name": ["Vision", "Why Fast.B", "Methodology", "Team", "Innovation Tour", "Innovation Workshop", "Contact"],
+          "url": [
+            "https://fastb-uild.com/#vision",
+            "https://fastb-uild.com/#shenzhen",
+            "https://fastb-uild.com/#methodology",
+            "https://fastb-uild.com/#team",
+            "https://fastb-uild.com/#innovation-tour",
+            "https://fastb-uild.com/#innovation-workshop",
+            "https://fastb-uild.com/#cta"
           ]
         },
         {
@@ -207,6 +246,14 @@
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "네. Fast.B 이노베이션 투어는 한국 AI 하드웨어 창업자, 엔지니어, 의사결정자를 위한 3박4일 선전 현장 체험 프로그램입니다. PCB·SMT·금형·패키징 공장 투어, 로보틱스 및 피지컬 AI 기업 방문, NVIDIA OEM 시설 견학, 화창베이 전자시장 탐방, 선전 하드웨어 창업자 네트워킹, 공급망·양산 전략 워크숍으로 구성됩니다. Yes. Fast.B's Innovation Tour is a 4-day immersive program in Shenzhen for Korean AI hardware entrepreneurs, engineers, and decision-makers. It includes factory tours (PCB, SMT, molding, packaging), robotics and Physical AI company visits, NVIDIA OEM facility tours, Huaqiangbei market exploration, networking with Shenzhen hardware founders, and supply chain & mass production strategy workshops."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Fast.B 이노베이션 워크샵이란? What is the Fast.B Innovation Workshop?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Fast.B 이노베이션 워크샵은 AI 하드웨어 팀, 신사업·이노베이션 팀, 프로덕트 매니저·디자이너, 창업가와 메이커를 위한 크리에이티브 프로토타이핑 워크샵 프로그램입니다. 문제 정의 → 아이디어 발산 → 시나리오·솔루션 설계 → 프로토타입 → 실행 전략의 반복을 통해 아이디어를 실제로 만들고 검증합니다. 디자인 씽킹(Design Thinking)과 퓨처 캐스팅(Future Casting) 두 가지 워크샵으로 구성됩니다. The Fast.B Innovation Workshop is a creative prototyping workshop program for AI hardware teams, innovation teams, product managers, designers, entrepreneurs, and makers. Through a cycle of problem definition, ideation, scenario and solution design, prototyping, and execution strategy, teams build and validate real ideas. It includes two workshop tracks: Design Thinking and Future Casting."
               }
             }
           ]
@@ -536,8 +583,8 @@
     <a href="#shenzhen"    class="nav-link" data-i18n="nav.shenzhen"    onclick="closeDrawer()">Fast.B Innovation</a>
     <a href="#methodology" class="nav-link" data-i18n="nav.process"     onclick="closeDrawer()">Process</a>
     <a href="#team"        class="nav-link" data-i18n="nav.team"        onclick="closeDrawer()">Team</a>
-    <a href="#" class="nav-link" data-page="inno-workshop" data-i18n="nav.innoworkshop" onclick="closeDrawer(); showPage('inno-workshop'); return false;">Innovation Workshop</a>
-    <a href="#" class="nav-link" data-page="inno-tour" data-i18n="nav.innotour" onclick="closeDrawer(); showPage('inno-tour'); return false;">Innovation Tour</a>
+    <a href="#innovation-workshop" class="nav-link" data-page="inno-workshop" data-i18n="nav.innoworkshop" onclick="closeDrawer(); showPage('inno-workshop'); return false;">Innovation Workshop</a>
+    <a href="#innovation-tour" class="nav-link" data-page="inno-tour" data-i18n="nav.innotour" onclick="closeDrawer(); showPage('inno-tour'); return false;">Innovation Tour</a>
     <a href="#" class="nav-link" data-i18n="nav.contact" onclick="closeDrawer(); openContactModal(); return false;">Contact</a>
 </div>
 
@@ -553,8 +600,8 @@
         <a href="#shenzhen"    class="nav-link" data-i18n="nav.shenzhen">Fast.B Innovation</a>
         <a href="#methodology" class="nav-link" data-i18n="nav.process">Process</a>
         <a href="#team"        class="nav-link" data-i18n="nav.team">Team</a>
-        <a href="#" class="nav-link" data-page="inno-workshop" data-i18n="nav.innoworkshop" onclick="showPage('inno-workshop'); return false;">Innovation Workshop</a>
-        <a href="#" class="nav-link" data-page="inno-tour" data-i18n="nav.innotour" onclick="showPage('inno-tour'); return false;">Innovation Tour</a>
+        <a href="#innovation-workshop" class="nav-link" data-page="inno-workshop" data-i18n="nav.innoworkshop" onclick="showPage('inno-workshop'); return false;">Innovation Workshop</a>
+        <a href="#innovation-tour" class="nav-link" data-page="inno-tour" data-i18n="nav.innotour" onclick="showPage('inno-tour'); return false;">Innovation Tour</a>
         <a href="#" class="nav-link" data-i18n="nav.contact" onclick="openContactModal(); return false;">Contact</a>
     </div>
 
@@ -1127,12 +1174,12 @@
 </main>
 
 <!-- ── SUB PAGES ── -->
-<div id="page-inno-tour" style="display:none; position:relative; z-index:20;">
+<div id="page-inno-tour" style="display:none; position:relative; z-index:20;" aria-label="Fast.B Innovation Tour — 선전 하드웨어 제조 이노베이션 투어">
 
     <!-- ── HERO ── -->
     <div style="padding:20vh var(--container-padding) 14vh; border-bottom:1px solid var(--grid-line);">
         <span class="meta-label" style="display:block;margin-bottom:2rem;letter-spacing:0.18em;" data-i18n="tour.hero.meta">Asia On-Site Manufacturing Acceleration Program</span>
-        <h1 class="display-text" style="font-size:clamp(3.5rem,8vw,9rem);line-height:0.95;margin-bottom:3.5rem;letter-spacing:-0.02em;">Fast.B<br>Innovation<br>Tour</h1>
+        <h2 class="display-text" style="font-size:clamp(3.5rem,8vw,9rem);line-height:0.95;margin-bottom:3.5rem;letter-spacing:-0.02em;">Fast.B<br>Innovation<br>Tour</h2>
         <p style="max-width:780px;font-size:1.15rem;line-height:2;color:var(--text-main);font-family:var(--font-body);" data-i18n="tour.hero.p">하드웨어·로보틱스·피지컬 AI 스타트업과 기업들을 위해 설계된 아시아 현장형 제조·공급망 액셀러레이션 프로그램. 단순한 공장 투어나 네트워킹 행사가 아니라, 실제 제품을 <span style="color:var(--clay);font-weight:600;">"프로토타입 단계"에서 "양산 가능한 제품"</span>으로 전환하기 위한 실전 제조 역량과 글로벌 공급망 감각을 직접 체험하도록 구성되어 있습니다.</p>
         <div style="display:flex;flex-wrap:wrap;gap:4rem;border-top:1px solid var(--grid-line-strong);padding-top:4rem;margin-top:5rem;">
             <div><div style="font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4rem);color:var(--clay);line-height:1;letter-spacing:-0.02em;">3N4D</div><div class="meta-label" style="margin-top:0.75rem;">Program Duration</div></div>
@@ -1330,12 +1377,12 @@
 
 </div>
 
-<div id="page-inno-workshop" style="display:none; position:relative; z-index:20;">
+<div id="page-inno-workshop" style="display:none; position:relative; z-index:20;" aria-label="Fast.B Innovation Workshop — 크리에이티브 프로토타이핑 워크샵">
 
     <!-- ── HERO ── -->
     <div style="padding:20vh var(--container-padding) 14vh; border-bottom:1px solid var(--grid-line);">
         <span class="meta-label" style="display:block;margin-bottom:2rem;letter-spacing:0.18em;" data-i18n="ws.hero.meta">Fast.B Flagship Workshop Program</span>
-        <h1 class="display-text" style="font-size:clamp(3.5rem,8vw,9rem);line-height:0.95;margin-bottom:3.5rem;letter-spacing:-0.02em;">Fast.B<br>Innovation<br>Workshop</h1>
+        <h2 class="display-text" style="font-size:clamp(3.5rem,8vw,9rem);line-height:0.95;margin-bottom:3.5rem;letter-spacing:-0.02em;">Fast.B<br>Innovation<br>Workshop</h2>
         <p style="max-width:780px;font-size:1.15rem;line-height:2;color:var(--text-main);font-family:var(--font-body);" data-i18n="ws.hero.p">Fast.B는 Creative Prototyping Workshop Program을 운영합니다. "생각"의 창발을 넘어 "만들고 검증하는 경험"을 실현합니다. 문제 정의 → 아이디어 발산 → 시나리오와 솔루션 설계 → 프로토타입 → 실행 전략의 반복을 통해 제품과 서비스의 혁신을 만들어냅니다.</p>
         <div style="display:flex;flex-wrap:wrap;gap:4rem;border-top:1px solid var(--grid-line-strong);padding-top:4rem;margin-top:5rem;">
             <div><div style="font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4rem);color:var(--clay);line-height:1;letter-spacing:-0.02em;">3</div><div class="meta-label" style="margin-top:0.75rem;" data-i18n="ws.stat1">Workshop Programs</div></div>
@@ -3076,6 +3123,10 @@ function showPage(page, scrollTarget) {
     document.getElementById('page-home').style.display      = page === 'home'      ? '' : 'none';
     document.getElementById('page-inno-tour').style.display = page === 'inno-tour' ? '' : 'none';
     document.getElementById('page-inno-workshop').style.display = page === 'inno-workshop' ? '' : 'none';
+    // 딥링크 공유를 위해 URL 해시를 동기화 (히스토리는 쌓지 않음)
+    const hashByPage = { 'inno-tour': '#innovation-tour', 'inno-workshop': '#innovation-workshop', 'home': '' };
+    const targetHash = page === 'home' && scrollTarget ? '#' + scrollTarget : (hashByPage[page] || '');
+    history.replaceState(null, '', targetHash ? location.pathname + targetHash : location.pathname);
     // 모든 nav active 초기화 후 해당 페이지만 활성화
     document.querySelectorAll('.nav-link').forEach(a => a.classList.remove('active'));
     if (page !== 'home') {
@@ -3091,6 +3142,13 @@ function showPage(page, scrollTarget) {
     } else {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+}
+
+// ── 딥링크: #innovation-tour / #innovation-workshop 로 진입 시 해당 페이지 표시 ──
+function routeFromHash() {
+    const hash = location.hash.replace('#', '');
+    if (hash === 'innovation-tour') showPage('inno-tour');
+    else if (hash === 'innovation-workshop') showPage('inno-workshop');
 }
 
 // ── Scroll spy ─────────────────────────────────────────────────
@@ -3186,6 +3244,7 @@ function initInteractions() {
     gsap.to('#marquee', { xPercent:-50, ease:"none", duration:30, repeat:-1 });
     initScrollSpy();
     initWebGL();
+    routeFromHash();
 
     // 홈 앵커 링크 클릭 시 서브페이지에서 홈으로 복귀
     document.querySelectorAll('a.nav-link[href^="#"]:not([data-page])').forEach(a => {
