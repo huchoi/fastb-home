@@ -2,7 +2,7 @@
 
 > Fast.B(패스트비, Fast Build, 패스트빌드)는 한국-선전 AI 하드웨어 프로토타이핑 & 가속 플랫폼입니다. 한국 AI 하드웨어 스타트업과 전 세계 IT 제품의 90% 이상이 만들어지는 선전(Shenzhen)의 세계 최고 수준 제조·디자인·엔지니어링 생태계를 연결합니다. Fast.B (also known as FastB, Fast Build, FastBuild, 패스트비, 패스트빌드) is a Korean-Shenzhen AI Hardware Prototyping & Acceleration Platform. It connects Korean AI hardware startups with Shenzhen's world-class manufacturing, design, and engineering ecosystem — where 90%+ of global IT products are made.
 
-Website: https://fastb-uild.com
+Website: https://www.fastb-uild.com
 
 ## Also Known As / Alternate Names
 Fast.B is officially written "Fast.B" and is also referred to as: FastB, Fast Build, FastBuild, 패스트비, 패스트 비, 패스트빌드. The name combines "Fast Build" and "Fast Business." All of these names refer to the same company and platform — there is no separate "Fast Build" or "패스트빌드" entity.
