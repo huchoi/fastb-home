@@ -3017,6 +3017,10 @@ async function submitContact(e) {
 // ── Innovation Tour Form ───────────────────────────────────────
 async function submitTourForm(e) {
     e.preventDefault();
+    if (!e.target.checkValidity()) {
+        e.target.reportValidity();
+        return;
+    }
     const btn = document.getElementById('tour-form-btn');
     const errEl = document.getElementById('tour-form-error');
     btn.disabled = true;
@@ -3060,6 +3064,10 @@ async function submitTourForm(e) {
 
 async function submitWorkshopForm(e) {
     e.preventDefault();
+    if (!e.target.checkValidity()) {
+        e.target.reportValidity();
+        return;
+    }
     const btn = document.getElementById('ws-form-btn');
     const errEl = document.getElementById('ws-form-error');
     btn.disabled = true;
