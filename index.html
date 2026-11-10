@@ -154,11 +154,16 @@
         {
           "@type": "Service",
           "@id": "https://www.fastb-uild.com/#innovation-tour",
-          "name": "Fast.B Innovation Tour",
-          "alternateName": "Fast.B 선전 이노베이션 투어",
+          "name": "Fast.B AI Innovation Delegation: Shenzhen 2026",
+          "alternateName": ["Fast.B AI 혁신 인사이트 투어: Shenzhen 2026", "Fast.B Innovation Tour", "Fast.B 선전 이노베이션 투어"],
           "provider": {"@id": "https://www.fastb-uild.com/#organization"},
-          "description": "4-day (3-night) Shenzhen on-site manufacturing and supply chain acceleration program for Korean AI hardware, robotics, and physical AI entrepreneurs, engineers, and decision-makers. Includes PCB/SMT/molding/packaging factory tours, robotics and physical AI company visits, NVIDIA OEM facility tours, Huaqiangbei electronics market exploration, networking with Shenzhen hardware founders, and supply chain & mass production strategy workshops.",
-          "serviceType": "Shenzhen Manufacturing Innovation Tour",
+          "description": "Inside the Heart of the Physical AI Revolution: Decoding the AI Hardware Innovation Ecosystem. A curated 4-day (3-night) Shenzhen delegation on December 15–18, 2026, limited to 20 participants and hosted by Fast.B. Includes visits to Physical AI and humanoid robotics companies (AstriBot, AI²Robotics, PaXini, LimX Dynamics, DexForce, DIGIT Robotics), Fast.B supply chain partners (Seeed / XFactory, PCB, molding and assembly factories), Huaqiangbei, special sessions with Shenzhen experts (Michael Zheng, Donny Zhang, Vicky Xie), insight talks with SUSTech and Fast.B mentors, private meetings, coaching, and a wrap-up at Innozen Design.",
+          "serviceType": "Shenzhen Physical AI & AI Hardware Innovation Delegation",
+          "offers": [
+            {"@type": "Offer", "name": "Standard (flights & hotel excluded)", "price": "4000000", "priceCurrency": "KRW", "valueAddedTaxIncluded": false},
+            {"@type": "Offer", "name": "Option 1 (flights + twin-share hotel)", "price": "5500000", "priceCurrency": "KRW", "valueAddedTaxIncluded": false},
+            {"@type": "Offer", "name": "Option 2 (flights + single-room hotel)", "price": "5900000", "priceCurrency": "KRW", "valueAddedTaxIncluded": false}
+          ],
           "areaServed": {"@type": "AdministrativeArea", "name": "Shenzhen"}
         },
         {
@@ -245,7 +250,7 @@
               "name": "Fast.B 선전 이노베이션 투어란? Does Fast.B offer a Shenzhen Innovation Tour?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "네. Fast.B 이노베이션 투어는 한국 AI 하드웨어 창업자, 엔지니어, 의사결정자를 위한 3박4일 선전 현장 체험 프로그램입니다. PCB·SMT·금형·패키징 공장 투어, 로보틱스 및 피지컬 AI 기업 방문, NVIDIA OEM 시설 견학, 화창베이 전자시장 탐방, 선전 하드웨어 창업자 네트워킹, 공급망·양산 전략 워크숍으로 구성됩니다. Yes. Fast.B's Innovation Tour is a 4-day immersive program in Shenzhen for Korean AI hardware entrepreneurs, engineers, and decision-makers. It includes factory tours (PCB, SMT, molding, packaging), robotics and Physical AI company visits, NVIDIA OEM facility tours, Huaqiangbei market exploration, networking with Shenzhen hardware founders, and supply chain & mass production strategy workshops."
+                "text": "네. Fast.B AI 혁신 인사이트 투어: Shenzhen 2026 — 피지컬 AI 혁명의 심장: AI 하드웨어 혁신 생태계를 해부하다 — 는 2026년 12월 15일~18일(3박 4일) 선전에서 진행되는 20명 이내 소수 정예 프로그램입니다. AstriBot·AI²Robotics·PaXini 등 피지컬 AI·휴머노이드 기업 방문, Seeed/XFactory 및 PCB·금형·조립 공장 등 Fast.B 공급망 현장 방문, 화창베이 탐방, Michael Zheng·Donny Zhang·Vicky Xie 특별세션, SUSTech 및 Fast.B 멘토단 인사이트 토크, 프라이빗 미팅·코칭, Innozen Design 랩업으로 구성됩니다. 참가비는 1인 400만원(항공·숙박 포함 시 550/590만원, VAT 별도)입니다. Yes. The Fast.B AI Innovation Delegation: Shenzhen 2026 — Inside the Heart of the Physical AI Revolution: Decoding the AI Hardware Innovation Ecosystem — runs December 15–18, 2026 for up to 20 delegates. It features Physical AI and humanoid company visits, Fast.B supply chain and factory visits, Huaqiangbei, expert special sessions, insight talks with SUSTech and Fast.B mentors, private meetings and coaching, and a wrap-up at Innozen Design. Fees start at KRW 4.0M per person (KRW 5.5M / 5.9M with flights and hotel; VAT excluded)."
               }
             },
             {
@@ -524,6 +529,35 @@
         .form-success .success-icon { font-size:2.5rem; margin-bottom:1rem; }
         .form-error-msg { display:none; font-size:0.85rem; color:#ff7070; text-align:center; padding:0.5rem; background:rgba(255,112,112,0.08); border-radius:8px; }
         @media(max-width:480px) { .form-row { grid-template-columns:1fr; } .modal-card { padding:1.75rem; } }
+
+        /* ── Innovation Delegation (tour) page ── */
+        .tour-cmp { border-top:1px solid var(--grid-line-strong); }
+        .tour-cmp-row { display:grid; grid-template-columns:180px 1fr 1.3fr; gap:2rem; padding:1.6rem 0; border-bottom:1px solid var(--grid-line-strong); align-items:start; }
+        .tour-cmp-o { font-size:0.92rem; line-height:1.7; color:var(--text-muted); }
+        .tour-cmp-f { font-size:0.95rem; line-height:1.7; color:var(--text-main); font-weight:500; }
+        .tour-cmp-head { padding:1rem 0; }
+        .tour-cmp-head .tour-cmp-o, .tour-cmp-head .tour-cmp-f { font-weight:600; }
+        @media(max-width:760px) {
+            .tour-cmp-row { grid-template-columns:1fr; gap:0.5rem; }
+            .tour-cmp-head { display:none; }
+            .tour-cmp-o::before { content:'— '; }
+            .tour-cmp-f { padding-left:0.9rem; border-left:2px solid var(--clay); }
+        }
+        .tour-chip { font-size:0.82rem; padding:0.45rem 0.95rem; border:1px solid var(--grid-line-strong); border-radius:999px; color:var(--text-main); background:rgba(29,24,24,0.5); }
+        .tour-days { display:grid; grid-template-columns:1fr; gap:1.5rem; }
+        @media(min-width:1100px) { .tour-days { grid-template-columns:1fr 1fr; } }
+        .tour-slot { display:grid; grid-template-columns:64px 1fr; gap:1.25rem; padding:1.15rem 0; border-top:1px solid var(--grid-line); }
+        .tour-slot:first-child { border-top:none; }
+        .tour-slot-muted .panel-title { color:var(--text-muted) !important; font-weight:400; }
+        .tour-time { font-family:var(--font-display); font-size:0.95rem; color:var(--text-muted); letter-spacing:0.02em; padding-top:0.1rem; }
+        .tour-tag { font-size:0.62rem; text-transform:uppercase; letter-spacing:0.1em; padding:0.2rem 0.6rem; border:1px solid var(--grid-line-strong); border-radius:999px; color:var(--text-muted); white-space:nowrap; }
+        .tour-price-unit { font-size:0.8rem; color:var(--text-muted); letter-spacing:0.04em; }
+        .tour-checks { display:grid; grid-template-columns:1fr 1fr; gap:0.6rem; }
+        @media(max-width:600px) { .tour-checks { grid-template-columns:1fr; } }
+        .tour-check { display:flex; align-items:flex-start; gap:0.65rem; font-size:0.9rem; line-height:1.5; color:var(--text-main); cursor:pointer; padding:0.7rem 0.9rem; border:1px solid var(--grid-line-strong); border-radius:10px; background:var(--bg); transition:border-color 0.2s; }
+        .tour-check:hover { border-color:var(--clay); }
+        .tour-check input { accent-color:var(--clay); width:16px; height:16px; margin-top:0.15rem; flex-shrink:0; }
+        .tour-consent { font-size:0.8rem; color:var(--text-muted); border:none; padding:0.25rem 0; background:none; }
 
         .reveal { opacity:0; transform:translateY(30px); }
 
@@ -1174,204 +1208,623 @@
 </main>
 
 <!-- ── SUB PAGES ── -->
-<div id="page-inno-tour" style="display:none; position:relative; z-index:20;" aria-label="Fast.B Innovation Tour — 선전 하드웨어 제조 이노베이션 투어">
+<div id="page-inno-tour" style="display:none; position:relative; z-index:20;" aria-label="Fast.B AI Innovation Delegation: Shenzhen 2026 — 피지컬 AI 혁명의 심장, AI 하드웨어 혁신 생태계를 해부하다">
 
     <!-- ── HERO ── -->
-    <div style="padding:20vh var(--container-padding) 14vh; border-bottom:1px solid var(--grid-line);">
-        <span class="meta-label" style="display:block;margin-bottom:2rem;letter-spacing:0.18em;" data-i18n="tour.hero.meta">Asia On-Site Manufacturing Acceleration Program</span>
-        <h2 class="display-text" style="font-size:clamp(3.5rem,8vw,9rem);line-height:0.95;margin-bottom:3.5rem;letter-spacing:-0.02em;">Fast.B<br>Innovation<br>Tour</h2>
-        <p style="max-width:780px;font-size:1.15rem;line-height:2;color:var(--text-main);font-family:var(--font-body);" data-i18n="tour.hero.p">하드웨어·로보틱스·피지컬 AI 스타트업과 기업들을 위해 설계된 아시아 현장형 제조·공급망 액셀러레이션 프로그램. 단순한 공장 투어나 네트워킹 행사가 아니라, 실제 제품을 <span style="color:var(--clay);font-weight:600;">"프로토타입 단계"에서 "양산 가능한 제품"</span>으로 전환하기 위한 실전 제조 역량과 글로벌 공급망 감각을 직접 체험하도록 구성되어 있습니다.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:4rem;border-top:1px solid var(--grid-line-strong);padding-top:4rem;margin-top:5rem;">
-            <div><div style="font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4rem);color:var(--clay);line-height:1;letter-spacing:-0.02em;">3N4D</div><div class="meta-label" style="margin-top:0.75rem;">Program Duration</div></div>
-            <div><div style="font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4rem);color:var(--clay);line-height:1;letter-spacing:-0.02em;">SZX</div><div class="meta-label" style="margin-top:0.75rem;">Shenzhen, China</div></div>
-            <div><div style="font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4rem);color:var(--clay);line-height:1;letter-spacing:-0.02em;">2–3×</div><div class="meta-label" style="margin-top:0.75rem;" data-i18n="tour.stat1.label">2026년 운영 횟수</div></div>
-            <div><div style="font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4rem);color:var(--text-main);line-height:1;letter-spacing:-0.02em;">Sep–Dec</div><div class="meta-label" style="margin-top:0.75rem;" data-i18n="tour.stat2.label">2026 운영 시기</div></div>
+    <div class="tour-hero" style="padding:20vh var(--container-padding) 12vh; border-bottom:1px solid var(--grid-line);">
+        <span class="meta-label" style="display:block;margin-bottom:2rem;letter-spacing:0.14em;color:var(--clay);" data-i18n="tour.hero.meta">[Fast.B AI 혁신 인사이트 투어: Shenzhen 2026]</span>
+        <h2 class="display-text" style="font-size:clamp(2.1rem,5.2vw,5.25rem);line-height:1.08;margin-bottom:2.5rem;letter-spacing:-0.02em;max-width:1200px;" data-i18n="tour.hero.h">피지컬 AI 혁명의 심장:<br>AI 하드웨어 혁신 생태계를 해부하다</h2>
+        <div style="display:inline-block;font-family:var(--font-subtitle);font-size:0.95rem;font-weight:600;letter-spacing:0.06em;color:var(--text-main);border:1px solid var(--clay);border-radius:999px;padding:0.6rem 1.25rem;margin-bottom:2.5rem;" data-i18n="tour.hero.date">2026. 12. 15 (화) – 12. 18 (금) · 3박 4일 · 중국 선전</div>
+        <p style="max-width:820px;font-size:1.1rem;line-height:1.95;color:var(--text-main);font-family:var(--font-body);" data-i18n="tour.hero.p">대기업 전시관을 둘러보는 견학이 아닙니다. 선전 현지에서 AI 하드웨어를 직접 설계하고 만드는 Fast.B 팀과 파트너들이 큐레이션하고 호스팅하는 <span style="color:var(--clay);font-weight:600;">20명 이내의 소수 정예 딜리게이션</span>입니다. 차세대 휴머노이드·피지컬 AI 기업의 현장, 그 제품을 실제로 만들어내는 공급망과 공장, 그리고 선전 제조 혁신을 움직이는 전문가들을 4일간 집중적으로 만나고, 귀국 후 실제 프로젝트로 이어갈 수 있도록 설계했습니다.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:1rem;margin-top:2.75rem;">
+            <a href="#tour-apply" class="btn btn-primary" onclick="document.getElementById('tour-apply').scrollIntoView({behavior:'smooth'});return false;" data-i18n="tour.hero.cta1">참가 신청하기</a>
+            <a href="#tour-schedule" class="btn btn-secondary" onclick="document.getElementById('tour-schedule').scrollIntoView({behavior:'smooth'});return false;" data-i18n="tour.hero.cta2">전체 일정 보기</a>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:3.5rem;border-top:1px solid var(--grid-line-strong);padding-top:3.5rem;margin-top:4.5rem;">
+            <div><div style="font-family:var(--font-display);font-size:clamp(2.25rem,4.5vw,3.75rem);line-height:1;letter-spacing:-0.02em;color:var(--clay);">DEC 15–18</div><div class="meta-label" style="margin-top:0.75rem;" data-i18n="tour.stat1">프로그램 일정</div></div>
+            <div><div style="font-family:var(--font-display);font-size:clamp(2.25rem,4.5vw,3.75rem);line-height:1;letter-spacing:-0.02em;color:var(--clay);">≤ 20</div><div class="meta-label" style="margin-top:0.75rem;" data-i18n="tour.stat2">소수 정예 정원</div></div>
+            <div><div style="font-family:var(--font-display);font-size:clamp(2.25rem,4.5vw,3.75rem);line-height:1;letter-spacing:-0.02em;color:var(--clay);">10+</div><div class="meta-label" style="margin-top:0.75rem;" data-i18n="tour.stat3">피지컬 AI · SCM 현장 방문</div></div>
+            <div><div style="font-family:var(--font-display);font-size:clamp(2.25rem,4.5vw,3.75rem);line-height:1;letter-spacing:-0.02em;color:var(--text-main);">5</div><div class="meta-label" style="margin-top:0.75rem;" data-i18n="tour.stat4">현지 전문가 특별세션</div></div>
         </div>
     </div>
 
-    <!-- ── WHAT'S DIFFERENT ── -->
+    <!-- ── OBJECTIVES ── -->
     <div style="padding:14vh var(--container-padding); border-bottom:1px solid var(--grid-line);">
-        <div style="display:flex;flex-direction:column;gap:1.25rem;margin-bottom:7rem;">
-            <span class="meta-label" data-i18n="tour.diff.meta">Core Differentiator</span>
-            <h2 style="font-family:var(--font-title);font-size:clamp(1.75rem,3vw,3rem);font-weight:700;text-transform:uppercase;letter-spacing:0.04em;line-height:1.12;" data-i18n="tour.diff.h2">단순 견학이 아닌,<br>실전 제조 교육</h2>
+        <div style="display:flex;flex-direction:column;gap:1.25rem;margin-bottom:5rem;">
+            <span class="meta-label" data-i18n="tour.goal.meta">Program Objectives</span>
+            <h2 style="font-family:var(--font-title);font-size:clamp(1.75rem,3vw,3rem);font-weight:700;text-transform:uppercase;letter-spacing:0.04em;line-height:1.12;" data-i18n="tour.goal.h2">4일 후, 무엇을 얻게 되는가</h2>
+            
+        </div>
+        <div style="display:flex;flex-direction:column;">
+            <div style="display:flex;align-items:flex-start;gap:2rem;padding:2rem 0;border-top:1px solid var(--grid-line-strong);"><span style="font-family:var(--font-display);font-size:1.5rem;color:var(--clay);min-width:2.5rem;line-height:1.3;">01</span><p style="font-size:1.05rem;line-height:1.8;color:var(--text-main);" data-i18n="tour.goal.1"><strong>중국발 Physical AI 혁신 트렌드</strong>와 <strong>선전 하드웨어 제조 생태계</strong>를 직접 보고, 체험하고, 깊이 이해합니다.</p></div>
+            <div style="display:flex;align-items:flex-start;gap:2rem;padding:2rem 0;border-top:1px solid var(--grid-line-strong);"><span style="font-family:var(--font-display);font-size:1.5rem;color:var(--clay);min-width:2.5rem;line-height:1.3;">02</span><p style="font-size:1.05rem;line-height:1.8;color:var(--text-main);" data-i18n="tour.goal.2"><strong>AI 하드웨어 프로토타이핑 플랫폼</strong> Fast.B의 작동 구조와 경쟁력을 현장에서 이해합니다.</p></div>
+            <div style="display:flex;align-items:flex-start;gap:2rem;padding:2rem 0;border-top:1px solid var(--grid-line-strong);"><span style="font-family:var(--font-display);font-size:1.5rem;color:var(--clay);min-width:2.5rem;line-height:1.3;">03</span><p style="font-size:1.05rem;line-height:1.8;color:var(--text-main);" data-i18n="tour.goal.3">Fast.B를 움직이는 <strong>중국 제조 혁신 생태계의 전문가</strong>들을 만나 배우고 교류합니다.</p></div>
+            <div style="display:flex;align-items:flex-start;gap:2rem;padding:2rem 0;border-top:1px solid var(--grid-line-strong);"><span style="font-family:var(--font-display);font-size:1.5rem;color:var(--clay);min-width:2.5rem;line-height:1.3;">04</span><p style="font-size:1.05rem;line-height:1.8;color:var(--text-main);" data-i18n="tour.goal.4">선전 하드웨어 생태계의 <strong>핵심 기업</strong>들을 만나 이해하고, <strong>잠재적 파트너</strong>로 연결됩니다.</p></div>
+            <div style="display:flex;align-items:flex-start;gap:2rem;padding:2rem 0;border-top:1px solid var(--grid-line-strong);border-bottom:1px solid var(--grid-line-strong);"><span style="font-family:var(--font-display);font-size:1.5rem;color:var(--clay);min-width:2.5rem;line-height:1.3;">05</span><p style="font-size:1.05rem;line-height:1.8;color:var(--text-main);" data-i18n="tour.goal.5">중국 혁신 생태계에서 얻은 인사이트를 <strong>현업에 적용</strong>하고 <strong>발전시킬 방안</strong>을 함께 논의합니다.</p></div>
+        </div>
+    </div>
+
+    <!-- ── WHY FAST.B (COMPARISON) ── -->
+    <div style="padding:14vh var(--container-padding); border-bottom:1px solid var(--grid-line);">
+        <div style="display:flex;flex-direction:column;gap:1.25rem;margin-bottom:5rem;">
+            <span class="meta-label" data-i18n="tour.diff.meta">Why Fast.B Delegation</span>
+            <h2 style="font-family:var(--font-title);font-size:clamp(1.75rem,3vw,3rem);font-weight:700;text-transform:uppercase;letter-spacing:0.04em;line-height:1.12;" data-i18n="tour.diff.h2">쇼룸이 아닌,<br>혁신의 엔진룸으로</h2>
+            <p class="panel-desc" style="max-width:760px;margin-top:0.5rem;font-size:1rem;line-height:1.85;" data-i18n="tour.diff.lead">선전 기업 탐방 프로그램은 많습니다. 그러나 대부분은 대기업 전시관을 관람하고 브리핑을 듣는 데서 끝납니다. Fast.B 딜리게이션은 선전에서 실제로 하드웨어를 만드는 사람들이 기획하기 때문에, 제품이 탄생하는 현장과 그 뒤의 사람들에게 직접 닿을 수 있습니다.</p>
+        </div>
+        <div class="tour-cmp">
+            <div class="tour-cmp-row tour-cmp-head">
+                <div class="tour-cmp-l meta-label" data-i18n="tour.cmp.h.item">구분</div>
+                <div class="tour-cmp-o meta-label" data-i18n="tour.cmp.h.other">일반적인 선전 기업 탐방</div>
+                <div class="tour-cmp-f meta-label" style="color:var(--clay);" data-i18n="tour.cmp.h.fastb">Fast.B Innovation Delegation</div>
+            </div>
+                <div class="tour-cmp-row">
+                    <div class="tour-cmp-l meta-label" data-i18n="tour.cmp.r1.l">기획 · 호스트</div>
+                    <div class="tour-cmp-o" data-i18n="tour.cmp.r1.o">여행사·교육기관 주관, 동행 전문가 1인</div>
+                    <div class="tour-cmp-f" data-i18n="tour.cmp.r1.f">선전 현지에서 AI 하드웨어를 직접 만드는 Fast.B 팀과 파트너사 (Innozen Design · Seeed · Go Global Center)</div>
+                </div>
+                <div class="tour-cmp-row">
+                    <div class="tour-cmp-l meta-label" data-i18n="tour.cmp.r2.l">방문 대상</div>
+                    <div class="tour-cmp-o" data-i18n="tour.cmp.r2.o">대기업 본사 전시관·쇼룸 관람 중심</div>
+                    <div class="tour-cmp-f" data-i18n="tour.cmp.r2.f">차세대 휴머노이드·피지컬 AI 기업 + PCB·금형·조립 공장 등 실제 공급망 현장</div>
+                </div>
+                <div class="tour-cmp-row">
+                    <div class="tour-cmp-l meta-label" data-i18n="tour.cmp.r3.l">그룹 규모</div>
+                    <div class="tour-cmp-o" data-i18n="tour.cmp.r3.o">30명 내외의 대규모 그룹</div>
+                    <div class="tour-cmp-f" data-i18n="tour.cmp.r3.f">20명 이내 소수 정예 — 질의응답·토론 중심</div>
+                </div>
+                <div class="tour-cmp-row">
+                    <div class="tour-cmp-l meta-label" data-i18n="tour.cmp.r4.l">프로그램 방식</div>
+                    <div class="tour-cmp-o" data-i18n="tour.cmp.r4.o">기업 소개 및 브리핑 청취</div>
+                    <div class="tour-cmp-f" data-i18n="tour.cmp.r4.f">프라이빗 미팅 · 전문가 코칭 · 인사이트 토크 · 랩업 세션</div>
+                </div>
+                <div class="tour-cmp-row">
+                    <div class="tour-cmp-l meta-label" data-i18n="tour.cmp.r5.l">네트워크</div>
+                    <div class="tour-cmp-o" data-i18n="tour.cmp.r5.o">일회성 방문</div>
+                    <div class="tour-cmp-f" data-i18n="tour.cmp.r5.f">SUSTech · Fast.B 멘토단 · 현지 제조 전문가와 지속적인 관계</div>
+                </div>
+                <div class="tour-cmp-row">
+                    <div class="tour-cmp-l meta-label" data-i18n="tour.cmp.r6.l">귀국 후</div>
+                    <div class="tour-cmp-o" data-i18n="tour.cmp.r6.o">프로그램 종료</div>
+                    <div class="tour-cmp-f" data-i18n="tour.cmp.r6.f">Fast.B 플랫폼(Track V · Track C)으로 프로토타이핑부터 양산까지 연계</div>
+                </div>
+        </div>
+    </div>
+
+    <!-- ── SIGNATURE ELEMENTS ── -->
+    <div style="padding:14vh var(--container-padding); border-bottom:1px solid var(--grid-line);">
+        <div style="display:flex;flex-direction:column;gap:1.25rem;margin-bottom:5rem;">
+            <span class="meta-label" data-i18n="tour.feat.meta">Signature Elements</span>
+            <h2 style="font-family:var(--font-title);font-size:clamp(1.75rem,3vw,3rem);font-weight:700;text-transform:uppercase;letter-spacing:0.04em;line-height:1.12;" data-i18n="tour.feat.h2">Fast.B만의 6가지 차별점</h2>
+            
         </div>
         <div class="grid-3">
             <div class="panel">
-                <svg class="star-motif text-clay" viewBox="0 0 24 24"><path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z"/></svg>
-                <h3 class="panel-title" data-i18n="tour.diff.p1.title">실무 중심 학습</h3>
-                <p class="panel-desc" data-i18n="tour.diff.p1.desc">실제 견적, 공급망 연결, 생산 전략, DFM(Design for Manufacturing), 원가 및 협상 구조까지 현장에서 직접 배웁니다.</p>
+                <svg class="star-motif text-clay"  viewBox="0 0 24 24"><path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z"/></svg>
+                <h3 class="panel-title" data-i18n="tour.feat.1.t">Fast.B 주관 오리엔테이션 &amp; 랩업</h3>
+                <p class="panel-desc" data-i18n="tour.feat.1.d">첫날 오프닝 키노트로 관전 포인트를 정리하고, 마지막 날 Innozen Design에서 참가자 전원의 인사이트를 현업 적용 방안으로 정리합니다.</p>
             </div>
             <div class="panel">
-                <svg class="star-motif text-acid" viewBox="0 0 24 24"><path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z"/></svg>
-                <h3 class="panel-title" data-i18n="tour.diff.p2.title">신뢰 네트워크 확보</h3>
-                <p class="panel-desc" data-i18n="tour.diff.p2.desc">공장 선정과 공급망 구축 과정에서의 시행착오를 줄이고, 검증된 제조 파트너와의 직접 네트워크를 구축합니다.</p>
+                <svg class="star-motif text-acid"  viewBox="0 0 24 24"><path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z"/></svg>
+                <h3 class="panel-title" data-i18n="tour.feat.2.t">잠재 파트너 기업 방문 &amp; 프라이빗 미팅</h3>
+                <p class="panel-desc" data-i18n="tour.feat.2.d">단순 관람이 아니라 협력 가능성을 전제로 한 방문입니다. Fast.B가 맺어온 관계를 바탕으로 기업 관계자와의 프라이빗 미팅을 구성합니다.</p>
             </div>
             <div class="panel">
-                <svg class="star-motif" style="color:var(--text-main)" viewBox="0 0 24 24"><path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z"/></svg>
-                <h3 class="panel-title" data-i18n="tour.diff.p3.title">End-to-End 지원 연계</h3>
-                <p class="panel-desc" data-i18n="tour.diff.p3.desc">프로그램 이후에도 Fast.B 플랫폼을 통해 공급망 연결, 생산 실행, QC, 물류 등 실제 양산까지 이어질 수 있도록 지원합니다.</p>
+                <svg class="star-motif " style="color:var(--text-main)" viewBox="0 0 24 24"><path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z"/></svg>
+                <h3 class="panel-title" data-i18n="tour.feat.3.t">현지 전문가 · 참가기업 간 네트워킹</h3>
+                <p class="panel-desc" data-i18n="tour.feat.3.d">현지 혁신·테크·산업 전문가, SUSTech 및 Fast.B 멘토단과 함께하는 인사이트 토크, 그리고 참가기업 간 교류의 장을 마련합니다.</p>
+            </div>
+            <div class="panel">
+                <svg class="star-motif text-clay"  viewBox="0 0 24 24"><path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z"/></svg>
+                <h3 class="panel-title" data-i18n="tour.feat.4.t">제품혁신 프라이빗 코칭</h3>
+                <p class="panel-desc" data-i18n="tour.feat.4.d">참가자의 제품·사업 아이디어에 대해 제품혁신 및 산업 전문가가 직접 피드백하는 프라이빗 코칭 세션을 제공합니다.</p>
+            </div>
+            <div class="panel">
+                <svg class="star-motif text-acid"  viewBox="0 0 24 24"><path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z"/></svg>
+                <h3 class="panel-title" data-i18n="tour.feat.5.t">선전 제조 생태계의 살아있는 인사이트</h3>
+                <p class="panel-desc" data-i18n="tour.feat.5.d">산업디자인, 공급망, 정부 주도 혁신 정책까지 — 선전 제조 혁신 생태계의 한가운데서 일하는 전문가들의 깊이 있는 경험을 직접 듣습니다.</p>
+            </div>
+            <div class="panel">
+                <svg class="star-motif " style="color:var(--text-main)" viewBox="0 0 24 24"><path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z"/></svg>
+                <h3 class="panel-title" data-i18n="tour.feat.6.t">직접 질의응답하고 토론하는 구조</h3>
+                <p class="panel-desc" data-i18n="tour.feat.6.d">20명 이내 규모이기에 가능한 밀도입니다. 모든 세션은 현지 전문가와 직접 질문하고 토론할 수 있도록 운영됩니다.</p>
             </div>
         </div>
     </div>
 
-    <!-- ── PROGRAM HIGHLIGHTS ── -->
+    <!-- ── EXPERT SESSIONS ── -->
     <div style="padding:14vh var(--container-padding); border-bottom:1px solid var(--grid-line);">
-        <div style="display:flex;flex-direction:column;gap:1.25rem;margin-bottom:7rem;">
-            <span class="meta-label" data-i18n="tour.hl.meta">Program Highlights</span>
-            <h2 style="font-family:var(--font-title);font-size:clamp(1.75rem,3vw,3rem);font-weight:700;text-transform:uppercase;letter-spacing:0.04em;line-height:1.12;" data-i18n="tour.hl.h2">주요 프로그램</h2>
+        <div style="display:flex;flex-direction:column;gap:1.25rem;margin-bottom:5rem;">
+            <span class="meta-label" data-i18n="tour.exp.meta">Fast.B Special Sessions</span>
+            <h2 style="font-family:var(--font-title);font-size:clamp(1.75rem,3vw,3rem);font-weight:700;text-transform:uppercase;letter-spacing:0.04em;line-height:1.12;" data-i18n="tour.exp.h2">선전 현장을 만드는 사람들에게 직접 듣다</h2>
+            
         </div>
-        <div style="display:flex;flex-direction:column;gap:0;">
-            <div style="display:flex;align-items:flex-start;gap:2rem;padding:2.5rem 0;border-top:1px solid var(--grid-line-strong);"><span style="font-family:var(--font-display);font-size:1.5rem;color:var(--clay);min-width:2.5rem;line-height:1;">01</span><div><h3 style="font-family:var(--font-subtitle);font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.6rem;color:var(--text-main);" data-i18n="tour.hl.1.title">PCB · 조립 · 사출 · 패키징 공장 투어</h3><p class="panel-desc" data-i18n="tour.hl.1.desc">PCB 제작, SMT 조립, 금형 및 패키징 공장을 직접 방문하며 제조 프로세스와 품질관리 기준을 체험합니다.</p></div></div>
-            <div style="display:flex;align-items:flex-start;gap:2rem;padding:2.5rem 0;border-top:1px solid var(--grid-line-strong);"><span style="font-family:var(--font-display);font-size:1.5rem;color:var(--clay);min-width:2.5rem;line-height:1;">02</span><div><h3 style="font-family:var(--font-subtitle);font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.6rem;color:var(--text-main);" data-i18n="tour.hl.2.title">로보틱스 및 피지컬 AI 기업 방문</h3><p class="panel-desc" data-i18n="tour.hl.2.desc">선전 기반 로봇 제조사 및 피지컬 AI 하드웨어 기업을 방문하여 생산 프로세스와 공급망 구조를 파악합니다.</p></div></div>
-            <div style="display:flex;align-items:flex-start;gap:2rem;padding:2.5rem 0;border-top:1px solid var(--grid-line-strong);"><span style="font-family:var(--font-display);font-size:1.5rem;color:var(--clay);min-width:2.5rem;line-height:1;">03</span><div><h3 style="font-family:var(--font-subtitle);font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.6rem;color:var(--text-main);" data-i18n="tour.hl.3.title">NVIDIA OEM 및 자동화 생산라인 견학</h3><p class="panel-desc" data-i18n="tour.hl.3.desc">AI 하드웨어 제조와 글로벌 OEM 전략을 이해하고, 자동화 생산라인에서 글로벌 시장 대응 역량을 확인합니다.</p></div></div>
-            <div style="display:flex;align-items:flex-start;gap:2rem;padding:2.5rem 0;border-top:1px solid var(--grid-line-strong);"><span style="font-family:var(--font-display);font-size:1.5rem;color:var(--clay);min-width:2.5rem;line-height:1;">04</span><div><h3 style="font-family:var(--font-subtitle);font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.6rem;color:var(--text-main);" data-i18n="tour.hl.4.title">화창베이(Huaqiangbei) 전자시장 탐방</h3><p class="panel-desc" data-i18n="tour.hl.4.desc">세계 최대 전자부품 시장에서 부품 소싱, BOM 최적화, 빠른 프로토타이핑 전략을 직접 경험합니다.</p></div></div>
-            <div style="display:flex;align-items:flex-start;gap:2rem;padding:2.5rem 0;border-top:1px solid var(--grid-line-strong);"><span style="font-family:var(--font-display);font-size:1.5rem;color:var(--clay);min-width:2.5rem;line-height:1;">05</span><div><h3 style="font-family:var(--font-subtitle);font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.6rem;color:var(--text-main);" data-i18n="tour.hl.5.title">현지 하드웨어 창업자 및 엔지니어 네트워킹</h3><p class="panel-desc" data-i18n="tour.hl.5.desc">선전 현지 하드웨어 창업자, 엔지니어, 제조 전문가들과 직접 교류하며 글로벌 오픈 이노베이션 생태계를 경험합니다.</p></div></div>
-            <div style="display:flex;align-items:flex-start;gap:2rem;padding:2.5rem 0;border-top:1px solid var(--grid-line-strong);border-bottom:1px solid var(--grid-line-strong);"><span style="font-family:var(--font-display);font-size:1.5rem;color:var(--clay);min-width:2.5rem;line-height:1;">06</span><div><h3 style="font-family:var(--font-subtitle);font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.6rem;color:var(--text-main);" data-i18n="tour.hl.6.title">공급망 · 가격 협상 · 양산 전략 세션</h3><p class="panel-desc" data-i18n="tour.hl.6.desc">MOQ, 견적 협상, 공급업체 검증, DFM 원칙, NPI 운영 전략 등 실무에 즉시 적용 가능한 제조 인텔리전스를 습득합니다.</p></div></div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;">
+            <div style="background:rgba(51,46,45,0.6);border-radius:24px;padding:2rem;border:1px solid var(--grid-line-strong);display:flex;flex-direction:column;gap:1rem;">
+                <div style="display:flex;align-items:center;gap:1rem;">
+                    <div class="avatar-sm" style="width:64px;height:64px;"><img src="images/photo-michael-zheng.jpg" alt="Michael Zheng" loading="lazy"></div>
+                    <div>
+                        <div class="person-name" style="font-size:1.05rem;">Michael Zheng</div>
+                        <div class="person-role" style="margin-top:0.3rem;line-height:1.5;" data-i18n="tour.exp.1.role">Fast.B Co-founder · Innozen Design CEO</div>
+                    </div>
+                </div>
+                <div style="font-family:var(--font-subtitle);font-size:1rem;font-weight:600;color:var(--clay);letter-spacing:0.02em;padding-top:1rem;border-top:1px solid var(--grid-line);" data-i18n="tour.exp.1.topic">선전 산업디자인 혁신의 비하인드</div>
+                <p class="panel-desc" style="font-size:0.88rem;" data-i18n="tour.exp.1.d">선전산업디자인협회 부회장이자 Red Dot · iF · IDEA 수상 디자인 리더가 선전의 스마트 하드웨어가 어떻게 디자인되고 상품화되는지 그 이면을 공유합니다.</p>
+            </div>
+            <div style="background:rgba(51,46,45,0.6);border-radius:24px;padding:2rem;border:1px solid var(--grid-line-strong);display:flex;flex-direction:column;gap:1rem;">
+                <div style="display:flex;align-items:center;gap:1rem;">
+                    <div class="avatar-sm" style="width:64px;height:64px;"><img src="images/photo-donny-zhang.jpg" alt="Donny Zhang" loading="lazy"></div>
+                    <div>
+                        <div class="person-name" style="font-size:1.05rem;">Donny Zhang</div>
+                        <div class="person-role" style="margin-top:0.3rem;line-height:1.5;" data-i18n="tour.exp.2.role">Sand and Wave CEO · Fast.B Mentor</div>
+                    </div>
+                </div>
+                <div style="font-family:var(--font-subtitle);font-size:1rem;font-weight:600;color:var(--clay);letter-spacing:0.02em;padding-top:1rem;border-top:1px solid var(--grid-line);" data-i18n="tour.exp.2.topic">선전 제조 생태계의 이해</div>
+                <p class="panel-desc" style="font-size:0.88rem;" data-i18n="tour.exp.2.d">HAX와 함께 수많은 하드웨어 스타트업의 0→1 제품 개발과 양산을 이끈 공급망 전문가가 선전 제조의 작동 원리를 해설합니다.</p>
+            </div>
+            <div style="background:rgba(51,46,45,0.6);border-radius:24px;padding:2rem;border:1px solid var(--grid-line-strong);display:flex;flex-direction:column;gap:1rem;">
+                <div style="display:flex;align-items:center;gap:1rem;">
+                    <div style="width:64px;height:64px;border-radius:50%;border:1px solid var(--grid-line-strong);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg class="star-motif text-clay" style="width:22px;height:22px;margin:0;" viewBox="0 0 24 24"><path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z"/></svg></div>
+                    <div>
+                        <div class="person-name" style="font-size:1.05rem;">Vicky Xie</div>
+                        <div class="person-role" style="margin-top:0.3rem;line-height:1.5;" data-i18n="tour.exp.3.role">Fast.B 특별세션 연사</div>
+                    </div>
+                </div>
+                <div style="font-family:var(--font-subtitle);font-size:1rem;font-weight:600;color:var(--clay);letter-spacing:0.02em;padding-top:1rem;border-top:1px solid var(--grid-line);" data-i18n="tour.exp.3.topic">중국 정부 주도 혁신의 이해</div>
+                <p class="panel-desc" style="font-size:0.88rem;" data-i18n="tour.exp.3.d">선전의 압축 성장을 가능하게 한 정책·산업 육성 구조를 이해하고, 한국 기업이 활용할 수 있는 기회를 짚어봅니다.</p>
+            </div>
+            <div style="background:rgba(51,46,45,0.6);border-radius:24px;padding:2rem;border:1px solid var(--grid-line-strong);display:flex;flex-direction:column;gap:1rem;">
+                <div style="display:flex;align-items:center;gap:1rem;">
+                    <div style="width:64px;height:64px;border-radius:50%;border:1px solid var(--grid-line-strong);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg class="star-motif text-clay" style="width:22px;height:22px;margin:0;" viewBox="0 0 24 24"><path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z"/></svg></div>
+                    <div>
+                        <div class="person-name" style="font-size:1.05rem;" data-i18n="tour.exp.4.name">SUSTech &amp; Fast.B 멘토단</div>
+                        <div class="person-role" style="margin-top:0.3rem;line-height:1.5;" data-i18n="tour.exp.4.role">인사이트 토크 &amp; 석식</div>
+                    </div>
+                </div>
+                <div style="font-family:var(--font-subtitle);font-size:1rem;font-weight:600;color:var(--clay);letter-spacing:0.02em;padding-top:1rem;border-top:1px solid var(--grid-line);" data-i18n="tour.exp.4.topic">선전의 혁신 인재와 함께하는 저녁</div>
+                <p class="panel-desc" style="font-size:0.88rem;" data-i18n="tour.exp.4.d">남방과기대(SUSTech) 연구진과 Fast.B 멘토단이 함께하는 인사이트 토크에서 피지컬 AI 연구와 산업의 연결 지점을 논의합니다.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── COMPANIES & SITES ── -->
+    <div style="padding:14vh var(--container-padding); border-bottom:1px solid var(--grid-line);">
+        <div style="display:flex;flex-direction:column;gap:1.25rem;margin-bottom:5rem;">
+            <span class="meta-label" data-i18n="tour.visit.meta">Where We Go</span>
+            <h2 style="font-family:var(--font-title);font-size:clamp(1.75rem,3vw,3rem);font-weight:700;text-transform:uppercase;letter-spacing:0.04em;line-height:1.12;" data-i18n="tour.visit.h2">방문 기업 및 장소</h2>
+            <p class="panel-desc" style="font-size:0.85rem;margin-top:0.25rem;" data-i18n="tour.visit.note">※ 방문 기업은 현재 기획·섭외 중이며, 순서와 내용은 추후 변경될 수 있습니다.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:1.5rem;">
+            <div style="background:rgba(51,46,45,0.6);border-radius:24px;padding:2rem;border:1px solid var(--grid-line-strong);">
+                <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;"><span style="font-family:var(--font-display);font-size:1.25rem;color:var(--clay);">01</span><h3 class="panel-title" style="margin:0;" data-i18n="tour.visit.c1.t">벤치마크 &amp; 파트너 로봇 기업</h3></div>
+                <p class="panel-desc" style="font-size:0.88rem;margin-bottom:1.5rem;" data-i18n="tour.visit.c1.d">휴머노이드·덱스터러스 핸드·촉각 센싱 등 차세대 피지컬 AI를 이끄는 기업들의 기술과 사업 전략을 현장에서 확인합니다.</p>
+                <ul style="list-style:none;display:flex;flex-wrap:wrap;gap:0.6rem;">
+                    <li class="tour-chip"><span>AstriBot</span></li>
+                    <li class="tour-chip"><span>LimX Dynamics</span></li>
+                    <li class="tour-chip"><span>AI²Robotics</span></li>
+                    <li class="tour-chip"><span>DexForce</span></li>
+                    <li class="tour-chip"><span>PaXini</span></li>
+                    <li class="tour-chip"><span>DIGIT Robotics</span></li>
+                </ul>
+            </div>
+            <div style="background:rgba(51,46,45,0.6);border-radius:24px;padding:2rem;border:1px solid var(--grid-line-strong);">
+                <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;"><span style="font-family:var(--font-display);font-size:1.25rem;color:var(--clay);">02</span><h3 class="panel-title" style="margin:0;" data-i18n="tour.visit.c2.t">Fast.B 플랫폼 핵심 파트너</h3></div>
+                <p class="panel-desc" style="font-size:0.88rem;margin-bottom:1.5rem;" data-i18n="tour.visit.c2.d">Fast.B의 디자인·프로토타이핑·글로벌 진출을 함께 수행하는 핵심 파트너사에서 플랫폼의 실제 작동 방식을 이해합니다.</p>
+                <ul style="list-style:none;display:flex;flex-wrap:wrap;gap:0.6rem;">
+                    <li class="tour-chip"><span>Innozen Design</span></li>
+                    <li class="tour-chip"><span>Seeed Studio / XFactory</span></li>
+                    <li class="tour-chip"><span>Go Global Center</span></li>
+                </ul>
+            </div>
+            <div style="background:rgba(51,46,45,0.6);border-radius:24px;padding:2rem;border:1px solid var(--grid-line-strong);">
+                <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;"><span style="font-family:var(--font-display);font-size:1.25rem;color:var(--text-main);">03</span><h3 class="panel-title" style="margin:0;" data-i18n="tour.visit.c3.t">선전 혁신 생태계를 구성하는 SCM 기업</h3></div>
+                <p class="panel-desc" style="font-size:0.88rem;margin-bottom:1.5rem;" data-i18n="tour.visit.c3.d">AI 하드웨어가 실제로 만들어지는 공급망 현장. 부품·PCB·금형·조립 공장과 프로토타이핑 기업을 방문합니다.</p>
+                <ul style="list-style:none;display:flex;flex-wrap:wrap;gap:0.6rem;">
+                    <li class="tour-chip"><span data-i18n="tour.visit.c3.i1">부품 · PCB · 금형 · 조립 공장</span></li>
+                    <li class="tour-chip"><span data-i18n="tour.visit.c3.i2">산업디자인 전문 기업</span></li>
+                    <li class="tour-chip"><span data-i18n="tour.visit.c3.i3">프로토타이핑 전문 기업 (3NOD)</span></li>
+                    <li class="tour-chip"><span data-i18n="tour.visit.c3.i4">Huaqiang Electronics Association 회원사</span></li>
+                </ul>
+            </div>
+            <div style="background:rgba(51,46,45,0.6);border-radius:24px;padding:2rem;border:1px solid var(--grid-line-strong);">
+                <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;"><span style="font-family:var(--font-display);font-size:1.25rem;color:var(--text-main);">04</span><h3 class="panel-title" style="margin:0;" data-i18n="tour.visit.c4.t">선전 혁신 생태계 대표 장소</h3></div>
+                <p class="panel-desc" style="font-size:0.88rem;margin-bottom:1.5rem;" data-i18n="tour.visit.c4.d">세계 최대 전자상가부터 로봇 리테일, 로보택시까지 — 선전의 혁신이 일상과 시장이 되는 현장을 체험합니다.</p>
+                <ul style="list-style:none;display:flex;flex-wrap:wrap;gap:0.6rem;">
+                    <li class="tour-chip"><span data-i18n="tour.visit.c4.i1">화창베이 (Huaqiangbei)</span></li>
+                    <li class="tour-chip"><span data-i18n="tour.visit.c4.i2">6S Robot Mall</span></li>
+                    <li class="tour-chip"><span data-i18n="tour.visit.c4.i3">난산 로봇밸리</span></li>
+                    <li class="tour-chip"><span>Inno100</span></li>
+                    <li class="tour-chip"><span>DJI Flagship Store</span></li>
+                    <li class="tour-chip"><span>Upperhills</span></li>
+                    <li class="tour-chip"><span>OCT Harbour</span></li>
+                    <li class="tour-chip"><span data-i18n="tour.visit.c4.i8">Pony.ai 로보택시</span></li>
+                </ul>
+            </div>
         </div>
     </div>
 
     <!-- ── SCHEDULE ── -->
-    <div style="padding:14vh var(--container-padding); border-bottom:1px solid var(--grid-line);">
-        <div style="display:flex;flex-direction:column;gap:1.25rem;margin-bottom:7rem;">
-            <span class="meta-label" data-i18n="tour.sched.meta">AI Hardware, AIoT, XR &amp; Robotics Track</span>
-            <h2 style="font-family:var(--font-title);font-size:clamp(1.75rem,3vw,3rem);font-weight:700;text-transform:uppercase;letter-spacing:0.04em;line-height:1.12;" data-i18n="tour.sched.h2">3박4일 프로그램 일정</h2>
-            <p class="panel-desc" style="max-width:600px;margin-top:0.5rem;" data-i18n="tour.sched.desc">대상: 로보틱스 / AI Hardware / Consumer Electronics 스타트업, 엔지니어, PM, 투자자<br>목표: 프로토타입 → 양산 전환 프로세스 이해 및 공급망 연결</p>
+    <div id="tour-schedule" style="padding:14vh var(--container-padding); border-bottom:1px solid var(--grid-line);">
+        <div style="display:flex;flex-direction:column;gap:1.25rem;margin-bottom:5rem;">
+            <span class="meta-label" data-i18n="tour.sched.meta">Program Schedule · Dec 15–18, 2026</span>
+            <h2 style="font-family:var(--font-title);font-size:clamp(1.75rem,3vw,3rem);font-weight:700;text-transform:uppercase;letter-spacing:0.04em;line-height:1.12;" data-i18n="tour.sched.h2">3박 4일 전체 일정</h2>
+            <p class="panel-desc" style="max-width:680px;margin-top:0.5rem;" data-i18n="tour.sched.desc">개별 일정이 필요한 경우 프로그램 전후로 추가 일정 구성이 가능합니다.<br>※ 방문 기업은 현재 기획·섭외 중이며, 순서와 내용은 추후 변경될 수 있습니다.</p>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(1,1fr);gap:2rem;">
-
-            <!-- Day 1 -->
+        <div class="tour-days">
             <div style="background:rgba(51,46,45,0.6);border-radius:24px;padding:2rem;border:1px solid var(--grid-line-strong);">
-                <div style="display:flex;align-items:baseline;gap:1.5rem;margin-bottom:2.5rem;padding-bottom:2rem;border-bottom:1px solid var(--grid-line-strong);">
-                    <span style="font-family:var(--font-display);font-size:3.5rem;color:var(--clay);line-height:1;letter-spacing:-0.03em;">D1</span>
-                    <div><div class="meta-label" style="margin-bottom:0.3rem;">Day 1</div><h3 style="font-family:var(--font-subtitle);font-size:1.05rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-main);" data-i18n="tour.d1.h">Shenzhen 도착 및 제조 생태계 입문</h3></div>
+                <div style="display:flex;align-items:baseline;flex-wrap:wrap;gap:1.25rem;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--grid-line-strong);">
+                    <span style="font-family:var(--font-display);font-size:3.25rem;color:var(--clay);line-height:1;letter-spacing:-0.03em;">D1</span>
+                    <div><div class="meta-label" style="margin-bottom:0.3rem;" data-i18n="tour.d1.date">12월 15일 (화)</div><h3 style="font-family:var(--font-subtitle);font-size:1.05rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-main);" data-i18n="tour.d1.h">선전 생태계에 들어서다</h3></div>
                 </div>
-                <div style="display:flex;flex-direction:column;gap:0;">
-                    <div style="display:grid;grid-template-columns:80px 1fr;gap:1.5rem;padding:1.5rem 0;border-top:1px solid var(--grid-line);"><span class="meta-label" style="padding-top:0.15rem;" data-i18n="tour.am">오전</span><div><div class="panel-title" style="font-size:0.9rem;margin-bottom:0.4rem;" data-i18n="tour.d1.t1">Shenzhen 도착 및 오리엔테이션</div><p class="panel-desc" style="font-size:0.85rem;" data-i18n="tour.d1.d1">중국 제조 생태계 개요, Shenzhen 공급망 구조 이해</p></div></div>
-                    <div style="display:grid;grid-template-columns:80px 1fr;gap:1.5rem;padding:1.5rem 0;border-top:1px solid var(--grid-line);"><span class="meta-label" style="padding-top:0.15rem;" data-i18n="tour.pm">오후</span><div><div class="panel-title" style="font-size:0.9rem;margin-bottom:0.4rem;" data-i18n="tour.d1.t2">PCB &amp; SMT 공장 투어</div><p class="panel-desc" style="font-size:0.85rem;" data-i18n="tour.d1.d2">PCB 제작, SMT 조립, QC 프로세스 분석</p></div></div>
-                    <div style="display:grid;grid-template-columns:80px 1fr;gap:1.5rem;padding:1.5rem 0;border-top:1px solid var(--grid-line);"><span class="meta-label" style="padding-top:0.15rem;" data-i18n="tour.pm">오후</span><div><div class="panel-title" style="font-size:0.9rem;margin-bottom:0.4rem;" data-i18n="tour.d1.t3">DFM(Design for Manufacturing) 세션</div><p class="panel-desc" style="font-size:0.85rem;" data-i18n="tour.d1.d3">양산형 설계 핵심 원칙 및 실패 사례</p></div></div>
-                    <div style="display:grid;grid-template-columns:80px 1fr;gap:1.5rem;padding:1.5rem 0;border-top:1px solid var(--grid-line);"><span class="meta-label" style="padding-top:0.15rem;color:var(--clay);" data-i18n="tour.eve">저녁</span><div><div class="panel-title" style="font-size:0.9rem;margin-bottom:0.4rem;color:var(--clay);" data-i18n="tour.d1.t4">Welcome Dinner &amp; Founder Networking</div><p class="panel-desc" style="font-size:0.85rem;" data-i18n="tour.d1.d4">글로벌 하드웨어 창업자 교류</p></div></div>
+                <div style="display:flex;flex-direction:column;">
+                    <div class="tour-slot">
+                        <span class="tour-time">AM</span>
+                        <div>
+                            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.6rem;margin-bottom:0.35rem;"><div class="panel-title" style="font-size:0.92rem;margin:0;" data-i18n="tour.d1.1.t">한국 → 선전 이동</div><span class="tour-tag" data-i18n="tour.tag.move">이동</span></div>
+                            <p class="panel-desc" style="font-size:0.85rem;" data-i18n="tour.d1.1.d">선전 도착 후 전용 차량으로 이동</p>
+                        </div>
+                    </div>
+                    <div class="tour-slot">
+                        <span class="tour-time">13:00</span>
+                        <div>
+                            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.6rem;margin-bottom:0.35rem;"><div class="panel-title" style="font-size:0.92rem;margin:0;" data-i18n="tour.d1.2.t">오리엔테이션 &amp; 오프닝 키노트</div><span class="tour-tag" data-i18n="tour.tag.session">특별세션</span></div>
+                            <p class="panel-desc" style="font-size:0.85rem;" data-i18n="tour.d1.2.d">Go Global Center — 4일간의 관전 포인트와 선전 피지컬 AI 생태계 지도</p>
+                        </div>
+                    </div>
+                    <div class="tour-slot">
+                        <span class="tour-time">14:30</span>
+                        <div>
+                            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.6rem;margin-bottom:0.35rem;"><div class="panel-title" style="font-size:0.92rem;margin:0;color:var(--clay);" data-i18n="tour.d1.3.t">Fast.B 특별세션 · Vicky Xie</div><span class="tour-tag" data-i18n="tour.tag.session">특별세션</span></div>
+                            <p class="panel-desc" style="font-size:0.85rem;" data-i18n="tour.d1.3.d">중국 정부 주도 혁신의 이해</p>
+                        </div>
+                    </div>
+                    <div class="tour-slot">
+                        <span class="tour-time">15:30</span>
+                        <div>
+                            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.6rem;margin-bottom:0.35rem;"><div class="panel-title" style="font-size:0.92rem;margin:0;" data-i18n="tour.d1.4.t">선전 혁신 생태계 탐방</div><span class="tour-tag" data-i18n="tour.tag.eco">생태계 탐방</span></div>
+                            <p class="panel-desc" style="font-size:0.85rem;" data-i18n="tour.d1.4.d">6S Robot Mall 또는 InnoCampus — 로봇이 소비자와 만나는 방식</p>
+                        </div>
+                    </div>
+                    <div class="tour-slot">
+                        <span class="tour-time">17:00</span>
+                        <div>
+                            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.6rem;margin-bottom:0.35rem;"><div class="panel-title" style="font-size:0.92rem;margin:0;color:var(--clay);" data-i18n="tour.d1.5.t">선전 AI 하드웨어 생태계 탐방 · 화창베이</div><span class="tour-tag" data-i18n="tour.tag.eco">생태계 탐방</span></div>
+                            <p class="panel-desc" style="font-size:0.85rem;" data-i18n="tour.d1.5.d">세계 최대 전자상가에서 부품 소싱과 빠른 프로토타이핑의 원천을 체험</p>
+                        </div>
+                    </div>
+                    <div class="tour-slot">
+                        <span class="tour-time">19:30</span>
+                        <div>
+                            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.6rem;margin-bottom:0.35rem;"><div class="panel-title" style="font-size:0.92rem;margin:0;" data-i18n="tour.d1.6.t">네트워킹 석식</div><span class="tour-tag" data-i18n="tour.tag.net">네트워킹</span></div>
+                            <p class="panel-desc" style="font-size:0.85rem;" data-i18n="tour.d1.6.d">참가자 소개 및 현지 파트너와의 첫 교류</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <!-- Day 2 -->
             <div style="background:rgba(51,46,45,0.6);border-radius:24px;padding:2rem;border:1px solid var(--grid-line-strong);">
-                <div style="display:flex;align-items:baseline;gap:1.5rem;margin-bottom:2.5rem;padding-bottom:2rem;border-bottom:1px solid var(--grid-line-strong);">
-                    <span style="font-family:var(--font-display);font-size:3.5rem;color:var(--clay);line-height:1;letter-spacing:-0.03em;">D2</span>
-                    <div><div class="meta-label" style="margin-bottom:0.3rem;">Day 2</div><h3 style="font-family:var(--font-subtitle);font-size:1.05rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-main);" data-i18n="tour.d2.h">공장 투어 &amp; 공급망 워크숍</h3></div>
+                <div style="display:flex;align-items:baseline;flex-wrap:wrap;gap:1.25rem;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--grid-line-strong);">
+                    <span style="font-family:var(--font-display);font-size:3.25rem;color:var(--clay);line-height:1;letter-spacing:-0.03em;">D2</span>
+                    <div><div class="meta-label" style="margin-bottom:0.3rem;" data-i18n="tour.d2.date">12월 16일 (수)</div><h3 style="font-family:var(--font-subtitle);font-size:1.05rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-main);" data-i18n="tour.d2.h">피지컬 AI와 공급망의 현장</h3></div>
                 </div>
-                <div style="display:flex;flex-direction:column;gap:0;">
-                    <div style="display:grid;grid-template-columns:80px 1fr;gap:1.5rem;padding:1.5rem 0;border-top:1px solid var(--grid-line);"><span class="meta-label" style="padding-top:0.15rem;" data-i18n="tour.am">오전</span><div><div class="panel-title" style="font-size:0.9rem;margin-bottom:0.4rem;" data-i18n="tour.d2.t1">XR, AI Smart Device Companies 방문</div><p class="panel-desc" style="font-size:0.85rem;" data-i18n="tour.d2.d1">사출 금형, 원가 구조, 양산 대응 전략</p></div></div>
-                    <div style="display:grid;grid-template-columns:80px 1fr;gap:1.5rem;padding:1.5rem 0;border-top:1px solid var(--grid-line);"><span class="meta-label" style="padding-top:0.15rem;" data-i18n="tour.pm">오후</span><div><div class="panel-title" style="font-size:0.9rem;margin-bottom:0.4rem;" data-i18n="tour.d2.t2">Mold, Assembly &amp; Packaging Factory 방문</div><p class="panel-desc" style="font-size:0.85rem;" data-i18n="tour.d2.d2">조립 라인 자동화, 품질관리, 패키징 전략</p></div></div>
-                    <div style="display:grid;grid-template-columns:80px 1fr;gap:1.5rem;padding:1.5rem 0;border-top:1px solid var(--grid-line);"><span class="meta-label" style="padding-top:0.15rem;" data-i18n="tour.pm">오후</span><div><div class="panel-title" style="font-size:0.9rem;margin-bottom:0.4rem;" data-i18n="tour.d2.t3">공급망 워크숍</div><p class="panel-desc" style="font-size:0.85rem;" data-i18n="tour.d2.d3">MOQ, 견적 협상, 공급업체 검증 방법</p></div></div>
-                    <div style="display:grid;grid-template-columns:80px 1fr;gap:1.5rem;padding:1.5rem 0;border-top:1px solid var(--grid-line);"><span class="meta-label" style="padding-top:0.15rem;color:var(--clay);" data-i18n="tour.eve">저녁</span><div><div class="panel-title" style="font-size:0.9rem;margin-bottom:0.4rem;color:var(--clay);" data-i18n="tour.d2.t4">Shenzhen Hardware Meetup</div><p class="panel-desc" style="font-size:0.85rem;" data-i18n="tour.d2.d4">현지 엔지니어 및 제조 전문가 네트워킹</p></div></div>
+                <div style="display:flex;flex-direction:column;">
+                    <div class="tour-slot">
+                        <span class="tour-time">09:00</span>
+                        <div>
+                            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.6rem;margin-bottom:0.35rem;"><div class="panel-title" style="font-size:0.92rem;margin:0;color:var(--clay);" data-i18n="tour.d2.1.t">Physical AI 혁신기업 방문 · AstriBot</div><span class="tour-tag" data-i18n="tour.tag.visit">기업 방문</span></div>
+                            <p class="panel-desc" style="font-size:0.85rem;" data-i18n="tour.d2.1.d">범용 휴머노이드 로봇의 기술과 상용화 전략</p>
+                        </div>
+                    </div>
+                    <div class="tour-slot tour-slot-muted">
+                        <span class="tour-time">11:30</span>
+                        <div>
+                            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.6rem;margin-bottom:0.35rem;"><div class="panel-title" style="font-size:0.92rem;margin:0;" data-i18n="tour.d2.2.t">중식</div></div>
+                            
+                        </div>
+                    </div>
+                    <div class="tour-slot">
+                        <span class="tour-time">13:00</span>
+                        <div>
+                            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.6rem;margin-bottom:0.35rem;"><div class="panel-title" style="font-size:0.92rem;margin:0;color:var(--clay);" data-i18n="tour.d2.3.t">Fast.B AI 하드웨어 SCM 기업 방문 · Seeed | XFactory</div><span class="tour-tag" data-i18n="tour.tag.visit">기업 방문</span></div>
+                            <p class="panel-desc" style="font-size:0.85rem;" data-i18n="tour.d2.3.d">오픈 하드웨어 생태계와 AI 하드웨어 소량·맞춤 생산 구조</p>
+                        </div>
+                    </div>
+                    <div class="tour-slot">
+                        <span class="tour-time">15:00</span>
+                        <div>
+                            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.6rem;margin-bottom:0.35rem;"><div class="panel-title" style="font-size:0.92rem;margin:0;color:var(--clay);" data-i18n="tour.d2.4.t">Physical AI 혁신기업 방문 · AI²Robotics</div><span class="tour-tag" data-i18n="tour.tag.visit">기업 방문</span></div>
+                            <p class="panel-desc" style="font-size:0.85rem;" data-i18n="tour.d2.4.d">임바디드 AI 로봇의 개발과 산업 적용 사례</p>
+                        </div>
+                    </div>
+                    <div class="tour-slot">
+                        <span class="tour-time">17:00</span>
+                        <div>
+                            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.6rem;margin-bottom:0.35rem;"><div class="panel-title" style="font-size:0.92rem;margin:0;color:var(--clay);" data-i18n="tour.d2.5.t">Physical AI 혁신기업 방문 · PaXini</div><span class="tour-tag" data-i18n="tour.tag.visit">기업 방문</span></div>
+                            <p class="panel-desc" style="font-size:0.85rem;" data-i18n="tour.d2.5.d">촉각 센싱 기술과 로봇 핸드의 미래</p>
+                        </div>
+                    </div>
+                    <div class="tour-slot">
+                        <span class="tour-time">18:30</span>
+                        <div>
+                            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.6rem;margin-bottom:0.35rem;"><div class="panel-title" style="font-size:0.92rem;margin:0;" data-i18n="tour.d2.6.t">선전 혁신 생태계 탐방</div><span class="tour-tag" data-i18n="tour.tag.eco">생태계 탐방</span></div>
+                            <p class="panel-desc" style="font-size:0.85rem;" data-i18n="tour.d2.6.d">전기차 · 자율주행 · 로봇</p>
+                        </div>
+                    </div>
+                    <div class="tour-slot">
+                        <span class="tour-time">19:30</span>
+                        <div>
+                            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.6rem;margin-bottom:0.35rem;"><div class="panel-title" style="font-size:0.92rem;margin:0;color:var(--clay);" data-i18n="tour.d2.7.t">석식 &amp; 인사이트 토크</div><span class="tour-tag" data-i18n="tour.tag.net">네트워킹</span></div>
+                            <p class="panel-desc" style="font-size:0.85rem;" data-i18n="tour.d2.7.d">SUSTech 및 Fast.B 멘토단 참가</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <!-- Day 3 -->
             <div style="background:rgba(51,46,45,0.6);border-radius:24px;padding:2rem;border:1px solid var(--grid-line-strong);">
-                <div style="display:flex;align-items:baseline;gap:1.5rem;margin-bottom:2.5rem;padding-bottom:2rem;border-bottom:1px solid var(--grid-line-strong);">
-                    <span style="font-family:var(--font-display);font-size:3.5rem;color:var(--clay);line-height:1;letter-spacing:-0.03em;">D3</span>
-                    <div><div class="meta-label" style="margin-bottom:0.3rem;">Day 3</div><h3 style="font-family:var(--font-subtitle);font-size:1.05rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-main);" data-i18n="tour.d3.h">로보틱스 · AI 하드웨어 · 시장 탐방</h3></div>
+                <div style="display:flex;align-items:baseline;flex-wrap:wrap;gap:1.25rem;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--grid-line-strong);">
+                    <span style="font-family:var(--font-display);font-size:3.25rem;color:var(--clay);line-height:1;letter-spacing:-0.03em;">D3</span>
+                    <div><div class="meta-label" style="margin-bottom:0.3rem;" data-i18n="tour.d3.date">12월 17일 (목)</div><h3 style="font-family:var(--font-subtitle);font-size:1.05rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-main);" data-i18n="tour.d3.h">로봇에서 공장까지</h3></div>
                 </div>
-                <div style="display:flex;flex-direction:column;gap:0;">
-                    <div style="display:grid;grid-template-columns:80px 1fr;gap:1.5rem;padding:1.5rem 0;border-top:1px solid var(--grid-line);"><span class="meta-label" style="padding-top:0.15rem;" data-i18n="tour.am">오전</span><div><div class="panel-title" style="font-size:0.9rem;margin-bottom:0.4rem;" data-i18n="tour.d3.t1">Robotics / Physical AI 기업 방문</div><p class="panel-desc" style="font-size:0.85rem;" data-i18n="tour.d3.d1">로봇 생산 프로세스 및 실제 공급망 사례</p></div></div>
-                    <div style="display:grid;grid-template-columns:80px 1fr;gap:1.5rem;padding:1.5rem 0;border-top:1px solid var(--grid-line);"><span class="meta-label" style="padding-top:0.15rem;" data-i18n="tour.pm">오후</span><div><div class="panel-title" style="font-size:0.9rem;margin-bottom:0.4rem;" data-i18n="tour.d3.t2">NVIDIA OEM / AI Hardware 생산라인 견학</div><p class="panel-desc" style="font-size:0.85rem;" data-i18n="tour.d3.d2">AI 하드웨어 제조와 글로벌 OEM 전략</p></div></div>
-                    <div style="display:grid;grid-template-columns:80px 1fr;gap:1.5rem;padding:1.5rem 0;border-top:1px solid var(--grid-line);"><span class="meta-label" style="padding-top:0.15rem;" data-i18n="tour.pm">오후</span><div><div class="panel-title" style="font-size:0.9rem;margin-bottom:0.4rem;" data-i18n="tour.d3.t3">Huaqiangbei Electronics Market 탐방</div><p class="panel-desc" style="font-size:0.85rem;" data-i18n="tour.d3.d3">부품 소싱, BOM 최적화, 빠른 프로토타이핑</p></div></div>
-                    <div style="display:grid;grid-template-columns:80px 1fr;gap:1.5rem;padding:1.5rem 0;border-top:1px solid var(--grid-line);"><span class="meta-label" style="padding-top:0.15rem;color:var(--clay);" data-i18n="tour.eve">저녁</span><div><div class="panel-title" style="font-size:0.9rem;margin-bottom:0.4rem;color:var(--clay);" data-i18n="tour.d3.t4">참가자 Roundtable</div><p class="panel-desc" style="font-size:0.85rem;" data-i18n="tour.d3.d4">제품별 공급망 및 제조 전략 피드백</p></div></div>
+                <div style="display:flex;flex-direction:column;">
+                    <div class="tour-slot">
+                        <span class="tour-time">09:00</span>
+                        <div>
+                            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.6rem;margin-bottom:0.35rem;"><div class="panel-title" style="font-size:0.92rem;margin:0;color:var(--clay);" data-i18n="tour.d3.1.t">Physical AI 혁신기업 방문 · DexForce 또는 LimX Dynamics</div><span class="tour-tag" data-i18n="tour.tag.visit">기업 방문</span></div>
+                            <p class="panel-desc" style="font-size:0.85rem;" data-i18n="tour.d3.1.d">로봇 지능과 보행·조작 기술의 최전선</p>
+                        </div>
+                    </div>
+                    <div class="tour-slot tour-slot-muted">
+                        <span class="tour-time">11:30</span>
+                        <div>
+                            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.6rem;margin-bottom:0.35rem;"><div class="panel-title" style="font-size:0.92rem;margin:0;" data-i18n="tour.d3.2.t">중식</div></div>
+                            
+                        </div>
+                    </div>
+                    <div class="tour-slot">
+                        <span class="tour-time">13:00</span>
+                        <div>
+                            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.6rem;margin-bottom:0.35rem;"><div class="panel-title" style="font-size:0.92rem;margin:0;color:var(--clay);" data-i18n="tour.d3.3.t">Physical AI 혁신기업 방문 · DIGIT Robotics</div><span class="tour-tag" data-i18n="tour.tag.visit">기업 방문</span></div>
+                            <p class="panel-desc" style="font-size:0.85rem;" data-i18n="tour.d3.3.d">로봇 기업의 제품화와 시장 진입 전략</p>
+                        </div>
+                    </div>
+                    <div class="tour-slot">
+                        <span class="tour-time">15:00</span>
+                        <div>
+                            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.6rem;margin-bottom:0.35rem;"><div class="panel-title" style="font-size:0.92rem;margin:0;color:var(--clay);" data-i18n="tour.d3.4.t">Fast.B AI 하드웨어 SCM 팩토리 방문</div><span class="tour-tag" data-i18n="tour.tag.visit">기업 방문</span></div>
+                            <p class="panel-desc" style="font-size:0.85rem;" data-i18n="tour.d3.4.d">PCB · 금형 · 조립 — 프로토타입이 양산 제품이 되는 과정</p>
+                        </div>
+                    </div>
+                    <div class="tour-slot">
+                        <span class="tour-time">17:00</span>
+                        <div>
+                            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.6rem;margin-bottom:0.35rem;"><div class="panel-title" style="font-size:0.92rem;margin:0;color:var(--clay);" data-i18n="tour.d3.5.t">Fast.B 특별세션 · Donny Zhang</div><span class="tour-tag" data-i18n="tour.tag.session">특별세션</span></div>
+                            <p class="panel-desc" style="font-size:0.85rem;" data-i18n="tour.d3.5.d">선전 제조 생태계의 이해</p>
+                        </div>
+                    </div>
+                    <div class="tour-slot">
+                        <span class="tour-time">18:30</span>
+                        <div>
+                            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.6rem;margin-bottom:0.35rem;"><div class="panel-title" style="font-size:0.92rem;margin:0;" data-i18n="tour.d3.6.t">선전 혁신 생태계 탐방</div><span class="tour-tag" data-i18n="tour.tag.eco">생태계 탐방</span></div>
+                            <p class="panel-desc" style="font-size:0.85rem;" data-i18n="tour.d3.6.d">AIoT · XR · AI Glasses</p>
+                        </div>
+                    </div>
+                    <div class="tour-slot">
+                        <span class="tour-time">19:30</span>
+                        <div>
+                            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.6rem;margin-bottom:0.35rem;"><div class="panel-title" style="font-size:0.92rem;margin:0;" data-i18n="tour.d3.7.t">석식 &amp; 인사이트 토크</div><span class="tour-tag" data-i18n="tour.tag.net">네트워킹</span></div>
+                            <p class="panel-desc" style="font-size:0.85rem;" data-i18n="tour.d3.7.d">현지 전문가와 참가자 간 심층 토론</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <!-- Day 4 -->
             <div style="background:rgba(51,46,45,0.6);border-radius:24px;padding:2rem;border:1px solid var(--grid-line-strong);">
-                <div style="display:flex;align-items:baseline;gap:1.5rem;margin-bottom:2.5rem;padding-bottom:2rem;border-bottom:1px solid var(--grid-line-strong);">
-                    <span style="font-family:var(--font-display);font-size:3.5rem;color:var(--clay);line-height:1;letter-spacing:-0.03em;">D4</span>
-                    <div><div class="meta-label" style="margin-bottom:0.3rem;">Day 4</div><h3 style="font-family:var(--font-subtitle);font-size:1.05rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-main);" data-i18n="tour.d4.h">전략 세션 &amp; Wrap-up</h3></div>
+                <div style="display:flex;align-items:baseline;flex-wrap:wrap;gap:1.25rem;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--grid-line-strong);">
+                    <span style="font-family:var(--font-display);font-size:3.25rem;color:var(--clay);line-height:1;letter-spacing:-0.03em;">D4</span>
+                    <div><div class="meta-label" style="margin-bottom:0.3rem;" data-i18n="tour.d4.date">12월 18일 (금)</div><h3 style="font-family:var(--font-subtitle);font-size:1.05rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-main);" data-i18n="tour.d4.h">인사이트에서 실행으로</h3></div>
                 </div>
-                <div style="display:flex;flex-direction:column;gap:0;">
-                    <div style="display:grid;grid-template-columns:80px 1fr;gap:1.5rem;padding:1.5rem 0;border-top:1px solid var(--grid-line);"><span class="meta-label" style="padding-top:0.15rem;" data-i18n="tour.am">오전</span><div><div class="panel-title" style="font-size:0.9rem;margin-bottom:0.4rem;" data-i18n="tour.d4.t1">AIoT &amp; AI Hardware 전략 세션</div><p class="panel-desc" style="font-size:0.85rem;" data-i18n="tour.d4.d1">생산 일정, QC, 물류, NPI 운영 전략</p></div></div>
-                    <div style="display:grid;grid-template-columns:80px 1fr;gap:1.5rem;padding:1.5rem 0;border-top:1px solid var(--grid-line);"><span class="meta-label" style="padding-top:0.15rem;" data-i18n="tour.am">오전</span><div><div class="panel-title" style="font-size:0.9rem;margin-bottom:0.4rem;" data-i18n="tour.d4.t2">Supplier Matchmaking</div><p class="panel-desc" style="font-size:0.85rem;" data-i18n="tour.d4.d2">실제 공급업체 소개 및 미팅</p></div></div>
-                    <div style="display:grid;grid-template-columns:80px 1fr;gap:1.5rem;padding:1.5rem 0;border-top:1px solid var(--grid-line);"><span class="meta-label" style="padding-top:0.15rem;" data-i18n="tour.pm">오후</span><div><div class="panel-title" style="font-size:0.9rem;margin-bottom:0.4rem;" data-i18n="tour.d4.t3">Wrap-up &amp; Next Steps</div><p class="panel-desc" style="font-size:0.85rem;" data-i18n="tour.d4.d3">향후 액션 플랜 및 Build Assessment 안내</p></div></div>
-                    <div style="display:grid;grid-template-columns:80px 1fr;gap:1.5rem;padding:1.5rem 0;border-top:1px solid var(--grid-line);"><span class="meta-label" style="padding-top:0.15rem;color:var(--text-muted);" data-i18n="tour.pm">오후</span><div><div class="panel-title" style="font-size:0.9rem;margin-bottom:0.4rem;color:var(--text-muted);" data-i18n="tour.d4.t4">Shenzhen 출발</div><p class="panel-desc" style="font-size:0.85rem;"> </p></div></div>
+                <div style="display:flex;flex-direction:column;">
+                    <div class="tour-slot">
+                        <span class="tour-time">09:00</span>
+                        <div>
+                            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.6rem;margin-bottom:0.35rem;"><div class="panel-title" style="font-size:0.92rem;margin:0;color:var(--clay);" data-i18n="tour.d4.1.t">Fast.B 특별세션 · Michael Zheng</div><span class="tour-tag" data-i18n="tour.tag.session">특별세션</span></div>
+                            <p class="panel-desc" style="font-size:0.85rem;" data-i18n="tour.d4.1.d">선전 산업디자인 혁신의 비하인드</p>
+                        </div>
+                    </div>
+                    <div class="tour-slot">
+                        <span class="tour-time">10:00</span>
+                        <div>
+                            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.6rem;margin-bottom:0.35rem;"><div class="panel-title" style="font-size:0.92rem;margin:0;color:var(--clay);" data-i18n="tour.d4.2.t">공유 및 인사이트 랩업 · Innozen Design</div><span class="tour-tag" data-i18n="tour.tag.session">특별세션</span></div>
+                            <p class="panel-desc" style="font-size:0.85rem;" data-i18n="tour.d4.2.d">4일간의 인사이트를 현업 적용 방안과 다음 액션으로 정리</p>
+                        </div>
+                    </div>
+                    <div class="tour-slot">
+                        <span class="tour-time">13:00</span>
+                        <div>
+                            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.6rem;margin-bottom:0.35rem;"><div class="panel-title" style="font-size:0.92rem;margin:0;" data-i18n="tour.d4.3.t">개별 자유 체험 · 선전 → 한국</div><span class="tour-tag" data-i18n="tour.tag.move">이동</span></div>
+                            <p class="panel-desc" style="font-size:0.85rem;" data-i18n="tour.d4.3.d">개별 일정 희망 시 추가 미팅 및 일정 구성 가능</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- ── TARGET & INFO ── -->
+    <!-- ── WHO SHOULD JOIN ── -->
     <div style="padding:14vh var(--container-padding); border-bottom:1px solid var(--grid-line);">
-        <div style="display:flex;flex-direction:column;gap:1.25rem;margin-bottom:7rem;">
-            <span class="meta-label">Who It's For</span>
-            <h2 style="font-family:var(--font-title);font-size:clamp(1.75rem,3vw,3rem);font-weight:700;text-transform:uppercase;letter-spacing:0.04em;line-height:1.12;" data-i18n="tour.target.h2">참가 대상 및 일정</h2>
+        <div style="display:flex;flex-direction:column;gap:1.25rem;margin-bottom:5rem;">
+            <span class="meta-label" data-i18n="tour.who.meta">Who Should Join</span>
+            <h2 style="font-family:var(--font-title);font-size:clamp(1.75rem,3vw,3rem);font-weight:700;text-transform:uppercase;letter-spacing:0.04em;line-height:1.12;" data-i18n="tour.who.h2">이런 분들을 위해 설계했습니다</h2>
+            
         </div>
-        <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:2rem;">
-            <div style="grid-column:span 12;background:rgba(51,46,45,0.6);border-radius:24px;padding:2.5rem 2rem;border:1px solid var(--grid-line-strong);">
-                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:3rem;">
-                    <div>
-                        <div class="meta-label" style="margin-bottom:1.25rem;" data-i18n="tour.target.l1">대상</div>
-                        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.75rem;">
-                            <li style="font-size:0.95rem;color:var(--text-main);display:flex;gap:0.75rem;align-items:flex-start;"><span style="color:var(--clay);margin-top:0.15rem;">✦</span><span data-i18n="tour.target.li1">하드웨어 스타트업 창업자</span></li>
-                            <li style="font-size:0.95rem;color:var(--text-main);display:flex;gap:0.75rem;align-items:flex-start;"><span style="color:var(--clay);margin-top:0.15rem;">✦</span><span data-i18n="tour.target.li2">제품 엔지니어 &amp; PM</span></li>
-                            <li style="font-size:0.95rem;color:var(--text-main);display:flex;gap:0.75rem;align-items:flex-start;"><span style="color:var(--clay);margin-top:0.15rem;">✦</span><span data-i18n="tour.target.li3">로보틱스 / AI Hardware 기업 담당자</span></li>
-                            <li style="font-size:0.95rem;color:var(--text-main);display:flex;gap:0.75rem;align-items:flex-start;"><span style="color:var(--clay);margin-top:0.15rem;">✦</span><span data-i18n="tour.target.li4">하드웨어 투자자</span></li>
-                            <li style="font-size:0.95rem;color:var(--text-main);display:flex;gap:0.75rem;align-items:flex-start;"><span style="color:var(--clay);margin-top:0.15rem;">✦</span><span data-i18n="tour.target.li5">제조 혁신 담당자</span></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <div class="meta-label" style="margin-bottom:1.25rem;" data-i18n="tour.target.l2">2026 일정</div>
-                        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.75rem;">
-                            <li style="font-size:0.95rem;color:var(--text-main);display:flex;gap:0.75rem;align-items:flex-start;"><span style="color:var(--clay);margin-top:0.15rem;">✦</span><span data-i18n="tour.target.sli1">9월 ~ 12월 사이 2–3회 운영 예정</span></li>
-                            <li style="font-size:0.95rem;color:var(--text-main);display:flex;gap:0.75rem;align-items:flex-start;"><span style="color:var(--clay);margin-top:0.15rem;">✦</span><span data-i18n="tour.target.sli2">소그룹 집중 프로그램 (인원 제한)</span></li>
-                            <li style="font-size:0.95rem;color:var(--text-main);display:flex;gap:0.75rem;align-items:flex-start;"><span style="color:var(--clay);margin-top:0.15rem;">✦</span><span data-i18n="tour.target.sli3">현재 참가 신청 접수 중</span></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <div class="meta-label" style="margin-bottom:1.25rem;" data-i18n="tour.target.l3">비용 및 문의</div>
-                        <p style="font-size:0.95rem;color:var(--text-main);line-height:1.7;" data-i18n="tour.target.cost">자세한 내용과 비용은 아래 신청 폼을 통해 문의해 주세요. Fast.B 팀이 빠른 시일 내에 안내 드립니다.</p>
-                    </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:1.5rem;">
+            <div style="background:rgba(51,46,45,0.6);border-radius:24px;padding:2rem;border:1px solid var(--grid-line-strong);">
+                <ul style="list-style:none;display:flex;flex-direction:column;gap:1.1rem;">
+                    <li style="font-size:1rem;line-height:1.7;color:var(--text-main);display:flex;gap:0.75rem;align-items:flex-start;"><span style="color:var(--clay);margin-top:0.1rem;">✦</span><span data-i18n="tour.who.1">AI 하드웨어를 프로토타이핑하거나 제조하려는 기업</span></li>
+                    <li style="font-size:1rem;line-height:1.7;color:var(--text-main);display:flex;gap:0.75rem;align-items:flex-start;"><span style="color:var(--clay);margin-top:0.1rem;">✦</span><span data-i18n="tour.who.2">중국 Physical AI 혁신과 휴머노이드 기업에 관심 있고, 협력을 모색하는 기업과 기관</span></li>
+                    <li style="font-size:1rem;line-height:1.7;color:var(--text-main);display:flex;gap:0.75rem;align-items:flex-start;"><span style="color:var(--clay);margin-top:0.1rem;">✦</span><span data-i18n="tour.who.3">Fast.B를 통해 AI 하드웨어 프로젝트를 진행 중인 개인과 기업</span></li>
+                    <li style="font-size:1rem;line-height:1.7;color:var(--text-main);display:flex;gap:0.75rem;align-items:flex-start;"><span style="color:var(--clay);margin-top:0.1rem;">✦</span><span data-i18n="tour.who.4">선전의 제조 생태계를 깊이 이해하고 싶은 개인과 기업</span></li>
+                </ul>
+            </div>
+            <div style="background:rgba(51,46,45,0.6);border-radius:24px;padding:2rem;border:1px solid var(--grid-line-strong);">
+                <div style="display:flex;flex-direction:column;">
+                    <div style="display:flex;justify-content:space-between;gap:1rem;padding:1rem 0;border-top:1px solid var(--grid-line);"><span class="meta-label" data-i18n="tour.who.info.l1">일정</span><span style="font-size:0.95rem;color:var(--text-main);text-align:right;" data-i18n="tour.who.info.v1">2026. 12. 15 – 12. 18 (3박 4일)</span></div>
+                    <div style="display:flex;justify-content:space-between;gap:1rem;padding:1rem 0;border-top:1px solid var(--grid-line);"><span class="meta-label" data-i18n="tour.who.info.l2">장소</span><span style="font-size:0.95rem;color:var(--text-main);text-align:right;" data-i18n="tour.who.info.v2">중국 선전 (Shenzhen)</span></div>
+                    <div style="display:flex;justify-content:space-between;gap:1rem;padding:1rem 0;border-top:1px solid var(--grid-line);"><span class="meta-label" data-i18n="tour.who.info.l3">인원</span><span style="font-size:0.95rem;color:var(--text-main);text-align:right;" data-i18n="tour.who.info.v3">20명 이내 소수 정예</span></div>
+                    <div style="display:flex;justify-content:space-between;gap:1rem;padding:1rem 0;border-top:1px solid var(--grid-line);"><span class="meta-label" data-i18n="tour.who.info.l4">큐레이터 &amp; 호스트</span><span style="font-size:0.95rem;color:var(--text-main);text-align:right;" data-i18n="tour.who.info.v4">Fast.B (패스트빌드)</span></div>
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- ── OPTIONS & FEES ── -->
+    <div style="padding:14vh var(--container-padding); border-bottom:1px solid var(--grid-line);">
+        <div style="display:flex;flex-direction:column;gap:1.25rem;margin-bottom:5rem;">
+            <span class="meta-label" data-i18n="tour.price.meta">Program Options</span>
+            <h2 style="font-family:var(--font-title);font-size:clamp(1.75rem,3vw,3rem);font-weight:700;text-transform:uppercase;letter-spacing:0.04em;line-height:1.12;" data-i18n="tour.price.h2">참가 옵션 및 비용</h2>
+            
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:1.25rem;">
+            <div style="position:relative;background:rgba(51,46,45,0.6);border-radius:24px;padding:2rem;border:1px solid var(--grid-line-strong);display:flex;flex-direction:column;gap:1.25rem;">
+                
+                <div class="meta-label" data-i18n="tour.price.base.t">기본</div>
+                <div style="display:flex;align-items:baseline;gap:0.5rem;flex-wrap:wrap;"><span style="font-family:var(--font-display);font-size:clamp(2.25rem,3.5vw,3rem);line-height:1;letter-spacing:-0.02em;color:var(--text-main);" data-i18n="tour.price.base.v">400</span><span class="tour-price-unit" data-i18n="tour.price.unit">만원 / 인</span></div>
+                <p class="panel-desc" style="font-size:0.85rem;min-height:2.6em;" data-i18n="tour.price.base.s">3박 4일 · 항공·숙박 개별 진행</p>
+                <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;padding-top:1.25rem;border-top:1px solid var(--grid-line);">
+                    <li style="display:flex;gap:0.6rem;font-size:0.85rem;line-height:1.6;color:var(--text-main);"><span style="color:var(--clay);">✓</span><span data-i18n="tour.price.inc.prog">전 일정 프로그램 · 특별세션 · 랩업</span></li>
+                    <li style="display:flex;gap:0.6rem;font-size:0.85rem;line-height:1.6;color:var(--text-main);"><span style="color:var(--clay);">✓</span><span data-i18n="tour.price.inc.meal">중식 · 석식 포함</span></li>
+                    <li style="display:flex;gap:0.6rem;font-size:0.85rem;line-height:1.6;color:var(--text-main);"><span style="color:var(--clay);">✓</span><span data-i18n="tour.price.inc.bus">현지 단체 이동</span></li>
+                    <li style="display:flex;gap:0.6rem;font-size:0.85rem;line-height:1.6;color:var(--text-muted);"><span style="color:var(--text-muted);">–</span><span data-i18n="tour.price.inc.flight">항공 · 숙박 미포함 (개별 진행)</span></li>
+                </ul>
+            </div>
+            <div style="position:relative;background:rgba(51,46,45,0.6);border-radius:24px;padding:2rem;border:1px solid var(--grid-line-strong);display:flex;flex-direction:column;gap:1.25rem;">
+                
+                <div class="meta-label" data-i18n="tour.price.o1.t">옵션 1</div>
+                <div style="display:flex;align-items:baseline;gap:0.5rem;flex-wrap:wrap;"><span style="font-family:var(--font-display);font-size:clamp(2.25rem,3.5vw,3rem);line-height:1;letter-spacing:-0.02em;color:var(--text-main);" data-i18n="tour.price.o1.v">550</span><span class="tour-price-unit" data-i18n="tour.price.unit">만원 / 인</span></div>
+                <p class="panel-desc" style="font-size:0.85rem;min-height:2.6em;" data-i18n="tour.price.o1.s">3박 4일 · 항공 + 숙박(2인 1실) 포함</p>
+                <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;padding-top:1.25rem;border-top:1px solid var(--grid-line);">
+                    <li style="display:flex;gap:0.6rem;font-size:0.85rem;line-height:1.6;color:var(--text-main);"><span style="color:var(--clay);">✓</span><span data-i18n="tour.price.inc.prog">전 일정 프로그램 · 특별세션 · 랩업</span></li>
+                    <li style="display:flex;gap:0.6rem;font-size:0.85rem;line-height:1.6;color:var(--text-main);"><span style="color:var(--clay);">✓</span><span data-i18n="tour.price.inc.meal">중식 · 석식 포함</span></li>
+                    <li style="display:flex;gap:0.6rem;font-size:0.85rem;line-height:1.6;color:var(--text-main);"><span style="color:var(--clay);">✓</span><span data-i18n="tour.price.inc.bus">현지 단체 이동</span></li>
+                    <li style="display:flex;gap:0.6rem;font-size:0.85rem;line-height:1.6;color:var(--text-main);"><span style="color:var(--clay);">✓</span><span data-i18n="tour.price.inc.twin">항공 · 숙박(2인 1실) 포함</span></li>
+                </ul>
+            </div>
+            <div style="position:relative;background:rgba(51,46,45,0.6);border-radius:24px;padding:2rem;border:1px solid var(--clay);display:flex;flex-direction:column;gap:1.25rem;">
+                <span class="tour-tag" style="position:absolute;top:1.25rem;right:1.25rem;border-color:var(--clay);color:var(--clay);" data-i18n="tour.price.o2.badge">All-inclusive</span>
+                <div class="meta-label" data-i18n="tour.price.o2.t">옵션 2</div>
+                <div style="display:flex;align-items:baseline;gap:0.5rem;flex-wrap:wrap;"><span style="font-family:var(--font-display);font-size:clamp(2.25rem,3.5vw,3rem);line-height:1;letter-spacing:-0.02em;color:var(--text-main);" data-i18n="tour.price.o2.v">590</span><span class="tour-price-unit" data-i18n="tour.price.unit">만원 / 인</span></div>
+                <p class="panel-desc" style="font-size:0.85rem;min-height:2.6em;" data-i18n="tour.price.o2.s">3박 4일 · 항공 + 숙박(1인 1실) 포함</p>
+                <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;padding-top:1.25rem;border-top:1px solid var(--grid-line);">
+                    <li style="display:flex;gap:0.6rem;font-size:0.85rem;line-height:1.6;color:var(--text-main);"><span style="color:var(--clay);">✓</span><span data-i18n="tour.price.inc.prog">전 일정 프로그램 · 특별세션 · 랩업</span></li>
+                    <li style="display:flex;gap:0.6rem;font-size:0.85rem;line-height:1.6;color:var(--text-main);"><span style="color:var(--clay);">✓</span><span data-i18n="tour.price.inc.meal">중식 · 석식 포함</span></li>
+                    <li style="display:flex;gap:0.6rem;font-size:0.85rem;line-height:1.6;color:var(--text-main);"><span style="color:var(--clay);">✓</span><span data-i18n="tour.price.inc.bus">현지 단체 이동</span></li>
+                    <li style="display:flex;gap:0.6rem;font-size:0.85rem;line-height:1.6;color:var(--text-main);"><span style="color:var(--clay);">✓</span><span data-i18n="tour.price.inc.single">항공 · 숙박(1인 1실) 포함</span></li>
+                </ul>
+            </div>
+            <div style="position:relative;background:rgba(51,46,45,0.6);border-radius:24px;padding:2rem;border:1px solid var(--grid-line-strong);display:flex;flex-direction:column;gap:1.25rem;">
+                
+                <div class="meta-label" data-i18n="tour.price.o3.t">옵션 3</div>
+                <div style="display:flex;align-items:baseline;gap:0.5rem;flex-wrap:wrap;"><span style="font-family:var(--font-display);font-size:clamp(1.6rem,2.5vw,2.1rem);line-height:1;letter-spacing:-0.02em;color:var(--text-main);" data-i18n="tour.price.o3.v">별도 협의</span></div>
+                <p class="panel-desc" style="font-size:0.85rem;min-height:2.6em;" data-i18n="tour.price.o3.s">4박 5일 이상 · 개별 일정 및 추가 미팅 구성</p>
+                <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;padding-top:1.25rem;border-top:1px solid var(--grid-line);">
+                    <li style="display:flex;gap:0.6rem;font-size:0.85rem;line-height:1.6;color:var(--text-main);"><span style="color:var(--clay);">✓</span><span data-i18n="tour.price.inc.prog">전 일정 프로그램 · 특별세션 · 랩업</span></li>
+                    <li style="display:flex;gap:0.6rem;font-size:0.85rem;line-height:1.6;color:var(--text-main);"><span style="color:var(--clay);">✓</span><span data-i18n="tour.price.inc.custom">개별 일정 · 추가 미팅 On request</span></li>
+                    <li style="display:flex;gap:0.6rem;font-size:0.85rem;line-height:1.6;color:var(--text-muted);"><span style="color:var(--text-muted);">–</span><span data-i18n="tour.price.inc.custmeal">개별 일정 시 식사 · 이동 별도</span></li>
+                    <li style="display:flex;gap:0.6rem;font-size:0.85rem;line-height:1.6;color:var(--text-muted);"><span style="color:var(--text-muted);">–</span><span data-i18n="tour.price.inc.flight">항공 · 숙박 미포함 (개별 진행)</span></li>
+                </ul>
+            </div>
+        </div>
+        <p class="panel-desc" style="font-size:0.82rem;margin-top:2rem;line-height:1.8;" data-i18n="tour.price.note">※ 부가세(VAT) 별도 · 여행자보험은 모든 옵션에서 미포함(개별 가입)<br>※ 최소 진행 인원에 미달하거나 소규모로 운영될 경우 방문 기업과 세부 프로그램이 조정될 수 있습니다.</p>
     </div>
 
     <!-- ── APPLY FORM ── -->
-    <div style="padding:14vh var(--container-padding) 18vh;">
-        <div style="display:flex;flex-direction:column;gap:1.25rem;margin-bottom:7rem;">
-            <span class="meta-label" data-i18n="tour.apply.meta">Apply Now</span>
-            <h2 style="font-family:var(--font-title);font-size:clamp(1.75rem,3vw,3rem);font-weight:700;text-transform:uppercase;letter-spacing:0.04em;line-height:1.12;" data-i18n="tour.apply.h2">참가 신청</h2>
-            <p class="panel-desc" style="max-width:500px;margin-top:0.25rem;" data-i18n="tour.apply.desc">신청서를 제출하시면 Fast.B 팀이 세부 내용과 비용 안내를 드립니다.</p>
+    <div id="tour-apply" style="padding:14vh var(--container-padding) 18vh;">
+        <div style="display:flex;flex-direction:column;gap:1.25rem;margin-bottom:5rem;">
+            <span class="meta-label" data-i18n="tour.apply.meta">Application</span>
+            <h2 style="font-family:var(--font-title);font-size:clamp(1.75rem,3vw,3rem);font-weight:700;text-transform:uppercase;letter-spacing:0.04em;line-height:1.12;" data-i18n="tour.apply.h2">참가 신청서</h2>
+            <p class="panel-desc" style="max-width:640px;margin-top:0.25rem;" data-i18n="tour.apply.desc">20명 이내로 운영되는 소수 정예 프로그램으로, 신청 순서와 참가 목적을 고려하여 확정됩니다. 신청서를 제출하시면 Fast.B 팀이 참가 확정 및 결제 안내를 드립니다.</p>
         </div>
-        <div style="max-width:680px;">
+        <div style="max-width:760px;">
             <form id="tourForm" onsubmit="submitTourForm(event)" novalidate style="display:flex;flex-direction:column;gap:1.25rem;">
                 <div class="form-row">
                     <div class="form-group">
-                        <label class="form-label" for="t-name" data-i18n="tour.form.name.label">성명</label>
-                        <input class="form-input" type="text" id="t-name" autocomplete="name" data-i18n-placeholder="form.name.ph" placeholder="홍길동" required>
+                        <label class="form-label" for="t-name"><span data-i18n="tour.form.name.label">성명</span> *</label>
+                        <input class="form-input" type="text" id="t-name" autocomplete="name" data-i18n-placeholder="form.name.ph" placeholder="성함" required>
                     </div>
                     <div class="form-group">
-                        <label class="form-label" for="t-org" data-i18n="tour.form.org.label">소속</label>
-                        <input class="form-input" type="text" id="t-org" autocomplete="organization" data-i18n-placeholder="form.org.ph" placeholder="회사 / 팀명">
+                        <label class="form-label" for="t-org"><span data-i18n="tour.form.org.label">소속</span> *</label>
+                        <input class="form-input" type="text" id="t-org" autocomplete="organization" data-i18n-placeholder="form.org.ph" placeholder="소속 (회사 / 팀명)" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="t-title"><span data-i18n="tour.form.title.label">직책</span> *</label>
+                        <input class="form-input" type="text" id="t-title" autocomplete="organization-title" data-i18n-placeholder="tour.form.title.ph" placeholder="예) 대표이사, CTO, 사업개발 팀장" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="t-phone"><span data-i18n="tour.form.phone.label">휴대전화</span> *</label>
+                        <input class="form-input" type="tel" id="t-phone" autocomplete="tel" data-i18n-placeholder="tour.form.phone.ph" placeholder="010-0000-0000" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-label" for="t-email" data-i18n="tour.form.email.label">이메일</label>
+                    <label class="form-label" for="t-email"><span data-i18n="tour.form.email.label">이메일</span> *</label>
                     <input class="form-input" type="email" id="t-email" autocomplete="email" placeholder="name@company.com" required>
                 </div>
+                <fieldset class="form-group" style="border:none;padding:0;margin:0;">
+                    <legend class="form-label" style="margin-bottom:0.6rem;"><span data-i18n="tour.form.purpose.label">참가 목적 (복수 선택 가능)</span> *</legend>
+                    <div class="tour-checks">
+                        <label class="tour-check"><input type="checkbox" name="t-purpose" value="1"><span data-i18n="tour.form.p1">시장조사</span></label>
+                        <label class="tour-check"><input type="checkbox" name="t-purpose" value="2"><span data-i18n="tour.form.p2">중국 AI 사업 파트너 및 기회 발굴</span></label>
+                        <label class="tour-check"><input type="checkbox" name="t-purpose" value="3"><span data-i18n="tour.form.p3">중국 혁신 생태계 이해 및 스터디</span></label>
+                        <label class="tour-check"><input type="checkbox" name="t-purpose" value="4"><span data-i18n="tour.form.p4">Fast.B AI 하드웨어 관심 및 의뢰</span></label>
+                        <label class="tour-check"><input type="checkbox" name="t-purpose" value="5"><span data-i18n="tour.form.p5">피지컬 AI 기업 방문 및 이해</span></label>
+                        <label class="tour-check"><input type="checkbox" name="t-purpose" value="6"><span data-i18n="tour.form.p6">중국 AI 산업 전문가 네트워킹 및 교류</span></label>
+                        <label class="tour-check"><input type="checkbox" name="t-purpose" value="7"><span data-i18n="tour.form.p7">기타</span></label>
+                    </div>
+                    <input class="form-input" type="text" id="t-purpose-other" data-i18n-placeholder="tour.form.p7.ph" placeholder="기타 참가 목적을 입력해 주세요" style="display:none;margin-top:0.6rem;">
+                    <div id="t-purpose-err" class="form-error-msg" data-i18n="tour.form.purpose.err">참가 목적을 하나 이상 선택해 주세요.</div>
+                </fieldset>
                 <div class="form-group">
-                    <label class="form-label" for="t-subject" data-i18n="tour.form.subject.label">제목</label>
-                    <input class="form-input" type="text" id="t-subject" data-i18n-placeholder="tour.form.subject.ph" placeholder="Innovation Tour 참가 문의" required>
+                    <label class="form-label" for="t-option"><span data-i18n="tour.form.option.label">참가 옵션</span> *</label>
+                    <select class="form-input" id="t-option" required style="cursor:pointer;">
+                        <option value="" disabled selected data-i18n="tour.form.option.ph">참가 옵션을 선택해 주세요</option>
+                        <option value="기본 (400만원, 항공·숙박 미포함)" data-i18n="tour.form.opt.base">기본 — 400만원 (항공·숙박 미포함)</option>
+                        <option value="옵션1 (550만원, 항공·숙박 2인1실)" data-i18n="tour.form.opt.o1">옵션 1 — 550만원 (항공·숙박 2인 1실 포함)</option>
+                        <option value="옵션2 (590만원, 항공·숙박 1인1실)" data-i18n="tour.form.opt.o2">옵션 2 — 590만원 (항공·숙박 1인 1실 포함)</option>
+                        <option value="옵션3 (4박5일 이상/개별일정, 협의)" data-i18n="tour.form.opt.o3">옵션 3 — 4박 5일 이상 / 개별 일정 (협의)</option>
+                        <option value="미정 (상담 희망)" data-i18n="tour.form.opt.tbd">아직 미정 — 상담 희망</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="t-invoice"><span data-i18n="tour.form.invoice.label">세금계산서 발행 여부</span> *</label>
+                        <select class="form-input" id="t-invoice" required style="cursor:pointer;">
+                            <option value="" disabled selected data-i18n="tour.form.invoice.ph">선택해 주세요</option>
+                            <option value="발행 필요" data-i18n="tour.form.inv.yes">발행 필요 (사업자)</option>
+                            <option value="발행 불필요" data-i18n="tour.form.inv.no">발행 불필요 (개인)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="t-visits"><span data-i18n="tour.form.visits.label">과거 선전 방문 횟수</span> *</label>
+                        <select class="form-input" id="t-visits" required style="cursor:pointer;">
+                            <option value="" disabled selected data-i18n="tour.form.visits.ph">선택해 주세요</option>
+                            <option value="없음" data-i18n="tour.form.v0">없음 (첫 방문)</option>
+                            <option value="1회" data-i18n="tour.form.v1">1회</option>
+                            <option value="2-4회" data-i18n="tour.form.v2">2–4회</option>
+                            <option value="5회 이상" data-i18n="tour.form.v3">5회 이상</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-label" for="t-message" data-i18n="tour.form.msg.label">요청내용</label>
-                    <textarea class="form-textarea" id="t-message" data-i18n-placeholder="tour.form.msg.ph" placeholder="참가 목적, 현재 프로젝트 단계, 궁금한 점 등을 자유롭게 작성해 주세요." required></textarea>
+                    <label class="form-label" for="t-message" data-i18n="tour.form.extra.label">관심 분야 및 기타 요청사항 (선택)</label>
+                    <textarea class="form-textarea" id="t-message" data-i18n-placeholder="tour.form.extra.ph" placeholder="관심 있는 기업·기술 분야, 프라이빗 미팅 희망 대상, 전후 개별 일정 요청 등을 자유롭게 작성해 주세요."></textarea>
                 </div>
+                <label class="tour-check tour-consent"><input type="checkbox" id="t-consent" required><span data-i18n="tour.form.consent">참가 신청 및 안내를 위한 개인정보(성명, 소속, 직책, 이메일, 휴대전화) 수집·이용에 동의합니다. 수집된 정보는 프로그램 운영 목적으로만 사용되며, 프로그램 종료 후 1년간 보관 후 파기됩니다.</span></label>
                 <div id="tour-form-error" class="form-error-msg" data-i18n="modal.error">오류가 발생했습니다. 잠시 후 다시 시도해 주세요.</div>
                 <button type="submit" id="tour-form-btn" class="btn btn-primary" style="align-self:flex-start;margin-top:0.5rem;" data-i18n="tour.form.submit">신청서 제출하기</button>
             </form>
             <div id="tour-form-success" style="display:none;text-align:center;padding:4rem 2rem;">
                 <div style="font-size:2rem;color:var(--clay);margin-bottom:1.5rem;">✦</div>
                 <h3 class="panel-title" style="color:var(--clay);margin-bottom:1rem;font-size:1.3rem;" data-i18n="tour.success.title">신청 접수 완료</h3>
-                <p class="panel-desc" data-i18n="tour.success.desc">신청서가 접수되었습니다.<br>Fast.B 팀이 빠른 시일 내에 연락 드리겠습니다.</p>
+                <p class="panel-desc" data-i18n="tour.success.desc">참가 신청서가 접수되었습니다.<br>Fast.B 팀이 참가 확정 및 결제 안내를 위해 빠른 시일 내에 연락 드리겠습니다.</p>
             </div>
+            <p class="panel-desc" style="font-size:0.85rem;margin-top:3rem;" data-i18n="tour.contact">프로그램 관련 문의: <a href="mailto:contact@fastb-uild.com" style="color:var(--clay);">contact@fastb-uild.com</a></p>
         </div>
     </div>
 
@@ -2592,56 +3045,239 @@ const T = {
     'cta.btn':'Build Your Future',
     'cta.btn.general':'일반문의',
     'cta.footer':'©Fast.B. All Rights Reserved. Fast Build and Fast Business by AI Hardware Innovation Catalyst.',
-    'tour.hero.meta':'Asia On-Site Manufacturing Acceleration Program',
-    'tour.hero.p':'하드웨어·로보틱스·피지컬 AI 스타트업과 기업들을 위해 설계된 아시아 현장형 제조·공급망 액셀러레이션 프로그램. 단순한 공장 투어나 네트워킹 행사가 아니라, 실제 제품을 <span style="color:var(--clay);font-weight:600;">"프로토타입 단계"에서 "양산 가능한 제품"</span>으로 전환하기 위한 실전 제조 역량과 글로벌 공급망 감각을 직접 체험하도록 구성되어 있습니다.',
-    'tour.stat1.label':'2026년 운영 횟수','tour.stat2.label':'2026 운영 시기',
-    'tour.diff.meta':'Core Differentiator',
-    'tour.diff.h2':'단순 견학이 아닌,<br>실전 제조 교육',
-    'tour.diff.p1.title':'실무 중심 학습','tour.diff.p1.desc':'실제 견적, 공급망 연결, 생산 전략, DFM(Design for Manufacturing), 원가 및 협상 구조까지 현장에서 직접 배웁니다.',
-    'tour.diff.p2.title':'신뢰 네트워크 확보','tour.diff.p2.desc':'공장 선정과 공급망 구축 과정에서의 시행착오를 줄이고, 검증된 제조 파트너와의 직접 네트워크를 구축합니다.',
-    'tour.diff.p3.title':'End-to-End 지원 연계','tour.diff.p3.desc':'프로그램 이후에도 Fast.B 플랫폼을 통해 공급망 연결, 생산 실행, QC, 물류 등 실제 양산까지 이어질 수 있도록 지원합니다.',
-    'tour.hl.meta':'Program Highlights','tour.hl.h2':'주요 프로그램',
-    'tour.hl.1.title':'PCB · 조립 · 사출 · 패키징 공장 투어','tour.hl.1.desc':'PCB 제작, SMT 조립, 금형 및 패키징 공장을 직접 방문하며 제조 프로세스와 품질관리 기준을 체험합니다.',
-    'tour.hl.2.title':'로보틱스 및 피지컬 AI 기업 방문','tour.hl.2.desc':'선전 기반 로봇 제조사 및 피지컬 AI 하드웨어 기업을 방문하여 생산 프로세스와 공급망 구조를 파악합니다.',
-    'tour.hl.3.title':'NVIDIA OEM 및 자동화 생산라인 견학','tour.hl.3.desc':'AI 하드웨어 제조와 글로벌 OEM 전략을 이해하고, 자동화 생산라인에서 글로벌 시장 대응 역량을 확인합니다.',
-    'tour.hl.4.title':'화창베이(Huaqiangbei) 전자시장 탐방','tour.hl.4.desc':'세계 최대 전자부품 시장에서 부품 소싱, BOM 최적화, 빠른 프로토타이핑 전략을 직접 경험합니다.',
-    'tour.hl.5.title':'현지 하드웨어 창업자 및 엔지니어 네트워킹','tour.hl.5.desc':'선전 현지 하드웨어 창업자, 엔지니어, 제조 전문가들과 직접 교류하며 글로벌 오픈 이노베이션 생태계를 경험합니다.',
-    'tour.hl.6.title':'공급망 · 가격 협상 · 양산 전략 세션','tour.hl.6.desc':'MOQ, 견적 협상, 공급업체 검증, DFM 원칙, NPI 운영 전략 등 실무에 즉시 적용 가능한 제조 인텔리전스를 습득합니다.',
-    'tour.sched.meta':'AI Hardware, AIoT, XR & Robotics Track',
-    'tour.sched.h2':'3박4일 프로그램 일정',
-    'tour.sched.desc':'대상: 로보틱스 / AI Hardware / Consumer Electronics 스타트업, 엔지니어, PM, 투자자<br>목표: 프로토타입 → 양산 전환 프로세스 이해 및 공급망 연결',
-    'tour.am':'오전','tour.pm':'오후','tour.eve':'저녁',
-    'tour.d1.h':'Shenzhen 도착 및 제조 생태계 입문',
-    'tour.d1.t1':'Shenzhen 도착 및 오리엔테이션','tour.d1.d1':'중국 제조 생태계 개요, Shenzhen 공급망 구조 이해',
-    'tour.d1.t2':'PCB & SMT 공장 투어','tour.d1.d2':'PCB 제작, SMT 조립, QC 프로세스 분석',
-    'tour.d1.t3':'DFM(Design for Manufacturing) 세션','tour.d1.d3':'양산형 설계 핵심 원칙 및 실패 사례',
-    'tour.d1.t4':'Welcome Dinner & Founder Networking','tour.d1.d4':'글로벌 하드웨어 창업자 교류',
-    'tour.d2.h':'공장 투어 & 공급망 워크숍',
-    'tour.d2.t1':'XR, AI Smart Device Companies 방문','tour.d2.d1':'사출 금형, 원가 구조, 양산 대응 전략',
-    'tour.d2.t2':'Mold, Assembly & Packaging Factory 방문','tour.d2.d2':'조립 라인 자동화, 품질관리, 패키징 전략',
-    'tour.d2.t3':'공급망 워크숍','tour.d2.d3':'MOQ, 견적 협상, 공급업체 검증 방법',
-    'tour.d2.t4':'Shenzhen Hardware Meetup','tour.d2.d4':'현지 엔지니어 및 제조 전문가 네트워킹',
-    'tour.d3.h':'로보틱스 · AI 하드웨어 · 시장 탐방',
-    'tour.d3.t1':'Robotics / Physical AI 기업 방문','tour.d3.d1':'로봇 생산 프로세스 및 실제 공급망 사례',
-    'tour.d3.t2':'NVIDIA OEM / AI Hardware 생산라인 견학','tour.d3.d2':'AI 하드웨어 제조와 글로벌 OEM 전략',
-    'tour.d3.t3':'Huaqiangbei Electronics Market 탐방','tour.d3.d3':'부품 소싱, BOM 최적화, 빠른 프로토타이핑',
-    'tour.d3.t4':'참가자 Roundtable','tour.d3.d4':'제품별 공급망 및 제조 전략 피드백',
-    'tour.d4.h':'전략 세션 & Wrap-up',
-    'tour.d4.t1':'AIoT & AI Hardware 전략 세션','tour.d4.d1':'생산 일정, QC, 물류, NPI 운영 전략',
-    'tour.d4.t2':'Supplier Matchmaking','tour.d4.d2':'실제 공급업체 소개 및 미팅',
-    'tour.d4.t3':'Wrap-up & Next Steps','tour.d4.d3':'향후 액션 플랜 및 Build Assessment 안내',
-    'tour.d4.t4':'Shenzhen 출발',
-    'tour.target.h2':'참가 대상 및 일정',
-    'tour.target.l1':'대상','tour.target.l2':'2026 일정','tour.target.l3':'비용 및 문의',
-    'tour.target.li1':'하드웨어 스타트업 창업자','tour.target.li2':'제품 엔지니어 & PM',
-    'tour.target.li3':'로보틱스 / AI Hardware 기업 담당자','tour.target.li4':'하드웨어 투자자','tour.target.li5':'제조 혁신 담당자',
-    'tour.target.sli1':'9월 ~ 12월 사이 2–3회 운영 예정','tour.target.sli2':'소그룹 집중 프로그램 (인원 제한)','tour.target.sli3':'현재 참가 신청 접수 중',
-    'tour.target.cost':'자세한 내용과 비용은 아래 신청 폼을 통해 문의해 주세요. Fast.B 팀이 빠른 시일 내에 안내 드립니다.',
-    'tour.apply.meta':'Apply Now','tour.apply.h2':'참가 신청',
-    'tour.apply.desc':'신청서를 제출하시면 Fast.B 팀이 세부 내용과 비용 안내를 드립니다.',
-    'tour.form.name.label':'성명','tour.form.org.label':'소속','tour.form.email.label':'이메일',
-    'tour.form.subject.label':'제목','tour.form.msg.label':'요청내용','tour.form.submit':'신청서 제출하기',
-    'tour.success.title':'신청 접수 완료','tour.success.desc':'신청서가 접수되었습니다.<br>Fast.B 팀이 빠른 시일 내에 연락 드리겠습니다.',
+    'tour.hero.meta':'[Fast.B AI 혁신 인사이트 투어: Shenzhen 2026]',
+    'tour.hero.h':'피지컬 AI 혁명의 심장:<br>AI 하드웨어 혁신 생태계를 해부하다',
+    'tour.hero.date':'2026. 12. 15 (화) – 12. 18 (금) · 3박 4일 · 중국 선전',
+    'tour.hero.p':'대기업 전시관을 둘러보는 견학이 아닙니다. 선전 현지에서 AI 하드웨어를 직접 설계하고 만드는 Fast.B 팀과 파트너들이 큐레이션하고 호스팅하는 <span style="color:var(--clay);font-weight:600;">20명 이내의 소수 정예 딜리게이션</span>입니다. 차세대 휴머노이드·피지컬 AI 기업의 현장, 그 제품을 실제로 만들어내는 공급망과 공장, 그리고 선전 제조 혁신을 움직이는 전문가들을 4일간 집중적으로 만나고, 귀국 후 실제 프로젝트로 이어갈 수 있도록 설계했습니다.',
+    'tour.hero.cta1':'참가 신청하기',
+    'tour.hero.cta2':'전체 일정 보기',
+    'tour.stat1':'프로그램 일정',
+    'tour.stat2':'소수 정예 정원',
+    'tour.stat3':'피지컬 AI · SCM 현장 방문',
+    'tour.stat4':'현지 전문가 특별세션',
+    'tour.goal.meta':'Program Objectives',
+    'tour.goal.h2':'4일 후, 무엇을 얻게 되는가',
+    'tour.goal.1':'<strong>중국발 Physical AI 혁신 트렌드</strong>와 <strong>선전 하드웨어 제조 생태계</strong>를 직접 보고, 체험하고, 깊이 이해합니다.',
+    'tour.goal.2':'<strong>AI 하드웨어 프로토타이핑 플랫폼</strong> Fast.B의 작동 구조와 경쟁력을 현장에서 이해합니다.',
+    'tour.goal.3':'Fast.B를 움직이는 <strong>중국 제조 혁신 생태계의 전문가</strong>들을 만나 배우고 교류합니다.',
+    'tour.goal.4':'선전 하드웨어 생태계의 <strong>핵심 기업</strong>들을 만나 이해하고, <strong>잠재적 파트너</strong>로 연결됩니다.',
+    'tour.goal.5':'중국 혁신 생태계에서 얻은 인사이트를 <strong>현업에 적용</strong>하고 <strong>발전시킬 방안</strong>을 함께 논의합니다.',
+    'tour.diff.meta':'Why Fast.B Delegation',
+    'tour.diff.h2':'쇼룸이 아닌,<br>혁신의 엔진룸으로',
+    'tour.diff.lead':'선전 기업 탐방 프로그램은 많습니다. 그러나 대부분은 대기업 전시관을 관람하고 브리핑을 듣는 데서 끝납니다. Fast.B 딜리게이션은 선전에서 실제로 하드웨어를 만드는 사람들이 기획하기 때문에, 제품이 탄생하는 현장과 그 뒤의 사람들에게 직접 닿을 수 있습니다.',
+    'tour.cmp.h.item':'구분',
+    'tour.cmp.h.other':'일반적인 선전 기업 탐방',
+    'tour.cmp.h.fastb':'Fast.B Innovation Delegation',
+    'tour.cmp.r1.l':'기획 · 호스트',
+    'tour.cmp.r1.o':'여행사·교육기관 주관, 동행 전문가 1인',
+    'tour.cmp.r1.f':'선전 현지에서 AI 하드웨어를 직접 만드는 Fast.B 팀과 파트너사 (Innozen Design · Seeed · Go Global Center)',
+    'tour.cmp.r2.l':'방문 대상',
+    'tour.cmp.r2.o':'대기업 본사 전시관·쇼룸 관람 중심',
+    'tour.cmp.r2.f':'차세대 휴머노이드·피지컬 AI 기업 + PCB·금형·조립 공장 등 실제 공급망 현장',
+    'tour.cmp.r3.l':'그룹 규모',
+    'tour.cmp.r3.o':'30명 내외의 대규모 그룹',
+    'tour.cmp.r3.f':'20명 이내 소수 정예 — 질의응답·토론 중심',
+    'tour.cmp.r4.l':'프로그램 방식',
+    'tour.cmp.r4.o':'기업 소개 및 브리핑 청취',
+    'tour.cmp.r4.f':'프라이빗 미팅 · 전문가 코칭 · 인사이트 토크 · 랩업 세션',
+    'tour.cmp.r5.l':'네트워크',
+    'tour.cmp.r5.o':'일회성 방문',
+    'tour.cmp.r5.f':'SUSTech · Fast.B 멘토단 · 현지 제조 전문가와 지속적인 관계',
+    'tour.cmp.r6.l':'귀국 후',
+    'tour.cmp.r6.o':'프로그램 종료',
+    'tour.cmp.r6.f':'Fast.B 플랫폼(Track V · Track C)으로 프로토타이핑부터 양산까지 연계',
+    'tour.feat.meta':'Signature Elements',
+    'tour.feat.h2':'Fast.B만의 6가지 차별점',
+    'tour.feat.1.t':'Fast.B 주관 오리엔테이션 &amp; 랩업',
+    'tour.feat.1.d':'첫날 오프닝 키노트로 관전 포인트를 정리하고, 마지막 날 Innozen Design에서 참가자 전원의 인사이트를 현업 적용 방안으로 정리합니다.',
+    'tour.feat.2.t':'잠재 파트너 기업 방문 &amp; 프라이빗 미팅',
+    'tour.feat.2.d':'단순 관람이 아니라 협력 가능성을 전제로 한 방문입니다. Fast.B가 맺어온 관계를 바탕으로 기업 관계자와의 프라이빗 미팅을 구성합니다.',
+    'tour.feat.3.t':'현지 전문가 · 참가기업 간 네트워킹',
+    'tour.feat.3.d':'현지 혁신·테크·산업 전문가, SUSTech 및 Fast.B 멘토단과 함께하는 인사이트 토크, 그리고 참가기업 간 교류의 장을 마련합니다.',
+    'tour.feat.4.t':'제품혁신 프라이빗 코칭',
+    'tour.feat.4.d':'참가자의 제품·사업 아이디어에 대해 제품혁신 및 산업 전문가가 직접 피드백하는 프라이빗 코칭 세션을 제공합니다.',
+    'tour.feat.5.t':'선전 제조 생태계의 살아있는 인사이트',
+    'tour.feat.5.d':'산업디자인, 공급망, 정부 주도 혁신 정책까지 — 선전 제조 혁신 생태계의 한가운데서 일하는 전문가들의 깊이 있는 경험을 직접 듣습니다.',
+    'tour.feat.6.t':'직접 질의응답하고 토론하는 구조',
+    'tour.feat.6.d':'20명 이내 규모이기에 가능한 밀도입니다. 모든 세션은 현지 전문가와 직접 질문하고 토론할 수 있도록 운영됩니다.',
+    'tour.exp.meta':'Fast.B Special Sessions',
+    'tour.exp.h2':'선전 현장을 만드는 사람들에게 직접 듣다',
+    'tour.exp.1.role':'Fast.B Co-founder · Innozen Design CEO',
+    'tour.exp.1.topic':'선전 산업디자인 혁신의 비하인드',
+    'tour.exp.1.d':'선전산업디자인협회 부회장이자 Red Dot · iF · IDEA 수상 디자인 리더가 선전의 스마트 하드웨어가 어떻게 디자인되고 상품화되는지 그 이면을 공유합니다.',
+    'tour.exp.2.role':'Sand and Wave CEO · Fast.B Mentor',
+    'tour.exp.2.topic':'선전 제조 생태계의 이해',
+    'tour.exp.2.d':'HAX와 함께 수많은 하드웨어 스타트업의 0→1 제품 개발과 양산을 이끈 공급망 전문가가 선전 제조의 작동 원리를 해설합니다.',
+    'tour.exp.3.role':'Fast.B 특별세션 연사',
+    'tour.exp.3.topic':'중국 정부 주도 혁신의 이해',
+    'tour.exp.3.d':'선전의 압축 성장을 가능하게 한 정책·산업 육성 구조를 이해하고, 한국 기업이 활용할 수 있는 기회를 짚어봅니다.',
+    'tour.exp.4.name':'SUSTech &amp; Fast.B 멘토단',
+    'tour.exp.4.role':'인사이트 토크 &amp; 석식',
+    'tour.exp.4.topic':'선전의 혁신 인재와 함께하는 저녁',
+    'tour.exp.4.d':'남방과기대(SUSTech) 연구진과 Fast.B 멘토단이 함께하는 인사이트 토크에서 피지컬 AI 연구와 산업의 연결 지점을 논의합니다.',
+    'tour.visit.meta':'Where We Go',
+    'tour.visit.h2':'방문 기업 및 장소',
+    'tour.visit.note':'※ 방문 기업은 현재 기획·섭외 중이며, 순서와 내용은 추후 변경될 수 있습니다.',
+    'tour.visit.c1.t':'벤치마크 &amp; 파트너 로봇 기업',
+    'tour.visit.c1.d':'휴머노이드·덱스터러스 핸드·촉각 센싱 등 차세대 피지컬 AI를 이끄는 기업들의 기술과 사업 전략을 현장에서 확인합니다.',
+    'tour.visit.c2.t':'Fast.B 플랫폼 핵심 파트너',
+    'tour.visit.c2.d':'Fast.B의 디자인·프로토타이핑·글로벌 진출을 함께 수행하는 핵심 파트너사에서 플랫폼의 실제 작동 방식을 이해합니다.',
+    'tour.visit.c3.t':'선전 혁신 생태계를 구성하는 SCM 기업',
+    'tour.visit.c3.d':'AI 하드웨어가 실제로 만들어지는 공급망 현장. 부품·PCB·금형·조립 공장과 프로토타이핑 기업을 방문합니다.',
+    'tour.visit.c3.i1':'부품 · PCB · 금형 · 조립 공장',
+    'tour.visit.c3.i2':'산업디자인 전문 기업',
+    'tour.visit.c3.i3':'프로토타이핑 전문 기업 (3NOD)',
+    'tour.visit.c3.i4':'Huaqiang Electronics Association 회원사',
+    'tour.visit.c4.t':'선전 혁신 생태계 대표 장소',
+    'tour.visit.c4.d':'세계 최대 전자상가부터 로봇 리테일, 로보택시까지 — 선전의 혁신이 일상과 시장이 되는 현장을 체험합니다.',
+    'tour.visit.c4.i1':'화창베이 (Huaqiangbei)',
+    'tour.visit.c4.i2':'6S Robot Mall',
+    'tour.visit.c4.i3':'난산 로봇밸리',
+    'tour.visit.c4.i8':'Pony.ai 로보택시',
+    'tour.sched.meta':'Program Schedule · Dec 15–18, 2026',
+    'tour.sched.h2':'3박 4일 전체 일정',
+    'tour.sched.desc':'개별 일정이 필요한 경우 프로그램 전후로 추가 일정 구성이 가능합니다.<br>※ 방문 기업은 현재 기획·섭외 중이며, 순서와 내용은 추후 변경될 수 있습니다.',
+    'tour.tag.visit':'기업 방문',
+    'tour.tag.session':'특별세션',
+    'tour.tag.eco':'생태계 탐방',
+    'tour.tag.net':'네트워킹',
+    'tour.tag.move':'이동',
+    'tour.d1.date':'12월 15일 (화)',
+    'tour.d1.h':'선전 생태계에 들어서다',
+    'tour.d1.1.t':'한국 → 선전 이동',
+    'tour.d1.1.d':'선전 도착 후 전용 차량으로 이동',
+    'tour.d1.2.t':'오리엔테이션 &amp; 오프닝 키노트',
+    'tour.d1.2.d':'Go Global Center — 4일간의 관전 포인트와 선전 피지컬 AI 생태계 지도',
+    'tour.d1.3.t':'Fast.B 특별세션 · Vicky Xie',
+    'tour.d1.3.d':'중국 정부 주도 혁신의 이해',
+    'tour.d1.4.t':'선전 혁신 생태계 탐방',
+    'tour.d1.4.d':'6S Robot Mall 또는 InnoCampus — 로봇이 소비자와 만나는 방식',
+    'tour.d1.5.t':'선전 AI 하드웨어 생태계 탐방 · 화창베이',
+    'tour.d1.5.d':'세계 최대 전자상가에서 부품 소싱과 빠른 프로토타이핑의 원천을 체험',
+    'tour.d1.6.t':'네트워킹 석식',
+    'tour.d1.6.d':'참가자 소개 및 현지 파트너와의 첫 교류',
+    'tour.d2.date':'12월 16일 (수)',
+    'tour.d2.h':'피지컬 AI와 공급망의 현장',
+    'tour.d2.1.t':'Physical AI 혁신기업 방문 · AstriBot',
+    'tour.d2.1.d':'범용 휴머노이드 로봇의 기술과 상용화 전략',
+    'tour.d2.2.t':'중식',
+    'tour.d2.3.t':'Fast.B AI 하드웨어 SCM 기업 방문 · Seeed | XFactory',
+    'tour.d2.3.d':'오픈 하드웨어 생태계와 AI 하드웨어 소량·맞춤 생산 구조',
+    'tour.d2.4.t':'Physical AI 혁신기업 방문 · AI²Robotics',
+    'tour.d2.4.d':'임바디드 AI 로봇의 개발과 산업 적용 사례',
+    'tour.d2.5.t':'Physical AI 혁신기업 방문 · PaXini',
+    'tour.d2.5.d':'촉각 센싱 기술과 로봇 핸드의 미래',
+    'tour.d2.6.t':'선전 혁신 생태계 탐방',
+    'tour.d2.6.d':'전기차 · 자율주행 · 로봇',
+    'tour.d2.7.t':'석식 &amp; 인사이트 토크',
+    'tour.d2.7.d':'SUSTech 및 Fast.B 멘토단 참가',
+    'tour.d3.date':'12월 17일 (목)',
+    'tour.d3.h':'로봇에서 공장까지',
+    'tour.d3.1.t':'Physical AI 혁신기업 방문 · DexForce 또는 LimX Dynamics',
+    'tour.d3.1.d':'로봇 지능과 보행·조작 기술의 최전선',
+    'tour.d3.2.t':'중식',
+    'tour.d3.3.t':'Physical AI 혁신기업 방문 · DIGIT Robotics',
+    'tour.d3.3.d':'로봇 기업의 제품화와 시장 진입 전략',
+    'tour.d3.4.t':'Fast.B AI 하드웨어 SCM 팩토리 방문',
+    'tour.d3.4.d':'PCB · 금형 · 조립 — 프로토타입이 양산 제품이 되는 과정',
+    'tour.d3.5.t':'Fast.B 특별세션 · Donny Zhang',
+    'tour.d3.5.d':'선전 제조 생태계의 이해',
+    'tour.d3.6.t':'선전 혁신 생태계 탐방',
+    'tour.d3.6.d':'AIoT · XR · AI Glasses',
+    'tour.d3.7.t':'석식 &amp; 인사이트 토크',
+    'tour.d3.7.d':'현지 전문가와 참가자 간 심층 토론',
+    'tour.d4.date':'12월 18일 (금)',
+    'tour.d4.h':'인사이트에서 실행으로',
+    'tour.d4.1.t':'Fast.B 특별세션 · Michael Zheng',
+    'tour.d4.1.d':'선전 산업디자인 혁신의 비하인드',
+    'tour.d4.2.t':'공유 및 인사이트 랩업 · Innozen Design',
+    'tour.d4.2.d':'4일간의 인사이트를 현업 적용 방안과 다음 액션으로 정리',
+    'tour.d4.3.t':'개별 자유 체험 · 선전 → 한국',
+    'tour.d4.3.d':'개별 일정 희망 시 추가 미팅 및 일정 구성 가능',
+    'tour.who.meta':'Who Should Join',
+    'tour.who.h2':'이런 분들을 위해 설계했습니다',
+    'tour.who.1':'AI 하드웨어를 프로토타이핑하거나 제조하려는 기업',
+    'tour.who.2':'중국 Physical AI 혁신과 휴머노이드 기업에 관심 있고, 협력을 모색하는 기업과 기관',
+    'tour.who.3':'Fast.B를 통해 AI 하드웨어 프로젝트를 진행 중인 개인과 기업',
+    'tour.who.4':'선전의 제조 생태계를 깊이 이해하고 싶은 개인과 기업',
+    'tour.who.info.l1':'일정',
+    'tour.who.info.v1':'2026. 12. 15 – 12. 18 (3박 4일)',
+    'tour.who.info.l2':'장소',
+    'tour.who.info.v2':'중국 선전 (Shenzhen)',
+    'tour.who.info.l3':'인원',
+    'tour.who.info.v3':'20명 이내 소수 정예',
+    'tour.who.info.l4':'큐레이터 &amp; 호스트',
+    'tour.who.info.v4':'Fast.B (패스트빌드)',
+    'tour.price.meta':'Program Options',
+    'tour.price.h2':'참가 옵션 및 비용',
+    'tour.price.unit':'만원 / 인',
+    'tour.price.base.t':'기본',
+    'tour.price.base.v':'400',
+    'tour.price.base.s':'3박 4일 · 항공·숙박 개별 진행',
+    'tour.price.o1.t':'옵션 1',
+    'tour.price.o1.v':'550',
+    'tour.price.o1.s':'3박 4일 · 항공 + 숙박(2인 1실) 포함',
+    'tour.price.o2.t':'옵션 2',
+    'tour.price.o2.v':'590',
+    'tour.price.o2.s':'3박 4일 · 항공 + 숙박(1인 1실) 포함',
+    'tour.price.o2.badge':'All-inclusive',
+    'tour.price.o3.t':'옵션 3',
+    'tour.price.o3.v':'별도 협의',
+    'tour.price.o3.s':'4박 5일 이상 · 개별 일정 및 추가 미팅 구성',
+    'tour.price.inc.prog':'전 일정 프로그램 · 특별세션 · 랩업',
+    'tour.price.inc.meal':'중식 · 석식 포함',
+    'tour.price.inc.bus':'현지 단체 이동',
+    'tour.price.inc.flight':'항공 · 숙박 미포함 (개별 진행)',
+    'tour.price.inc.twin':'항공 · 숙박(2인 1실) 포함',
+    'tour.price.inc.single':'항공 · 숙박(1인 1실) 포함',
+    'tour.price.inc.custom':'개별 일정 · 추가 미팅 On request',
+    'tour.price.inc.custmeal':'개별 일정 시 식사 · 이동 별도',
+    'tour.price.note':'※ 부가세(VAT) 별도 · 여행자보험은 모든 옵션에서 미포함(개별 가입)<br>※ 최소 진행 인원에 미달하거나 소규모로 운영될 경우 방문 기업과 세부 프로그램이 조정될 수 있습니다.',
+    'tour.apply.meta':'Application',
+    'tour.apply.h2':'참가 신청서',
+    'tour.apply.desc':'20명 이내로 운영되는 소수 정예 프로그램으로, 신청 순서와 참가 목적을 고려하여 확정됩니다. 신청서를 제출하시면 Fast.B 팀이 참가 확정 및 결제 안내를 드립니다.',
+    'tour.form.name.label':'성명',
+    'tour.form.org.label':'소속',
+    'tour.form.email.label':'이메일',
+    'tour.form.msg.label':'요청내용',
+    'tour.form.submit':'신청서 제출하기',
+    'tour.form.title.label':'직책',
+    'tour.form.title.ph':'예) 대표이사, CTO, 사업개발 팀장',
+    'tour.form.phone.label':'휴대전화',
+    'tour.form.phone.ph':'010-0000-0000',
+    'tour.form.purpose.label':'참가 목적 (복수 선택 가능)',
+    'tour.form.p1':'시장조사',
+    'tour.form.p2':'중국 AI 사업 파트너 및 기회 발굴',
+    'tour.form.p3':'중국 혁신 생태계 이해 및 스터디',
+    'tour.form.p4':'Fast.B AI 하드웨어 관심 및 의뢰',
+    'tour.form.p5':'피지컬 AI 기업 방문 및 이해',
+    'tour.form.p6':'중국 AI 산업 전문가 네트워킹 및 교류',
+    'tour.form.p7':'기타',
+    'tour.form.p7.ph':'기타 참가 목적을 입력해 주세요',
+    'tour.form.purpose.err':'참가 목적을 하나 이상 선택해 주세요.',
+    'tour.form.option.label':'참가 옵션',
+    'tour.form.option.ph':'참가 옵션을 선택해 주세요',
+    'tour.form.opt.base':'기본 — 400만원 (항공·숙박 미포함)',
+    'tour.form.opt.o1':'옵션 1 — 550만원 (항공·숙박 2인 1실 포함)',
+    'tour.form.opt.o2':'옵션 2 — 590만원 (항공·숙박 1인 1실 포함)',
+    'tour.form.opt.o3':'옵션 3 — 4박 5일 이상 / 개별 일정 (협의)',
+    'tour.form.opt.tbd':'아직 미정 — 상담 희망',
+    'tour.form.invoice.label':'세금계산서 발행 여부',
+    'tour.form.invoice.ph':'선택해 주세요',
+    'tour.form.inv.yes':'발행 필요 (사업자)',
+    'tour.form.inv.no':'발행 불필요 (개인)',
+    'tour.form.visits.label':'과거 선전 방문 횟수',
+    'tour.form.visits.ph':'선택해 주세요',
+    'tour.form.v0':'없음 (첫 방문)',
+    'tour.form.v1':'1회',
+    'tour.form.v2':'2–4회',
+    'tour.form.v3':'5회 이상',
+    'tour.form.extra.label':'관심 분야 및 기타 요청사항 (선택)',
+    'tour.form.extra.ph':'관심 있는 기업·기술 분야, 프라이빗 미팅 희망 대상, 전후 개별 일정 요청 등을 자유롭게 작성해 주세요.',
+    'tour.form.consent':'참가 신청 및 안내를 위한 개인정보(성명, 소속, 직책, 이메일, 휴대전화) 수집·이용에 동의합니다. 수집된 정보는 프로그램 운영 목적으로만 사용되며, 프로그램 종료 후 1년간 보관 후 파기됩니다.',
+    'tour.success.title':'신청 접수 완료',
+    'tour.success.desc':'참가 신청서가 접수되었습니다.<br>Fast.B 팀이 참가 확정 및 결제 안내를 위해 빠른 시일 내에 연락 드리겠습니다.',
+    'tour.contact':'프로그램 관련 문의: <a href="mailto:contact@fastb-uild.com" style="color:var(--clay);">contact@fastb-uild.com</a>',
     'modal.meta':'Initiate Protocol',
     'modal.title':'문의 접수',
     'modal.name':'성명','modal.org':'소속','modal.email':'이메일','modal.subject':'제목','modal.message':'요청내용',
@@ -2650,8 +3286,6 @@ const T = {
     'modal.success.title':'접수 완료','modal.success.desc':'요청이 접수되었습니다.<br>빠른 시일 내에 연락 드리겠습니다.',
     'modal.upsell':'세부 프로젝트 문의가 필요한 경우 Build Your Future를 클릭하여 프로젝트 내용을 접수해주시기 바랍니다.','modal.upsell.btn':'Build Your Future',
     'form.name.ph':'성함','form.org.ph':'소속 (회사 / 팀명)',
-    'tour.form.subject.ph':'Innovation Tour 참가 문의',
-    'tour.form.msg.ph':'참가 목적, 현재 프로젝트 단계, 궁금한 점 등을 자유롭게 작성해 주세요.',
     'ws.form.msg.ph':'워크샵 목적, 참가 인원, 일정 희망 등을 자유롭게 작성해 주세요.'
   },
   en: {
@@ -2778,56 +3412,239 @@ const T = {
     'cta.btn':'Build Your Future',
     'cta.btn.general':'General Inquiry',
     'cta.footer':'©Fast.B. All Rights Reserved. Fast Build and Fast Business by AI Hardware Innovation Catalyst.',
-    'tour.hero.meta':'Asia On-Site Manufacturing Acceleration Program',
-    'tour.hero.p':'An Asia on-site manufacturing &amp; supply chain acceleration program designed for hardware, robotics, and physical AI startups and companies. Not just a factory tour or networking event — structured to give participants hands-on manufacturing capabilities and global supply chain intuition to transform products from <span style="color:var(--clay);font-weight:600;">"prototype stage" to "mass-producible product."</span>',
-    'tour.stat1.label':'Operations in 2026','tour.stat2.label':'2026 Operating Period',
-    'tour.diff.meta':'Core Differentiator',
-    'tour.diff.h2':'Not Just a Tour —<br>Real Manufacturing Education',
-    'tour.diff.p1.title':'Practice-Centered Learning','tour.diff.p1.desc':'Learn hands-on: actual quoting, supply chain connections, production strategy, DFM (Design for Manufacturing), cost structure, and negotiation frameworks.',
-    'tour.diff.p2.title':'Trusted Network Access','tour.diff.p2.desc':'Reduce trial and error in factory selection and supply chain building. Establish direct networks with verified manufacturing partners.',
-    'tour.diff.p3.title':'End-to-End Support','tour.diff.p3.desc':'Even after the program, Fast.B platform continues to support supply chain connections, production execution, QC, and logistics through to mass production.',
-    'tour.hl.meta':'Program Highlights','tour.hl.h2':'Key Programs',
-    'tour.hl.1.title':'PCB · Assembly · Injection · Packaging Factory Tour','tour.hl.1.desc':'Visit PCB fabrication, SMT assembly, mold, and packaging factories firsthand — experiencing manufacturing processes and quality control standards.',
-    'tour.hl.2.title':'Robotics &amp; Physical AI Company Visits','tour.hl.2.desc':'Visit Shenzhen-based robotics manufacturers and physical AI hardware companies to understand production processes and supply chain structures.',
-    'tour.hl.3.title':'NVIDIA OEM &amp; Automated Production Line Tour','tour.hl.3.desc':'Understand AI hardware manufacturing and global OEM strategy, and see global market readiness in automated production lines.',
-    'tour.hl.4.title':'Huaqiangbei Electronics Market Exploration','tour.hl.4.desc':'Experience component sourcing, BOM optimization, and rapid prototyping strategies at the world\'s largest electronics market.',
-    'tour.hl.5.title':'Local Hardware Founder &amp; Engineer Networking','tour.hl.5.desc':'Engage directly with Shenzhen hardware founders, engineers, and manufacturing experts to experience the global open innovation ecosystem.',
-    'tour.hl.6.title':'Supply Chain · Price Negotiation · Mass Production Strategy Session','tour.hl.6.desc':'Acquire immediately applicable manufacturing intelligence: MOQ, quote negotiation, supplier validation, DFM principles, and NPI operations strategy.',
-    'tour.sched.meta':'AI Hardware, AIoT, XR &amp; Robotics Track',
-    'tour.sched.h2':'4-Day Program Schedule',
-    'tour.sched.desc':'Audience: Robotics / AI Hardware / Consumer Electronics startups, engineers, PMs, investors<br>Goal: Understanding prototype → mass production transition process and supply chain connections',
-    'tour.am':'Morning','tour.pm':'Afternoon','tour.eve':'Evening',
-    'tour.d1.h':'Shenzhen Arrival &amp; Manufacturing Ecosystem Introduction',
-    'tour.d1.t1':'Shenzhen Arrival &amp; Orientation','tour.d1.d1':'Overview of China\'s manufacturing ecosystem, understanding Shenzhen supply chain structure',
-    'tour.d1.t2':'PCB &amp; SMT Factory Tour','tour.d1.d2':'PCB fabrication, SMT assembly, QC process analysis',
-    'tour.d1.t3':'DFM (Design for Manufacturing) Session','tour.d1.d3':'Core principles of mass-production design and failure cases',
-    'tour.d1.t4':'Welcome Dinner &amp; Founder Networking','tour.d1.d4':'Exchange with global hardware founders',
-    'tour.d2.h':'Factory Tour &amp; Supply Chain Workshop',
-    'tour.d2.t1':'XR, AI Smart Device Companies Visit','tour.d2.d1':'Injection molds, cost structure, mass production readiness strategy',
-    'tour.d2.t2':'Mold, Assembly &amp; Packaging Factory Visit','tour.d2.d2':'Assembly line automation, quality control, packaging strategy',
-    'tour.d2.t3':'Supply Chain Workshop','tour.d2.d3':'MOQ, quote negotiation, supplier validation methods',
-    'tour.d2.t4':'Shenzhen Hardware Meetup','tour.d2.d4':'Networking with local engineers and manufacturing experts',
-    'tour.d3.h':'Robotics · AI Hardware · Market Exploration',
-    'tour.d3.t1':'Robotics / Physical AI Company Visit','tour.d3.d1':'Robot production processes and real supply chain cases',
-    'tour.d3.t2':'NVIDIA OEM / AI Hardware Production Line Tour','tour.d3.d2':'AI hardware manufacturing and global OEM strategy',
-    'tour.d3.t3':'Huaqiangbei Electronics Market Exploration','tour.d3.d3':'Component sourcing, BOM optimization, rapid prototyping',
-    'tour.d3.t4':'Participant Roundtable','tour.d3.d4':'Supply chain and manufacturing strategy feedback per product',
-    'tour.d4.h':'Strategy Session &amp; Wrap-up',
-    'tour.d4.t1':'AIoT &amp; AI Hardware Strategy Session','tour.d4.d1':'Production scheduling, QC, logistics, NPI operations strategy',
-    'tour.d4.t2':'Supplier Matchmaking','tour.d4.d2':'Introductions and meetings with actual suppliers',
-    'tour.d4.t3':'Wrap-up &amp; Next Steps','tour.d4.d3':'Action plan and Build Assessment guidance',
-    'tour.d4.t4':'Depart Shenzhen',
-    'tour.target.h2':'Participants &amp; Schedule',
-    'tour.target.l1':'Target Audience','tour.target.l2':'2026 Schedule','tour.target.l3':'Cost &amp; Inquiry',
-    'tour.target.li1':'Hardware startup founders','tour.target.li2':'Product engineers &amp; PMs',
-    'tour.target.li3':'Robotics / AI Hardware company representatives','tour.target.li4':'Hardware investors','tour.target.li5':'Manufacturing innovation leads',
-    'tour.target.sli1':'2–3 sessions planned between Sep–Dec 2026','tour.target.sli2':'Small-group intensive program (limited capacity)','tour.target.sli3':'Applications now open',
-    'tour.target.cost':'For details and pricing, please contact us via the application form below. The Fast.B team will be in touch shortly.',
-    'tour.apply.meta':'Apply Now','tour.apply.h2':'Apply',
-    'tour.apply.desc':'Submit your application and the Fast.B team will follow up with details and pricing.',
-    'tour.form.name.label':'Name','tour.form.org.label':'Organization','tour.form.email.label':'Email',
-    'tour.form.subject.label':'Subject','tour.form.msg.label':'Message','tour.form.submit':'Submit Application',
-    'tour.success.title':'Application Received','tour.success.desc':'Your application has been submitted.<br>The Fast.B team will be in touch shortly.',
+    'tour.hero.meta':'[Fast.B AI Innovation Delegation: Shenzhen 2026]',
+    'tour.hero.h':'Inside the Heart of the Physical AI Revolution:<br>Decoding the AI Hardware Innovation Ecosystem',
+    'tour.hero.date':'December 15 (Tue) – 18 (Fri), 2026 · 4 Days / 3 Nights · Shenzhen, China',
+    'tour.hero.p':'This is not a showroom tour of corporate headquarters. It is a <span style="color:var(--clay);font-weight:600;">small, curated delegation of no more than 20 participants</span>, hosted by the Fast.B team and partners who design and build AI hardware in Shenzhen every day. Over four intensive days, you will step inside next-generation humanoid and Physical AI companies, the supply chains and factories that actually build their products, and the experts driving Shenzhen\'s manufacturing innovation — with a clear path to turn what you learn into real projects after you return.',
+    'tour.hero.cta1':'Apply Now',
+    'tour.hero.cta2':'View Full Schedule',
+    'tour.stat1':'Program Dates',
+    'tour.stat2':'Max. Delegates',
+    'tour.stat3':'Physical AI &amp; SCM Site Visits',
+    'tour.stat4':'Local Expert Sessions',
+    'tour.goal.meta':'Program Objectives',
+    'tour.goal.h2':'What You Will Take Home',
+    'tour.goal.1':'See, experience, and deeply understand <strong>China-led Physical AI innovation trends</strong> and the <strong>Shenzhen hardware manufacturing ecosystem</strong> first-hand.',
+    'tour.goal.2':'Understand on the ground how Fast.B, an <strong>AI hardware prototyping platform</strong>, operates and why it is competitive.',
+    'tour.goal.3':'Meet, learn from, and engage with the <strong>experts of China\'s manufacturing innovation ecosystem</strong> who power Fast.B.',
+    'tour.goal.4':'Meet the <strong>key companies</strong> of Shenzhen\'s hardware ecosystem and connect with them as <strong>potential partners</strong>.',
+    'tour.goal.5':'Discuss how to <strong>apply</strong> the insights from China\'s innovation ecosystem to your business and <strong>build on them</strong>.',
+    'tour.diff.meta':'Why the Fast.B Delegation',
+    'tour.diff.h2':'Not the Showroom —<br>The Engine Room',
+    'tour.diff.lead':'There are many corporate tours of Shenzhen, but most end with a walk through corporate exhibition halls and a briefing. Because the Fast.B Delegation is designed by people who actually build hardware in Shenzhen, it takes you directly to where products are born — and to the people behind them.',
+    'tour.cmp.h.item':'',
+    'tour.cmp.h.other':'Typical Shenzhen Corporate Tours',
+    'tour.cmp.h.fastb':'Fast.B Innovation Delegation',
+    'tour.cmp.r1.l':'Curated &amp; Hosted by',
+    'tour.cmp.r1.o':'Travel agencies or education providers, with one accompanying expert',
+    'tour.cmp.r1.f':'The Fast.B team and partners who build AI hardware in Shenzhen (Innozen Design · Seeed · Go Global Center)',
+    'tour.cmp.r2.l':'Where You Go',
+    'tour.cmp.r2.o':'Mainly exhibition halls and showrooms of large corporations',
+    'tour.cmp.r2.f':'Next-generation humanoid &amp; Physical AI companies, plus real supply chain sites — PCB, molding and assembly factories',
+    'tour.cmp.r3.l':'Group Size',
+    'tour.cmp.r3.o':'Large groups of around 30',
+    'tour.cmp.r3.f':'Up to 20 delegates — built for Q&amp;A and discussion',
+    'tour.cmp.r4.l':'Format',
+    'tour.cmp.r4.o':'Listening to company introductions and briefings',
+    'tour.cmp.r4.f':'Private meetings · expert coaching · insight talks · wrap-up session',
+    'tour.cmp.r5.l':'Network',
+    'tour.cmp.r5.o':'One-time visits',
+    'tour.cmp.r5.f':'Ongoing relationships with SUSTech, Fast.B mentors, and local manufacturing experts',
+    'tour.cmp.r6.l':'After the Program',
+    'tour.cmp.r6.o':'The program ends',
+    'tour.cmp.r6.f':'A direct path from prototyping to mass production through the Fast.B platform (Track V · Track C)',
+    'tour.feat.meta':'Signature Elements',
+    'tour.feat.h2':'Six Things Only Fast.B Offers',
+    'tour.feat.1.t':'Fast.B-Led Orientation &amp; Wrap-up',
+    'tour.feat.1.d':'An opening keynote frames what to look for on Day 1, and on the final day at Innozen Design, every delegate turns their insights into concrete action plans.',
+    'tour.feat.2.t':'Partner Visits &amp; Private Meetings',
+    'tour.feat.2.d':'Visits are designed around real partnership potential, not sightseeing. Drawing on Fast.B\'s relationships, we arrange private meetings with company decision-makers.',
+    'tour.feat.3.t':'Expert &amp; Peer Networking',
+    'tour.feat.3.d':'Insight talks with local innovation, tech and industry experts, SUSTech, and Fast.B mentors — plus dedicated time to connect with fellow delegates.',
+    'tour.feat.4.t':'Private Product Innovation Coaching',
+    'tour.feat.4.d':'Product innovation and industry experts give direct feedback on your product and business ideas in private coaching sessions.',
+    'tour.feat.5.t':'Live Insights from Shenzhen\'s Makers',
+    'tour.feat.5.d':'From industrial design to supply chains to government-led innovation policy, hear first-hand from experts working at the center of Shenzhen\'s manufacturing ecosystem.',
+    'tour.feat.6.t':'Built for Direct Q&amp;A and Debate',
+    'tour.feat.6.d':'The intimacy of a group under 20 makes this possible: every session is run so you can question and debate local experts directly.',
+    'tour.exp.meta':'Fast.B Special Sessions',
+    'tour.exp.h2':'Hear Directly from Those Who Build Shenzhen',
+    'tour.exp.1.role':'Fast.B Co-founder · CEO, Innozen Design',
+    'tour.exp.1.topic':'Behind the Scenes of Shenzhen\'s Industrial Design Innovation',
+    'tour.exp.1.d':'Vice President of the Shenzhen Industrial Design Association and an award-winning design leader (Red Dot · iF · IDEA) reveals how Shenzhen\'s smart hardware is designed and brought to market.',
+    'tour.exp.2.role':'CEO, Sand and Wave · Fast.B Mentor',
+    'tour.exp.2.topic':'Understanding Shenzhen\'s Manufacturing Ecosystem',
+    'tour.exp.2.d':'A supply chain expert who has led 0-to-1 development and production for numerous hardware startups alongside HAX explains how Shenzhen manufacturing really works.',
+    'tour.exp.3.role':'Fast.B Special Session Speaker',
+    'tour.exp.3.topic':'Understanding China\'s Government-Led Innovation',
+    'tour.exp.3.d':'Examine the policy and industrial development frameworks behind Shenzhen\'s rapid growth, and the opportunities they open for Korean companies.',
+    'tour.exp.4.name':'SUSTech &amp; Fast.B Mentors',
+    'tour.exp.4.role':'Insight Talk &amp; Dinner',
+    'tour.exp.4.topic':'An Evening with Shenzhen\'s Innovators',
+    'tour.exp.4.d':'Join researchers from the Southern University of Science and Technology (SUSTech) and Fast.B mentors in an insight talk on where Physical AI research meets industry.',
+    'tour.visit.meta':'Where We Go',
+    'tour.visit.h2':'Companies &amp; Sites',
+    'tour.visit.note':'※ Host companies are currently being confirmed; the order and content of visits may change.',
+    'tour.visit.c1.t':'Benchmark &amp; Partner Robotics Companies',
+    'tour.visit.c1.d':'See first-hand the technology and strategy of companies leading next-gen Physical AI — humanoids, dexterous hands, tactile sensing and more.',
+    'tour.visit.c2.t':'Fast.B Core Platform Partners',
+    'tour.visit.c2.d':'Understand how the platform actually works at the core partners who deliver Fast.B\'s design, prototyping and go-global services.',
+    'tour.visit.c3.t':'Supply Chain Companies of Shenzhen',
+    'tour.visit.c3.d':'Where AI hardware actually gets made: component, PCB, molding and assembly factories, plus prototyping specialists.',
+    'tour.visit.c3.i1':'Component · PCB · Molding · Assembly Factories',
+    'tour.visit.c3.i2':'Industrial Design Firms',
+    'tour.visit.c3.i3':'Prototyping Specialist (3NOD)',
+    'tour.visit.c3.i4':'Huaqiang Electronics Association Members',
+    'tour.visit.c4.t':'Shenzhen Innovation Landmarks',
+    'tour.visit.c4.d':'From the world\'s largest electronics market to robot retail and robotaxis — experience where Shenzhen\'s innovation becomes everyday life and a market.',
+    'tour.visit.c4.i1':'Huaqiangbei Electronics Market',
+    'tour.visit.c4.i2':'6S Robot Mall',
+    'tour.visit.c4.i3':'Nanshan Robot Valley',
+    'tour.visit.c4.i8':'Pony.ai Robotaxi',
+    'tour.sched.meta':'Program Schedule · Dec 15–18, 2026',
+    'tour.sched.h2':'Full 4-Day Itinerary',
+    'tour.sched.desc':'Additional days before or after the program can be arranged for individual schedules.<br>※ Host companies are currently being confirmed; the order and content may change.',
+    'tour.tag.visit':'Company Visit',
+    'tour.tag.session':'Special Session',
+    'tour.tag.eco':'Ecosystem Tour',
+    'tour.tag.net':'Networking',
+    'tour.tag.move':'Travel',
+    'tour.d1.date':'Tue, Dec 15',
+    'tour.d1.h':'Entering the Ecosystem',
+    'tour.d1.1.t':'Korea → Shenzhen',
+    'tour.d1.1.d':'Arrival in Shenzhen and transfer by private coach',
+    'tour.d1.2.t':'Orientation &amp; Opening Keynote',
+    'tour.d1.2.d':'Go Global Center — what to look for over four days, and a map of Shenzhen\'s Physical AI ecosystem',
+    'tour.d1.3.t':'Fast.B Special Session · Vicky Xie',
+    'tour.d1.3.d':'Understanding China\'s Government-Led Innovation',
+    'tour.d1.4.t':'Shenzhen Innovation Ecosystem Tour',
+    'tour.d1.4.d':'6S Robot Mall or InnoCampus — how robots meet consumers',
+    'tour.d1.5.t':'Shenzhen AI Hardware Ecosystem · Huaqiangbei',
+    'tour.d1.5.d':'Experience the source of component sourcing and rapid prototyping at the world\'s largest electronics market',
+    'tour.d1.6.t':'Networking Dinner',
+    'tour.d1.6.d':'Delegate introductions and first meeting with local partners',
+    'tour.d2.date':'Wed, Dec 16',
+    'tour.d2.h':'Physical AI Meets the Supply Chain',
+    'tour.d2.1.t':'Physical AI Company Visit · AstriBot',
+    'tour.d2.1.d':'Technology and commercialization strategy of general-purpose humanoid robots',
+    'tour.d2.2.t':'Lunch',
+    'tour.d2.3.t':'Fast.B AI Hardware SCM Visit · Seeed | XFactory',
+    'tour.d2.3.d':'The open hardware ecosystem and small-batch, custom AI hardware production',
+    'tour.d2.4.t':'Physical AI Company Visit · AI²Robotics',
+    'tour.d2.4.d':'Development and industrial applications of embodied AI robots',
+    'tour.d2.5.t':'Physical AI Company Visit · PaXini',
+    'tour.d2.5.d':'Tactile sensing technology and the future of robotic hands',
+    'tour.d2.6.t':'Shenzhen Innovation Ecosystem Tour',
+    'tour.d2.6.d':'Electric vehicles · autonomous driving · robotics',
+    'tour.d2.7.t':'Dinner &amp; Insight Talk',
+    'tour.d2.7.d':'With SUSTech researchers and Fast.B mentors',
+    'tour.d3.date':'Thu, Dec 17',
+    'tour.d3.h':'From Robots to the Factory Floor',
+    'tour.d3.1.t':'Physical AI Company Visit · DexForce or LimX Dynamics',
+    'tour.d3.1.d':'The frontier of robot intelligence, locomotion and manipulation',
+    'tour.d3.2.t':'Lunch',
+    'tour.d3.3.t':'Physical AI Company Visit · DIGIT Robotics',
+    'tour.d3.3.d':'How robotics companies productize and enter the market',
+    'tour.d3.4.t':'Fast.B AI Hardware SCM Factory Visit',
+    'tour.d3.4.d':'PCB · molding · assembly — how a prototype becomes a mass-produced product',
+    'tour.d3.5.t':'Fast.B Special Session · Donny Zhang',
+    'tour.d3.5.d':'Understanding Shenzhen\'s Manufacturing Ecosystem',
+    'tour.d3.6.t':'Shenzhen Innovation Ecosystem Tour',
+    'tour.d3.6.d':'AIoT · XR · AI Glasses',
+    'tour.d3.7.t':'Dinner &amp; Insight Talk',
+    'tour.d3.7.d':'In-depth discussion between local experts and delegates',
+    'tour.d4.date':'Fri, Dec 18',
+    'tour.d4.h':'From Insight to Action',
+    'tour.d4.1.t':'Fast.B Special Session · Michael Zheng',
+    'tour.d4.1.d':'Behind the Scenes of Shenzhen\'s Industrial Design Innovation',
+    'tour.d4.2.t':'Insight Sharing &amp; Wrap-up · Innozen Design',
+    'tour.d4.2.d':'Turning four days of insights into business applications and next actions',
+    'tour.d4.3.t':'Free Time · Shenzhen → Korea',
+    'tour.d4.3.d':'Additional meetings and itineraries can be arranged on request',
+    'tour.who.meta':'Who Should Join',
+    'tour.who.h2':'Designed For',
+    'tour.who.1':'Companies looking to prototype or manufacture AI hardware',
+    'tour.who.2':'Companies and institutions interested in — and seeking collaboration with — China\'s Physical AI and humanoid companies',
+    'tour.who.3':'Individuals and companies running AI hardware projects with Fast.B',
+    'tour.who.4':'Individuals and companies who want to deeply understand Shenzhen\'s manufacturing ecosystem',
+    'tour.who.info.l1':'Dates',
+    'tour.who.info.v1':'Dec 15–18, 2026 (4 days / 3 nights)',
+    'tour.who.info.l2':'Location',
+    'tour.who.info.v2':'Shenzhen, China',
+    'tour.who.info.l3':'Group Size',
+    'tour.who.info.v3':'Up to 20 delegates',
+    'tour.who.info.l4':'Curator &amp; Host',
+    'tour.who.info.v4':'Fast.B',
+    'tour.price.meta':'Program Options',
+    'tour.price.h2':'Options &amp; Fees',
+    'tour.price.unit':'per person',
+    'tour.price.base.t':'Standard',
+    'tour.price.base.v':'KRW 4.0M',
+    'tour.price.base.s':'4D/3N · Flights &amp; hotel arranged by participant',
+    'tour.price.o1.t':'Option 1',
+    'tour.price.o1.v':'KRW 5.5M',
+    'tour.price.o1.s':'4D/3N · Flights + hotel (twin sharing) included',
+    'tour.price.o2.t':'Option 2',
+    'tour.price.o2.v':'KRW 5.9M',
+    'tour.price.o2.s':'4D/3N · Flights + hotel (single room) included',
+    'tour.price.o2.badge':'All-inclusive',
+    'tour.price.o3.t':'Option 3',
+    'tour.price.o3.v':'On request',
+    'tour.price.o3.s':'5D/4N or longer · Individual itinerary &amp; additional meetings',
+    'tour.price.inc.prog':'Full program · special sessions · wrap-up',
+    'tour.price.inc.meal':'Lunches &amp; dinners included',
+    'tour.price.inc.bus':'Group ground transportation',
+    'tour.price.inc.flight':'Flights &amp; hotel not included',
+    'tour.price.inc.twin':'Flights &amp; hotel (twin sharing) included',
+    'tour.price.inc.single':'Flights &amp; hotel (single room) included',
+    'tour.price.inc.custom':'Individual itinerary &amp; extra meetings on request',
+    'tour.price.inc.custmeal':'Meals &amp; transport during individual days at own cost',
+    'tour.price.note':'※ All fees exclude VAT · Travel insurance is not included in any option (to be arranged individually)<br>※ If the group is small or below the minimum size, host companies and program details may be adjusted.',
+    'tour.apply.meta':'Application',
+    'tour.apply.h2':'Application Form',
+    'tour.apply.desc':'This is an intimate program limited to 20 delegates; places are confirmed based on order of application and participation goals. Once you submit, the Fast.B team will contact you with confirmation and payment details.',
+    'tour.form.name.label':'Name',
+    'tour.form.org.label':'Organization',
+    'tour.form.email.label':'Email',
+    'tour.form.msg.label':'Message',
+    'tour.form.submit':'Submit Application',
+    'tour.form.title.label':'Job Title',
+    'tour.form.title.ph':'e.g. CEO, CTO, Head of Business Development',
+    'tour.form.phone.label':'Mobile Phone',
+    'tour.form.phone.ph':'+82 10-0000-0000',
+    'tour.form.purpose.label':'Purpose of Participation (select all that apply)',
+    'tour.form.p1':'Market research',
+    'tour.form.p2':'Finding AI business partners &amp; opportunities in China',
+    'tour.form.p3':'Understanding &amp; studying China\'s innovation ecosystem',
+    'tour.form.p4':'Interest in / commissioning Fast.B AI hardware projects',
+    'tour.form.p5':'Visiting &amp; understanding Physical AI companies',
+    'tour.form.p6':'Networking with China\'s AI industry experts',
+    'tour.form.p7':'Other',
+    'tour.form.p7.ph':'Please describe your other purpose',
+    'tour.form.purpose.err':'Please select at least one purpose.',
+    'tour.form.option.label':'Program Option',
+    'tour.form.option.ph':'Select a program option',
+    'tour.form.opt.base':'Standard — KRW 4.0M (flights &amp; hotel excluded)',
+    'tour.form.opt.o1':'Option 1 — KRW 5.5M (flights + twin-share hotel)',
+    'tour.form.opt.o2':'Option 2 — KRW 5.9M (flights + single-room hotel)',
+    'tour.form.opt.o3':'Option 3 — 5D/4N or longer / individual itinerary (on request)',
+    'tour.form.opt.tbd':'Undecided — would like to discuss',
+    'tour.form.invoice.label':'Tax Invoice Required?',
+    'tour.form.invoice.ph':'Please select',
+    'tour.form.inv.yes':'Yes — business tax invoice required',
+    'tour.form.inv.no':'No — individual',
+    'tour.form.visits.label':'Previous Visits to Shenzhen',
+    'tour.form.visits.ph':'Please select',
+    'tour.form.v0':'None (first visit)',
+    'tour.form.v1':'Once',
+    'tour.form.v2':'2–4 times',
+    'tour.form.v3':'5 or more times',
+    'tour.form.extra.label':'Areas of Interest &amp; Other Requests (optional)',
+    'tour.form.extra.ph':'Companies or technologies of interest, private meeting requests, extra days before/after the program, etc.',
+    'tour.form.consent':'I consent to the collection and use of my personal information (name, organization, job title, email, mobile phone) for this application. It will be used only to operate the program and will be deleted one year after the program ends.',
+    'tour.success.title':'Application Received',
+    'tour.success.desc':'Your application has been received.<br>The Fast.B team will contact you shortly with confirmation and payment details.',
+    'tour.contact':'Questions about the program: <a href="mailto:contact@fastb-uild.com" style="color:var(--clay);">contact@fastb-uild.com</a>',
     'modal.meta':'Initiate Protocol',
     'modal.title':'Contact Us',
     'modal.name':'Name','modal.org':'Organization','modal.email':'Email','modal.subject':'Subject','modal.message':'Message',
@@ -2836,8 +3653,6 @@ const T = {
     'modal.success.title':'Request Received','modal.success.desc':'Your inquiry has been submitted.<br>We\'ll be in touch shortly.',
     'modal.upsell':'For detailed project inquiries, please click \'Build Your Future\' and submit your project details.','modal.upsell.btn':'Build Your Future',
     'form.name.ph':'Full Name','form.org.ph':'Company / Team',
-    'tour.form.subject.ph':'Inquiry about Innovation Tour participation',
-    'tour.form.msg.ph':'Purpose of participation, current project stage, any questions...',
     'ws.form.msg.ph':'Workshop purpose, number of participants, preferred dates...'
   }
 };
@@ -3014,11 +3829,38 @@ async function submitContact(e) {
     }
 }
 
-// ── Innovation Tour Form ───────────────────────────────────────
+// ── Innovation Delegation (Tour) Form ──────────────────────────
+const TOUR_PURPOSES = {
+    '1': '시장조사',
+    '2': '중국 AI 사업 파트너 및 기회 발굴',
+    '3': '중국 혁신 생태계 이해 및 스터디',
+    '4': 'Fast.B AI 하드웨어 관심 및 의뢰',
+    '5': '피지컬 AI 기업방문 및 이해',
+    '6': '중국 AI 산업 전문가 네트워킹 및 교류',
+    '7': '기타',
+};
+document.querySelectorAll('input[name="t-purpose"]').forEach(cb => {
+    cb.addEventListener('change', () => {
+        document.getElementById('t-purpose-err').style.display = 'none';
+        if (cb.value === '7') {
+            const other = document.getElementById('t-purpose-other');
+            other.style.display = cb.checked ? '' : 'none';
+            other.required = cb.checked;
+        }
+    });
+});
+
 async function submitTourForm(e) {
     e.preventDefault();
+    const purposeErr = document.getElementById('t-purpose-err');
+    const checked = [...document.querySelectorAll('input[name="t-purpose"]:checked')];
+    purposeErr.style.display = checked.length ? 'none' : 'block';
     if (!e.target.checkValidity()) {
         e.target.reportValidity();
+        return;
+    }
+    if (!checked.length) {
+        purposeErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
     }
     const btn = document.getElementById('tour-form-btn');
@@ -3026,12 +3868,38 @@ async function submitTourForm(e) {
     btn.disabled = true;
     errEl.style.display = 'none';
 
+    const val = id => document.getElementById(id).value.trim();
+    const otherPurpose = val('t-purpose-other');
+    const purposes = checked.map(cb =>
+        cb.value === '7' && otherPurpose ? `기타: ${otherPurpose}` : TOUR_PURPOSES[cb.value]);
+    const option = val('t-option');
+    const extra = val('t-message');
+
+    const message = [
+        '■ Fast.B AI Innovation Delegation: Shenzhen 2026 (2026.12.15–12.18) 참가 신청',
+        '',
+        `성명: ${val('t-name')}`,
+        `소속: ${val('t-org')}`,
+        `직책: ${val('t-title')}`,
+        `이메일: ${val('t-email')}`,
+        `휴대전화: ${val('t-phone')}`,
+        `참가목적: ${purposes.join(' / ')}`,
+        `참가 옵션: ${option}`,
+        `세금계산서 처리 여부: ${val('t-invoice')}`,
+        `과거 선전 방문 횟수: ${val('t-visits')}`,
+        `개인정보 수집·이용 동의: 동의`,
+        `신청 언어: ${currentLang === 'en' ? 'English' : '한국어'}`,
+        '',
+        '[관심 분야 및 기타 요청사항]',
+        extra || '—',
+    ].join('\n');
+
     const payload = {
-        name:         document.getElementById('t-name').value.trim(),
-        organization: document.getElementById('t-org').value.trim(),
-        email:        document.getElementById('t-email').value.trim(),
-        subject:      '[Innovation Tour] ' + document.getElementById('t-subject').value.trim(),
-        message:      document.getElementById('t-message').value.trim(),
+        name:         val('t-name'),
+        organization: val('t-org'),
+        email:        val('t-email'),
+        subject:      `[Innovation Delegation 2026] ${option} — ${val('t-name')} (${val('t-org')})`,
+        message,
     };
 
     try {

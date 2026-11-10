@@ -69,29 +69,51 @@ Fast.B supports Korean AI hardware startups and makers building: AI Glasses (AI 
 
 ---
 
-## Shenzhen Innovation Tour
+## Fast.B AI Innovation Delegation: Shenzhen 2026 (Innovation Tour)
 
-Fast.B's Innovation Tour is a 4-day (3 nights) immersive program in Shenzhen for Korean AI hardware entrepreneurs, engineers, R&D leaders, and decision-makers.
+**Inside the Heart of the Physical AI Revolution: Decoding the AI Hardware Innovation Ecosystem**
+(Korean title: Fast.B AI 혁신 인사이트 투어: Shenzhen 2026 — 피지컬 AI 혁명의 심장: AI 하드웨어 혁신 생태계를 해부하다)
 
-### Program Highlights (6 core activities)
-1. **PCB · Assembly · Molding · Packaging Factory Tours** — Visit PCB fabrication, SMT assembly, tooling, and packaging factories; experience manufacturing processes and quality control standards
-2. **Robotics & Physical AI Company Visits** — Visit Shenzhen-based robotics manufacturers and physical AI hardware companies; understand production processes and supply chain structure
-3. **NVIDIA OEM & Automated Production Line Tours** — Understand AI hardware manufacturing and global OEM strategy; observe global market readiness through automated production lines
-4. **Huaqiangbei Electronics Market Exploration** — Experience component sourcing, BOM optimization, and rapid prototyping strategies at the world's largest electronics market
-5. **Networking with Shenzhen Hardware Founders & Engineers** — Direct engagement with Shenzhen hardware founders, engineers, and manufacturing specialists; experience the global open innovation ecosystem
-6. **Supply Chain · Pricing Negotiation · Mass Production Strategy Session** — Learn MOQ, quote negotiation, supplier verification, DFM principles, and NPI operational strategies
+- **Dates**: December 15–18, 2026 (4 days / 3 nights), Shenzhen, China
+- **Group size**: Up to 20 delegates · Curated and hosted by Fast.B
+- **Page**: https://www.fastb-uild.com/#innovation-tour
 
-### 4-Day Schedule Overview
-- **Day 1**: Arrival in Shenzhen, manufacturing ecosystem orientation, Huaqiangbei market tour, networking dinner with local founders
-- **Day 2**: PCB & SMT factory tour, electronics assembly facility visit, supply chain strategy workshop
-- **Day 3**: Robotics & AI hardware company visits, Physical AI ecosystem exploration, NVIDIA OEM facility
-- **Day 4**: Supply chain negotiation session, wrap-up and action planning, departure
+### Objectives
+1. See and deeply understand China-led Physical AI innovation trends and the Shenzhen hardware manufacturing ecosystem
+2. Understand how Fast.B, an AI hardware prototyping platform, operates and competes
+3. Meet and learn from experts of China's manufacturing innovation ecosystem who power Fast.B
+4. Connect with key Shenzhen hardware companies as potential partners
+5. Discuss how to apply the insights to participants' own businesses
 
-### Target Participants
-- Korean AI hardware startup founders and CTOs
-- Corporate R&D leaders considering AI hardware expansion
-- Software companies planning to enter AI device market
-- Investors and accelerators in the hardware/AI sector
+### What makes it different
+- Hosted by people who build AI hardware in Shenzhen (Fast.B team and partners Innozen Design, Seeed, Go Global Center), not a travel agency
+- Next-generation Physical AI / humanoid companies and real supply chain factories instead of corporate showrooms
+- Small group (≤20) built for Q&A, private meetings, expert coaching, insight talks and a wrap-up session
+- Continuity after the trip through the Fast.B platform (Track V · Track C)
+
+### Itinerary (host companies being confirmed; subject to change)
+- **Day 1 (Dec 15)**: Korea → Shenzhen · Orientation & opening keynote (Go Global Center) · Special session: Vicky Xie — Understanding China's government-led innovation · 6S Robot Mall or InnoCampus · Huaqiangbei · Networking dinner
+- **Day 2 (Dec 16)**: AstriBot · Seeed | XFactory (Fast.B SCM partner) · AI²Robotics · PaXini · EV / autonomous driving / robotics ecosystem tour · Dinner & insight talk with SUSTech and Fast.B mentors
+- **Day 3 (Dec 17)**: DexForce or LimX Dynamics · DIGIT Robotics · Fast.B SCM factory visit (PCB, molding, assembly) · Special session: Donny Zhang — Understanding Shenzhen's manufacturing ecosystem · AIoT / XR / AI glasses ecosystem tour · Dinner & insight talk
+- **Day 4 (Dec 18)**: Special session: Michael Zheng — Behind Shenzhen's industrial design innovation · Insight sharing & wrap-up at Innozen Design · Free time / Shenzhen → Korea
+
+### Candidate sites
+- Robotics: LimX Dynamics, AI²Robotics, DexForce, PaXini, DIGIT Robotics, AstriBot
+- Fast.B core partners: Innozen Design, Seeed / XFactory, Go Global Center
+- Supply chain: component/PCB/molding/assembly factories, industrial design firms, 3NOD (prototyping), Huaqiang Electronics Association members
+- Landmarks: Huaqiangbei, 6S Robot Mall, Nanshan Robot Valley, Inno100, DJI Flagship, Upperhills, OCT Harbour, Pony.ai Robotaxi
+
+### Fees (per person, VAT excluded; travel insurance not included)
+- Standard: KRW 4,000,000 — program, lunches & dinners, group transport (flights & hotel arranged individually)
+- Option 1: KRW 5,500,000 — incl. flights + hotel (twin sharing)
+- Option 2: KRW 5,900,000 — incl. flights + hotel (single room)
+- Option 3: 5D/4N or longer with individual itinerary and extra meetings — on request
+
+### Who should join
+- Companies looking to prototype or manufacture AI hardware
+- Companies and institutions seeking collaboration with China's Physical AI and humanoid companies
+- Individuals and companies running AI hardware projects with Fast.B
+- Anyone who wants to deeply understand Shenzhen's manufacturing ecosystem
 
 ---
 
