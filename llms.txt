@@ -75,7 +75,7 @@ Fast.B supports Korean AI hardware startups and makers building: AI Glasses (AI 
 (Korean title: Fast.B AI 혁신 인사이트 투어: Shenzhen 2026 — 피지컬 AI 혁명의 심장: AI 하드웨어 혁신 생태계를 해부하다)
 
 - **Dates**: December 15–18, 2026 (4 days / 3 nights), Shenzhen, China
-- **Group size**: Up to 20 delegates · Curated and hosted by Fast.B
+- **Group size**: Up to 15 delegates · Curated and hosted by Fast.B
 - **Page**: https://www.fastb-uild.com/#innovation-tour
 
 ### Objectives
@@ -88,7 +88,7 @@ Fast.B supports Korean AI hardware startups and makers building: AI Glasses (AI 
 ### What makes it different
 - Hosted by people who build AI hardware in Shenzhen (Fast.B team and partners Innozen Design, Seeed, Go Global Center), not a travel agency
 - Next-generation Physical AI / humanoid companies and real supply chain factories instead of corporate showrooms
-- Small group (≤20) built for Q&A, private meetings, expert coaching, insight talks and a wrap-up session
+- Small group (≤15) built for Q&A, private meetings, expert coaching, insight talks and a wrap-up session
 - Continuity after the trip through the Fast.B platform (Track V · Track C)
 
 ### Itinerary (host companies being confirmed; subject to change)
