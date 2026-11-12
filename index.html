@@ -1762,20 +1762,8 @@
                     <li style="display:flex;gap:0.6rem;font-size:0.85rem;line-height:1.6;color:var(--text-main);"><span style="color:var(--clay);">✓</span><span data-i18n="tour.price.inc.single">항공 · 숙박(1인 1실) 포함</span></li>
                 </ul>
             </div>
-            <div style="position:relative;background:rgba(51,46,45,0.6);border-radius:24px;padding:2rem;border:1px solid var(--grid-line-strong);display:flex;flex-direction:column;gap:1.25rem;">
-                
-                <div class="meta-label" data-i18n="tour.price.o3.t">옵션 3</div>
-                <div style="display:flex;align-items:baseline;gap:0.5rem;flex-wrap:wrap;"><span style="font-family:var(--font-display);font-size:clamp(1.6rem,2.5vw,2.1rem);line-height:1;letter-spacing:-0.02em;color:var(--text-main);" data-i18n="tour.price.o3.v">별도 협의</span></div>
-                <p class="panel-desc" style="font-size:0.85rem;min-height:2.6em;" data-i18n="tour.price.o3.s">4박 5일 이상 · 개별 일정 및 추가 미팅 구성</p>
-                <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;padding-top:1.25rem;border-top:1px solid var(--grid-line);">
-                    <li style="display:flex;gap:0.6rem;font-size:0.85rem;line-height:1.6;color:var(--text-main);"><span style="color:var(--clay);">✓</span><span data-i18n="tour.price.inc.prog">전 일정 프로그램 · 특별세션 · 랩업</span></li>
-                    <li style="display:flex;gap:0.6rem;font-size:0.85rem;line-height:1.6;color:var(--text-main);"><span style="color:var(--clay);">✓</span><span data-i18n="tour.price.inc.custom">개별 일정 · 추가 미팅 On request</span></li>
-                    <li style="display:flex;gap:0.6rem;font-size:0.85rem;line-height:1.6;color:var(--text-muted);"><span style="color:var(--text-muted);">–</span><span data-i18n="tour.price.inc.custmeal">개별 일정 시 식사 · 이동 별도</span></li>
-                    <li style="display:flex;gap:0.6rem;font-size:0.85rem;line-height:1.6;color:var(--text-muted);"><span style="color:var(--text-muted);">–</span><span data-i18n="tour.price.inc.flight">항공 · 숙박 미포함 (개별 진행)</span></li>
-                </ul>
-            </div>
         </div>
-        <p class="panel-desc" style="font-size:0.82rem;margin-top:2rem;line-height:1.8;" data-i18n="tour.price.note">※ 부가세(VAT) 별도 · 여행자보험은 모든 옵션에서 미포함(개별 가입)<br>※ 현지 기업의 사정과 참가자들의 관심에 따라 방문 기업과 세부 프로그램이 일부 조정될 수 있습니다.</p>
+        <p class="panel-desc" style="font-size:0.82rem;margin-top:2rem;line-height:1.8;" data-i18n="tour.price.note">※ 부가세(VAT) 별도 · 여행자보험은 모든 옵션에서 미포함(개별 가입)<br>※ 현지 기업의 사정과 참가자들의 관심에 따라 방문 기업과 세부 프로그램이 일부 조정될 수 있습니다.<br>※ 호텔은 Futian이나 Nanshan 지역의 5성급 또는 상응하는 수준의 4성급 호텔에 숙박할 예정입니다.</p>
     </div>
 
     <!-- ── APPLY FORM ── -->
@@ -1832,7 +1820,6 @@
                         <option value="기본 (400만원, 항공·숙박 미포함)" data-i18n="tour.form.opt.base">기본 — 400만원 (항공·숙박 미포함)</option>
                         <option value="옵션1 (550만원, 항공·숙박 2인1실)" data-i18n="tour.form.opt.o1">옵션 1 — 550만원 (항공·숙박 2인 1실 포함)</option>
                         <option value="옵션2 (590만원, 항공·숙박 1인1실)" data-i18n="tour.form.opt.o2">옵션 2 — 590만원 (항공·숙박 1인 1실 포함)</option>
-                        <option value="옵션3 (4박5일 이상/개별일정, 협의)" data-i18n="tour.form.opt.o3">옵션 3 — 4박 5일 이상 / 개별 일정 (협의)</option>
                         <option value="미정 (상담 희망)" data-i18n="tour.form.opt.tbd">아직 미정 — 상담 희망</option>
                     </select>
                 </div>
@@ -3274,18 +3261,13 @@ const T = {
     'tour.price.o2.v':'590',
     'tour.price.o2.s':'3박 4일 · 항공 + 숙박(1인 1실) 포함',
     'tour.price.o2.badge':'All-inclusive',
-    'tour.price.o3.t':'옵션 3',
-    'tour.price.o3.v':'별도 협의',
-    'tour.price.o3.s':'4박 5일 이상 · 개별 일정 및 추가 미팅 구성',
     'tour.price.inc.prog':'전 일정 프로그램 · 특별세션 · 랩업',
     'tour.price.inc.meal':'중식 · 석식 포함',
     'tour.price.inc.bus':'현지 단체 이동',
     'tour.price.inc.flight':'항공 · 숙박 미포함 (개별 진행)',
     'tour.price.inc.twin':'항공 · 숙박(2인 1실) 포함',
     'tour.price.inc.single':'항공 · 숙박(1인 1실) 포함',
-    'tour.price.inc.custom':'개별 일정 · 추가 미팅 On request',
-    'tour.price.inc.custmeal':'개별 일정 시 식사 · 이동 별도',
-    'tour.price.note':'※ 부가세(VAT) 별도 · 여행자보험은 모든 옵션에서 미포함(개별 가입)<br>※ 현지 기업의 사정과 참가자들의 관심에 따라 방문 기업과 세부 프로그램이 일부 조정될 수 있습니다.',
+    'tour.price.note':'※ 부가세(VAT) 별도 · 여행자보험은 모든 옵션에서 미포함(개별 가입)<br>※ 현지 기업의 사정과 참가자들의 관심에 따라 방문 기업과 세부 프로그램이 일부 조정될 수 있습니다.<br>※ 호텔은 Futian이나 Nanshan 지역의 5성급 또는 상응하는 수준의 4성급 호텔에 숙박할 예정입니다.',
     'tour.apply.meta':'Application',
     'tour.apply.h2':'참가 신청서',
     'tour.apply.desc':'15명 이내로 운영되는 소수 인원 한정 프로그램으로, 신청 순서와 참가 목적을 고려하여 확정됩니다. 신청서를 제출하시면 Fast.B 팀이 참가 확정 및 결제 안내를 드립니다.',
@@ -3313,7 +3295,6 @@ const T = {
     'tour.form.opt.base':'기본 — 400만원 (항공·숙박 미포함)',
     'tour.form.opt.o1':'옵션 1 — 550만원 (항공·숙박 2인 1실 포함)',
     'tour.form.opt.o2':'옵션 2 — 590만원 (항공·숙박 1인 1실 포함)',
-    'tour.form.opt.o3':'옵션 3 — 4박 5일 이상 / 개별 일정 (협의)',
     'tour.form.opt.tbd':'아직 미정 — 상담 희망',
     'tour.form.invoice.label':'세금계산서 발행 여부',
     'tour.form.invoice.ph':'선택해 주세요',
@@ -3649,18 +3630,13 @@ const T = {
     'tour.price.o2.v':'KRW 5.9M',
     'tour.price.o2.s':'4D/3N · Flights + hotel (single room) included',
     'tour.price.o2.badge':'All-inclusive',
-    'tour.price.o3.t':'Option 3',
-    'tour.price.o3.v':'On request',
-    'tour.price.o3.s':'5D/4N or longer · Individual itinerary &amp; additional meetings',
     'tour.price.inc.prog':'Full program · special sessions · wrap-up',
     'tour.price.inc.meal':'Lunches &amp; dinners included',
     'tour.price.inc.bus':'Group ground transportation',
     'tour.price.inc.flight':'Flights &amp; hotel not included',
     'tour.price.inc.twin':'Flights &amp; hotel (twin sharing) included',
     'tour.price.inc.single':'Flights &amp; hotel (single room) included',
-    'tour.price.inc.custom':'Individual itinerary &amp; extra meetings on request',
-    'tour.price.inc.custmeal':'Meals &amp; transport during individual days at own cost',
-    'tour.price.note':'※ All fees exclude VAT · Travel insurance is not included in any option (to be arranged individually)<br>※ Host companies and program details may be partially adjusted depending on local companies\' circumstances and participants\' interests.',
+    'tour.price.note':'※ All fees exclude VAT · Travel insurance is not included in any option (to be arranged individually)<br>※ Host companies and program details may be partially adjusted depending on local companies\' circumstances and participants\' interests.<br>※ Accommodation is planned at a 5-star hotel, or a 4-star hotel of equivalent standard, in the Futian or Nanshan district.',
     'tour.apply.meta':'Application',
     'tour.apply.h2':'Application Form',
     'tour.apply.desc':'This is an intimate program limited to 15 delegates; places are confirmed based on order of application and participation goals. Once you submit, the Fast.B team will contact you with confirmation and payment details.',
@@ -3688,7 +3664,6 @@ const T = {
     'tour.form.opt.base':'Standard — KRW 4.0M (flights &amp; hotel excluded)',
     'tour.form.opt.o1':'Option 1 — KRW 5.5M (flights + twin-share hotel)',
     'tour.form.opt.o2':'Option 2 — KRW 5.9M (flights + single-room hotel)',
-    'tour.form.opt.o3':'Option 3 — 5D/4N or longer / individual itinerary (on request)',
     'tour.form.opt.tbd':'Undecided — would like to discuss',
     'tour.form.invoice.label':'Tax Invoice Required?',
     'tour.form.invoice.ph':'Please select',

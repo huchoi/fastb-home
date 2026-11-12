@@ -107,7 +107,6 @@ Fast.B supports Korean AI hardware startups and makers building: AI Glasses (AI 
 - Standard: KRW 4,000,000 — program, lunches & dinners, group transport (flights & hotel arranged individually)
 - Option 1: KRW 5,500,000 — incl. flights + hotel (twin sharing)
 - Option 2: KRW 5,900,000 — incl. flights + hotel (single room)
-- Option 3: 5D/4N or longer with individual itinerary and extra meetings — on request
 
 ### Who should join
 - Companies looking to prototype or manufacture AI hardware
