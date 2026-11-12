@@ -93,8 +93,8 @@ Fast.B supports Korean AI hardware startups and makers building: AI Glasses (AI 
 
 ### Itinerary (host companies being confirmed; subject to change)
 - **Day 1 (Dec 15)**: Korea → Shenzhen · Orientation & opening keynote (Go Global Center) · Special session: Vicky Xie — Understanding China's government-led innovation · 6S Robot Mall or InnoCampus · Huaqiangbei · Networking dinner
-- **Day 2 (Dec 16)**: AstriBot · Seeed | XFactory (Fast.B SCM partner) · AI²Robotics · PaXini · EV / autonomous driving / robotics ecosystem tour · Dinner & insight talk with SUSTech and Fast.B mentors
-- **Day 3 (Dec 17)**: DexForce or LimX Dynamics · DIGIT Robotics · Fast.B SCM factory visit (PCB, molding, assembly) · Special session: Donny Zhang — Understanding Shenzhen's manufacturing ecosystem · AIoT / XR / AI glasses ecosystem tour · Dinner & insight talk
+- **Day 2 (Dec 16)**: AstriBot · Seeed | XFactory (Fast.B SCM partner) · AI²Robotics · DIGIT Robotics · EV / autonomous driving / robotics ecosystem tour · Dinner & insight talk with SUSTech and Fast.B mentors
+- **Day 3 (Dec 17)**: DexForce or LimX Dynamics · PaXini · Fast.B SCM factory visit (PCB, molding, assembly) · Special session: Donny Zhang — Understanding Shenzhen's manufacturing ecosystem · AIoT / XR / AI glasses ecosystem tour · Dinner & insight talk
 - **Day 4 (Dec 18)**: Special session: Michael Zheng — Behind Shenzhen's industrial design innovation · Insight sharing & wrap-up at Innozen Design · Free time / Shenzhen → Korea
 
 ### Candidate sites
