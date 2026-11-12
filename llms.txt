@@ -101,7 +101,7 @@ Fast.B supports Korean AI hardware startups and makers building: AI Glasses (AI 
 - Robotics: LimX Dynamics, AI²Robotics, DexForce, PaXini, DIGIT Robotics, AstriBot
 - Fast.B core partners: Innozen Design, Seeed / XFactory, Go Global Center
 - Supply chain: component/PCB/molding/assembly factories, industrial design firms, 3NOD (prototyping), Huaqiang Electronics Association members
-- Landmarks: Huaqiangbei, 6S Robot Mall, Nanshan Robot Valley, Inno100, DJI Flagship, Upperhills, OCT Harbour, Pony.ai Robotaxi
+- Landmarks: Huaqiangbei, 6S Robot Mall, Nanshan Robot Valley, Inno100, DJI Flagship, Pony.ai Robotaxi
 
 ### Fees (per person, VAT excluded; travel insurance not included)
 - Standard: KRW 4,000,000 — program, lunches & dinners, group transport (flights & hotel arranged individually)
